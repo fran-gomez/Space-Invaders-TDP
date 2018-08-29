@@ -37,3 +37,4 @@ para el profesor.
 5) Robot 1-X: La unidad 1-X se encargara de reparar la nave con una eficiencia nunca antes vista (Buuuu... -Bender-)
 6) Aparato catastrofico: Lanzas una bomba capaz de destruir la realidad misma. (Supongo que podre desprenderme de 
 alguno de estos y seguir siendo igual de temible -Profesor Farnsorth-)
+Cambio
