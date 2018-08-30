@@ -2726,7 +2726,7 @@
 											"top": 775,
 											"width": 134,
 											"height": 13,
-											"text": "Aliado"
+											"text": "NaveAliada"
 										},
 										{
 											"_type": "LabelView",
@@ -2902,7 +2902,7 @@
 											"top": 775,
 											"width": 159,
 											"height": 13,
-											"text": "Enemigo"
+											"text": "NaveEnemiga"
 										},
 										{
 											"_type": "LabelView",
@@ -5648,7 +5648,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Aliado",
+					"name": "NaveAliada",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
@@ -5671,7 +5671,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Enemigo",
+					"name": "NaveEnemiga",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
