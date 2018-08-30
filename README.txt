@@ -7,7 +7,7 @@ sus 5 naves de asalto mas perezosas, por considerarnos una raza inferior a ellos
 1) Nave de asalto ligera: Unidad de ataque basica.
 2) Nave de asalto kamikaze: Compuesta por lo peor de lo peor de Omicron Persei 8, la nave de asalto kamikaze tiene
 como unico objetivo estrellarse contra los defensores terrestres.
-3) Nave de asalto pesada: 
+3) Nave de asalto pesada: Unidad de ataque armada. Al perder el 80% de su escudo, suelta sus armas.
 4) Crucero de batalla: Nave de ataque por antonomasia de Omicron Persei 8, salvo por un detalle... Sus pilotos
 estan completamente ebrios ya que no esperaban una guerra el dia de hoy, provocando que la nave vaya en cualquier
 direccion.
@@ -17,9 +17,8 @@ sus tripulantes abandonan la nave, dejandola en modo de vuelo erratico.
 Por orden del Presidente Nixon, el comandante Zapp Branigan estara al mando de la defensa, aunque minutos
 antes de la llegada de los invasores, este se retiro debido a una mancha de mostaza en su traje de terciopelo
 nuevo, dejando a sus tropas en el campo de batalla, vagando erraticamente.
-1) 
-2) 
-3) 
+1) Nave Errante: Obstaculo para los enemigos.
+2) Asteroide: Obstaculo para ambos.
 
 La defensa del planeta quedo en manos de una sola nave, la temeraria nave de planet expess, y su "reputada" 
 tripulacion, La piloto Turanga Leela, quien no percibe bien la profunididad, el oficial de abordo Philip J. Fry,
