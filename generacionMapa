@@ -1,0 +1,22 @@
+agregar <- false
+
+grilla <- new Celda[15][20]
+
+para f = 0 to 15:
+  para c = to 20:
+  	grilla[f][c] <- new Celda
+  	
+  	// Se agregan las naves una celda por medio, hasta la mitad del tablero
+  	si agregar:
+	  si (c > 1 & c < 20) & (f < 11):
+	    grilla[f][c].setObjeto(new naveEnemiga)
+	    agregar <- false
+	sino:
+		agregar <- true
+
+// Se agrega la nave del jugador
+grilla[15][10].setObjeto(new naveAliada)
+
+// Agregamos dos obstaculos iniciales
+grilla[10][Random.nextInt(20)].setObjeto(new Obstaculo)
+grilla[10][Random.nextInt(20)].setObjeto(new Obstaculo)

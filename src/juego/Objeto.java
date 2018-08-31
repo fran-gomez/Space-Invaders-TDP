@@ -1,5 +1,7 @@
 package juego;
 
-public abstract class Objeto {
+import javax.swing.JLabel;
+
+public abstract class Objeto extends JLabel {
 
 }
