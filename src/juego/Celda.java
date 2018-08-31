@@ -1,5 +1,8 @@
 package juego;
 
-public class Celda {
+import javax.swing.JLabel;
 
+public class Celda extends JLabel {
+
+	protected Objeto obj;
 }
