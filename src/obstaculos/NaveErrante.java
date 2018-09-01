@@ -2,11 +2,11 @@ package obstaculos;
 
 import utilidades.Punto;
 
-public class Asteroide extends Obstaculo {
+public class NaveErrante extends Obstaculo {
 
-	public Asteroide(Punto posicion, int vida, int durabilidad) {
+	public NaveErrante(Punto posicion, int vida, int durabilidad) {
 		super(posicion, vida, durabilidad);
-
+	
 	}
 
 	@Override

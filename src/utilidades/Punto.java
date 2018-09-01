@@ -10,19 +10,19 @@ public class Punto {
 		this.y = y;
 	}
 	
-	public int X() {
+	public int x() {
 		return x;
 	}
 	
-	public int Y() {
+	public int y() {
 		return y;
 	}
 	
-	public void X(int x) {
+	public void x(int x) {
 		this.x = x;
 	}
 	
-	public void Y(int y) {
+	public void y(int y) {
 		this.y = y;
 	}
 }
