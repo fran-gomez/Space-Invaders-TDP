@@ -1,6 +1,6 @@
 package power_ups;
-import juego.Objeto;
+import juego.GameObject;
 
-public abstract class PowerUp extends Objeto {
+public abstract class PowerUp extends GameObject {
 
 }
