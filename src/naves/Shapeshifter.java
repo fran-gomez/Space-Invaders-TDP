@@ -32,4 +32,7 @@ public class Shapeshifter extends NaveEnemiga {
 	public void colision() {
 	}
 
+	public String getName() {
+		return "Shapeshifter";
+	}
 }

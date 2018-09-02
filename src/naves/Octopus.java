@@ -25,6 +25,9 @@ public class Octopus extends NaveEnemiga {
 
 	}
 
+	public String getName() {
+		return "Octopus";
+	}
 	@Override
 	public void borrar() {
 	

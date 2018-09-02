@@ -31,6 +31,7 @@ public class Grilla extends JPanel {
 
 		this.setLayout(new GridLayout(15, 20));
 		this.dificultad = dificultad;
+		this.setSize(15*Celda.ALTO_CELDA, 20*Celda.ANCHO_CELDA);
 		tablaJuego = new Celda[15][20];
 
 		boolean agregar = true;

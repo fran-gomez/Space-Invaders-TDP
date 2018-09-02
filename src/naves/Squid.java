@@ -35,4 +35,7 @@ public class Squid extends NaveEnemiga {
 	
 	}
 
+	public String getName() {
+		return "Squid";
+	}
 }

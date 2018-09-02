@@ -31,4 +31,7 @@ public class Crab extends NaveEnemiga {
 	public void colision() {
 	}
 
+	public String getName() {
+		return "Crab";
+	}
 }
