@@ -35,4 +35,7 @@ public class UFO extends NaveEnemiga {
 		
 	}
 
+	public String getName() {
+		return "UFO";
+	}
 }

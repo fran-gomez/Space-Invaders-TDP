@@ -1,6 +1,7 @@
 package juego;
 
 import java.awt.FlowLayout;
+import java.awt.GridLayout;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -15,12 +16,11 @@ public class Tablero extends JPanel {
 	protected long puntos;
 	protected Tiempo tiempo;
 	
-	
 	public Tablero(int dificultad) {
 		g = new Grilla(dificultad);
 		panelPuntos = nuevoPanelPuntos();
 		
-		g.setLayout(new FlowLayout());
+		this.setLayout(new FlowLayout());
 		
 		this.add(g);
 		this.add(panelPuntos);

@@ -37,4 +37,7 @@ public class NaveAliada extends Nave {
 		
 	}
 
+	public String getName() {
+		return "Aliado";
+	}
 }

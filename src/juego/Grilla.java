@@ -31,6 +31,7 @@ public class Grilla extends JPanel {
 		
 		this.setLayout(new GridLayout(15, 20));
 		this.dificultad = dificultad;
+		this.setSize(15*Celda.ALTO_CELDA, 20*Celda.ANCHO_CELDA);
 		tablaJuego = new Celda[15][20];
 		
 		boolean agregar = true;
@@ -38,12 +39,14 @@ public class Grilla extends JPanel {
 		for (int f = 0; f < 15; f++) {
 			for (int c = 0; c < 20; c++) {
 				tablaJuego[f][c] = new Celda();
-				this.add(tablaJuego[f][c], f, c);
+				this.add(tablaJuego[f][c]);
 				
 				//inicializacion de enemigos
 				if (agregar) {
-					tablaJuego[f][c].setObjeto(naveAleatoria(new Punto(f, c)));
-					agregar = false;
+					if (f > 0 && f < 10) {
+						tablaJuego[f][c].setObjeto(naveAleatoria(new Punto(f, c)));
+						agregar = false;
+					}
 				} else {
 					agregar = true;
 				}
