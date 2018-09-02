@@ -5,12 +5,19 @@ import javax.swing.JLabel;
 public class Celda extends JLabel {
 
 	protected GameObject obj;
-	
-	/**
-	 * 
-	 * @param o
-	 */
-	public void setObjeto(GameObject o) {
-		this.obj = o;
+
+	public GameObject getObject() {
+		return obj;
+	}
+
+	public void setObject(GameObject obj) {
+		this.obj = obj;
+	}
+
+	public GameObject mover() {
+		if (obj != null) {
+			obj.actualizarPosicion();
+		}
+		return obj;
 	}
 }

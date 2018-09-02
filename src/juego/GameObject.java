@@ -4,8 +4,8 @@ import javax.swing.JLabel;
 import utilidades.Punto;
 
 public abstract class GameObject extends JLabel {
-	private int vida, durabilidad;
-	private Punto pos;
+	protected int vida, durabilidad;
+	protected Punto pos;
 
 	public GameObject(Punto posicion, int vida, int durabilidad) {
 		this.pos = posicion;

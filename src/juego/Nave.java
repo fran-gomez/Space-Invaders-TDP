@@ -4,7 +4,7 @@ import power_ups.PowerUp;
 import utilidades.Punto;
 
 public abstract class Nave extends GameObject {
-	private int dmg, alcance, velocidad;
+	protected int dmg, alcance, velocidad;
 	
 	/**
 	 * 
@@ -42,7 +42,11 @@ public abstract class Nave extends GameObject {
 	public void setVelocidad(int velocidad) {
 		this.velocidad = velocidad;
 	}
-
-	protected abstract void disparar();
-	protected abstract void aplicarPowerUp(PowerUp p);
+	
+	public void recibirDano(int d) {
+		this.vida -= d;
+	}
+	
+	public abstract void disparar();
+	public abstract void aplicarPowerUp(PowerUp p);
 }
