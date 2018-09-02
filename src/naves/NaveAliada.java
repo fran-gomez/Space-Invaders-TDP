@@ -10,12 +10,12 @@ public class NaveAliada extends Nave {
 	}
 
 	@Override
-	protected void disparar() {
+	public void disparar() {
 
 	}
 
 	@Override
-	protected void aplicarPowerUp(PowerUp p) {
+	public void aplicarPowerUp(PowerUp p) {
 	
 	}
 

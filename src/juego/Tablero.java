@@ -18,10 +18,11 @@ public class Tablero extends JPanel {
 	
 	public Tablero(int dificultad) {
 		g = new Grilla(dificultad);
+		
+		tiempo = new Tiempo();
 		panelPuntos = nuevoPanelPuntos();
 		
 		this.setLayout(new FlowLayout());
-		
 		this.add(g);
 		this.add(panelPuntos);
 	}
