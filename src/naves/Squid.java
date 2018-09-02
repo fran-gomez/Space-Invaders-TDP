@@ -1,8 +1,14 @@
 package naves;
 
 import power_ups.PowerUp;
+import utilidades.Punto;
 
 public class Squid extends NaveEnemiga {
+
+	public Squid(Punto posicion, int vida, int durabilidad, int alcance, int dmg, int velocidad) {
+		super(posicion, vida, durabilidad, alcance, dmg, velocidad);
+		// TODO Auto-generated constructor stub
+	}
 
 	@Override
 	protected void disparar() {

@@ -5,7 +5,13 @@ import java.util.Random;
 
 import javax.swing.JPanel;
 
+import naves.Crab;
 import naves.NaveAliada;
+import naves.NaveEnemiga;
+import naves.Octopus;
+import naves.Shapeshifter;
+import naves.Squid;
+import naves.UFO;
 import utilidades.Constantes;
 import utilidades.Punto;
 
@@ -16,8 +22,8 @@ public class Grilla extends JPanel {
 	protected int dificultad;
 	protected Celda[][] tablaJuego;
 
-	private Random rnd;
-
+	protected Random rnd;
+	
 	public Grilla(int dificultad) {
 		
 		//utils
@@ -34,13 +40,13 @@ public class Grilla extends JPanel {
 				tablaJuego[f][c] = new Celda();
 				this.add(tablaJuego[f][c], f, c);
 				
-				/*//inicializacion de enemigos
-				if(agregar) {
-					tablaJuego[f][c].setObjeto(new NaveEnemiga()); // debe ser "random"
+				//inicializacion de enemigos
+				if (agregar) {
+					tablaJuego[f][c].setObjeto(naveAleatoria(new Punto(f, c)));
 					agregar = false;
-				}else {
+				} else {
 					agregar = true;
-				}*/
+				}
 			}
 		}
 		
@@ -49,7 +55,7 @@ public class Grilla extends JPanel {
 				Constantes.NAVE_ALIADA_VIDA,
 				Constantes.NAVE_ALIADA_DURABILIDAD,
 				Constantes.NAVE_ALIADA_ALCANCE,
-				Constantes.NAVE_ALIADA_DAÑO,
+				Constantes.NAVE_ALIADA_DANIO,
 				Constantes.NAVE_ALIADA_VELOCIDAD);
 		
 		tablaJuego[14][9].setObjeto(jugador);
@@ -57,5 +63,35 @@ public class Grilla extends JPanel {
 		// Agregamos los obstaculos
 		//tablaJuego[10][rnd.nextInt(20)].setObjeto(new ObstaculoConcreto());
 		//tablaJuego[10][rnd.nextInt(20)].setObjeto(new ObstaculoConcreto());
+	}
+	
+	private NaveEnemiga naveAleatoria(Punto p) {
+		
+		NaveEnemiga n;
+		int rand = rnd.nextInt(5);
+		
+		// Corregir todos los parametros de creacion
+		switch (rand) {
+		case 0:
+			n = new Octopus(p, rand, rand, rand, rand, rand);
+			break;
+		case 1:
+			n = new Squid(p, rand, rand, rand, rand, rand);
+			break;
+		case 2: case 5: // Como es la unidad basica, hay mayor probabilidad de que salga
+			n = new Crab(p, rand, rand, rand, rand, rand);
+			break;
+		case 3:
+			n = new Shapeshifter(p, rand, rand, rand, rand, rand);
+			break;
+		case 4:
+			n = new UFO(p, rand, rand, rand, rand, rand);
+			break;
+		default:
+			n = null;
+			System.out.println("Si llegamos aca, que Dios nos ayude.");
+		}
+		
+		return n;
 	}
 }
