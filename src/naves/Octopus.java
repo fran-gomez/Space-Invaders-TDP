@@ -3,7 +3,7 @@ package naves;
 import power_ups.PowerUp;
 import utilidades.Punto;
 
-public class Octopus extends NaveEnemiga {
+public final class Octopus extends NaveEnemiga {
 
 	public Octopus(Punto posicion, int vida, int durabilidad, int alcance, int dmg, int velocidad) {
 		super(posicion, vida, durabilidad, alcance, dmg, velocidad);
@@ -11,12 +11,12 @@ public class Octopus extends NaveEnemiga {
 	}
 
 	@Override
-	protected void disparar() {
+	public void disparar() {
 
 	}
 
 	@Override
-	protected void aplicarPowerUp(PowerUp p) {
+	public void aplicarPowerUp(PowerUp p) {
 
 	}
 

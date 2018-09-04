@@ -3,7 +3,7 @@ package naves;
 import power_ups.PowerUp;
 import utilidades.Punto;
 
-public class Crab extends NaveEnemiga {
+public final class Crab extends NaveEnemiga {
 
 	public Crab(Punto posicion, int vida, int durabilidad, int alcance, int dmg, int velocidad) {
 		super(posicion, vida, durabilidad, alcance, dmg, velocidad);
@@ -11,11 +11,11 @@ public class Crab extends NaveEnemiga {
 	}
 
 	@Override
-	protected void disparar() {
+	public void disparar() {
 	}
 
 	@Override
-	protected void aplicarPowerUp(PowerUp p) {
+	public void aplicarPowerUp(PowerUp p) {
 
 	}
 
