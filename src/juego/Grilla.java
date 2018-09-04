@@ -14,6 +14,8 @@ import naves.Octopus;
 import naves.Shapeshifter;
 import naves.Squid;
 import naves.UFO;
+import obstaculos.Asteroide;
+import obstaculos.NaveErrante;
 import utilidades.Constantes;
 import utilidades.Punto;
 
@@ -38,15 +40,17 @@ public class Grilla extends JPanel {
 		tablaJuego = new Celda[Constantes.JUEGO_CANT_FILAS][Constantes.JUEGO_CANT_COLUMNAS];
 
 		// Se crea un tablero vacio
-		boolean agregar = true;
+		boolean agregar;
 		for (int f = 0; f < Constantes.JUEGO_CANT_FILAS; f++) {
+			agregar = true;
 			for (int c = 0; c < Constantes.JUEGO_CANT_COLUMNAS; c++) {
-				Celda celda = new Celda(new Punto(f, c));
-				tablaJuego[Constantes.JUEGO_CANT_FILAS - f-1][Constantes.JUEGO_CANT_COLUMNAS - c-1] = celda;
+				Celda celda = new Celda(
+						new Punto(Constantes.JUEGO_CANT_FILAS - f - 1, c));
+				tablaJuego[Constantes.JUEGO_CANT_FILAS - f - 1][c] = celda;
 				this.add(celda, f, c);
 
 				// inicializacion de enemigos
-				if (f > 10) {
+				if (f < Constantes.JUEGO_CANT_FILAS - 1 && f > 10 && c > 0 && c < Constantes.JUEGO_CANT_COLUMNAS - 1) {
 					if (agregar) {
 						celda.setObject(naveAleatoria(celda.getPunto()));
 						agregar = false;
@@ -58,14 +62,23 @@ public class Grilla extends JPanel {
 		}
 
 		// Agregamos la nave del jugador
-		jugador = new NaveAliada(new Punto(14, 9), Constantes.NAVE_ALIADA_VIDA, Constantes.NAVE_ALIADA_DURABILIDAD,
-				Constantes.NAVE_ALIADA_ALCANCE, Constantes.NAVE_ALIADA_DANIO, Constantes.NAVE_ALIADA_VELOCIDAD);
+		jugador = new NaveAliada(tablaJuego[19][7].getPunto(), Constantes.NAVE_ALIADA_VIDA,
+				Constantes.NAVE_ALIADA_DURABILIDAD, Constantes.NAVE_ALIADA_ALCANCE, Constantes.NAVE_ALIADA_DANIO,
+				Constantes.NAVE_ALIADA_VELOCIDAD);
 
 		tablaJuego[19][7].setObject(jugador);
 
 		// Agregamos los obstaculos
-		// tablaJuego[10][rnd.nextInt(20)].setObject(new ObstaculoConcreto());
-		// tablaJuego[10][rnd.nextInt(20)].setObject(new ObstaculoConcreto());
+		Celda celdaObs1 = tablaJuego[15][rnd.nextInt(15)];
+		Celda celdaObs2 = tablaJuego[15][rnd.nextInt(15)];
+		while (celdaObs2 == celdaObs1) {
+			celdaObs2 = tablaJuego[15][rnd.nextInt(15)];
+		}
+
+		celdaObs1.setObject(new Asteroide(celdaObs1.getPunto(), 10, 10));
+		celdaObs2.setObject(new NaveErrante(celdaObs2.getPunto(), 10, 10));
+		System.out.println(celdaObs1.getPunto());
+		System.out.println(celdaObs2.getPunto());
 	}
 
 	private NaveEnemiga naveAleatoria(Punto p) {
@@ -95,7 +108,7 @@ public class Grilla extends JPanel {
 		return n;
 	}
 
-	private void doMove() {
+	private void updateOjs() {
 		GameObject obj;
 		HashMap<Punto, Punto> hashMap = new HashMap<Punto, Punto>();
 		for (int f = 0; f < Constantes.JUEGO_CANT_FILAS; f++) {
@@ -114,9 +127,7 @@ public class Grilla extends JPanel {
 			}
 		}
 
-		// Hash de posiciones que tienen a los objetos que no se
-		// pudieron mover en posicion a destino
-
+		// Hash de Punto que tiene el objeto no movido en punto a destino
 	}
 
 	private boolean mover(Punto src, Punto dst) {

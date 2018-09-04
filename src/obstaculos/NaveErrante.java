@@ -23,5 +23,9 @@ public class NaveErrante extends Obstaculo {
 	public void colision() {
 	
 	}
+	
+	public String getName() {
+		return "NaveErrante";
+	}
 
 }

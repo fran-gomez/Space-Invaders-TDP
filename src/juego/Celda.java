@@ -20,6 +20,7 @@ public class Celda extends JLabel {
 		this.setPreferredSize(new Dimension(ALTO_CELDA,ANCHO_CELDA));
 		this.setBorder(new LineBorder(Color.BLACK));
 		this.punto = punto;
+		this.obj = null;
 	}
 
 	public void setObject(GameObject o) {

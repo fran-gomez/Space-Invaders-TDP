@@ -24,4 +24,8 @@ public class Asteroide extends Obstaculo {
 	
 	}
 
+	public String getName() {
+		return "Asteroide";
+	}
+	
 }

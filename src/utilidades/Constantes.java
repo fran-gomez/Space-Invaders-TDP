@@ -3,7 +3,7 @@ package utilidades;
 public final class Constantes {
 	//De Juego
 	public static final int JUEGO_CANT_FILAS = 20;
-	public static final int JUEGO_CANT_COLUMNAS = 16;
+	public static final int JUEGO_CANT_COLUMNAS = 15;
 	
 	//Nave aliada
 	public static final int NAVE_ALIADA_VIDA = 100;

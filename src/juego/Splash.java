@@ -24,7 +24,7 @@ public class Splash extends JFrame {
 		this.add(t);
 		
 		this.setTitle("Space Invaders");
-		this.setSize(2000, 2000);
+		this.setSize(1000, 1050);
 		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		
 		this.setVisible(true);
