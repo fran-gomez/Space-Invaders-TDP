@@ -1,9 +1,24 @@
 package juego;
 
+import java.awt.FlowLayout;
+
+import javax.swing.JFrame;
+import javax.swing.WindowConstants;
+
 public class Juego {
 	
 	public static void main(String[] args) {
+				
+		JFrame ventana = new JFrame();
+		Tablero t = new Tablero(2);
+		ventana.setLayout(new FlowLayout());
+		ventana.add(t);
 		
-		new Splash();
+		ventana.setTitle("Space Invaders");
+		ventana.setSize(1000, 1050);
+		ventana.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		
+		ventana.pack();
+		ventana.setVisible(true);
 	}
 }
