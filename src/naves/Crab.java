@@ -1,5 +1,7 @@
 package naves;
 
+import javax.swing.ImageIcon;
+
 import power_ups.PowerUp;
 import utilidades.Punto;
 
@@ -8,6 +10,7 @@ public final class Crab extends NaveEnemiga {
 	public Crab(Punto posicion, int vida, int durabilidad, int alcance, int dmg, int velocidad) {
 		super(posicion, vida, durabilidad, alcance, dmg, velocidad);
 		// TODO Auto-generated constructor stub
+		visual = new ImageIcon("Crab.jpg");
 	}
 
 	@Override
@@ -32,6 +35,7 @@ public final class Crab extends NaveEnemiga {
 	}
 
 	public String getName() {
+		this.setIcon(visual);
 		return "Crab";
 	}
 }

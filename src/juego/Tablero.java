@@ -12,14 +12,14 @@ import javax.swing.JPanel;
 
 public class Tablero extends JPanel {
 
-	protected Grilla g;
+	protected Mapa g;
 	protected JPanel panelPuntos;
 	
 	protected long puntos;
 	protected Tiempo tiempo;
 	
 	public Tablero(int dificultad) {
-		g = new Grilla(dificultad);
+		g = new Mapa(dificultad);
 		
 		tiempo = new Tiempo();
 		panelPuntos = nuevoPanelPuntos();
