@@ -47,10 +47,6 @@ public class Mapa extends JPanel {
 		this.setPreferredSize(new Dimension(Constantes.MAP_WIDTH, Constantes.MAP_HEIGHT));
 		this.setBackground(Color.BLACK);
 
-		int areaAliensH = Constantes.MAP_HEIGHT / 3;
-		int areaAliensW = Constantes.MAP_WIDTH;
-		int cuadradoAlienW = areaAliensW / Constantes.ENEMIGOS_X_FILA;
-		int cuadradoAlienH = areaAliensH / Constantes.CANT_FILAS_ENEMIGOS;
 
 		// utils
 		rnd = new Random();
@@ -59,7 +55,11 @@ public class Mapa extends JPanel {
 		// Creacion y adicion de los enemigos
 		NaveEnemiga enemigo = null;
 		int x, y;
-
+		int areaAliensH = Constantes.MAP_HEIGHT / 3;
+		int areaAliensW = Constantes.MAP_WIDTH;
+		int cuadradoAlienW = areaAliensW / Constantes.ENEMIGOS_X_FILA;
+		int cuadradoAlienH = areaAliensH / Constantes.CANT_FILAS_ENEMIGOS;
+		
 		for (int f = 0; f < Constantes.CANT_FILAS_ENEMIGOS; f++) {
 			for (int c = 0; c < Constantes.ENEMIGOS_X_FILA; c++) {
 				x = c * cuadradoAlienW + cuadradoAlienW / 2;
@@ -77,13 +77,13 @@ public class Mapa extends JPanel {
 		this.add(jugador);
 		objetos.add(jugador);
 		
-		juego.addKeyListener(new MovementListener());
+		juego.addKeyListener(new PlayerMovementListener());
 
 		// Colocamos dos obstaculos
 		//TODO Corregir que nose se pongan en el mismo lugar
 		Obstaculo obs1 = new NaveErrante(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 0, 0);
 		Obstaculo obs2 = new Asteroide(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 0, 0);
-
+		
 		this.add(obs1);
 		this.add(obs2);
 		objetos.add(obs1);
@@ -141,7 +141,7 @@ public class Mapa extends JPanel {
 		return n;
 	}
 	
-	private class MovementListener implements KeyListener{
+	private class PlayerMovementListener implements KeyListener{
 
 		@Override
 		public void keyPressed(KeyEvent e) {
@@ -154,6 +154,11 @@ public class Mapa extends JPanel {
 				
 			case KeyEvent.VK_LEFT:
 				jugador.mover(-1);
+				break;
+				
+			case KeyEvent.VK_UP:
+			case KeyEvent.VK_SPACE:
+				//TODO disparar
 				break;
 			}
 		}
