@@ -1,17 +1,35 @@
 package utilidades;
 
 public final class Constantes {
-	//De Juego
-	public static final int JUEGO_CANT_FILAS = 20;
-	public static final int CANT_FILAS_ENEMIGOS = 10;
-	public static final int ENEMIGOS_X_FILA = 8;
-	public static final int JUEGO_CANT_COLUMNAS = 15;
+	
+	//Juego
+	public static final int MAP_HEIGHT = 600;
+	public static final int MAP_WIDTH = 500;
+	
+	//Enemigos
+	public static final int CANT_FILAS_ENEMIGOS = 4;
+	public static final int ENEMIGOS_X_FILA = 5;
+	
+	//Dimensiones
+	public static final int PLAYER_WIDTH = 50;
+	public static final int PLAYER_HEIGHT = 50;
+	
+	public static final int CRAB_WIDTH = 50;
+	public static final int CRAB_HEIGHT = 50;
+	public static final int OCTOPUS_WIDTH = 50;
+	public static final int OCTOPUS_HEIGHT = 50;
+	public static final int SHAPESHIFTER_WIDTH = 50;
+	public static final int SHAPESHIFTER_HEIGHT = 50;
+	public static final int SQUID_WIDTH = 50;
+	public static final int SQUID_HEIGHT = 50;
+	public static final int UFO_WIDTH = 50;
+	public static final int UFO_HEIGHT = 50;
 	
 	//Nave aliada
 	public static final int NAVE_ALIADA_VIDA = 100;
 	public static final int NAVE_ALIADA_DURABILIDAD = 100;
 	public static final int NAVE_ALIADA_ALCANCE = 10;
 	public static final int NAVE_ALIADA_DANIO = 2;
-	public static final int NAVE_ALIADA_VELOCIDAD = 1;
+	public static final int NAVE_ALIADA_VELOCIDAD = 10;
 	
 }

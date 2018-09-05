@@ -1,11 +1,17 @@
 package naves;
+
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+import juego.GameObject;
 import juego.Nave;
 import power_ups.PowerUp;
-import utilidades.Punto;
+import utilidades.Constantes;
+import utilidades.Recuadro;
 
 public final class NaveAliada extends Nave {
 
-	public NaveAliada(Punto posicion, int vida, int durabilidad, int alcance, int dmg, int velocidad) {
+	public NaveAliada(Recuadro posicion, int vida, int durabilidad, int alcance, int dmg, int velocidad) {
 		super(posicion, vida, durabilidad, alcance, dmg, velocidad);
 	}
 
@@ -16,28 +22,23 @@ public final class NaveAliada extends Nave {
 
 	@Override
 	public void aplicarPowerUp(PowerUp p) {
-	
-	}
 
-	@Override
-	public void actualizarPosicion() {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void borrar() {
-		// TODO Auto-generated method stub
-		
-	}
 
-	@Override
-	public void colision() {
-		// TODO Auto-generated method stub
-		
 	}
 
 	public String getName() {
 		return "Aliado";
+	}
+
+	@Override
+	public void colision(GameObject o1) {
+	}
+
+	@Override
+	public void mover() {
 	}
 }

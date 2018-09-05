@@ -4,26 +4,25 @@ import juego.GameObject;
 import power_ups.PowerUp;
 import utilidades.Recuadro;
 
-public final class UFO extends NaveEnemiga {
+public final class ShapeShifter extends NaveEnemiga {
 
-	public UFO(Recuadro posicion, int vida, int durabilidad, int alcance, int dmg, int velocidad) {
+	public ShapeShifter(Recuadro posicion, int vida, int durabilidad, int alcance, int dmg, int velocidad) {
 		super(posicion, vida, durabilidad, alcance, dmg, velocidad);
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void disparar() {
-	
 	}
 
 	@Override
 	public void aplicarPowerUp(PowerUp p) {
-	
 	}
 
 
+
 	public String getName() {
-		return "UFO";
+		return "Shapeshifter";
 	}
 
 	@Override

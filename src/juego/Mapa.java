@@ -1,9 +1,12 @@
 package juego;
 
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map.Entry;
 import java.util.Random;
 
@@ -13,115 +16,118 @@ import naves.Crab;
 import naves.NaveAliada;
 import naves.NaveEnemiga;
 import naves.Octopus;
-import naves.Shapeshifter;
+import naves.ShapeShifter;
 import naves.Squid;
 import naves.UFO;
 import obstaculos.Asteroide;
 import obstaculos.NaveErrante;
 import utilidades.Constantes;
-import utilidades.Punto;
+import utilidades.Recuadro;
 
 public class Mapa extends JPanel {
 
 	private NaveAliada jugador;
 
 	protected int dificultad;
-	protected Celda[][] tablaJuego;
-	protected Collection<GameObject> objetos;
+	protected List<GameObject> objetos;
 
 	protected Random rnd;
 
 	public Mapa(int dificultad) {
 
-		NaveEnemiga enemigo = null;
-		int areaAliensH = 1000;
-		int areaAliensW = 1000;
+		this.setLayout(null);
+		this.setSize(Constantes.MAP_WIDTH, Constantes.MAP_HEIGHT);
+		this.setPreferredSize(new Dimension(Constantes.MAP_WIDTH, Constantes.MAP_HEIGHT));
+		this.setBackground(Color.BLACK);
+
+		int areaAliensH = Constantes.MAP_HEIGHT / 3;
+		int areaAliensW = Constantes.MAP_WIDTH;
 		int cuadradoAlienW = areaAliensW / Constantes.ENEMIGOS_X_FILA;
 		int cuadradoAlienH = areaAliensH / Constantes.CANT_FILAS_ENEMIGOS;
 
 		// utils
 		rnd = new Random();
 		objetos = new LinkedList<>();
-		
+
 		// Creacion y adicion de los enemigos
-		for (int f = 0; f < Constantes.CANT_FILAS_ENEMIGOS; f++)
+		NaveEnemiga enemigo = null;
+		int x, y;
+
+		for (int f = 0; f < Constantes.CANT_FILAS_ENEMIGOS; f++) {
 			for (int c = 0; c < Constantes.ENEMIGOS_X_FILA; c++) {
-				enemigo = naveAleatoria(new Punto(c*cuadradoAlienW + cuadradoAlienW / 2,
-						f*cuadradoAlienH + cuadradoAlienH / 2));
+				x = c * cuadradoAlienW + cuadradoAlienW / 2;
+				y = f * cuadradoAlienH + cuadradoAlienH / 2;
+				enemigo = naveAleatoria(x, y);
 				this.add(enemigo);
 				objetos.add(enemigo);
 			}
-		
+		}
+
 		// Colocamos la nave del jugador
-		NaveAliada jugador = new NaveAliada(new Punto(0,0), 0, 0, 0, 0, 0);
+		jugador = new NaveAliada(
+				new Recuadro(Constantes.MAP_WIDTH / 2, Constantes.MAP_HEIGHT - Constantes.PLAYER_HEIGHT,
+						Constantes.PLAYER_WIDTH, Constantes.PLAYER_HEIGHT),
+				Constantes.NAVE_ALIADA_VIDA, Constantes.NAVE_ALIADA_DURABILIDAD, Constantes.NAVE_ALIADA_ALCANCE,
+				Constantes.NAVE_ALIADA_DANIO, Constantes.NAVE_ALIADA_DURABILIDAD);
 		this.add(jugador);
 		objetos.add(jugador);
-		
+
 		// Colocamos dos obstaculos
 	}
 
-	private NaveEnemiga naveAleatoria(Punto p) {
+	private void gameLoop() {
+		// Movimiento de los objetos del mapa
+		for (GameObject obj : objetos) {
+			obj.mover();
+		}
+
+		// Deteccion de colisiones
+		for (int i = 0; i < objetos.size(); i++) {
+			for (int j = i + 1; j < objetos.size(); j++) {
+				GameObject obj1 = objetos.get(i);
+				GameObject obj2 = objetos.get(j);
+
+				if (intersects(obj1, obj2)) {
+					obj1.colision(obj2);
+					obj2.colision(obj1);
+				}
+			}
+		}
+	}
+
+	private boolean intersects(GameObject o1, GameObject o2) {
+		return o1.getRectangle().intersects(o2.getRectangle());
+	}
+
+	private NaveEnemiga naveAleatoria(int x, int y) {
 
 		NaveEnemiga n;
-		int rand = rnd.nextInt(6);
+		int rand = rnd.nextInt(7);
 
 		// TODO Corregir todos los parametros de creacion
 		switch (rand) {
 		case 0:
-			n = new Octopus(p, rand, rand, rand, rand, rand);
+			n = new Octopus(new Recuadro(x, y, Constantes.OCTOPUS_WIDTH, Constantes.OCTOPUS_HEIGHT), rand, rand, rand,
+					rand, rand);
 			break;
 		case 1:
-			n = new Squid(p, rand, rand, rand, rand, rand);
+			n = new Squid(new Recuadro(x, y, Constantes.SQUID_WIDTH, Constantes.SQUID_HEIGHT), rand, rand, rand, rand,
+					rand);
 			break;
 		case 2:
-			n = new Shapeshifter(p, rand, rand, rand, rand, rand);
+			n = new ShapeShifter(new Recuadro(x, y, Constantes.SHAPESHIFTER_WIDTH, Constantes.SHAPESHIFTER_HEIGHT),
+					rand, rand, rand, rand, rand);
 			break;
 		case 3:
-			n = new UFO(p, rand, rand, rand, rand, rand);
+			n = new UFO(new Recuadro(x, y, Constantes.UFO_WIDTH, Constantes.UFO_HEIGHT), rand, rand, rand, rand, rand);
 			break;
 		default:
-			n = new Crab(p, rand, rand, rand, rand, rand);
+			n = new Crab(new Recuadro(x, y, Constantes.CRAB_WIDTH, Constantes.CRAB_HEIGHT), rand, rand, rand, rand,
+					rand);
 			break;
 		}
 
 		return n;
 	}
 
-	private void updateOjs() {
-		GameObject obj;
-		HashMap<Punto, Punto> hashMap = new HashMap<Punto, Punto>();
-		for (int f = 0; f < Constantes.JUEGO_CANT_FILAS; f++) {
-			for (int c = 0; c < Constantes.JUEGO_CANT_COLUMNAS; c++) {
-				obj = tablaJuego[f][c].mover();
-
-				if (obj != null && tablaJuego[f][c].getPunto() != obj.getPos()) { // Si el objeto actualizó su posición
-																					// y no se quedó en la misma
-					boolean movido = false;
-					movido = mover(tablaJuego[f][c].getPunto(), obj.getPos());
-
-					if (!movido) {
-						hashMap.put(tablaJuego[f][c].getPunto(), obj.getPos());
-					}
-				}
-			}
-		}
-
-		// Hash de Punto que tiene el objeto no movido en punto a destino
-	}
-
-	private boolean mover(Punto src, Punto dst) {
-		boolean sePudo = false;
-		Celda celdaSrc = tablaJuego[src.x()][src.y()];
-		Celda celdaDst = tablaJuego[dst.x()][dst.y()];
-		GameObject objSrc = celdaSrc.getObject();
-		GameObject objDst = celdaDst.getObject();
-
-		if (celdaDst.isEmpty()) {
-			celdaDst.setObject(objSrc);
-			celdaSrc.setObject(null);
-			sePudo = true;
-		}
-
-		return sePudo;
-	}
 }

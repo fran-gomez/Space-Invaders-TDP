@@ -3,7 +3,7 @@ package juego;
 import javax.swing.Icon;
 
 import power_ups.PowerUp;
-import utilidades.Punto;
+import utilidades.Recuadro;
 
 public abstract class Nave extends GameObject {
 	protected int dmg, alcance, velocidad;
@@ -18,8 +18,8 @@ public abstract class Nave extends GameObject {
 	 * @param dmg
 	 * @param velocidad
 	 */
-	public Nave(Punto posicion, int vida, int durabilidad, int alcance, int dmg, int velocidad) {
-		super(posicion, vida, durabilidad);
+	public Nave(Recuadro rec, int vida, int durabilidad, int alcance, int dmg, int velocidad) {
+		super(rec, vida, durabilidad);
 		visual = null;
 	}
 	

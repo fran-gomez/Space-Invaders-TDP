@@ -1,23 +1,32 @@
 package juego;
 
+import java.awt.Color;
+import java.awt.Dimension;
+
 import javax.swing.JLabel;
-import utilidades.Punto;
+import utilidades.Recuadro;
 
 public abstract class GameObject extends JLabel {
 	protected int vida, durabilidad;
-	protected Punto pos;
+	protected Recuadro rec;
 
-	public GameObject(Punto posicion, int vida, int durabilidad) {
-		this.pos = posicion;
+	public GameObject(Recuadro rec, int vida, int durabilidad) {
+		this.rec = rec;
 		this.vida = vida;
 		this.durabilidad = durabilidad;
+		
+		this.setLocation(rec.x(), rec.y());
+		this.setText(getName());
+		this.setPreferredSize(new Dimension(rec.getAncho(), rec.getAlto()));
+		this.setSize(new Dimension(rec.getAncho(), rec.getAlto()));
+		this.setForeground(Color.WHITE);
 	}
-
-	public abstract void actualizarPosicion();
 
 	public abstract void borrar();
 
-	public abstract void colision();
+	public abstract void colision(GameObject o1);
+
+	public abstract void mover();
 
 	public int getVida() {
 		return vida;
@@ -35,11 +44,12 @@ public abstract class GameObject extends JLabel {
 		this.durabilidad = durabilidad;
 	}
 
-	public Punto getPos() {
-		return pos;
+	public Recuadro getRectangle() {
+		return rec;
 	}
 
-	public void setPos(Punto pos) {
-		this.pos = pos;
+	public void setRectangle(Recuadro rec) {
+		this.rec = rec;
 	}
+
 }

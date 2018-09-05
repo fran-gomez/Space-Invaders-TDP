@@ -1,31 +1,32 @@
 package obstaculos;
 
-import utilidades.Punto;
+import juego.GameObject;
+import utilidades.Recuadro;
 
 public class NaveErrante extends Obstaculo {
 
-	public NaveErrante(Punto posicion, int vida, int durabilidad) {
+	public NaveErrante(Recuadro posicion, int vida, int durabilidad) {
 		super(posicion, vida, durabilidad);
-	
-	}
-
-	@Override
-	public void actualizarPosicion() {
-
-	}
-
-	@Override
-	public void borrar() {
-	
-	}
-
-	@Override
-	public void colision() {
 	
 	}
 	
 	public String getName() {
 		return "NaveErrante";
+	}
+
+
+	@Override
+	public void borrar() {
+	}
+
+
+	@Override
+	public void colision(GameObject o1) {
+	}
+
+
+	@Override
+	public void mover() {
 	}
 
 }

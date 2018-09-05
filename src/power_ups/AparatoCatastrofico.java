@@ -1,30 +1,26 @@
 package power_ups;
 
-import utilidades.Punto;
+import juego.GameObject;
+import utilidades.Recuadro;
 
 public class AparatoCatastrofico extends PowerUp {
 
-	public AparatoCatastrofico(Punto posicion, int vida, int durabilidad) {
+	public AparatoCatastrofico(Recuadro posicion, int vida, int durabilidad) {
 		super(posicion, vida, durabilidad);
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	public void actualizarPosicion() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void borrar() {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
-	public void colision() {
-		// TODO Auto-generated method stub
-		
+	public void colision(GameObject o1) {
 	}
 
+	@Override
+	public void mover() {
+	}
+
+	 
 }

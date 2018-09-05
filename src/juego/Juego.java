@@ -5,6 +5,8 @@ import java.awt.FlowLayout;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
+import utilidades.Constantes;
+
 public class Juego {
 	
 	public static void main(String[] args) {
@@ -15,9 +17,8 @@ public class Juego {
 		ventana.add(t);
 		
 		ventana.setTitle("Space Invaders");
-		ventana.setSize(1000, 1050);
 		ventana.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		
+
 		ventana.pack();
 		ventana.setVisible(true);
 	}

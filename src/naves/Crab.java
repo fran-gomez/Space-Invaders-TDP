@@ -2,12 +2,13 @@ package naves;
 
 import javax.swing.ImageIcon;
 
+import juego.GameObject;
 import power_ups.PowerUp;
-import utilidades.Punto;
+import utilidades.Recuadro;
 
 public final class Crab extends NaveEnemiga {
 
-	public Crab(Punto posicion, int vida, int durabilidad, int alcance, int dmg, int velocidad) {
+	public Crab(Recuadro posicion, int vida, int durabilidad, int alcance, int dmg, int velocidad) {
 		super(posicion, vida, durabilidad, alcance, dmg, velocidad);
 		// TODO Auto-generated constructor stub
 		visual = new ImageIcon("Crab.jpg");
@@ -23,19 +24,19 @@ public final class Crab extends NaveEnemiga {
 	}
 
 	@Override
-	public void actualizarPosicion() {
-	}
-
-	@Override
 	public void borrar() {
-	}
-
-	@Override
-	public void colision() {
 	}
 
 	public String getName() {
 		this.setIcon(visual);
 		return "Crab";
+	}
+
+	@Override
+	public void colision(GameObject o1) {
+	}
+
+	@Override
+	public void mover() {
 	}
 }

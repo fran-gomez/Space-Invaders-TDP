@@ -1,15 +1,15 @@
 package naves;
 
 import juego.GameObject;
-import utilidades.Punto;
+import utilidades.Recuadro;
 
-public class Proyectil extends GameObject{
+public class Proyectil extends GameObject {
 	private int dmg, alcance;
 
-	public Proyectil(Punto posicion, int vida, int durabilidad) {
+	public Proyectil(Recuadro posicion, int vida, int durabilidad) {
 		super(posicion, vida, durabilidad);
 	}
-	
+
 	public int getAlcance() {
 		return alcance;
 	}
@@ -27,16 +27,15 @@ public class Proyectil extends GameObject{
 	}
 
 	@Override
-	public void actualizarPosicion() {
-	}
-
-	@Override
 	public void borrar() {
 	}
 
 	@Override
-	public void colision() {
+	public void colision(GameObject o1) {
 	}
-	
-	
+
+	@Override
+	public void mover() {
+	}
+
 }

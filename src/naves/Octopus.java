@@ -1,11 +1,12 @@
 package naves;
 
+import juego.GameObject;
 import power_ups.PowerUp;
-import utilidades.Punto;
+import utilidades.Recuadro;
 
 public final class Octopus extends NaveEnemiga {
 
-	public Octopus(Punto posicion, int vida, int durabilidad, int alcance, int dmg, int velocidad) {
+	public Octopus(Recuadro posicion, int vida, int durabilidad, int alcance, int dmg, int velocidad) {
 		super(posicion, vida, durabilidad, alcance, dmg, velocidad);
 		// TODO Auto-generated constructor stub
 	}
@@ -20,10 +21,6 @@ public final class Octopus extends NaveEnemiga {
 
 	}
 
-	@Override
-	public void actualizarPosicion() {
-
-	}
 
 	public String getName() {
 		return "Octopus";
@@ -34,8 +31,13 @@ public final class Octopus extends NaveEnemiga {
 	}
 
 	@Override
-	public void colision() {
-		
+	public void colision(GameObject o1) {
 	}
+
+	@Override
+	public void mover() {
+	}
+
+
 
 }
