@@ -7,7 +7,6 @@ import utilidades.Recuadro;
 
 public abstract class Nave extends GameObject {
 	protected int dmg, alcance, velocidad;
-	protected Icon visual;
 	
 	/**
 	 * 
@@ -20,7 +19,6 @@ public abstract class Nave extends GameObject {
 	 */
 	public Nave(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad) {
 		super(x, y, vida, durabilidad);
-		visual = null;
 	}
 	
 	public int getDmg() {

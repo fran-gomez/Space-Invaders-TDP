@@ -12,7 +12,9 @@ public final class Squid extends NaveEnemiga {
 	public Squid(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad) {
 		super(x,y, vida, durabilidad, alcance, dmg, velocidad);
 		// TODO Auto-generated constructor stub
-		visual = new ImageIcon("Squid.jpg");
+		visual = new ImageIcon("src/naves/Squid.jpg");
+		this.setIcon(visual);
+		this.setText(null);
 	}
 
 	@Override

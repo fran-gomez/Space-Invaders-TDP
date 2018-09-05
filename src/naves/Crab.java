@@ -12,7 +12,9 @@ public final class Crab extends NaveEnemiga {
 	public Crab(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad) {
 		super(x,y, vida, durabilidad, alcance, dmg, velocidad);
 		// TODO Auto-generated constructor stub
-		visual = new ImageIcon("Crab.jpg");
+		visual = new ImageIcon("src/naves/Crab.jpg");
+		this.setIcon(visual);
+		this.setText(null);
 	}
 
 	@Override
@@ -45,6 +47,4 @@ public final class Crab extends NaveEnemiga {
 	@Override
 	public void mover() {
 	}
-
-	
 }

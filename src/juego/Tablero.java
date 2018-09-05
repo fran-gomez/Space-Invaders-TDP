@@ -56,12 +56,21 @@ public class Tablero extends JPanel {
 		return nuevo;
 	}
 
-	private class BotonIniciar implements ActionListener {
+	private class BotonPausa implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			// TODO Auto-generated method stub
+			
+		}
+		
+	}
+	
+	private class BotonIniciar implements ActionListener {
 
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			
 		}
 
 	}

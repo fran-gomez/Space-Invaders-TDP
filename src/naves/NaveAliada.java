@@ -16,7 +16,8 @@ public final class NaveAliada extends Nave {
 	public NaveAliada(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad) {
 		super(x, y, vida, durabilidad, alcance, dmg, velocidad);
 
-		visual = new ImageIcon("NaveAliada.jpg");
+		visual = new ImageIcon("src/naves/NaveAliada.jpg");
+		this.setIcon(visual);
 	}
 
 	@Override

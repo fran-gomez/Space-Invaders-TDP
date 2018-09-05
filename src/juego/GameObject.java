@@ -3,23 +3,28 @@ package juego;
 import java.awt.Color;
 import java.awt.Dimension;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import utilidades.Recuadro;
 
 public abstract class GameObject extends JLabel {
 	protected int vida, durabilidad;
 	protected Recuadro rec;
+	
+	protected ImageIcon visual;
 
 	public GameObject(int x, int y, int vida, int durabilidad) {
 		this.rec = createRectangle(x, y);
 		this.vida = vida;
 		this.durabilidad = durabilidad;
+		this.visual = null;
 
 		rec.setX(rec.x() - rec.getAncho() / 2);
 		rec.setY(rec.y() - rec.getAlto() / 2);
 		this.setLocation(rec.x(), rec.y());
 
-		this.setText(getName());
+		//this.setText(getName());
 		this.setPreferredSize(new Dimension(rec.getAncho(), rec.getAlto()));
 		this.setSize(new Dimension(rec.getAncho(), rec.getAlto()));
 		this.setForeground(Color.WHITE);
