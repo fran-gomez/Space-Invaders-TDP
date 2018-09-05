@@ -16,6 +16,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import naves.Crab;
+import naves.Inteligencia;
 import naves.NaveAliada;
 import naves.NaveEnemiga;
 import naves.Octopus;
@@ -46,7 +47,6 @@ public class Mapa extends JPanel {
 		this.setSize(Constantes.MAP_WIDTH, Constantes.MAP_HEIGHT);
 		this.setPreferredSize(new Dimension(Constantes.MAP_WIDTH, Constantes.MAP_HEIGHT));
 		this.setBackground(Color.BLACK);
-
 
 		// utils
 		rnd = new Random();
@@ -122,19 +122,19 @@ public class Mapa extends JPanel {
 		// TODO Corregir todos los parametros de creacion
 		switch (rand) {
 		case 0:
-			n = new Octopus(x, y, rand, rand, rand, rand, rand);
+			n = new Octopus(x, y, rand, rand, rand, rand, rand, new Inteligencia());
 			break;
 		case 1:
-			n = new Squid(x, y, rand, rand, rand, rand, rand);
+			n = new Squid(x, y, rand, rand, rand, rand, rand, new Inteligencia());
 			break;
 		case 2:
-			n = new ShapeShifter(x, y, rand, rand, rand, rand, rand);
+			n = new ShapeShifter(x, y, rand, rand, rand, rand, rand, new Inteligencia());
 			break;
 		case 3:
-			n = new UFO(x, y, rand, rand, rand, rand, rand);
+			n = new UFO(x, y, rand, rand, rand, rand, rand, new Inteligencia());
 			break;
 		default:
-			n = new Crab(x, y, rand, rand, rand, rand, rand);
+			n = new Crab(x, y, rand, rand, rand, rand, rand, new Inteligencia());
 			break;
 		}
 

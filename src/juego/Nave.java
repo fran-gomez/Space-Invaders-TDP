@@ -3,7 +3,6 @@ package juego;
 import javax.swing.Icon;
 
 import power_ups.PowerUp;
-import utilidades.Recuadro;
 
 public abstract class Nave extends GameObject {
 	protected int dmg, alcance, velocidad;

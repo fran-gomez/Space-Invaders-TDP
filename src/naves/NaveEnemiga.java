@@ -4,8 +4,11 @@ import utilidades.Recuadro;
 
 public abstract class NaveEnemiga extends Nave {
 
-	public NaveEnemiga(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad) {
+	protected Inteligencia inteligencia;
+	
+	public NaveEnemiga(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad, Inteligencia inteligencia) {
 		super(x,y, vida, durabilidad, alcance, dmg, velocidad);
+		this.inteligencia = inteligencia;
 	}
 
 }

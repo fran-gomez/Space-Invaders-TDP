@@ -9,8 +9,8 @@ import utilidades.Recuadro;
 
 public final class Octopus extends NaveEnemiga {
 
-	public Octopus(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad) {
-		super(x, y, vida, durabilidad, alcance, dmg, velocidad);
+	public Octopus(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad, Inteligencia intel) {
+		super(x, y, vida, durabilidad, alcance, dmg, velocidad, intel);
 		// TODO Auto-generated constructor stub
 		visual = new ImageIcon("src/naves/Octopus.jpg");
 		this.setIcon(visual);
