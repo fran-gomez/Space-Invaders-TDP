@@ -4,16 +4,22 @@ import javax.swing.ImageIcon;
 
 import juego.GameObject;
 import power_ups.PowerUp;
+import utilidades.Constantes;
 import utilidades.Recuadro;
 
 public final class Crab extends NaveEnemiga {
 
-	public Crab(Recuadro posicion, int vida, int durabilidad, int alcance, int dmg, int velocidad) {
-		super(posicion, vida, durabilidad, alcance, dmg, velocidad);
+	public Crab(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad) {
+		super(x,y, vida, durabilidad, alcance, dmg, velocidad);
 		// TODO Auto-generated constructor stub
 		visual = new ImageIcon("Crab.jpg");
 	}
 
+	@Override
+	protected Recuadro createRectangle(int x, int y) {
+		return new Recuadro(x,y,Constantes.CRAB_WIDTH, Constantes.CRAB_HEIGHT);
+	}
+	
 	@Override
 	public void disparar() {
 	}
@@ -39,4 +45,6 @@ public final class Crab extends NaveEnemiga {
 	@Override
 	public void mover() {
 	}
+
+	
 }

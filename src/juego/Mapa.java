@@ -3,6 +3,8 @@ package juego;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -10,6 +12,7 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.Random;
 
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import naves.Crab;
@@ -21,6 +24,7 @@ import naves.Squid;
 import naves.UFO;
 import obstaculos.Asteroide;
 import obstaculos.NaveErrante;
+import obstaculos.Obstaculo;
 import utilidades.Constantes;
 import utilidades.Recuadro;
 
@@ -28,14 +32,17 @@ public class Mapa extends JPanel {
 
 	private NaveAliada jugador;
 
+	protected JFrame juego;
 	protected int dificultad;
 	protected List<GameObject> objetos;
 
 	protected Random rnd;
 
-	public Mapa(int dificultad) {
-
+	public Mapa(int dificultad, JFrame juego) {
+		this.juego = juego;
 		this.setLayout(null);
+		juego.requestFocus();
+		juego.setFocusable(true);
 		this.setSize(Constantes.MAP_WIDTH, Constantes.MAP_HEIGHT);
 		this.setPreferredSize(new Dimension(Constantes.MAP_WIDTH, Constantes.MAP_HEIGHT));
 		this.setBackground(Color.BLACK);
@@ -64,15 +71,23 @@ public class Mapa extends JPanel {
 		}
 
 		// Colocamos la nave del jugador
-		jugador = new NaveAliada(
-				new Recuadro(Constantes.MAP_WIDTH / 2, Constantes.MAP_HEIGHT - Constantes.PLAYER_HEIGHT,
-						Constantes.PLAYER_WIDTH, Constantes.PLAYER_HEIGHT),
+		jugador = new NaveAliada(Constantes.MAP_WIDTH / 2, Constantes.MAP_HEIGHT - Constantes.NAVE_ALIADA_HEIGHT / 2,
 				Constantes.NAVE_ALIADA_VIDA, Constantes.NAVE_ALIADA_DURABILIDAD, Constantes.NAVE_ALIADA_ALCANCE,
 				Constantes.NAVE_ALIADA_DANIO, Constantes.NAVE_ALIADA_DURABILIDAD);
 		this.add(jugador);
 		objetos.add(jugador);
+		
+		juego.addKeyListener(new MovementListener());
 
 		// Colocamos dos obstaculos
+		//TODO Corregir que nose se pongan en el mismo lugar
+		Obstaculo obs1 = new NaveErrante(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 0, 0);
+		Obstaculo obs2 = new Asteroide(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 0, 0);
+
+		this.add(obs1);
+		this.add(obs2);
+		objetos.add(obs1);
+		objetos.add(obs2);
 	}
 
 	private void gameLoop() {
@@ -107,27 +122,50 @@ public class Mapa extends JPanel {
 		// TODO Corregir todos los parametros de creacion
 		switch (rand) {
 		case 0:
-			n = new Octopus(new Recuadro(x, y, Constantes.OCTOPUS_WIDTH, Constantes.OCTOPUS_HEIGHT), rand, rand, rand,
-					rand, rand);
+			n = new Octopus(x, y, rand, rand, rand, rand, rand);
 			break;
 		case 1:
-			n = new Squid(new Recuadro(x, y, Constantes.SQUID_WIDTH, Constantes.SQUID_HEIGHT), rand, rand, rand, rand,
-					rand);
+			n = new Squid(x, y, rand, rand, rand, rand, rand);
 			break;
 		case 2:
-			n = new ShapeShifter(new Recuadro(x, y, Constantes.SHAPESHIFTER_WIDTH, Constantes.SHAPESHIFTER_HEIGHT),
-					rand, rand, rand, rand, rand);
+			n = new ShapeShifter(x, y, rand, rand, rand, rand, rand);
 			break;
 		case 3:
-			n = new UFO(new Recuadro(x, y, Constantes.UFO_WIDTH, Constantes.UFO_HEIGHT), rand, rand, rand, rand, rand);
+			n = new UFO(x, y, rand, rand, rand, rand, rand);
 			break;
 		default:
-			n = new Crab(new Recuadro(x, y, Constantes.CRAB_WIDTH, Constantes.CRAB_HEIGHT), rand, rand, rand, rand,
-					rand);
+			n = new Crab(x, y, rand, rand, rand, rand, rand);
 			break;
 		}
 
 		return n;
+	}
+	
+	private class MovementListener implements KeyListener{
+
+		@Override
+		public void keyPressed(KeyEvent e) {
+			int keyCode = e.getKeyCode();
+			switch(keyCode) {
+			
+			case KeyEvent.VK_RIGHT:
+				jugador.mover(1);
+				break;
+				
+			case KeyEvent.VK_LEFT:
+				jugador.mover(-1);
+				break;
+			}
+		}
+
+		@Override
+		public void keyReleased(KeyEvent e) {
+		}
+
+		@Override
+		public void keyTyped(KeyEvent e) {
+		}
+		
 	}
 
 }

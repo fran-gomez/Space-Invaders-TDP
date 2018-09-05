@@ -1,12 +1,13 @@
 package obstaculos;
 
 import juego.GameObject;
+import utilidades.Constantes;
 import utilidades.Recuadro;
 
 public class Asteroide extends Obstaculo {
 
-	public Asteroide(Recuadro posicion, int vida, int durabilidad) {
-		super(posicion, vida, durabilidad);
+	public Asteroide(int x ,int y, int vida, int durabilidad) {
+		super(x,y, vida, durabilidad);
 
 	}
 
@@ -32,6 +33,13 @@ public class Asteroide extends Obstaculo {
 
 	@Override
 	public void mover() {
+	}
+
+
+
+	@Override
+	protected Recuadro createRectangle(int x, int y) {
+		return new Recuadro(x,y, Constantes.ASTEROIDE_WIDTH, Constantes.ASTEROIDE_HEIGHT);
 	}
 	
 }

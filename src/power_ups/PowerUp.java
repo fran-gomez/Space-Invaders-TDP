@@ -4,8 +4,8 @@ import utilidades.Recuadro;
 
 public abstract class PowerUp extends GameObject {
 
-	public PowerUp(Recuadro posicion, int vida, int durabilidad) {
-		super(posicion, vida, durabilidad);
+	public PowerUp(int x, int y, int vida, int durabilidad) {
+		super(x,y, vida, durabilidad);
 		// TODO Auto-generated constructor stub
 	}
 

@@ -3,11 +3,11 @@ package naves;
 import juego.GameObject;
 import utilidades.Recuadro;
 
-public class Proyectil extends GameObject {
+public abstract class Proyectil extends GameObject {
 	private int dmg, alcance;
 
-	public Proyectil(Recuadro posicion, int vida, int durabilidad) {
-		super(posicion, vida, durabilidad);
+	public Proyectil(int x, int y, int vida, int durabilidad) {
+		super(x, y, vida, durabilidad);
 	}
 
 	public int getAlcance() {

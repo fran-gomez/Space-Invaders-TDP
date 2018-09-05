@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -18,8 +19,8 @@ public class Tablero extends JPanel {
 	protected long puntos;
 	protected Tiempo tiempo;
 
-	public Tablero(int dificultad) {
-		g = new Mapa(dificultad);
+	public Tablero(int dificultad, JFrame ventana) {
+		g = new Mapa(dificultad, ventana);
 
 		tiempo = new Tiempo();
 		panelPuntos = nuevoPanelPuntos();
@@ -40,9 +41,17 @@ public class Tablero extends JPanel {
 		nuevo.add(new JLabel("Tiempo: " + tiempo));
 
 		// Agregar los botones de control
-		nuevo.add(new JButton("Pausa"));
-		nuevo.add(new JButton("Guardar"));
-		nuevo.add(new JButton("Reiniciar"));
+		JButton botonPausa = new JButton("Pausa");
+		JButton botonGuardar = new JButton("Guardar");
+		JButton botonReiniciar = new JButton("Reiniciar");
+
+		botonPausa.setFocusable(false);
+		botonGuardar.setFocusable(false);
+		botonReiniciar.setFocusable(false);
+		
+		nuevo.add(botonPausa);
+		nuevo.add(botonGuardar);
+		nuevo.add(botonReiniciar);
 
 		return nuevo;
 	}

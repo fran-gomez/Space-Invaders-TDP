@@ -18,8 +18,8 @@ public abstract class Nave extends GameObject {
 	 * @param dmg
 	 * @param velocidad
 	 */
-	public Nave(Recuadro rec, int vida, int durabilidad, int alcance, int dmg, int velocidad) {
-		super(rec, vida, durabilidad);
+	public Nave(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad) {
+		super(x, y, vida, durabilidad);
 		visual = null;
 	}
 	

@@ -1,14 +1,23 @@
 package naves;
 
+import javax.swing.ImageIcon;
+
 import juego.GameObject;
 import power_ups.PowerUp;
+import utilidades.Constantes;
 import utilidades.Recuadro;
 
 public final class UFO extends NaveEnemiga {
 
-	public UFO(Recuadro posicion, int vida, int durabilidad, int alcance, int dmg, int velocidad) {
-		super(posicion, vida, durabilidad, alcance, dmg, velocidad);
+	public UFO(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad) {
+		super(x,y, vida, durabilidad, alcance, dmg, velocidad);
 		// TODO Auto-generated constructor stub
+		visual = new ImageIcon("UFO.jpg");
+	}
+
+	@Override
+	protected Recuadro createRectangle(int x, int y) {
+		return new Recuadro(x,y,Constantes.UFO_WIDTH, Constantes.UFO_HEIGHT);
 	}
 
 	@Override
