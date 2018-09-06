@@ -1,6 +1,5 @@
 package obstaculos;
 import juego.GameObject;
-import utilidades.Recuadro;
 
 public abstract class Obstaculo extends GameObject {
 

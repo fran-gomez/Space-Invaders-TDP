@@ -1,5 +1,6 @@
 package naves;
 
+import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -9,20 +10,17 @@ import juego.GameObject;
 import juego.Nave;
 import power_ups.PowerUp;
 import utilidades.Constantes;
-import utilidades.Recuadro;
 
 public final class NaveAliada extends Nave {
 
 	public NaveAliada(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad) {
 		super(x, y, vida, durabilidad, alcance, dmg, velocidad);
 
-		visual = new ImageIcon("src/naves/NaveAliada.jpg");
-		this.setIcon(visual);
 	}
 
 	@Override
-	protected Recuadro createRectangle(int x, int y) {
-		return new Recuadro(x, y, Constantes.NAVE_ALIADA_WIDTH, Constantes.NAVE_ALIADA_HEIGHT);
+	protected Rectangle createRectangle(int x, int y) {
+		return new Rectangle(x, y, Constantes.NAVE_ALIADA_WIDTH, Constantes.NAVE_ALIADA_HEIGHT);
 	}
 
 	@Override
@@ -49,22 +47,27 @@ public final class NaveAliada extends Nave {
 	}
 
 	public void mover(int d) {
-		int nuevoX = rec.x();
+		int nuevoX = (int) rec.getLocation().getX();
 		switch (d) {
 		case 1:
-			if (rec.x() < Constantes.MAP_WIDTH - Constantes.NAVE_ALIADA_WIDTH)
+			if (rec.getLocation().getX() < Constantes.MAP_WIDTH - Constantes.NAVE_ALIADA_WIDTH)
 				nuevoX += Constantes.NAVE_ALIADA_VELOCIDAD;
 			break;
 		case -1:
-			if (rec.x() > 0)
+			if (rec.getLocation().getX() > 0)
 				nuevoX -= Constantes.NAVE_ALIADA_VELOCIDAD;
 			break;
 		}
-		rec.setX(nuevoX);
-		this.setLocation(rec.x(), rec.y());
+		rec.setLocation(nuevoX, (int) rec.getLocation().getY());
+		this.setLocation((int)rec.getLocation().getX(), (int)rec.getLocation().getY());
 	}
 
 	@Override
 	public void mover() {
+	}
+
+	@Override
+	public ImageIcon getGrafico() {
+		return new ImageIcon("src/naves/NaveAliada.jpg");
 	}
 }

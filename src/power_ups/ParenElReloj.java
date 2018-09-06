@@ -1,8 +1,11 @@
 package power_ups;
 
+import java.awt.Rectangle;
+
+import javax.swing.ImageIcon;
+
 import juego.GameObject;
 import utilidades.Constantes;
-import utilidades.Recuadro;
 
 public class ParenElReloj extends PowerUp {
 
@@ -12,8 +15,8 @@ public class ParenElReloj extends PowerUp {
 	}
 	
 	@Override
-	protected Recuadro createRectangle(int x, int y) {
-		return new Recuadro(x,y, Constantes.PARENELRELOJ_WIDTH, Constantes.PARENELRELOJ_HEIGHT);
+	protected Rectangle createRectangle(int x, int y) {
+		return new Rectangle(x,y, Constantes.PARENELRELOJ_WIDTH, Constantes.PARENELRELOJ_HEIGHT);
 	}
 
 	@Override
@@ -26,6 +29,11 @@ public class ParenElReloj extends PowerUp {
 
 	@Override
 	public void mover() {
+	}
+
+	@Override
+	public ImageIcon getGrafico() {
+		return null;
 	}
 
  

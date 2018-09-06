@@ -27,7 +27,6 @@ import obstaculos.Asteroide;
 import obstaculos.NaveErrante;
 import obstaculos.Obstaculo;
 import utilidades.Constantes;
-import utilidades.Recuadro;
 
 public class Mapa extends JPanel {
 
@@ -80,9 +79,12 @@ public class Mapa extends JPanel {
 		juego.addKeyListener(new PlayerMovementListener());
 
 		// Colocamos dos obstaculos
-		//TODO Corregir que nose se pongan en el mismo lugar
 		Obstaculo obs1 = new NaveErrante(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 0, 0);
 		Obstaculo obs2 = new Asteroide(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 0, 0);
+		
+		while(intersects(obs1, obs2)) {
+			obs2 = new Asteroide(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT*2/3,0,0);
+		}
 		
 		this.add(obs1);
 		this.add(obs2);

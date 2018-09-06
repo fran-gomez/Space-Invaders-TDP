@@ -1,5 +1,6 @@
 package naves;
 
+import java.awt.Rectangle;
 import java.io.File;
 import java.io.IOException;
 
@@ -9,23 +10,18 @@ import javax.swing.ImageIcon;
 import juego.GameObject;
 import power_ups.PowerUp;
 import utilidades.Constantes;
-import utilidades.Recuadro;
 
 public final class Crab extends NaveEnemiga {
 
-	public Crab(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad) {
-		super(x,y, vida, durabilidad, alcance, dmg, velocidad);
-		// TODO Auto-generated constructor stub
-		visual = new ImageIcon("src/naves/Crab.jpg");
-		this.setIcon(visual);
-		this.setText(null);
+	public Crab(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad, Inteligencia intel) {
+		super(x, y, vida, durabilidad, alcance, dmg, velocidad, intel);
 	}
 
 	@Override
-	protected Recuadro createRectangle(int x, int y) {
-		return new Recuadro(x,y,Constantes.CRAB_WIDTH, Constantes.CRAB_HEIGHT);
+	protected Rectangle createRectangle(int x, int y) {
+		return new Rectangle(x, y, Constantes.CRAB_WIDTH, Constantes.CRAB_HEIGHT);
 	}
-	
+
 	@Override
 	public void disparar() {
 	}
@@ -40,7 +36,6 @@ public final class Crab extends NaveEnemiga {
 	}
 
 	public String getName() {
-		this.setIcon(visual);
 		return "Crab";
 	}
 
@@ -50,5 +45,10 @@ public final class Crab extends NaveEnemiga {
 
 	@Override
 	public void mover() {
+	}
+
+	@Override
+	public ImageIcon getGrafico() {
+		return new ImageIcon("src/naves/Crab.jpg");
 	}
 }

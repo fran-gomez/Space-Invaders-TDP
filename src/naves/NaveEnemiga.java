@@ -1,6 +1,5 @@
 package naves;
 import juego.Nave;
-import utilidades.Recuadro;
 
 public abstract class NaveEnemiga extends Nave {
 

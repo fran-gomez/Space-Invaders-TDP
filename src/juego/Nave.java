@@ -7,15 +7,6 @@ import power_ups.PowerUp;
 public abstract class Nave extends GameObject {
 	protected int dmg, alcance, velocidad;
 	
-	/**
-	 * 
-	 * @param posicion
-	 * @param vida
-	 * @param durabilidad
-	 * @param alcance
-	 * @param dmg
-	 * @param velocidad
-	 */
 	public Nave(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad) {
 		super(x, y, vida, durabilidad);
 	}

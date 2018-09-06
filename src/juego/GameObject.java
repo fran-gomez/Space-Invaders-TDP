@@ -1,17 +1,20 @@
 package juego;
 
-import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.Rectangle;
+import java.awt.image.BufferedImage;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import utilidades.Recuadro;
 
 public abstract class GameObject extends JLabel {
 	protected int vida, durabilidad;
-	protected Recuadro rec;
-	
+	protected Rectangle rec;
+
 	protected ImageIcon visual;
 
 	public GameObject(int x, int y, int vida, int durabilidad) {
@@ -20,16 +23,25 @@ public abstract class GameObject extends JLabel {
 		this.durabilidad = durabilidad;
 		this.visual = null;
 
-		rec.setX(rec.x() - rec.getAncho() / 2);
-		rec.setY(rec.y() - rec.getAlto() / 2);
-		this.setLocation(rec.x(), rec.y());
-
-		//this.setText(getName());
-		this.setPreferredSize(new Dimension(rec.getAncho(), rec.getAlto()));
-		this.setSize(new Dimension(rec.getAncho(), rec.getAlto()));
-		this.setForeground(Color.WHITE);
+		rec.setLocation((int) (rec.getLocation().getX() - rec.getWidth() / 2),
+				(int) (rec.getLocation().getY() - rec.getHeight() / 2));
+		this.setBounds(rec);
 		this.setOpaque(true);
-		this.setBackground(Color.gray);
+		
+		visual = getGrafico();
+		if (visual != null) {
+			Image img = visual.getImage();
+			BufferedImage bimage = new BufferedImage(img.getWidth(null), img.getHeight(null), BufferedImage.TYPE_INT_ARGB);
+
+		    // Draw the image on to the buffered image
+		    Graphics2D bGr = bimage.createGraphics();
+		    bGr.drawImage(img, 0, 0, null);
+		    bGr.dispose();
+
+		    Image dimg = bimage.getScaledInstance((int)rec.getWidth(), (int)rec.getHeight(),Image.SCALE_SMOOTH);
+		    visual = new ImageIcon(dimg);
+			this.setIcon(visual);
+		}
 	}
 
 	public abstract void borrar();
@@ -38,7 +50,9 @@ public abstract class GameObject extends JLabel {
 
 	public abstract void mover();
 
-	protected abstract Recuadro createRectangle(int x, int y);
+	public abstract ImageIcon getGrafico();
+
+	protected abstract Rectangle createRectangle(int x, int y);
 
 	public int getVida() {
 		return vida;
@@ -56,12 +70,20 @@ public abstract class GameObject extends JLabel {
 		this.durabilidad = durabilidad;
 	}
 
-	public Recuadro getRectangle() {
+	public Rectangle getRectangle() {
 		return rec;
 	}
 
-	public void setRectangle(Recuadro rec) {
+	public void setRec(Rectangle rec) {
 		this.rec = rec;
+	}
+
+	public ImageIcon getVisual() {
+		return visual;
+	}
+
+	public void setVisual(ImageIcon visual) {
+		this.visual = visual;
 	}
 
 }

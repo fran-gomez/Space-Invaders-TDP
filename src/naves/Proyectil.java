@@ -1,7 +1,6 @@
 package naves;
 
 import juego.GameObject;
-import utilidades.Recuadro;
 
 public abstract class Proyectil extends GameObject {
 	private int dmg, alcance;

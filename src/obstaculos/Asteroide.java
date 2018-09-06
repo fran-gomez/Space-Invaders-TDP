@@ -1,8 +1,12 @@
 package obstaculos;
 
+import java.awt.Rectangle;
+
+import javax.swing.ImageIcon;
+
 import juego.GameObject;
 import utilidades.Constantes;
-import utilidades.Recuadro;
+
 
 public class Asteroide extends Obstaculo {
 
@@ -38,8 +42,15 @@ public class Asteroide extends Obstaculo {
 
 
 	@Override
-	protected Recuadro createRectangle(int x, int y) {
-		return new Recuadro(x,y, Constantes.ASTEROIDE_WIDTH, Constantes.ASTEROIDE_HEIGHT);
+	protected Rectangle createRectangle(int x, int y) {
+		return new Rectangle(x,y, Constantes.ASTEROIDE_WIDTH, Constantes.ASTEROIDE_HEIGHT);
+	}
+
+
+
+	@Override
+	public ImageIcon getGrafico() {
+		return null;
 	}
 	
 }

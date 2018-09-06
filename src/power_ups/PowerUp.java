@@ -1,6 +1,5 @@
 package power_ups;
 import juego.GameObject;
-import utilidades.Recuadro;
 
 public abstract class PowerUp extends GameObject {
 

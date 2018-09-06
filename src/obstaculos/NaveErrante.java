@@ -1,8 +1,11 @@
 package obstaculos;
 
+import java.awt.Rectangle;
+
+import javax.swing.ImageIcon;
+
 import juego.GameObject;
 import utilidades.Constantes;
-import utilidades.Recuadro;
 
 public class NaveErrante extends Obstaculo {
 
@@ -31,8 +34,13 @@ public class NaveErrante extends Obstaculo {
 	}
 
 	@Override
-	protected Recuadro createRectangle(int x, int y) {
-		return new Recuadro(x,y, Constantes.NAVEERRANTE_WIDTH, Constantes.NAVEERRANTE_HEIGHT);
+	public ImageIcon getGrafico() {
+		return null;
+	}
+
+	@Override
+	protected Rectangle createRectangle(int x, int y) {
+		return new Rectangle(x,y, Constantes.NAVEERRANTE_WIDTH, Constantes.NAVEERRANTE_HEIGHT);
 	}
 
 }
