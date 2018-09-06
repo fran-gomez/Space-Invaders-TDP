@@ -1,4 +1,5 @@
 package naves;
+import Inteligencias.Inteligencia;
 import disparos.Disparo;
 import juego.Nave;
 import obstaculos.Obstaculo;

@@ -28,6 +28,10 @@ public abstract class GameObject extends JLabel {
 		this.setBounds(rec);
 		this.setOpaque(true);
 		
+		setImage();
+	}
+
+	private void setImage() {
 		visual = getGrafico();
 		if (visual != null) {
 			Image img = visual.getImage();

@@ -3,7 +3,7 @@ package utilidades;
 public final class Constantes {
 
 	// Juego
-	public static final int MAP_HEIGHT = 775;
+	public static final int MAP_HEIGHT = 700;
 	public static final int MAP_WIDTH = 500;
 
 	// Enemigos
@@ -11,7 +11,7 @@ public final class Constantes {
 	public static final int ENEMIGOS_X_FILA = 5;
 
 	// Dimensiones
-	public static final int NAVE_ALIADA_WIDTH = 50;
+	public static final int NAVE_ALIADA_WIDTH = 40;
 	public static final int NAVE_ALIADA_HEIGHT = 50;
 
 	public static final int CRAB_WIDTH = 50;

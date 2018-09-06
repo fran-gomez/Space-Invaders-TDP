@@ -7,6 +7,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
+import Inteligencias.Inteligencia;
 import juego.GameObject;
 import power_ups.PowerUp;
 import utilidades.Constantes;
@@ -43,9 +44,6 @@ public final class Crab extends NaveEnemiga {
 	public void colision(GameObject o1) {
 	}
 
-	@Override
-	public void mover() {
-	}
 
 	@Override
 	public ImageIcon getGrafico() {

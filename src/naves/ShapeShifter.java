@@ -4,6 +4,7 @@ import java.awt.Rectangle;
 
 import javax.swing.ImageIcon;
 
+import Inteligencias.Inteligencia;
 import juego.GameObject;
 import power_ups.PowerUp;
 import utilidades.Constantes;
@@ -27,8 +28,6 @@ public final class ShapeShifter extends NaveEnemiga {
 	public void aplicarPowerUp(PowerUp p) {
 	}
 
-
-
 	public String getName() {
 		return "Shapeshifter";
 	}
@@ -39,10 +38,6 @@ public final class ShapeShifter extends NaveEnemiga {
 
 	@Override
 	public void colision(GameObject o1) {
-	}
-
-	@Override
-	public void mover() {
 	}
 
 	@Override

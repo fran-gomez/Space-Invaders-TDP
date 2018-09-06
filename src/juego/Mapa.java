@@ -1,22 +1,19 @@
 package juego;
 
 import java.awt.Color;
+import java.util.Timer;
 import java.awt.Dimension;
-import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.Collection;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Random;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import Inteligencias.Inteligencia;
 import naves.Crab;
-import naves.Inteligencia;
 import naves.NaveAliada;
 import naves.NaveEnemiga;
 import naves.Octopus;
@@ -161,6 +158,7 @@ public class Mapa extends JPanel {
 			case KeyEvent.VK_UP:
 			case KeyEvent.VK_SPACE:
 				//TODO disparar
+				System.out.println("Disparo aliado");
 				break;
 			}
 		}
