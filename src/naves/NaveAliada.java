@@ -6,8 +6,10 @@ import java.awt.event.KeyListener;
 
 import javax.swing.ImageIcon;
 
+import disparos.Disparo;
 import juego.GameObject;
 import juego.Nave;
+import obstaculos.Obstaculo;
 import power_ups.PowerUp;
 import utilidades.Constantes;
 
@@ -42,10 +44,14 @@ public final class NaveAliada extends Nave {
 		return "Aliado";
 	}
 
-	@Override
-	public void colision(GameObject o1) {
+	public void colisionar(Disparo d) {
+		
 	}
-
+	
+	public void colisionar(NaveEnemiga ne) {
+		
+	}
+	
 	public void mover(int d) {
 		int nuevoX = (int) rec.getLocation().getX();
 		switch (d) {

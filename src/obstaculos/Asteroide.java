@@ -5,6 +5,7 @@ import java.awt.Rectangle;
 import javax.swing.ImageIcon;
 
 import juego.GameObject;
+import naves.NaveEnemiga;
 import utilidades.Constantes;
 
 
@@ -28,12 +29,9 @@ public class Asteroide extends Obstaculo {
 	}
 
 
-
-	@Override
-	public void colision(GameObject o1) {
+	public void colision(NaveEnemiga ne) {
+		
 	}
-
-
 
 	@Override
 	public void mover() {

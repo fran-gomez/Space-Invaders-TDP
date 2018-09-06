@@ -1,5 +1,7 @@
 package naves;
+import disparos.Disparo;
 import juego.Nave;
+import obstaculos.Obstaculo;
 
 public abstract class NaveEnemiga extends Nave {
 
@@ -10,4 +12,7 @@ public abstract class NaveEnemiga extends Nave {
 		this.inteligencia = inteligencia;
 	}
 
+	public abstract void colisionar(NaveAliada na);
+	public abstract void colisionar(Obstaculo o);
+	public abstract void colisionar(Disparo d);
 }

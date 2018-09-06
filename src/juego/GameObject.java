@@ -46,8 +46,6 @@ public abstract class GameObject extends JLabel {
 
 	public abstract void borrar();
 
-	public abstract void colision(GameObject o1);
-
 	public abstract void mover();
 
 	public abstract ImageIcon getGrafico();
