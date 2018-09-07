@@ -11,16 +11,9 @@ public abstract class Disparo extends GameObject {
 		super(x, y, vida, durabilidad);
 		// TODO Auto-generated constructor stub
 	}
+	
+	public void colision(GameObject obs) {
+		obs.colision(this);
+	}
 
-	public void colisionar(NaveAliada na) {
-		
-	}
-	
-	public void colisionar(NaveEnemiga ne) {
-		
-	}
-	
-	public void colisionar(Obstaculo o) {
-		
-	}
 }

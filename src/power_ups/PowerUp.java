@@ -7,5 +7,9 @@ public abstract class PowerUp extends GameObject {
 		super(x,y, vida, durabilidad);
 		// TODO Auto-generated constructor stub
 	}
+	
+	public void colision(GameObject obs) {
+		obs.colision(this);
+	}
 
 }

@@ -22,12 +22,15 @@ public class Tablero extends JPanel {
 	public Tablero(int dificultad, JFrame ventana) {
 		g = new Mapa(dificultad, ventana);
 
-		tiempo = new Tiempo();
+		tiempo = new Tiempo(g);
 		panelPuntos = nuevoPanelPuntos();
 
 		this.setLayout(new FlowLayout());
 		this.add(g);
 		this.add(panelPuntos);
+		
+		//Iniciar loop
+		tiempo.start();
 	}
 
 	private JPanel nuevoPanelPuntos() {

@@ -5,7 +5,9 @@ import java.awt.Rectangle;
 import javax.swing.ImageIcon;
 
 import Inteligencias.Inteligencia;
+import disparos.Disparo;
 import juego.GameObject;
+import obstaculos.Obstaculo;
 import power_ups.PowerUp;
 import utilidades.Constantes;
 
@@ -38,12 +40,30 @@ public final class UFO extends NaveEnemiga {
 	public void borrar() {
 	}
 
-	@Override
-	public void colision(GameObject o1) {
-	}
-
+	
 	@Override
 	public ImageIcon getGrafico() {
 		return new ImageIcon("src/naves/UFO.jpg");
 	}
+
+	@Override
+	public void colision(NaveEnemiga naveEnemiga) {
+	}
+
+	@Override
+	public void colision(NaveAliada naveEnemiga) {
+	}
+
+	@Override
+	public void colision(Obstaculo naveEnemiga) {
+	}
+
+	@Override
+	public void colision(PowerUp powerUp) {
+	}
+
+	@Override
+	public void colision(Disparo disparo) {
+	}
+
 }

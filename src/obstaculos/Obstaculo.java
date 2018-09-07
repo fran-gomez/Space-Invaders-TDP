@@ -15,6 +15,7 @@ public abstract class Obstaculo extends GameObject {
 		return dmg;
 	}
 	
-	public abstract void colisionar(Disparo d);
-	public abstract void colisionar(NaveEnemiga ne);
+	public void colision(GameObject obs) {
+		obs.colision(this);
+	}
 }

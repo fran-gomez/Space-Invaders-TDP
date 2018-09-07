@@ -13,6 +13,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import Inteligencias.Inteligencia;
+import Inteligencias.InteligenciaAleatoria;
+import Inteligencias.InteligenciaDefecto;
 import naves.Crab;
 import naves.NaveAliada;
 import naves.NaveEnemiga;
@@ -55,7 +57,7 @@ public class Mapa extends JPanel {
 		int areaAliensW = Constantes.MAP_WIDTH;
 		int cuadradoAlienW = areaAliensW / Constantes.ENEMIGOS_X_FILA;
 		int cuadradoAlienH = areaAliensH / Constantes.CANT_FILAS_ENEMIGOS;
-		
+
 		for (int f = 0; f < Constantes.CANT_FILAS_ENEMIGOS; f++) {
 			for (int c = 0; c < Constantes.ENEMIGOS_X_FILA; c++) {
 				x = c * cuadradoAlienW + cuadradoAlienW / 2;
@@ -72,24 +74,24 @@ public class Mapa extends JPanel {
 				Constantes.NAVE_ALIADA_DANIO, Constantes.NAVE_ALIADA_DURABILIDAD);
 		this.add(jugador);
 		objetos.add(jugador);
-		
+
 		juego.addKeyListener(new PlayerMovementListener());
 
 		// Colocamos dos obstaculos
 		Obstaculo obs1 = new NaveErrante(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 0, 0);
 		Obstaculo obs2 = new Asteroide(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 0, 0);
-		
-		while(intersects(obs1, obs2)) {
-			obs2 = new Asteroide(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT*2/3,0,0);
+
+		while (intersects(obs1, obs2)) {
+			obs2 = new Asteroide(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 0, 0);
 		}
-		
+
 		this.add(obs1);
 		this.add(obs2);
 		objetos.add(obs1);
 		objetos.add(obs2);
 	}
 
-	private void gameLoop() {
+	public void gameLoop() {
 		// Movimiento de los objetos del mapa
 		for (GameObject obj : objetos) {
 			obj.mover();
@@ -121,43 +123,43 @@ public class Mapa extends JPanel {
 		// TODO Corregir todos los parametros de creacion
 		switch (rand) {
 		case 0:
-			n = new Octopus(x, y, rand, rand, rand, rand, rand, new Inteligencia());
+			n = new Octopus(x, y, rand, rand, rand, rand, rand, InteligenciaDefecto.getInstance());
 			break;
 		case 1:
-			n = new Squid(x, y, rand, rand, rand, rand, rand, new Inteligencia());
+			n = new Squid(x, y, rand, rand, rand, rand, rand, InteligenciaDefecto.getInstance());
 			break;
 		case 2:
-			n = new ShapeShifter(x, y, rand, rand, rand, rand, rand, new Inteligencia());
+			n = new ShapeShifter(x, y, rand, rand, rand, rand, rand, InteligenciaAleatoria.getInstance());
 			break;
 		case 3:
-			n = new UFO(x, y, rand, rand, rand, rand, rand, new Inteligencia());
+			n = new UFO(x, y, rand, rand, rand, rand, rand, InteligenciaDefecto.getInstance());
 			break;
 		default:
-			n = new Crab(x, y, rand, rand, rand, rand, rand, new Inteligencia());
+			n = new Crab(x, y, rand, rand, rand, rand, rand, InteligenciaDefecto.getInstance());
 			break;
 		}
 
 		return n;
 	}
-	
-	private class PlayerMovementListener implements KeyListener{
+
+	private class PlayerMovementListener implements KeyListener {
 
 		@Override
 		public void keyPressed(KeyEvent e) {
 			int keyCode = e.getKeyCode();
-			switch(keyCode) {
-			
+			switch (keyCode) {
+
 			case KeyEvent.VK_RIGHT:
 				jugador.mover(1);
 				break;
-				
+
 			case KeyEvent.VK_LEFT:
 				jugador.mover(-1);
 				break;
-				
+
 			case KeyEvent.VK_UP:
 			case KeyEvent.VK_SPACE:
-				//TODO disparar
+				// TODO disparar
 				System.out.println("Disparo aliado");
 				break;
 			}
@@ -170,7 +172,7 @@ public class Mapa extends JPanel {
 		@Override
 		public void keyTyped(KeyEvent e) {
 		}
-		
+
 	}
 
 }

@@ -76,4 +76,30 @@ public final class NaveAliada extends Nave {
 	public ImageIcon getGrafico() {
 		return new ImageIcon("src/naves/NaveAliada.jpg");
 	}
+
+	@Override
+	public void colision(NaveEnemiga naveEnemiga) {
+		System.out.println("Colision(naveEnemiga)");
+	}
+
+	@Override
+	public void colision(NaveAliada naveEnemiga) {
+	}
+
+	@Override
+	public void colision(Obstaculo naveEnemiga) {
+	}
+
+	@Override
+	public void colision(PowerUp powerUp) {
+	}
+
+	@Override
+	public void colision(Disparo disparo) {
+	}
+
+	public void colision(GameObject obs) {
+		obs.colision(this);
+	}
 }
+

@@ -4,7 +4,11 @@ import java.awt.Rectangle;
 
 import javax.swing.ImageIcon;
 
+import disparos.Disparo;
 import juego.GameObject;
+import naves.NaveAliada;
+import naves.NaveEnemiga;
+import obstaculos.Obstaculo;
 import utilidades.Constantes;
 
 public class ParenElReloj extends PowerUp {
@@ -23,9 +27,6 @@ public class ParenElReloj extends PowerUp {
 	public void borrar() {
 	}
 
-	@Override
-	public void colision(GameObject o1) {
-	}
 
 	@Override
 	public void mover() {
@@ -36,6 +37,25 @@ public class ParenElReloj extends PowerUp {
 		return null;
 	}
 
+	@Override
+	public void colision(NaveEnemiga naveEnemiga) {
+	}
+
+	@Override
+	public void colision(NaveAliada naveEnemiga) {
+	}
+
+	@Override
+	public void colision(Obstaculo naveEnemiga) {
+	}
+
+	@Override
+	public void colision(PowerUp powerUp) {
+	}
+
+	@Override
+	public void colision(Disparo disparo) {
+	}
  
 
 }
