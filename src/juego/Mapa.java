@@ -94,6 +94,7 @@ public class Mapa extends JPanel {
 
 	public void gameLoop() {
 
+		juego.requestFocus();
 		// Movimiento de objetos
 		for (GameObject obj : objetos) {
 			obj.mover();
