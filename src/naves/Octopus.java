@@ -44,7 +44,7 @@ public final class Octopus extends NaveEnemiga {
 	
 	@Override
 	public ImageIcon getGrafico() {
-		return new ImageIcon("src/naves/Octopus.jpg");
+		return new ImageIcon("src/resources/Octopus.jpg");
 	}
 
 	@Override

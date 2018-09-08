@@ -17,12 +17,12 @@ public class Tablero extends JPanel {
 	protected JPanel panelPuntos;
 
 	protected long puntos;
-	protected Tiempo tiempo;
+	protected MainThread tiempo;
 
 	public Tablero(int dificultad, JFrame ventana) {
 		g = new Mapa(dificultad, ventana);
 
-		tiempo = new Tiempo(g);
+		tiempo = new MainThread(g);
 		panelPuntos = nuevoPanelPuntos();
 
 		this.setLayout(new FlowLayout());

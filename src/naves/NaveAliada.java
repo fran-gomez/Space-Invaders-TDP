@@ -74,7 +74,7 @@ public final class NaveAliada extends Nave {
 
 	@Override
 	public ImageIcon getGrafico() {
-		return new ImageIcon("src/naves/NaveAliada.jpg");
+		return new ImageIcon("src/resources/NaveAliada.jpg");
 	}
 
 	@Override

@@ -41,7 +41,7 @@ public final class ShapeShifter extends NaveEnemiga {
 
 	@Override
 	public ImageIcon getGrafico() {
-		return new ImageIcon("src/naves/Shapeshifter.jpg");
+		return new ImageIcon("src/resources/Shapeshifter.jpg");
 	}
 
 	@Override

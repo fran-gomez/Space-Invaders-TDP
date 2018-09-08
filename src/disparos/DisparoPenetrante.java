@@ -23,8 +23,6 @@ public final class DisparoPenetrante extends Disparo {
 
 	}
 
-
-
 	@Override
 	public void mover() {
 		// TODO Auto-generated method stub

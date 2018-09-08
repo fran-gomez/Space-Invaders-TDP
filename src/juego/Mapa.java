@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 import Inteligencias.Inteligencia;
 import Inteligencias.InteligenciaAleatoria;
 import Inteligencias.InteligenciaDefecto;
+import Inteligencias.InteligenciaKamikaze;
 import naves.Crab;
 import naves.NaveAliada;
 import naves.NaveEnemiga;
@@ -50,6 +51,15 @@ public class Mapa extends JPanel {
 		rnd = new Random();
 		objetos = new LinkedList<>();
 
+		// Colocamos la nave del jugador
+		jugador = new NaveAliada(Constantes.MAP_WIDTH / 2, Constantes.MAP_HEIGHT - Constantes.NAVE_ALIADA_HEIGHT / 2,
+				Constantes.NAVE_ALIADA_VIDA, Constantes.NAVE_ALIADA_DURABILIDAD, Constantes.NAVE_ALIADA_ALCANCE,
+				Constantes.NAVE_ALIADA_DANIO, Constantes.NAVE_ALIADA_DURABILIDAD);
+		this.add(jugador);
+		objetos.add(jugador);
+
+		juego.addKeyListener(new PlayerMovementListener());
+
 		// Creacion y adicion de los enemigos
 		NaveEnemiga enemigo = null;
 		int x, y;
@@ -68,15 +78,6 @@ public class Mapa extends JPanel {
 			}
 		}
 
-		// Colocamos la nave del jugador
-		jugador = new NaveAliada(Constantes.MAP_WIDTH / 2, Constantes.MAP_HEIGHT - Constantes.NAVE_ALIADA_HEIGHT / 2,
-				Constantes.NAVE_ALIADA_VIDA, Constantes.NAVE_ALIADA_DURABILIDAD, Constantes.NAVE_ALIADA_ALCANCE,
-				Constantes.NAVE_ALIADA_DANIO, Constantes.NAVE_ALIADA_DURABILIDAD);
-		this.add(jugador);
-		objetos.add(jugador);
-
-		juego.addKeyListener(new PlayerMovementListener());
-
 		// Colocamos dos obstaculos
 		Obstaculo obs1 = new NaveErrante(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 0, 0);
 		Obstaculo obs2 = new Asteroide(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 0, 0);
@@ -92,16 +93,18 @@ public class Mapa extends JPanel {
 	}
 
 	public void gameLoop() {
-		// Movimiento de los objetos del mapa
+
+		// Movimiento de objetos
 		for (GameObject obj : objetos) {
 			obj.mover();
 		}
 
 		// Deteccion de colisiones
+		GameObject obj1, obj2;
 		for (int i = 0; i < objetos.size(); i++) {
+			obj1 = objetos.get(i);
 			for (int j = i + 1; j < objetos.size(); j++) {
-				GameObject obj1 = objetos.get(i);
-				GameObject obj2 = objetos.get(j);
+				obj2 = objetos.get(j);
 
 				if (intersects(obj1, obj2)) {
 					obj1.colision(obj2);
@@ -126,7 +129,7 @@ public class Mapa extends JPanel {
 			n = new Octopus(x, y, rand, rand, rand, rand, rand, InteligenciaDefecto.getInstance());
 			break;
 		case 1:
-			n = new Squid(x, y, rand, rand, rand, rand, rand, InteligenciaDefecto.getInstance());
+			n = new Squid(x, y, rand, rand, rand, rand, rand, InteligenciaKamikaze.getInstance(jugador));
 			break;
 		case 2:
 			n = new ShapeShifter(x, y, rand, rand, rand, rand, rand, InteligenciaAleatoria.getInstance());

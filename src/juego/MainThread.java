@@ -1,20 +1,20 @@
 package juego;
 
-public class Tiempo extends Thread {
-	
+public class MainThread extends Thread {
+
 	private Mapa mapa;
 	private int tiempoPausa;
 
-	public Tiempo(Mapa m) {
+	public MainThread(Mapa m) {
 		this.mapa = m;
-		this.tiempoPausa = 300;
+		this.tiempoPausa = 16;
 	}
 
 	public void run() {
 		while (true) {
 			try {
 				Thread.sleep(tiempoPausa);
-			}catch(InterruptedException e) {
+			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 			mapa.gameLoop();

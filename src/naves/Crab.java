@@ -46,7 +46,7 @@ public final class Crab extends NaveEnemiga {
 
 	@Override
 	public ImageIcon getGrafico() {
-		return new ImageIcon("src/naves/Crab.jpg");
+		return new ImageIcon("src/resources/Crab.jpg");
 	}
 
 	@Override
