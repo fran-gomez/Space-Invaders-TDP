@@ -11,10 +11,10 @@ public final class Constantes {
 	public static final int ENEMIGOS_X_FILA = 3;
 
 	// Dimensiones
-	public static final int DEFAULT_SIZE = 30;
+	public static final int DEFAULT_SIZE = 50;
 	
-	public static final int NAVE_ALIADA_WIDTH = 30;
-	public static final int NAVE_ALIADA_HEIGHT = 40;
+	public static final int NAVE_ALIADA_WIDTH = 40;
+	public static final int NAVE_ALIADA_HEIGHT = 50;
 
 	public static final int CRAB_WIDTH = DEFAULT_SIZE;
 	public static final int CRAB_HEIGHT = DEFAULT_SIZE;

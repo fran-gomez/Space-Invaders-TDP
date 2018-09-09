@@ -58,10 +58,6 @@ public final class Crab extends NaveEnemiga {
 	}
 
 	@Override
-	public void colision(Obstaculo naveEnemiga) {
-	}
-
-	@Override
 	public void colision(PowerUp powerUp) {
 	}
 

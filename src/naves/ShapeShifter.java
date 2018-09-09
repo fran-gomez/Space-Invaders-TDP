@@ -46,23 +46,19 @@ public final class ShapeShifter extends NaveEnemiga {
 
 	@Override
 	public void colision(NaveEnemiga naveEnemiga) {
-	}
-
-	@Override
-	public void colision(NaveAliada naveAliada) {
-		System.out.println("Colision(naveAliada)");
-	}
-
-	@Override
-	public void colision(Obstaculo naveEnemiga) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	public void colision(PowerUp powerUp) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	public void colision(Disparo disparo) {
+		// TODO Auto-generated method stub
+		
 	}
-
 }

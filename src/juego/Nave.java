@@ -13,11 +13,11 @@ public abstract class Nave extends GameObject {
 	}
 	
 	public int getDmg() {
-		return state.dmg;
+		return state.getDmg();
 	}
 
 	public void setDmg(int dmg) {
-		this.state.dmg = dmg;
+		this.state.setDmg(dmg);
 	}
 
 	public int getAlcance() {

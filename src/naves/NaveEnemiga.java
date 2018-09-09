@@ -24,4 +24,13 @@ public abstract class NaveEnemiga extends Nave {
 	public void colision(GameObject obs) {
 		obs.colision(this);
 	}
+	
+	public void colision(NaveAliada na) {
+		na.recibirDano(this.state.getDmg());
+	}
+	
+	public void colision(Obstaculo o) {
+		this.recibirDano(o.getDmg());
+		System.out.println("Colision de nave enemiga con obstaculo.");
+	}
 }

@@ -18,4 +18,13 @@ public abstract class Obstaculo extends GameObject {
 	public void colision(GameObject obs) {
 		obs.colision(this);
 	}
+	
+	public void colision(NaveEnemiga ne) {
+		ne.colision(this);
+		System.out.println("Colision de obstaculo con nave enemiga.");
+	}
+	
+	public void colision(Disparo d) {
+		System.out.println("Colision de obstaculo con disparo.");
+	}
 }

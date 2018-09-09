@@ -55,10 +55,6 @@ public final class UFO extends NaveEnemiga {
 	}
 
 	@Override
-	public void colision(Obstaculo naveEnemiga) {
-	}
-
-	@Override
 	public void colision(PowerUp powerUp) {
 	}
 

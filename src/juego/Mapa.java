@@ -116,6 +116,10 @@ public class Mapa extends JPanel {
 		}
 	}
 
+	public NaveAliada obtenerJugador() {
+		return jugador;
+	}
+	
 	private boolean intersects(GameObject o1, GameObject o2) {
 		return o1.getRectangle().intersects(o2.getRectangle());
 	}

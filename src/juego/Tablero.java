@@ -41,7 +41,7 @@ public class Tablero extends JPanel {
 		// Agregar los visores de informacion
 		nuevo.add(new JLabel("Puntos:" + puntos));
 		nuevo.add(new JLabel("Tiempo: " + tiempo));
-		nuevo.add(new JLabel("Vida: " + 22));
+		nuevo.add(new JLabel("Vida: " + g.obtenerJugador()));
 
 		// Agregar los botones de control
 		JButton botonPausa = new JButton("Pausa");

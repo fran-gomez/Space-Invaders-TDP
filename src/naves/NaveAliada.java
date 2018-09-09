@@ -43,14 +43,6 @@ public final class NaveAliada extends Nave {
 	public String getName() {
 		return "Aliado";
 	}
-
-	public void colisionar(Disparo d) {
-		
-	}
-	
-	public void colisionar(NaveEnemiga ne) {
-		
-	}
 	
 	public void mover(int d) {
 		int nuevoX = (int) rec.getLocation().getX();
@@ -79,7 +71,8 @@ public final class NaveAliada extends Nave {
 
 	@Override
 	public void colision(NaveEnemiga naveEnemiga) {
-		System.out.println("Colision(naveEnemiga)");
+		System.out.println("Colision de nave aliada con naveEnemiga");
+		naveEnemiga.colision(this);
 	}
 
 	@Override
