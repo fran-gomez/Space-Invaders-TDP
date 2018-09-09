@@ -52,9 +52,10 @@ public class Mapa extends JPanel {
 		objetos = new LinkedList<>();
 
 		// Colocamos la nave del jugador
-		jugador = new NaveAliada(Constantes.MAP_WIDTH / 2, Constantes.MAP_HEIGHT - Constantes.NAVE_ALIADA_HEIGHT / 2,
-				Constantes.NAVE_ALIADA_VIDA, Constantes.NAVE_ALIADA_DURABILIDAD, Constantes.NAVE_ALIADA_ALCANCE,
-				Constantes.NAVE_ALIADA_DANIO, Constantes.NAVE_ALIADA_DURABILIDAD);
+		jugador = new NaveAliada(Constantes.MAP_WIDTH / 2,
+				Constantes.MAP_HEIGHT - (Constantes.NAVE_ALIADA_HEIGHT + 10) / 2, Constantes.NAVE_ALIADA_VIDA,
+				Constantes.NAVE_ALIADA_DURABILIDAD, Constantes.NAVE_ALIADA_ALCANCE, Constantes.NAVE_ALIADA_DANIO,
+				Constantes.NAVE_ALIADA_DURABILIDAD);
 		this.add(jugador);
 		objetos.add(jugador);
 
@@ -94,7 +95,6 @@ public class Mapa extends JPanel {
 
 	public void gameLoop() {
 
-		juego.requestFocus();
 		// Movimiento de objetos
 		for (GameObject obj : objetos) {
 			obj.mover();
@@ -104,6 +104,7 @@ public class Mapa extends JPanel {
 		GameObject obj1, obj2;
 		for (int i = 0; i < objetos.size(); i++) {
 			obj1 = objetos.get(i);
+
 			for (int j = i + 1; j < objetos.size(); j++) {
 				obj2 = objetos.get(j);
 
