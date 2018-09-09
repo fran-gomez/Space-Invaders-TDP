@@ -18,15 +18,14 @@ import obstaculos.Obstaculo;
 import power_ups.PowerUp;
 
 public abstract class GameObject extends JLabel {
-	protected int vida, durabilidad;
+	
+	protected ObjectState state;
+	
 	protected Rectangle rec;
-
 	protected ImageIcon visual;
 
 	public GameObject(int x, int y, int vida, int durabilidad) {
 		this.rec = createRectangle(x, y);
-		this.vida = vida;
-		this.durabilidad = durabilidad;
 		this.visual = null;
 
 		rec.setLocation((int) (rec.getLocation().getX() - rec.getWidth() / 2),
@@ -76,19 +75,19 @@ public abstract class GameObject extends JLabel {
 	public abstract void colision(GameObject obs);
 
 	public int getVida() {
-		return vida;
+		return state.vida;
 	}
 
 	public void setVida(int vida) {
-		this.vida = vida;
+		this.state.vida = vida;
 	}
 
 	public int getDurabilidad() {
-		return durabilidad;
+		return state.durabilidad;
 	}
 
 	public void setDurabilidad(int durabilidad) {
-		this.durabilidad = durabilidad;
+		this.state.durabilidad = durabilidad;
 	}
 
 	public Rectangle getRectangle() {
