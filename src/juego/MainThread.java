@@ -4,10 +4,12 @@ public class MainThread extends Thread {
 
 	private Mapa mapa;
 	private int tiempoPausa;
+	private boolean ejecutar;
 
 	public MainThread(Mapa m) {
 		this.mapa = m;
 		this.tiempoPausa = 16;
+		ejecutar = true;
 	}
 
 	/*
@@ -22,7 +24,7 @@ public class MainThread extends Thread {
 		double delta = 0;
 		long timer = System.currentTimeMillis();
 		int frames = 0;
-		while (true) {
+		while (ejecutar) {
 			long now = System.nanoTime();
 			delta += (now - lastTime) / ns;
 			lastTime = now;
@@ -43,5 +45,13 @@ public class MainThread extends Thread {
 			}
 			mapa.repaint();
 		}
+	}
+	
+	public void pausar() {
+		ejecutar = false;
+	}
+	
+	public void reiniciar() {
+		ejecutar = true;
 	}
 }
