@@ -44,7 +44,7 @@ public final class Squid extends NaveEnemiga {
 	
 	@Override
 	public ImageIcon getGrafico() {
-		return new ImageIcon("src/resources/Squid.jpg");
+		return new ImageIcon("src/resources/Squid.png");
 	}
 
 
@@ -54,7 +54,8 @@ public final class Squid extends NaveEnemiga {
 	}
 
 	@Override
-	public void colision(NaveAliada naveEnemiga) {
+	public void colision(NaveAliada naveAliada) {
+		System.out.println("Colision(naveAliada)");
 	}
 
 	@Override

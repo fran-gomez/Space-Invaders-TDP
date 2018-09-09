@@ -43,15 +43,17 @@ public final class UFO extends NaveEnemiga {
 	
 	@Override
 	public ImageIcon getGrafico() {
-		return new ImageIcon("src/resources/UFO.jpg");
+		return new ImageIcon("src/resources/UFO.png");
 	}
+
 
 	@Override
 	public void colision(NaveEnemiga naveEnemiga) {
 	}
 
 	@Override
-	public void colision(NaveAliada naveEnemiga) {
+	public void colision(NaveAliada naveAliada) {
+		System.out.println("Colision(naveAliada)");
 	}
 
 	@Override

@@ -42,11 +42,9 @@ public final class Crab extends NaveEnemiga {
 		return "Crab";
 	}
 
-
-
 	@Override
 	public ImageIcon getGrafico() {
-		return new ImageIcon("src/resources/Crab.jpg");
+		return new ImageIcon("src/resources/Crab.png");
 	}
 
 	@Override
@@ -54,7 +52,8 @@ public final class Crab extends NaveEnemiga {
 	}
 
 	@Override
-	public void colision(NaveAliada naveEnemiga) {
+	public void colision(NaveAliada naveAliada) {
+		System.out.println("Colision(naveAliada)");
 	}
 
 	@Override

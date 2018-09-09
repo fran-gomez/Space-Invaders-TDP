@@ -5,6 +5,8 @@ import java.awt.Graphics;
 
 import javax.swing.JLabel;
 
+import juego.GameObject;
+
 /**
  * JLabel para representar la vida de un gameObject
  * 
@@ -38,10 +40,11 @@ public class BarraVida extends JLabel {
 	@Override
 	public void paint(Graphics g) {
 		int porcentaje = vida * 100 / vidaTotal;
-		
+
 		g.setColor(Color.green);
-		g.fillRect(0, 0, porcentaje * this.getWidth() / 100, 5); 
-		// dibujamos la vida en funcion del porcentaje de la vida actual con respecto al total
+		g.fillRect(0, 0, porcentaje * this.getWidth() / 100, GameObject.BARRA_VIDA_HEIGHT);
+		// dibujamos la vida en funcion del porcentaje de la vida actual con respecto al
+		// total
 	}
 
 }

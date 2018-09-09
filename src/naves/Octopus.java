@@ -44,15 +44,18 @@ public final class Octopus extends NaveEnemiga {
 	
 	@Override
 	public ImageIcon getGrafico() {
-		return new ImageIcon("src/resources/Octopus.jpg");
+		return new ImageIcon("src/resources/Octopus.png");
 	}
+
+
 
 	@Override
 	public void colision(NaveEnemiga naveEnemiga) {
 	}
 
 	@Override
-	public void colision(NaveAliada naveEnemiga) {
+	public void colision(NaveAliada naveAliada) {
+		System.out.println("Colision(naveAliada)");
 	}
 
 	@Override

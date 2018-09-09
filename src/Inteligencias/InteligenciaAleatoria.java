@@ -44,7 +44,7 @@ public class InteligenciaAleatoria extends Inteligencia {
 		newY += valorY * Constantes.NAVE_ALEATORIA_VELOCIDAD;
 
 		rec.setLocation(newX, newY);
-		nave.setBounds(rec);
+		nave.setLocation((int)rec.getX(), (int)rec.getY());
 	}
 
 	public static InteligenciaAleatoria getInstance() {

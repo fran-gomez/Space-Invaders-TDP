@@ -14,21 +14,17 @@ import utilidades.Constantes;
 public class NaveErrante extends Obstaculo {
 
 	public NaveErrante(int x, int y, int vida, int durabilidad) {
-		super(x,y, vida, durabilidad);
-	
+		super(x, y, vida, durabilidad);
+
 	}
-	
+
 	public String getName() {
 		return "NaveErrante";
 	}
 
-
 	@Override
 	public void borrar() {
 	}
-
-
-
 
 	@Override
 	public void mover() {
@@ -36,14 +32,13 @@ public class NaveErrante extends Obstaculo {
 
 	@Override
 	public ImageIcon getGrafico() {
-		return null;
+		return new ImageIcon("src/resources/asteroid.png");
 	}
 
 	@Override
 	protected Rectangle createRectangle(int x, int y) {
-		return new Rectangle(x,y, Constantes.NAVEERRANTE_WIDTH, Constantes.NAVEERRANTE_HEIGHT);
+		return new Rectangle(x, y, Constantes.NAVEERRANTE_WIDTH, Constantes.NAVEERRANTE_HEIGHT);
 	}
-
 
 	@Override
 	public void colision(NaveEnemiga naveEnemiga) {

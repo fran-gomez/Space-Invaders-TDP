@@ -28,6 +28,8 @@ public abstract class GameObject extends JPanel {
 	protected ImageIcon visual;
 	protected BarraVida vidaLabel;
 	protected JLabel imagenLabel;
+	
+	public static final int BARRA_VIDA_HEIGHT = 3;
 
 	public GameObject(int x, int y, int vida, int durabilidad) {
 		this.rec = createRectangle(x, y);
@@ -35,11 +37,10 @@ public abstract class GameObject extends JPanel {
 
 		this.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0)); // sacamos el padding
 
-		rec.setBounds((int) rec.getX(), (int) rec.getY(), (int) rec.getWidth(), (int) rec.getHeight() + 10);
-		// añadimos 10 al alto para que quepa la barra de vida
-
 		rec.setLocation((int) (rec.getX() - rec.getWidth() / 2), (int) (rec.getY() - rec.getHeight() / 2));
-		this.setBounds(rec);
+
+		this.setBounds((int) rec.getX(), (int) rec.getY(), (int) rec.getWidth(), (int) rec.getHeight() + BARRA_VIDA_HEIGHT+5);
+		//Añadimos 10 para que quepa la barra de vida
 		setImage();
 	}
 
@@ -50,13 +51,13 @@ public abstract class GameObject extends JPanel {
 		this.imagenLabel = new JLabel();
 
 		// Rectángulo de vida
-		vidaLabel.setSize((int) rec.getWidth(), 10);
-		vidaLabel.setPreferredSize(new Dimension((int) rec.getWidth(), 10));
+		vidaLabel.setSize((int) rec.getWidth(), BARRA_VIDA_HEIGHT+5);
+		vidaLabel.setPreferredSize(new Dimension((int) rec.getWidth(), BARRA_VIDA_HEIGHT+5));
 
 		// rectángulo de imagen
-		imagenLabel.setSize((int) rec.getWidth(), (int) (rec.getHeight() - 10));
-		imagenLabel.setPreferredSize(new Dimension((int) rec.getWidth(), (int) (rec.getHeight() - 10)));
-		imagenLabel.setOpaque(true);
+		imagenLabel.setSize((int) rec.getWidth(), (int) rec.getHeight());
+		imagenLabel.setPreferredSize(new Dimension((int) rec.getWidth(), (int) rec.getHeight()));
+		
 
 		this.add(vidaLabel);
 		this.add(imagenLabel);
@@ -96,9 +97,9 @@ public abstract class GameObject extends JPanel {
 
 	public abstract void colision(NaveEnemiga naveEnemiga);
 
-	public abstract void colision(NaveAliada naveEnemiga);
+	public abstract void colision(NaveAliada naveAliada);
 
-	public abstract void colision(Obstaculo naveEnemiga);
+	public abstract void colision(Obstaculo obs);
 
 	public abstract void colision(PowerUp powerUp);
 

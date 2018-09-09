@@ -19,16 +19,16 @@ public class InteligenciaKamikaze extends Inteligencia {
 	public void actualizarPosicion(NaveEnemiga nave) {
 		super.actualizarPosicion(nave);
 		Rectangle rec = nave.getRectangle();
-		
+
 		int newX = (int) rec.getX(), newY = (int) (rec.getY() + Constantes.NAVE_ALEATORIA_VELOCIDAD);
-		if(jugador.getRectangle().getX() - rec.getX() > 0) { // El jugador está a la derecha 
+		if (jugador.getRectangle().getX() - rec.getX() > 0) { // El jugador está a la derecha
 			newX += Constantes.NAVE_ALEATORIA_VELOCIDAD;
-		}else { // el jugador está a la izquierda
+		} else { // el jugador está a la izquierda
 			newX -= Constantes.NAVE_ALEATORIA_VELOCIDAD;
 		}
-		
+
 		rec.setLocation(newX, newY);
-		nave.setBounds(rec);
+		nave.setLocation((int)rec.getX(), (int)rec.getY());
 	}
 
 	public static InteligenciaKamikaze getInstance(NaveAliada j) {

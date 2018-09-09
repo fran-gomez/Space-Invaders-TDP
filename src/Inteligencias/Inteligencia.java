@@ -8,7 +8,6 @@ import utilidades.Constantes;
 public abstract class Inteligencia {
 
 	public void actualizarPosicion(NaveEnemiga nave) {
-
 		Rectangle rec = nave.getRectangle();
 
 		if (rec.getY() > Constantes.MAP_HEIGHT) {
