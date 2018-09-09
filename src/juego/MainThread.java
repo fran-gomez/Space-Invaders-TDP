@@ -17,7 +17,7 @@ public class MainThread extends Thread {
 
 	public void run() {
 		long lastTime = System.nanoTime();
-		double fps = 30.0;
+		double fps = 30.0; ////////////////// FPS
 		double ns = 1000000000 / fps;
 		double delta = 0;
 		long timer = System.currentTimeMillis();
@@ -37,7 +37,7 @@ public class MainThread extends Thread {
 				frames = 0;
 			}
 			try {
-				Thread.sleep(5);
+				Thread.sleep(1);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

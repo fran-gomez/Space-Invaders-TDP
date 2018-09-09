@@ -40,7 +40,7 @@ public class InteligenciaDefecto extends Inteligencia {
 				movDer = false;
 			}
 			if (movAbajo) {
-				rec.setLocation((int) rec.getX(), (int) rec.getY() + Constantes.NAVE_ALEATORIA_VELOCIDAD*3);
+				rec.setLocation((int) rec.getX(), (int) rec.getY() + Constantes.NAVE_ALEATORIA_VELOCIDAD * 5);
 				mapMover.put(nave, true);
 			}
 		} else {
