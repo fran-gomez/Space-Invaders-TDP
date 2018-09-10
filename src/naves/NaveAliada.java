@@ -1,8 +1,6 @@
 package naves;
 
 import java.awt.Rectangle;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
 import javax.swing.ImageIcon;
 
@@ -36,14 +34,10 @@ public final class NaveAliada extends Nave {
 	}
 
 	@Override
-	public void borrar() {
-
-	}
-
 	public String getName() {
 		return "Aliado";
 	}
-	
+
 	public void mover(int d) {
 		int nuevoX = (int) rec.getLocation().getX();
 		switch (d) {
@@ -57,7 +51,7 @@ public final class NaveAliada extends Nave {
 			break;
 		}
 		rec.setLocation(nuevoX, (int) rec.getLocation().getY());
-		this.setLocation((int)rec.getLocation().getX(), (int)rec.getLocation().getY());
+		this.setLocation((int) rec.getLocation().getX(), (int) rec.getLocation().getY());
 	}
 
 	@Override
@@ -72,15 +66,16 @@ public final class NaveAliada extends Nave {
 	@Override
 	public void colision(NaveEnemiga naveEnemiga) {
 		System.out.println("Colision de nave aliada con naveEnemiga");
-		naveEnemiga.colision(this);
+		naveEnemiga.eliminar();
+		naveEnemiga.setVida(0);
 	}
 
 	@Override
-	public void colision(NaveAliada naveEnemiga) {
+	public void colision(NaveAliada naveAliada) {
 	}
 
 	@Override
-	public void colision(Obstaculo naveEnemiga) {
+	public void colision(Obstaculo obs) {
 	}
 
 	@Override
@@ -91,8 +86,9 @@ public final class NaveAliada extends Nave {
 	public void colision(Disparo disparo) {
 	}
 
+	@Override
 	public void colision(GameObject obs) {
 		obs.colision(this);
 	}
-}
 
+}

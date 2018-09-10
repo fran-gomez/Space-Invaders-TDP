@@ -12,12 +12,13 @@ public class MainThread extends Thread {
 		ejecutar = true;
 	}
 
+	@Override
 	public void run() {
 		long lastTime = System.nanoTime();
 		double fps = 30.0; ////////////////// FPS
 		double ns = 1000000000 / fps;
 		double delta = 0;
-		
+
 		while (ejecutar) {
 			long now = System.nanoTime();
 			delta += (now - lastTime) / ns;
@@ -26,7 +27,7 @@ public class MainThread extends Thread {
 				mapa.gameLoop();
 				delta--;
 			}
-		
+
 			try {
 				Thread.sleep(1);
 			} catch (InterruptedException e) {
@@ -35,11 +36,11 @@ public class MainThread extends Thread {
 			mapa.repaint();
 		}
 	}
-	
+
 	public void pausar() {
 		ejecutar = false;
 	}
-	
+
 	public void reiniciar() {
 		ejecutar = true;
 	}

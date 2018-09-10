@@ -7,12 +7,12 @@ public final class Constantes {
 	public static final int MAP_WIDTH = 500;
 
 	// Enemigos
-	public static final int CANT_FILAS_ENEMIGOS = 3;
+	public static final int CANT_FILAS_ENEMIGOS = 4;
 	public static final int ENEMIGOS_X_FILA = 3;
 
 	// Dimensiones
-	public static final int DEFAULT_SIZE = 50;
-	
+	public static final int DEFAULT_SIZE = 40;
+
 	public static final int NAVE_ALIADA_WIDTH = 40;
 	public static final int NAVE_ALIADA_HEIGHT = 50;
 
@@ -27,10 +27,10 @@ public final class Constantes {
 	public static final int UFO_WIDTH = DEFAULT_SIZE;
 	public static final int UFO_HEIGHT = DEFAULT_SIZE;
 
-	public static final int ASTEROIDE_WIDTH = DEFAULT_SIZE;
-	public static final int ASTEROIDE_HEIGHT = DEFAULT_SIZE;
-	public static final int NAVEERRANTE_WIDTH = DEFAULT_SIZE;
-	public static final int NAVEERRANTE_HEIGHT = DEFAULT_SIZE;
+	public static final int ASTEROIDE_WIDTH = 40;
+	public static final int ASTEROIDE_HEIGHT = 40;
+	public static final int NAVEERRANTE_WIDTH = 40;
+	public static final int NAVEERRANTE_HEIGHT = 40;
 
 	public static final int APARATOCATASTROFICO_HEIGHT = DEFAULT_SIZE;
 	public static final int APARATOCATASTROFICO_WIDTH = DEFAULT_SIZE;
@@ -51,8 +51,8 @@ public final class Constantes {
 	public static final int NAVE_ALIADA_ALCANCE = 10;
 	public static final int NAVE_ALIADA_DANIO = 2;
 	public static final int NAVE_ALIADA_VELOCIDAD = 10;
-	
-	//Nave Aleatoria
+
+	// Nave Aleatoria
 	public static final int NAVE_ALEATORIA_VELOCIDAD = 3;
 
 }

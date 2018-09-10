@@ -4,7 +4,6 @@ import java.awt.Rectangle;
 
 import javax.swing.ImageIcon;
 
-import juego.GameObject;
 import naves.NaveAliada;
 import naves.NaveEnemiga;
 import obstaculos.Obstaculo;
@@ -18,12 +17,10 @@ public final class DisparoTriple extends Disparo {
 	}
 
 	@Override
-	public void borrar() {
+	public void eliminar() {
 		// TODO Auto-generated method stub
 
 	}
-
-	
 
 	@Override
 	public void mover() {

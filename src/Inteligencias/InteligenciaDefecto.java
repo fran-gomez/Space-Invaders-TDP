@@ -52,7 +52,7 @@ public class InteligenciaDefecto extends Inteligencia {
 			}
 		}
 
-		nave.setLocation((int)rec.getX(), (int)rec.getY());
+		nave.setLocation((int) rec.getX(), (int) rec.getY());
 	}
 
 	public static InteligenciaDefecto getInstance() {

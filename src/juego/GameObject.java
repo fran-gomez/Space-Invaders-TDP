@@ -2,13 +2,11 @@ package juego;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -28,10 +26,11 @@ public abstract class GameObject extends JPanel {
 	protected ImageIcon visual;
 	protected BarraVida vidaLabel;
 	protected JLabel imagenLabel;
-	
+
 	public static final int BARRA_VIDA_HEIGHT = 3;
 
 	public GameObject(int x, int y, int vida, int durabilidad) {
+
 		this.rec = createRectangle(x, y);
 		this.visual = null;
 
@@ -39,8 +38,10 @@ public abstract class GameObject extends JPanel {
 
 		rec.setLocation((int) (rec.getX() - rec.getWidth() / 2), (int) (rec.getY() - rec.getHeight() / 2));
 
-		this.setBounds((int) rec.getX(), (int) rec.getY(), (int) rec.getWidth(), (int) rec.getHeight() + BARRA_VIDA_HEIGHT+5);
-		//Añadimos 10 para que quepa la barra de vida
+		this.setBounds((int) rec.getX(), (int) rec.getY(), (int) rec.getWidth(),
+				(int) rec.getHeight() + BARRA_VIDA_HEIGHT + 5);
+		// Añadimos 5 para que quepa la barra de vida
+
 		setImage();
 	}
 
@@ -51,13 +52,12 @@ public abstract class GameObject extends JPanel {
 		this.imagenLabel = new JLabel();
 
 		// Rectángulo de vida
-		vidaLabel.setSize((int) rec.getWidth(), BARRA_VIDA_HEIGHT+5);
-		vidaLabel.setPreferredSize(new Dimension((int) rec.getWidth(), BARRA_VIDA_HEIGHT+5));
+		vidaLabel.setSize((int) rec.getWidth(), BARRA_VIDA_HEIGHT + 5);
+		vidaLabel.setPreferredSize(new Dimension((int) rec.getWidth(), BARRA_VIDA_HEIGHT + 5));
 
 		// rectángulo de imagen
 		imagenLabel.setSize((int) rec.getWidth(), (int) rec.getHeight());
 		imagenLabel.setPreferredSize(new Dimension((int) rec.getWidth(), (int) rec.getHeight()));
-		
 
 		this.add(vidaLabel);
 		this.add(imagenLabel);
@@ -79,7 +79,10 @@ public abstract class GameObject extends JPanel {
 		}
 	}
 
-	public abstract void borrar();
+	public void eliminar() {
+		this.setVisible(false);
+		// TODO borrar de los objetos
+	}
 
 	public abstract void mover();
 
@@ -138,6 +141,15 @@ public abstract class GameObject extends JPanel {
 
 	public void setVisual(ImageIcon visual) {
 		this.visual = visual;
+	}
+
+	@Override
+	public String toString() {
+		return "" + this.state.vida;
+	}
+
+	public boolean estaVivo() {
+		return this.state.vida > 0;
 	}
 
 }

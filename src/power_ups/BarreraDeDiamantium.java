@@ -5,7 +5,6 @@ import java.awt.Rectangle;
 import javax.swing.ImageIcon;
 
 import disparos.Disparo;
-import juego.GameObject;
 import naves.NaveAliada;
 import naves.NaveEnemiga;
 import obstaculos.Obstaculo;
@@ -14,19 +13,14 @@ import utilidades.Constantes;
 public class BarreraDeDiamantium extends PowerUp {
 
 	public BarreraDeDiamantium(int x, int y, int vida, int durabilidad) {
-		super(x,y, vida, durabilidad);
-		
+		super(x, y, vida, durabilidad);
+
 	}
-	
+
 	@Override
 	protected Rectangle createRectangle(int x, int y) {
-		return new Rectangle(x,y, Constantes.BARRERADEDIAMANTIUM_WIDTH, Constantes.APARATOCATASTROFICO_HEIGHT);
+		return new Rectangle(x, y, Constantes.BARRERADEDIAMANTIUM_WIDTH, Constantes.APARATOCATASTROFICO_HEIGHT);
 	}
-
-	@Override
-	public void borrar() {
-	}
-
 
 	@Override
 	public void mover() {
@@ -56,7 +50,5 @@ public class BarreraDeDiamantium extends PowerUp {
 	@Override
 	public void colision(Disparo disparo) {
 	}
-
-	 
 
 }

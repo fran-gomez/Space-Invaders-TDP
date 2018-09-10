@@ -1,9 +1,9 @@
 package naves;
 
 import Inteligencias.Inteligencia;
-import disparos.Disparo;
 import juego.GameObject;
 import juego.Nave;
+import juego.NaveState;
 import obstaculos.Obstaculo;
 
 public abstract class NaveEnemiga extends Nave {
@@ -21,14 +21,17 @@ public abstract class NaveEnemiga extends Nave {
 		inteligencia.actualizarPosicion(this);
 	}
 
+	@Override
 	public void colision(GameObject obs) {
 		obs.colision(this);
 	}
-	
+
+	@Override
 	public void colision(NaveAliada na) {
-		na.recibirDano(this.state.getDmg());
+		na.recibirDano(((NaveState) this.state).getDmg());
 	}
-	
+
+	@Override
 	public void colision(Obstaculo o) {
 		this.recibirDano(o.getDmg());
 		System.out.println("Colision de nave enemiga con obstaculo.");

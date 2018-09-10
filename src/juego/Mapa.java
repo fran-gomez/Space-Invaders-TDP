@@ -1,7 +1,6 @@
 package juego;
 
 import java.awt.Color;
-import java.util.Timer;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -12,7 +11,6 @@ import java.util.Random;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import Inteligencias.Inteligencia;
 import Inteligencias.InteligenciaAleatoria;
 import Inteligencias.InteligenciaDefecto;
 import Inteligencias.InteligenciaKamikaze;
@@ -80,8 +78,8 @@ public class Mapa extends JPanel {
 		}
 
 		// Colocamos dos obstaculos
-		Obstaculo obs1 = new NaveErrante(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 0, 0);
-		Obstaculo obs2 = new Asteroide(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 0, 0);
+		Obstaculo obs1 = new NaveErrante(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 10, 0);
+		Obstaculo obs2 = new Asteroide(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 10, 0);
 
 		while (intersects(obs1, obs2)) {
 			obs2 = new Asteroide(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 0, 0);
@@ -112,14 +110,23 @@ public class Mapa extends JPanel {
 					obj1.colision(obj2);
 					obj2.colision(obj1);
 				}
+
+				if (!obj2.estaVivo()) {
+					objetos.remove(obj2);
+				}
+				if (!obj1.estaVivo()) {
+					objetos.remove(obj1);
+					break;
+				}
 			}
+
 		}
 	}
 
 	public NaveAliada obtenerJugador() {
 		return jugador;
 	}
-	
+
 	private boolean intersects(GameObject o1, GameObject o2) {
 		return o1.getRectangle().intersects(o2.getRectangle());
 	}
@@ -132,19 +139,19 @@ public class Mapa extends JPanel {
 		// TODO Corregir todos los parametros de creacion
 		switch (rand) {
 		case 0:
-			n = new Octopus(x, y, rand, rand, rand, rand, rand, InteligenciaDefecto.getInstance());
+			n = new Octopus(x, y, 10, rand, rand, 20, rand, InteligenciaDefecto.getInstance());
 			break;
 		case 1:
-			n = new Squid(x, y, rand, rand, rand, rand, rand, InteligenciaKamikaze.getInstance(jugador));
+			n = new Squid(x, y, 10, rand, rand, 20, rand, InteligenciaKamikaze.getInstance(jugador));
 			break;
 		case 2:
-			n = new ShapeShifter(x, y, rand, rand, rand, rand, rand, InteligenciaAleatoria.getInstance());
+			n = new ShapeShifter(x, y, 10, rand, 20, rand, rand, InteligenciaAleatoria.getInstance());
 			break;
 		case 3:
-			n = new UFO(x, y, rand, rand, rand, rand, rand, InteligenciaDefecto.getInstance());
+			n = new UFO(x, y, 10, rand, rand, 20, rand, InteligenciaDefecto.getInstance());
 			break;
 		default:
-			n = new Crab(x, y, rand, rand, rand, rand, rand, InteligenciaDefecto.getInstance());
+			n = new Crab(x, y, 10, rand, rand, 20, rand, InteligenciaDefecto.getInstance());
 			break;
 		}
 

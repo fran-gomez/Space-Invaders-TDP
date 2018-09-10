@@ -1,13 +1,11 @@
 package juego;
 
-import java.io.Serializable;
-
-public class NaveState extends ObjectState implements Serializable {
+public class NaveState extends ObjectState {
 
 	private int dmg;
 	protected int alcance;
 	protected int velocidad;
-	
+
 	public NaveState(int vida, int durabilidad, int dmg, int alcance, int velocidad) {
 		super(vida, durabilidad);
 		this.setDmg(dmg);

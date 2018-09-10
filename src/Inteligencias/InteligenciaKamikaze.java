@@ -28,7 +28,7 @@ public class InteligenciaKamikaze extends Inteligencia {
 		}
 
 		rec.setLocation(newX, newY);
-		nave.setLocation((int)rec.getX(), (int)rec.getY());
+		nave.setLocation((int) rec.getX(), (int) rec.getY());
 	}
 
 	public static InteligenciaKamikaze getInstance(NaveAliada j) {

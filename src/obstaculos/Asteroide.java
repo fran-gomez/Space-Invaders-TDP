@@ -18,14 +18,12 @@ public class Asteroide extends Obstaculo {
 
 	}
 
+	@Override
 	public String getName() {
 		return "Asteroide";
 	}
 
 	@Override
-	public void borrar() {
-	}
-
 	public void colision(NaveEnemiga ne) {
 
 	}

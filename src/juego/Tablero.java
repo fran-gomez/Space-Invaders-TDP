@@ -1,7 +1,6 @@
 package juego;
 
 import java.awt.FlowLayout;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -28,8 +27,8 @@ public class Tablero extends JPanel {
 		this.setLayout(new FlowLayout());
 		this.add(g);
 		this.add(panelPuntos);
-		
-		//Iniciar loop
+
+		// Iniciar loop
 		tiempo.start();
 	}
 
@@ -48,12 +47,12 @@ public class Tablero extends JPanel {
 		botonPausa.setFocusable(false);
 		botonPausa.addActionListener(new BotonPausa());
 		nuevo.add(botonPausa);
-		
+
 		JButton botonGuardar = new JButton("Guardar");
 		botonGuardar.setFocusable(false);
 		botonGuardar.addActionListener(new BotonGuardar());
 		nuevo.add(botonGuardar);
-				
+
 		JButton botonReiniciar = new JButton("Reiniciar");
 		botonReiniciar.setFocusable(false);
 		botonReiniciar.addActionListener(new BotonReiniciar());
@@ -64,29 +63,31 @@ public class Tablero extends JPanel {
 
 	private class BotonPausa implements ActionListener {
 
+		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			JButton boton = (JButton) arg0.getSource();
-			
+
 			tiempo.pausar();
 			boton.setText("Reanudar");
 			boton.addActionListener(new BotonReanudar());
 			System.out.println("Pausado");
-			
+
 			boton.removeActionListener(this);
 		}
-		
+
 	}
-	
+
 	private class BotonReanudar implements ActionListener {
 
+		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			JButton boton = (JButton)arg0.getSource();
-			
+			JButton boton = (JButton) arg0.getSource();
+
 			tiempo.reiniciar();
 			boton.setText("Pausa");
 			boton.addActionListener(new BotonPausa());
 			System.out.println("Reinciado");
-			
+
 			boton.removeActionListener(this);
 		}
 
@@ -97,7 +98,7 @@ public class Tablero extends JPanel {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 
-			for (GameObject go: g.objetos)
+			for (GameObject go : g.objetos)
 				; // guardo cada go en un archivo de texto
 
 		}
@@ -108,7 +109,7 @@ public class Tablero extends JPanel {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			
+
 			tiempo.interrupt();
 			g = new Mapa(2, null);
 			tiempo = new MainThread(g);

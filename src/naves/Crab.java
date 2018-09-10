@@ -1,16 +1,11 @@
 package naves;
 
 import java.awt.Rectangle;
-import java.io.File;
-import java.io.IOException;
 
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
 import Inteligencias.Inteligencia;
 import disparos.Disparo;
-import juego.GameObject;
-import obstaculos.Obstaculo;
 import power_ups.PowerUp;
 import utilidades.Constantes;
 
@@ -35,9 +30,6 @@ public final class Crab extends NaveEnemiga {
 	}
 
 	@Override
-	public void borrar() {
-	}
-
 	public String getName() {
 		return "Crab";
 	}
@@ -49,11 +41,6 @@ public final class Crab extends NaveEnemiga {
 
 	@Override
 	public void colision(NaveEnemiga naveEnemiga) {
-	}
-
-	@Override
-	public void colision(NaveAliada naveAliada) {
-		System.out.println("Colision(naveAliada)");
 	}
 
 	@Override

@@ -6,8 +6,6 @@ import javax.swing.ImageIcon;
 
 import Inteligencias.Inteligencia;
 import disparos.Disparo;
-import juego.GameObject;
-import obstaculos.Obstaculo;
 import power_ups.PowerUp;
 import utilidades.Constantes;
 
@@ -32,30 +30,18 @@ public final class Octopus extends NaveEnemiga {
 
 	}
 
+	@Override
 	public String getName() {
 		return "Octopus";
 	}
 
 	@Override
-	public void borrar() {
-
-	}
-
-	
-	@Override
 	public ImageIcon getGrafico() {
 		return new ImageIcon("src/resources/Octopus.png");
 	}
 
-
-
 	@Override
 	public void colision(NaveEnemiga naveEnemiga) {
-	}
-
-	@Override
-	public void colision(NaveAliada naveAliada) {
-		System.out.println("Colision(naveAliada)");
 	}
 
 	@Override
@@ -65,7 +51,5 @@ public final class Octopus extends NaveEnemiga {
 	@Override
 	public void colision(Disparo disparo) {
 	}
-
-
 
 }

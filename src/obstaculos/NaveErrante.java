@@ -18,12 +18,9 @@ public class NaveErrante extends Obstaculo {
 
 	}
 
+	@Override
 	public String getName() {
 		return "NaveErrante";
-	}
-
-	@Override
-	public void borrar() {
 	}
 
 	@Override
