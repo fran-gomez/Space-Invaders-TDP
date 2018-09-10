@@ -2,14 +2,20 @@ package juego;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
+import javax.swing.AbstractAction;
+import javax.swing.ActionMap;
+import javax.swing.InputMap;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.KeyStroke;
 
 import Inteligencias.InteligenciaAleatoria;
 import Inteligencias.InteligenciaDefecto;
@@ -30,17 +36,14 @@ public class Mapa extends JPanel {
 
 	private NaveAliada jugador;
 
-	protected JFrame juego;
 	protected int dificultad;
 	protected List<GameObject> objetos;
 
 	protected Random rnd;
 
-	public Mapa(int dificultad, JFrame juego) {
-		this.juego = juego;
+	public Mapa(int dificultad) {
+
 		this.setLayout(null);
-		juego.requestFocus();
-		juego.setFocusable(true);
 		this.setSize(Constantes.MAP_WIDTH, Constantes.MAP_HEIGHT);
 		this.setPreferredSize(new Dimension(Constantes.MAP_WIDTH, Constantes.MAP_HEIGHT));
 		this.setBackground(Color.BLACK);
@@ -51,13 +54,11 @@ public class Mapa extends JPanel {
 
 		// Colocamos la nave del jugador
 		jugador = new NaveAliada(Constantes.MAP_WIDTH / 2,
-				Constantes.MAP_HEIGHT - (Constantes.NAVE_ALIADA_HEIGHT + 10) / 2, Constantes.NAVE_ALIADA_VIDA,
-				Constantes.NAVE_ALIADA_DURABILIDAD, Constantes.NAVE_ALIADA_ALCANCE, Constantes.NAVE_ALIADA_DANIO,
-				Constantes.NAVE_ALIADA_DURABILIDAD);
+				Constantes.MAP_HEIGHT - (Constantes.NAVE_ALIADA_HEIGHT + GameObject.BARRA_VIDA_HEIGHT + 10) / 2,
+				Constantes.NAVE_ALIADA_VIDA, Constantes.NAVE_ALIADA_DURABILIDAD, Constantes.NAVE_ALIADA_ALCANCE,
+				Constantes.NAVE_ALIADA_DANIO, Constantes.NAVE_ALIADA_DURABILIDAD);
 		this.add(jugador);
 		objetos.add(jugador);
-
-		juego.addKeyListener(new PlayerMovementListener());
 
 		// Creacion y adicion de los enemigos
 		NaveEnemiga enemigo = null;
@@ -145,7 +146,7 @@ public class Mapa extends JPanel {
 			n = new Squid(x, y, 10, rand, rand, 20, rand, InteligenciaKamikaze.getInstance(jugador));
 			break;
 		case 2:
-			n = new ShapeShifter(x, y, 10, rand, 20, rand, rand, InteligenciaAleatoria.getInstance());
+			n = new ShapeShifter(x, y, 10, rand, rand, 20, rand, InteligenciaAleatoria.getInstance());
 			break;
 		case 3:
 			n = new UFO(x, y, 10, rand, rand, 20, rand, InteligenciaDefecto.getInstance());
@@ -156,39 +157,6 @@ public class Mapa extends JPanel {
 		}
 
 		return n;
-	}
-
-	private class PlayerMovementListener implements KeyListener {
-
-		@Override
-		public void keyPressed(KeyEvent e) {
-			int keyCode = e.getKeyCode();
-			switch (keyCode) {
-
-			case KeyEvent.VK_RIGHT:
-				jugador.mover(1);
-				break;
-
-			case KeyEvent.VK_LEFT:
-				jugador.mover(-1);
-				break;
-
-			case KeyEvent.VK_UP:
-			case KeyEvent.VK_SPACE:
-				// TODO disparar
-				System.out.println("Disparo aliado");
-				break;
-			}
-		}
-
-		@Override
-		public void keyReleased(KeyEvent e) {
-		}
-
-		@Override
-		public void keyTyped(KeyEvent e) {
-		}
-
 	}
 
 }

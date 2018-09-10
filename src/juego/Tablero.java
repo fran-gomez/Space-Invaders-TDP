@@ -16,12 +16,14 @@ public class Tablero extends JPanel {
 	protected JPanel panelPuntos;
 
 	protected long puntos;
-	protected MainThread tiempo;
+	protected MainThread mainThread;
+	protected JugadorThread jugadorThread;
 
-	public Tablero(int dificultad, JFrame ventana) {
-		g = new Mapa(dificultad, ventana);
+	public Tablero(int dificultad) {
+		g = new Mapa(dificultad);
 
-		tiempo = new MainThread(g);
+		mainThread = new MainThread(g);
+		jugadorThread = new JugadorThread(g.obtenerJugador());
 		panelPuntos = nuevoPanelPuntos();
 
 		this.setLayout(new FlowLayout());
@@ -29,7 +31,8 @@ public class Tablero extends JPanel {
 		this.add(panelPuntos);
 
 		// Iniciar loop
-		tiempo.start();
+		mainThread.start();
+		jugadorThread.start();
 	}
 
 	private JPanel nuevoPanelPuntos() {
@@ -39,8 +42,8 @@ public class Tablero extends JPanel {
 
 		// Agregar los visores de informacion
 		nuevo.add(new JLabel("Puntos:" + puntos));
-		nuevo.add(new JLabel("Tiempo: " + tiempo));
-		nuevo.add(new JLabel("Vida: " + g.obtenerJugador()));
+		nuevo.add(new JLabel("Tiempo: " + mainThread));
+		nuevo.add(new JLabel("Vida: " + g.obtenerJugador())); // TODO hay que ir actualizandolo
 
 		// Agregar los botones de control
 		JButton botonPausa = new JButton("Pausa");
@@ -67,7 +70,7 @@ public class Tablero extends JPanel {
 		public void actionPerformed(ActionEvent arg0) {
 			JButton boton = (JButton) arg0.getSource();
 
-			tiempo.pausar();
+			mainThread.pausar();
 			boton.setText("Reanudar");
 			boton.addActionListener(new BotonReanudar());
 			System.out.println("Pausado");
@@ -83,7 +86,7 @@ public class Tablero extends JPanel {
 		public void actionPerformed(ActionEvent arg0) {
 			JButton boton = (JButton) arg0.getSource();
 
-			tiempo.reiniciar();
+			mainThread.reiniciar();
 			boton.setText("Pausa");
 			boton.addActionListener(new BotonPausa());
 			System.out.println("Reinciado");
@@ -110,9 +113,9 @@ public class Tablero extends JPanel {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 
-			tiempo.interrupt();
-			g = new Mapa(2, null);
-			tiempo = new MainThread(g);
+			mainThread.interrupt();
+			g = new Mapa(2);
+			mainThread = new MainThread(g);
 
 		}
 

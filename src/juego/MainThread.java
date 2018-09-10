@@ -3,12 +3,10 @@ package juego;
 public class MainThread extends Thread {
 
 	private Mapa mapa;
-	private int tiempoPausa;
 	private boolean ejecutar;
 
 	public MainThread(Mapa m) {
 		this.mapa = m;
-		this.tiempoPausa = 16;
 		ejecutar = true;
 	}
 

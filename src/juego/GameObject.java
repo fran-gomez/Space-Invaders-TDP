@@ -52,7 +52,7 @@ public abstract class GameObject extends JPanel {
 		this.imagenLabel = new JLabel();
 
 		// Rectángulo de vida
-		vidaLabel.setSize((int) rec.getWidth(), BARRA_VIDA_HEIGHT + 5);
+		vidaLabel.setSize((int) rec.getWidth(), BARRA_VIDA_HEIGHT + 5); // +5 para el padding
 		vidaLabel.setPreferredSize(new Dimension((int) rec.getWidth(), BARRA_VIDA_HEIGHT + 5));
 
 		// rectángulo de imagen

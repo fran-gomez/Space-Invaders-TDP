@@ -1,0 +1,92 @@
+package juego;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+
+import javax.swing.AbstractAction;
+import javax.swing.ActionMap;
+import javax.swing.InputMap;
+import javax.swing.JComponent;
+import javax.swing.KeyStroke;
+
+import naves.NaveAliada;
+
+public class JugadorThread extends Thread {
+
+	private int movement; // FLAG de movimiento
+	private int tiempoPausa;
+	private boolean ejecutar;
+	private NaveAliada jugador;
+
+	public JugadorThread(NaveAliada j) {
+		this.tiempoPausa = 20;
+		this.jugador = j;
+		ejecutar = true;
+		movement = NaveAliada.STOP;
+
+		setListener();
+	}
+
+	@Override
+	public void run() {
+		while (ejecutar) {
+			
+			jugador.mover(movement);
+			
+			try {
+				Thread.sleep(tiempoPausa);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public void pausar() {
+		ejecutar = false;
+	}
+
+	public void reiniciar() {
+		ejecutar = true;
+	}
+
+	private class PlayerMovementAction extends AbstractAction {
+		private int d;
+
+		public PlayerMovementAction(int d) {
+			this.d = d;
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			movement = d;
+		}
+
+	}
+
+	private class DisparoAction extends AbstractAction {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			System.out.println("DISPARO ALIADO!!");
+			// TODO disparar jugador.disparar();
+			// TODO añadir tardanza entre un disparo y otro
+		}
+
+	}
+
+	private void setListener() {
+		InputMap inputMap = jugador.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
+		ActionMap actionMap = jugador.getActionMap();
+
+		inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, 0, false), "mover derecha");
+		inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, 0, true), "mover parar"); // soltó la tecla der
+		inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_LEFT, 0, false), "mover izquierda");
+		inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_LEFT, 0, true), "mover parar"); // soltó la tecla izq
+		inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0, false), "disparo");
+		inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0, false), "disparo");
+
+		actionMap.put("mover derecha", new PlayerMovementAction(NaveAliada.DERECHA));
+		actionMap.put("mover parar", new PlayerMovementAction(NaveAliada.STOP));
+		actionMap.put("mover izquierda", new PlayerMovementAction(NaveAliada.IZQUIERDA));
+		actionMap.put("disparo", new DisparoAction());
+	}
+}

@@ -7,14 +7,14 @@ public final class Constantes {
 	public static final int MAP_WIDTH = 500;
 
 	// Enemigos
-	public static final int CANT_FILAS_ENEMIGOS = 4;
-	public static final int ENEMIGOS_X_FILA = 3;
+	public static final int CANT_FILAS_ENEMIGOS = 6;
+	public static final int ENEMIGOS_X_FILA = 8;
 
 	// Dimensiones
-	public static final int DEFAULT_SIZE = 40;
+	public static final int DEFAULT_SIZE = 20;
 
-	public static final int NAVE_ALIADA_WIDTH = 40;
-	public static final int NAVE_ALIADA_HEIGHT = 50;
+	public static final int NAVE_ALIADA_WIDTH = 20;
+	public static final int NAVE_ALIADA_HEIGHT = 20;
 
 	public static final int CRAB_WIDTH = DEFAULT_SIZE;
 	public static final int CRAB_HEIGHT = DEFAULT_SIZE;
@@ -50,7 +50,7 @@ public final class Constantes {
 	public static final int NAVE_ALIADA_DURABILIDAD = 100;
 	public static final int NAVE_ALIADA_ALCANCE = 10;
 	public static final int NAVE_ALIADA_DANIO = 2;
-	public static final int NAVE_ALIADA_VELOCIDAD = 10;
+	public static final int NAVE_ALIADA_VELOCIDAD = 5;
 
 	// Nave Aleatoria
 	public static final int NAVE_ALEATORIA_VELOCIDAD = 3;

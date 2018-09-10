@@ -1,6 +1,7 @@
 package naves;
 
 import java.awt.Rectangle;
+import java.util.Timer;
 
 import javax.swing.ImageIcon;
 
@@ -13,9 +14,11 @@ import utilidades.Constantes;
 
 public final class NaveAliada extends Nave {
 
+	private Timer timer;
+	public static final int DERECHA = 1, IZQUIERDA = -1, STOP = 0;
+
 	public NaveAliada(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad) {
 		super(x, y, vida, durabilidad, alcance, dmg, velocidad);
-
 	}
 
 	@Override
@@ -36,22 +39,6 @@ public final class NaveAliada extends Nave {
 	@Override
 	public String getName() {
 		return "Aliado";
-	}
-
-	public void mover(int d) {
-		int nuevoX = (int) rec.getLocation().getX();
-		switch (d) {
-		case 1:
-			if (rec.getLocation().getX() < Constantes.MAP_WIDTH - Constantes.NAVE_ALIADA_WIDTH)
-				nuevoX += Constantes.NAVE_ALIADA_VELOCIDAD;
-			break;
-		case -1:
-			if (rec.getLocation().getX() > 0)
-				nuevoX -= Constantes.NAVE_ALIADA_VELOCIDAD;
-			break;
-		}
-		rec.setLocation(nuevoX, (int) rec.getLocation().getY());
-		this.setLocation((int) rec.getLocation().getX(), (int) rec.getLocation().getY());
 	}
 
 	@Override
@@ -89,6 +76,24 @@ public final class NaveAliada extends Nave {
 	@Override
 	public void colision(GameObject obs) {
 		obs.colision(this);
+	}
+
+	public void mover(int d) {
+		int nuevoX = (int) rec.getLocation().getX();
+		switch (d) {
+		case DERECHA:
+			if (rec.getLocation().getX() < Constantes.MAP_WIDTH - Constantes.NAVE_ALIADA_WIDTH)
+				nuevoX += Constantes.NAVE_ALIADA_VELOCIDAD;
+			break;
+		case IZQUIERDA:
+			if (rec.getLocation().getX() > 0)
+				nuevoX -= Constantes.NAVE_ALIADA_VELOCIDAD;
+			break;
+		}
+
+		rec.setLocation(nuevoX, (int) rec.getY());
+		this.setLocation((int) rec.getX(), (int) rec.getY());
+		repaint();
 	}
 
 }

@@ -14,6 +14,7 @@ public final class ShapeShifter extends NaveEnemiga {
 	public ShapeShifter(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad,
 			Inteligencia intel) {
 		super(x, y, vida, durabilidad, alcance, dmg, velocidad, intel);
+		
 	}
 
 	@Override
