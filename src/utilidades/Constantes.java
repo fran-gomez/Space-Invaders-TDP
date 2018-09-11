@@ -7,14 +7,14 @@ public final class Constantes {
 	public static final int MAP_WIDTH = 500;
 
 	// Enemigos
-	public static final int CANT_FILAS_ENEMIGOS = 6;
-	public static final int ENEMIGOS_X_FILA = 8;
+	public static final int CANT_FILAS_ENEMIGOS = 3;
+	public static final int ENEMIGOS_X_FILA = 4;
 
 	// Dimensiones
-	public static final int DEFAULT_SIZE = 20;
+	public static final int DEFAULT_SIZE = 40;
 
-	public static final int NAVE_ALIADA_WIDTH = 20;
-	public static final int NAVE_ALIADA_HEIGHT = 20;
+	public static final int NAVE_ALIADA_WIDTH = 30;
+	public static final int NAVE_ALIADA_HEIGHT = 40;
 
 	public static final int CRAB_WIDTH = DEFAULT_SIZE;
 	public static final int CRAB_HEIGHT = DEFAULT_SIZE;

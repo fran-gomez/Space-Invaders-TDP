@@ -13,9 +13,8 @@ import utilidades.Constantes;
 
 public class Asteroide extends Obstaculo {
 
-	public Asteroide(int x, int y, int vida, int durabilidad) {
-		super(x, y, vida, durabilidad);
-
+	public Asteroide(int x, int y, int vida, int durabilidad, int d) {
+		super(x, y, vida, durabilidad,d);
 	}
 
 	@Override
@@ -23,10 +22,6 @@ public class Asteroide extends Obstaculo {
 		return "Asteroide";
 	}
 
-	@Override
-	public void colision(NaveEnemiga ne) {
-
-	}
 
 	@Override
 	public void mover() {
@@ -43,23 +38,16 @@ public class Asteroide extends Obstaculo {
 	}
 
 	@Override
-	public void colision(NaveAliada naveEnemiga) {
+	public void colision(NaveAliada naveAliada) {
 	}
 
 	@Override
-	public void colision(Obstaculo naveEnemiga) {
+	public void colision(Obstaculo obs) {
 	}
 
 	@Override
 	public void colision(PowerUp powerUp) {
 	}
 
-	@Override
-	public void colision(Disparo disparo) {
-	}
-
-	@Override
-	public void colision(GameObject obs) {
-	}
 
 }

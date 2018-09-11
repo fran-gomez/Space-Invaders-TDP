@@ -13,7 +13,6 @@ public abstract class Nave extends GameObject {
 	@Override
 	public void eliminar() {
 		this.setVisible(false);
-		// TODO borrar de los objetos
 	}
 
 	public int getDmg() {

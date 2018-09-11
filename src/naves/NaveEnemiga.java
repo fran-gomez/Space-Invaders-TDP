@@ -33,7 +33,7 @@ public abstract class NaveEnemiga extends Nave {
 
 	@Override
 	public void colision(Obstaculo o) {
-		this.recibirDano(o.getDmg());
+		//this.recibirDano(o.getDmg());
 		System.out.println("Colision de nave enemiga con obstaculo.");
 	}
 }

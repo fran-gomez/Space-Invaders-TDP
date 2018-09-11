@@ -9,8 +9,9 @@ public abstract class Obstaculo extends GameObject {
 
 	protected int dmg;
 
-	public Obstaculo(int x, int y, int vida, int durabilidad) {
+	public Obstaculo(int x, int y, int vida, int durabilidad, int d) {
 		super(x, y, vida, durabilidad);
+		this.dmg = d;
 		state = new ObjectState(vida, durabilidad);
 	}
 
@@ -25,7 +26,7 @@ public abstract class Obstaculo extends GameObject {
 
 	@Override
 	public void colision(NaveEnemiga ne) {
-		ne.colision(this);
+		ne.recibirDano(dmg);
 		System.out.println("Colision de obstaculo con nave enemiga.");
 	}
 

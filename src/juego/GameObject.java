@@ -16,7 +16,6 @@ import naves.NaveAliada;
 import naves.NaveEnemiga;
 import obstaculos.Obstaculo;
 import power_ups.PowerUp;
-import utilidades.BarraVida;
 
 public abstract class GameObject extends JPanel {
 
@@ -81,7 +80,6 @@ public abstract class GameObject extends JPanel {
 
 	public void eliminar() {
 		this.setVisible(false);
-		// TODO borrar de los objetos
 	}
 
 	public abstract void mover();

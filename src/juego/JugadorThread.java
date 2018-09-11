@@ -22,7 +22,7 @@ public class JugadorThread extends Thread {
 		this.tiempoPausa = 20;
 		this.jugador = j;
 		ejecutar = true;
-		movement = NaveAliada.STOP;
+		movement = NaveAliada.STOPDER;
 
 		setListener();
 	}
@@ -30,9 +30,9 @@ public class JugadorThread extends Thread {
 	@Override
 	public void run() {
 		while (ejecutar) {
-			
+
 			jugador.mover(movement);
-			
+
 			try {
 				Thread.sleep(tiempoPausa);
 			} catch (InterruptedException e) {
@@ -58,7 +58,10 @@ public class JugadorThread extends Thread {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			movement = d;
+			if (!(movement == NaveAliada.DERECHA && d == NaveAliada.STOPIZQ)
+					&& !(movement == NaveAliada.IZQUIERDA && d == NaveAliada.STOPDER)) {
+				movement = d;
+			}
 		}
 
 	}
@@ -78,14 +81,15 @@ public class JugadorThread extends Thread {
 		ActionMap actionMap = jugador.getActionMap();
 
 		inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, 0, false), "mover derecha");
-		inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, 0, true), "mover parar"); // soltó la tecla der
+		inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, 0, true), "mover parar derecha"); // soltó la tecla der
 		inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_LEFT, 0, false), "mover izquierda");
-		inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_LEFT, 0, true), "mover parar"); // soltó la tecla izq
+		inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_LEFT, 0, true), "mover parar izquierda"); // soltó la tecla izq
 		inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0, false), "disparo");
 		inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0, false), "disparo");
 
 		actionMap.put("mover derecha", new PlayerMovementAction(NaveAliada.DERECHA));
-		actionMap.put("mover parar", new PlayerMovementAction(NaveAliada.STOP));
+		actionMap.put("mover parar derecha", new PlayerMovementAction(NaveAliada.STOPDER));
+		actionMap.put("mover parar izquierda", new PlayerMovementAction(NaveAliada.STOPIZQ));
 		actionMap.put("mover izquierda", new PlayerMovementAction(NaveAliada.IZQUIERDA));
 		actionMap.put("disparo", new DisparoAction());
 	}

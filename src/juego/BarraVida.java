@@ -1,11 +1,9 @@
-package utilidades;
+package juego;
 
 import java.awt.Color;
 import java.awt.Graphics;
 
 import javax.swing.JLabel;
-
-import juego.GameObject;
 
 /**
  * JLabel para representar la vida de un gameObject

@@ -15,7 +15,7 @@ import utilidades.Constantes;
 public final class NaveAliada extends Nave {
 
 	private Timer timer;
-	public static final int DERECHA = 1, IZQUIERDA = -1, STOP = 0;
+	public static final int DERECHA = 1, IZQUIERDA = -1, STOPDER = 2, STOPIZQ = -2;
 
 	public NaveAliada(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad) {
 		super(x, y, vida, durabilidad, alcance, dmg, velocidad);
@@ -53,7 +53,6 @@ public final class NaveAliada extends Nave {
 	@Override
 	public void colision(NaveEnemiga naveEnemiga) {
 		System.out.println("Colision de nave aliada con naveEnemiga");
-		naveEnemiga.eliminar();
 		naveEnemiga.setVida(0);
 	}
 
@@ -78,7 +77,7 @@ public final class NaveAliada extends Nave {
 		obs.colision(this);
 	}
 
-	public void mover(int d) {
+	public void mover(int d) { // Ignoramos STOPIZQ Y STOPDER pues se dejan de mover
 		int nuevoX = (int) rec.getLocation().getX();
 		switch (d) {
 		case DERECHA:
