@@ -3,11 +3,11 @@ package juego;
 import power_ups.PowerUp;
 
 public abstract class Nave extends GameObject {
-	// protected NaveState state;
+	protected NaveState state;
 
 	public Nave(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad) {
 		super(x, y, vida, durabilidad);
-		state = new NaveState(vida, durabilidad, dmg, alcance, velocidad);
+		this.state = new NaveState(vida, durabilidad, dmg, alcance, velocidad);
 	}
 
 	@Override

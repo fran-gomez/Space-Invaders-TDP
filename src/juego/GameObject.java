@@ -32,6 +32,7 @@ public abstract class GameObject extends JPanel {
 
 		this.rec = createRectangle(x, y);
 		this.visual = null;
+		this.state = new ObjectState(vida, durabilidad);
 
 		this.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0)); // sacamos el padding
 

@@ -52,7 +52,7 @@ public final class NaveAliada extends Nave {
 
 	@Override
 	public void colision(NaveEnemiga naveEnemiga) {
-		System.out.println("Colision de nave aliada con naveEnemiga");
+		//System.out.println("Colision de nave aliada con naveEnemiga");
 		naveEnemiga.setVida(0);
 	}
 

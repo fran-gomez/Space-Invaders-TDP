@@ -27,11 +27,11 @@ public abstract class Obstaculo extends GameObject {
 	@Override
 	public void colision(NaveEnemiga ne) {
 		ne.recibirDano(dmg);
-		System.out.println("Colision de obstaculo con nave enemiga.");
+		//System.out.println("Colision de obstaculo con nave enemiga.");
 	}
 
 	@Override
 	public void colision(Disparo d) {
-		System.out.println("Colision de obstaculo con disparo.");
+		//System.out.println("Colision de obstaculo con disparo.");
 	}
 }
