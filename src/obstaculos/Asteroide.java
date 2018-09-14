@@ -14,14 +14,13 @@ import utilidades.Constantes;
 public class Asteroide extends Obstaculo {
 
 	public Asteroide(int x, int y, int vida, int durabilidad, int d) {
-		super(x, y, vida, durabilidad,d);
+		super(x, y, vida, durabilidad, d);
 	}
 
 	@Override
 	public String getName() {
 		return "Asteroide";
 	}
-
 
 	@Override
 	public void mover() {
@@ -48,6 +47,5 @@ public class Asteroide extends Obstaculo {
 	@Override
 	public void colision(PowerUp powerUp) {
 	}
-
 
 }

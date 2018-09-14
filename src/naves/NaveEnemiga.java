@@ -28,7 +28,7 @@ public abstract class NaveEnemiga extends Nave {
 
 	@Override
 	public void colision(NaveAliada na) {
-		na.recibirDano(((NaveState) this.state).getDmg());
+		na.recibirDano(state.getDmg());
 	}
 
 	@Override

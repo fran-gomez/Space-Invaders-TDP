@@ -5,12 +5,6 @@ import java.awt.Graphics;
 
 import javax.swing.JLabel;
 
-/**
- * JLabel para representar la vida de un gameObject
- * 
- * @author ezequiel
- *
- */
 public class BarraVida extends JLabel {
 
 	protected int vida, vidaTotal;

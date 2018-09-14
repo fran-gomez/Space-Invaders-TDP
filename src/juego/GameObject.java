@@ -41,7 +41,7 @@ public abstract class GameObject extends JPanel {
 		this.setBounds((int) rec.getX(), (int) rec.getY(), (int) rec.getWidth(),
 				(int) rec.getHeight() + BARRA_VIDA_HEIGHT + 5);
 		// Añadimos 5 para que quepa la barra de vida
-
+		state = new ObjectState(vida, durabilidad);
 		setImage();
 	}
 

@@ -48,5 +48,4 @@ public class NaveErrante extends Obstaculo {
 	public void colision(PowerUp powerUp) {
 	}
 
-
 }

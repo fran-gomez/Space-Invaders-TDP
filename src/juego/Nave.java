@@ -16,27 +16,27 @@ public abstract class Nave extends GameObject {
 	}
 
 	public int getDmg() {
-		return ((NaveState) this.state).getDmg();
+		return state.getDmg();
 	}
 
 	public void setDmg(int dmg) {
-		((NaveState) this.state).setDmg(dmg);
+		state.setDmg(dmg);
 	}
 
 	public int getAlcance() {
-		return ((NaveState) this.state).alcance;
+		return state.alcance;
 	}
 
 	public void setAlcance(int alcance) {
-		((NaveState) this.state).alcance = alcance;
+		state.alcance = alcance;
 	}
 
 	public int getVelocidad() {
-		return ((NaveState) this.state).velocidad;
+		return state.velocidad;
 	}
 
 	public void setVelocidad(int velocidad) {
-		((NaveState) this.state).velocidad = velocidad;
+		state.velocidad = velocidad;
 	}
 
 	public void recibirDano(int d) {

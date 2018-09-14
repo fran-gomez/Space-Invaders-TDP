@@ -8,7 +8,7 @@ public final class Constantes {
 
 	// Enemigos
 	public static final int CANT_FILAS_ENEMIGOS = 3;
-	public static final int ENEMIGOS_X_FILA = 4;
+	public static final int ENEMIGOS_X_FILA = 3;
 
 	// Dimensiones
 	public static final int DEFAULT_SIZE = 40;
