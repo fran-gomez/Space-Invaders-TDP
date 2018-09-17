@@ -11,6 +11,7 @@ import java.util.Random;
 
 import javax.swing.AbstractAction;
 import javax.swing.ActionMap;
+import javax.swing.ImageIcon;
 import javax.swing.InputMap;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
@@ -47,6 +48,7 @@ public class Mapa extends JPanel {
 		this.setSize(Constantes.MAP_WIDTH, Constantes.MAP_HEIGHT);
 		this.setPreferredSize(new Dimension(Constantes.MAP_WIDTH, Constantes.MAP_HEIGHT));
 		this.setBackground(Color.BLACK);
+		//this.drawImage(new ImageIcon("src/resources/mapa_bg.jpg"),0 ,0 ,null);
 
 		// utils
 		rnd = new Random();
@@ -128,6 +130,14 @@ public class Mapa extends JPanel {
 
 	public NaveAliada obtenerJugador() {
 		return jugador;
+	}
+	
+	public void terminarJuego() {
+		for (GameObject go: objetos)
+			go.eliminar();
+		
+		this.setBackground(Color.red);
+		
 	}
 
 	private boolean intersects(GameObject o1, GameObject o2) {

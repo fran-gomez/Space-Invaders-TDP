@@ -32,6 +32,13 @@ public class MainThread extends Thread {
 				e.printStackTrace();
 			}
 			mapa.repaint();
+			
+			if (mapa.obtenerJugador().getVida() <= 0) {
+				System.out.println("Perdiste capo."); // Termino el juego
+				mapa.terminarJuego();
+				ejecutar = false;
+				//this.interrupt();
+			}
 		}
 	}
 
