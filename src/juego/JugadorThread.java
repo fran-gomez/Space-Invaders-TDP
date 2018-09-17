@@ -73,6 +73,7 @@ public class JugadorThread extends Thread {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			System.out.println("DISPARO ALIADO!!");
+			jugador.disparar();
 			// TODO disparar jugador.disparar();
 			// TODO añadir tardanza entre un disparo y otro
 		}

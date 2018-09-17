@@ -11,8 +11,8 @@ import power_ups.PowerUp;
 
 public final class DisparoPenetrante extends Disparo {
 
-	public DisparoPenetrante(int x, int y, int vida, int durabilidad) {
-		super(x, y, vida, durabilidad);
+	public DisparoPenetrante(int x, int y, int vida, int durabilidad, int dmg) {
+		super(x, y, vida, durabilidad, dmg);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -30,12 +30,6 @@ public final class DisparoPenetrante extends Disparo {
 
 	@Override
 	public ImageIcon getGrafico() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	protected Rectangle createRectangle(int x, int y) {
 		// TODO Auto-generated method stub
 		return null;
 	}

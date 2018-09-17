@@ -11,7 +11,7 @@ public abstract class Nave extends GameObject {
 	public Nave(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad) {
 		super(x, y, vida, durabilidad);
 		this.state = new NaveState(vida, durabilidad, dmg, alcance, velocidad);
-		this.arma = new FabricaSimple(x, y);
+		this.arma = new FabricaSimple();
 	}
 
 	@Override

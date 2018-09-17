@@ -28,7 +28,8 @@ public final class NaveAliada extends Nave {
 
 	@Override
 	public void disparar() {
-
+		arma.crearDisparo(this.rec.x, this.rec.y);
+		System.out.println("Disparo creado");
 	}
 
 	@Override

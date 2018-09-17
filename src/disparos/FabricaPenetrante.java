@@ -2,14 +2,12 @@ package disparos;
 
 public class FabricaPenetrante extends FabricaDisparos {
 
-	public FabricaPenetrante(int x, int y) {
-		super(x, y);
-		// TODO Auto-generated constructor stub
+	public FabricaPenetrante() {
 	}
 
 	@Override
-	public Disparo crearDisparo() {
-		return new DisparoPenetrante(x, y, 0, 0);
+	public Disparo crearDisparo(int x, int y) {
+		return new DisparoPenetrante(x, y, 0, 0, 5);
 	}
 
 }

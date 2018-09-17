@@ -1,13 +1,16 @@
 package disparos;
 
+import java.awt.Rectangle;
+
 public abstract class FabricaDisparos {
 
-	protected int x, y;
-	
-	public FabricaDisparos(int x, int y) {
-		this.x = x;
-		this.y = y;
+	public FabricaDisparos() {
 	}
 	
-	public abstract Disparo crearDisparo();
+	public abstract Disparo crearDisparo(int x, int y);
+	
+
+	public Rectangle createRectangle(int x, int y) {
+		return new Rectangle(x, y);
+	}
 }
