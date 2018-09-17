@@ -38,6 +38,9 @@ public class JugadorThread extends Thread {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
+			
+			if (jugador.getVida() <= 0)
+				ejecutar = false;
 		}
 	}
 

@@ -3,12 +3,12 @@ package utilidades;
 public final class Constantes {
 
 	// Juego
-	public static final int MAP_HEIGHT = 700;
-	public static final int MAP_WIDTH = 500;
+	public static final int MAP_HEIGHT = 500;
+	public static final int MAP_WIDTH = 700;
 
 	// Enemigos
 	public static final int CANT_FILAS_ENEMIGOS = 3;
-	public static final int ENEMIGOS_X_FILA = 4;
+	public static final int ENEMIGOS_X_FILA = 6;
 
 	// Dimensiones
 	public static final int DEFAULT_SIZE = 40;

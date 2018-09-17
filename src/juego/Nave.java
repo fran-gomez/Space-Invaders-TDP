@@ -1,13 +1,17 @@
 package juego;
 
+import disparos.FabricaDisparos;
+import disparos.FabricaSimple;
 import power_ups.PowerUp;
 
 public abstract class Nave extends GameObject {
 	protected NaveState state;
+	protected FabricaDisparos arma;
 
 	public Nave(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad) {
 		super(x, y, vida, durabilidad);
 		this.state = new NaveState(vida, durabilidad, dmg, alcance, velocidad);
+		this.arma = new FabricaSimple(x, y);
 	}
 
 	@Override
