@@ -136,6 +136,10 @@ public class Mapa extends JPanel {
 		this.setBackground(Color.red);
 
 	}
+	
+	public boolean estaVacio() {
+		return objetos.isEmpty();
+	}
 
 	private boolean intersects(GameObject o1, GameObject o2) {
 		return o1.getRectangle().intersects(o2.getRectangle());

@@ -39,6 +39,13 @@ public class MainThread extends Thread {
 				ejecutar = false;
 				//this.interrupt();
 			}
+			
+			if (mapa.estaVacio()) {
+				System.out.println("Ganaste papa!");
+				mapa.terminarJuego();
+				ejecutar = false;
+			}
+				
 		}
 	}
 
