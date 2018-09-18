@@ -8,29 +8,25 @@ import naves.NaveAliada;
 import naves.NaveEnemiga;
 import obstaculos.Obstaculo;
 import power_ups.PowerUp;
+import utilidades.Constantes;
 
 public final class DisparoTriple extends Disparo {
-
+	
 	public DisparoTriple(int x, int y, int vida, int durabilidad, int dmg) {
 		super(x, y, vida, durabilidad, dmg);
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public void eliminar() {
-		// TODO Auto-generated method stub
-
-	}
 
 	@Override
 	public void mover() {
-		// TODO Auto-generated method stub
-
+		rec.setLocation(rec.x, rec.y - Constantes.DISPARO_TRIPLE_VELOCIDAD);
+		setLocation((int) rec.getX(), (int) rec.getY());
+		super.mover();
 	}
 
 	@Override
 	public ImageIcon getGrafico() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -52,6 +48,11 @@ public final class DisparoTriple extends Disparo {
 
 	@Override
 	public void colision(Disparo disparo) {
+	}
+	
+	@Override
+	protected Rectangle createRectangle(int x, int y) {
+		return new Rectangle(x,y, Constantes.DISPARO_TRIPLE_WIDTH, Constantes.DISPARO_TRIPLE_HEIGHT);
 	}
 
 }

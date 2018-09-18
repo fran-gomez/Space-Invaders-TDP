@@ -1,13 +1,18 @@
 package disparos;
 
+import juego.Mapa;
+
 public class FabricaTriple extends FabricaDisparos {
 
-	public FabricaTriple() {
+	public FabricaTriple(Mapa map) {
+		super(map);
 	}
 
 	@Override
 	public Disparo crearDisparo(int x, int y) {
-		return new DisparoTriple(x, y, 0, 0, 3);
+		Disparo disp = new DisparoTriple(x, y, 0, 0, 3);
+		map.addToObjects(disp);
+		return disp;
 	}
 
 }

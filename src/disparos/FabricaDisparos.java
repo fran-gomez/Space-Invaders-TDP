@@ -1,16 +1,14 @@
 package disparos;
 
-import java.awt.Rectangle;
+import juego.Mapa;
 
 public abstract class FabricaDisparos {
 
-	public FabricaDisparos() {
+	protected Mapa map;
+	
+	public FabricaDisparos(Mapa map) {
+		this.map = map;
 	}
 	
 	public abstract Disparo crearDisparo(int x, int y);
-	
-
-	public Rectangle createRectangle(int x, int y) {
-		return new Rectangle(x, y);
-	}
 }

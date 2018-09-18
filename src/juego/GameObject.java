@@ -80,6 +80,7 @@ public abstract class GameObject extends JPanel {
 	}
 
 	public void eliminar() {
+		this.setVida(0);
 		this.setVisible(false);
 	}
 
@@ -148,7 +149,7 @@ public abstract class GameObject extends JPanel {
 	}
 
 	public boolean estaVivo() {
-		return this.state.vida > 0;
+		return !(this.state.vida <= 0);
 	}
 
 }

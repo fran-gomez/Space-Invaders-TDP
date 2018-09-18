@@ -1,13 +1,18 @@
 package disparos;
 
+import juego.Mapa;
+
 public class FabricaPenetrante extends FabricaDisparos {
 
-	public FabricaPenetrante() {
+	public FabricaPenetrante(Mapa map) {
+		super(map);
 	}
 
 	@Override
 	public Disparo crearDisparo(int x, int y) {
-		return new DisparoPenetrante(x, y, 0, 0, 5);
+		Disparo disp = new DisparoPenetrante(x, y, 0, 0, 5);
+		map.addToObjects(disp);
+		return disp;
 	}
 
 }

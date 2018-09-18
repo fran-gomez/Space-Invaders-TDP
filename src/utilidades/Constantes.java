@@ -44,7 +44,19 @@ public final class Constantes {
 	public static final int PARENELRELOJ_HEIGHT = DEFAULT_SIZE;
 	public static final int ROBOT1X_WIDTH = DEFAULT_SIZE;
 	public static final int ROBOT1X_HEIGHT = DEFAULT_SIZE;
+	
+	public static final int DISPARO_SIMPLE_WIDTH = 5;
+	public static final int DISPARO_SIMPLE_HEIGHT = 10;
+	public static final int DISPARO_TRIPLE_WIDTH = 5;
+	public static final int DISPARO_TRIPLE_HEIGHT = 10;
+	public static final int DISPARO_PENETRANTE_WIDTH = 5;
+	public static final int DISPARO_PENETRANTE_HEIGHT = 10;
 
+	//VELOCIDADES
+	public static final int DISPARO_PENETRANTE_VELOCIDAD = 10;
+	public static final int DISPARO_SIMPLE_VELOCIDAD = 10;
+	public static final int DISPARO_TRIPLE_VELOCIDAD = 10;
+	
 	// Nave aliada
 	public static final int NAVE_ALIADA_VIDA = 100;
 	public static final int NAVE_ALIADA_DURABILIDAD = 100;

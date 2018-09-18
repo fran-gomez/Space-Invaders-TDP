@@ -13,14 +13,16 @@ public abstract class Disparo extends GameObject {
 		this.dmg = dmg;
 		// TODO Auto-generated constructor stub
 	}
-
-	public Rectangle createRectangle(int x, int y) {
-		return new Rectangle(x, y);
+	
+	public void mover() {
+		//Chequear que siga en el mapa
+		if(rec.y < 0) {
+			eliminar();
+		}
 	}
+
 	@Override
 	public void colision(GameObject obs) {
 		obs.colision(this);
 	}
-
-	
 }

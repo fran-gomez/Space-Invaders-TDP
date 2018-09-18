@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
@@ -48,7 +49,7 @@ public class Mapa extends JPanel {
 		this.setSize(Constantes.MAP_WIDTH, Constantes.MAP_HEIGHT);
 		this.setPreferredSize(new Dimension(Constantes.MAP_WIDTH, Constantes.MAP_HEIGHT));
 		this.setBackground(Color.BLACK);
-		//this.drawImage(new ImageIcon("src/resources/mapa_bg.jpg"),0 ,0 ,null);
+		// this.drawImage(new ImageIcon("src/resources/mapa_bg.jpg"),0 ,0 ,null);
 
 		// utils
 		rnd = new Random();
@@ -58,7 +59,7 @@ public class Mapa extends JPanel {
 		jugador = new NaveAliada(Constantes.MAP_WIDTH / 2,
 				Constantes.MAP_HEIGHT - (Constantes.NAVE_ALIADA_HEIGHT + GameObject.BARRA_VIDA_HEIGHT + 10) / 2,
 				Constantes.NAVE_ALIADA_VIDA, Constantes.NAVE_ALIADA_DURABILIDAD, Constantes.NAVE_ALIADA_ALCANCE,
-				Constantes.NAVE_ALIADA_DANIO, Constantes.NAVE_ALIADA_DURABILIDAD);
+				Constantes.NAVE_ALIADA_DANIO, Constantes.NAVE_ALIADA_DURABILIDAD, this);
 		this.add(jugador);
 		objetos.add(jugador);
 
@@ -96,8 +97,12 @@ public class Mapa extends JPanel {
 
 	public void gameLoop() {
 
+		// Se cambio a iterator xq me tiraba ConcurrentModificationException al añadir
+		// disparos
 		// Movimiento de objetos
-		for (GameObject obj : objetos) {
+		Iterator<GameObject> it = objetos.iterator();
+		while (it.hasNext()) {
+			GameObject obj = it.next();
 			obj.mover();
 		}
 
@@ -115,12 +120,14 @@ public class Mapa extends JPanel {
 				}
 
 				if (!obj2.estaVivo()) {
+					System.out.println("deleted");
 					obj2.eliminar();
 					objetos.remove(obj2);
 				}
 
 			}
 			if (!obj1.estaVivo()) {
+				System.out.println("deleted");
 				obj1.eliminar();
 				objetos.remove(obj1);
 
@@ -131,13 +138,13 @@ public class Mapa extends JPanel {
 	public NaveAliada obtenerJugador() {
 		return jugador;
 	}
-	
+
 	public void terminarJuego() {
-		for (GameObject go: objetos)
+		for (GameObject go : objetos)
 			go.eliminar();
-		
+
 		this.setBackground(Color.red);
-		
+
 	}
 
 	private boolean intersects(GameObject o1, GameObject o2) {
@@ -152,23 +159,27 @@ public class Mapa extends JPanel {
 		// TODO Corregir todos los parametros de creacion
 		switch (rand) {
 		case 0:
-			n = new Octopus(x, y, 100, rand, rand, 20, rand, InteligenciaDefecto.getInstance());
+			n = new Octopus(x, y, 100, rand, rand, 20, rand, InteligenciaDefecto.getInstance(), this);
 			break;
 		case 1:
-			n = new Squid(x, y, 100, rand, rand, 20, rand, InteligenciaKamikaze.getInstance(jugador));
+			n = new Squid(x, y, 100, rand, rand, 20, rand, InteligenciaKamikaze.getInstance(jugador), this);
 			break;
 		case 2:
-			n = new ShapeShifter(x, y, 100, rand, rand, 20, rand, InteligenciaAleatoria.getInstance());
+			n = new ShapeShifter(x, y, 100, rand, rand, 20, rand, InteligenciaAleatoria.getInstance(), this);
 			break;
 		case 3:
-			n = new UFO(x, y, 100, rand, rand, 20, rand, InteligenciaDefecto.getInstance());
+			n = new UFO(x, y, 100, rand, rand, 20, rand, InteligenciaDefecto.getInstance(), this);
 			break;
 		default:
-			n = new Crab(x, y, 100, rand, rand, 20, rand, InteligenciaDefecto.getInstance());
+			n = new Crab(x, y, 100, rand, rand, 20, rand, InteligenciaDefecto.getInstance(), this);
 			break;
 		}
 
 		return n;
 	}
 
+	public void addToObjects(GameObject o) {
+		this.add(o);
+		objetos.add(o);
+	}
 }

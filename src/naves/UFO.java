@@ -6,13 +6,14 @@ import javax.swing.ImageIcon;
 
 import Inteligencias.Inteligencia;
 import disparos.Disparo;
+import juego.Mapa;
 import power_ups.PowerUp;
 import utilidades.Constantes;
 
 public final class UFO extends NaveEnemiga {
 
-	public UFO(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad, Inteligencia intel) {
-		super(x, y, vida, durabilidad, alcance, dmg, velocidad, intel);
+	public UFO(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad, Inteligencia intel, Mapa m) {
+		super(x, y, vida, durabilidad, alcance, dmg, velocidad, intel, m);
 	}
 
 	@Override

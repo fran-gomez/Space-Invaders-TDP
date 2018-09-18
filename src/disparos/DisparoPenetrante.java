@@ -8,6 +8,7 @@ import naves.NaveAliada;
 import naves.NaveEnemiga;
 import obstaculos.Obstaculo;
 import power_ups.PowerUp;
+import utilidades.Constantes;
 
 public final class DisparoPenetrante extends Disparo {
 
@@ -17,15 +18,11 @@ public final class DisparoPenetrante extends Disparo {
 	}
 
 	@Override
-	public void eliminar() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
 	public void mover() {
-		// TODO Auto-generated method stub
-
+		rec.setLocation(rec.x, rec.y - Constantes.DISPARO_PENETRANTE_VELOCIDAD);
+		setLocation((int) rec.getX(), (int) rec.getY());
+		
+		super.mover();
 	}
 
 	@Override
@@ -54,4 +51,8 @@ public final class DisparoPenetrante extends Disparo {
 	public void colision(Disparo disparo) {
 	}
 
+	@Override
+	protected Rectangle createRectangle(int x, int y) {
+		return new Rectangle(x, y, Constantes.DISPARO_PENETRANTE_WIDTH, Constantes.DISPARO_PENETRANTE_HEIGHT);
+	}
 }
