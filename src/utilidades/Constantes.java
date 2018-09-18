@@ -51,17 +51,21 @@ public final class Constantes {
 	public static final int DISPARO_TRIPLE_HEIGHT = 10;
 	public static final int DISPARO_PENETRANTE_WIDTH = 5;
 	public static final int DISPARO_PENETRANTE_HEIGHT = 10;
+	public static final int DISPARO_ENEMIGO_WIDTH = 3;
+	public static final int DISPARO_ENEMIGO_HEIGHT = 5;
 
 	//VELOCIDADES
 	public static final int DISPARO_PENETRANTE_VELOCIDAD = 10;
 	public static final int DISPARO_SIMPLE_VELOCIDAD = 10;
 	public static final int DISPARO_TRIPLE_VELOCIDAD = 10;
+	public static final int DISPARO_ENEMIGO_VELOCIDAD = 10;
+	
 	
 	// Nave aliada
 	public static final int NAVE_ALIADA_VIDA = 100;
 	public static final int NAVE_ALIADA_DURABILIDAD = 100;
 	public static final int NAVE_ALIADA_ALCANCE = 10;
-	public static final int NAVE_ALIADA_DANIO = 2;
+	public static final int NAVE_ALIADA_DANIO = 20;
 	public static final int NAVE_ALIADA_VELOCIDAD = 5;
 
 	// Nave Aleatoria

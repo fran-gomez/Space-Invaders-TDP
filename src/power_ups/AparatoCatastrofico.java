@@ -4,7 +4,10 @@ import java.awt.Rectangle;
 
 import javax.swing.ImageIcon;
 
-import disparos.Disparo;
+import disparos.DisparoEnemigo;
+import disparos.DisparoPenetrante;
+import disparos.DisparoSimple;
+import disparos.DisparoTriple;
 import naves.NaveAliada;
 import naves.NaveEnemiga;
 import obstaculos.Obstaculo;
@@ -48,7 +51,19 @@ public class AparatoCatastrofico extends PowerUp {
 	}
 
 	@Override
-	public void colision(Disparo disparo) {
+	public void colision(DisparoPenetrante disparo) {
+	}
+
+	@Override
+	public void colision(DisparoEnemigo disparo) {
+	}
+
+	@Override
+	public void colision(DisparoSimple disparo) {
+	}
+
+	@Override
+	public void colision(DisparoTriple disparo) {
 	}
 
 }

@@ -11,18 +11,16 @@ import obstaculos.Obstaculo;
 import power_ups.PowerUp;
 import utilidades.Constantes;
 
-public final class DisparoSimple extends Disparo {
-
-	public DisparoSimple(int x, int y, int vida, int durabilidad, int dmg) {
+public final class DisparoEnemigo extends Disparo {
+	
+	public DisparoEnemigo(int x, int y, int vida, int durabilidad, int dmg) {
 		super(x, y, vida, durabilidad, dmg);
-		// TODO Auto-generated constructor stub
 	}
+
 	@Override
 	public void mover() {
-		
-		rec.setLocation(rec.x, rec.y - Constantes.DISPARO_TRIPLE_VELOCIDAD);
+		rec.setLocation(rec.x, rec.y + Constantes.DISPARO_ENEMIGO_VELOCIDAD);
 		setLocation((int) rec.getX(), (int) rec.getY());
-		
 		super.mover();
 	}
 
@@ -33,19 +31,19 @@ public final class DisparoSimple extends Disparo {
 
 	@Override
 	public void colision(NaveEnemiga naveEnemiga) {
-		naveEnemiga.recibirDano(dmg);
 	}
-
 	@Override
 	public void colision(GameObject obs) {
 		obs.colision(this);
 	}
+
 	@Override
-	public void colision(NaveAliada naveEnemiga) {
+	public void colision(NaveAliada naveAliada) {
+		naveAliada.recibirDano(this.dmg);
 	}
 
 	@Override
-	public void colision(Obstaculo naveEnemiga) {
+	public void colision(Obstaculo obs) {
 	}
 
 	@Override
@@ -54,19 +52,28 @@ public final class DisparoSimple extends Disparo {
 
 	@Override
 	protected Rectangle createRectangle(int x, int y) {
-		return new Rectangle(x,y, Constantes.DISPARO_SIMPLE_WIDTH, Constantes.DISPARO_SIMPLE_HEIGHT);
+		return new Rectangle(x,y, Constantes.DISPARO_ENEMIGO_WIDTH, Constantes.DISPARO_ENEMIGO_HEIGHT);
 	}
+
+
 	@Override
 	public void colision(DisparoPenetrante disparo) {
 	}
+
+
 	@Override
 	public void colision(DisparoEnemigo disparo) {
 	}
+
+
 	@Override
 	public void colision(DisparoSimple disparo) {
 	}
+
+
 	@Override
 	public void colision(DisparoTriple disparo) {
 	}
+
 
 }

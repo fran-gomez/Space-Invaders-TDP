@@ -5,15 +5,19 @@ import java.awt.Rectangle;
 import javax.swing.ImageIcon;
 
 import Inteligencias.Inteligencia;
-import disparos.Disparo;
+import disparos.DisparoEnemigo;
+import disparos.DisparoPenetrante;
+import disparos.DisparoSimple;
+import disparos.DisparoTriple;
+import disparos.FabricaDisparos;
 import juego.Mapa;
 import power_ups.PowerUp;
 import utilidades.Constantes;
 
 public final class Squid extends NaveEnemiga {
 
-	public Squid(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad, Inteligencia intel, Mapa m) {
-		super(x, y, vida, durabilidad, alcance, dmg, velocidad, intel, m);
+	public Squid(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad, Inteligencia intel, FabricaDisparos fab) {
+		super(x, y, vida, durabilidad, alcance, dmg, velocidad, intel, fab);
 	}
 
 	@Override
@@ -21,10 +25,6 @@ public final class Squid extends NaveEnemiga {
 		return new Rectangle(x, y, Constantes.SQUID_WIDTH, Constantes.SQUID_HEIGHT);
 	}
 
-	@Override
-	public void disparar() {
-
-	}
 
 	@Override
 	public void aplicarPowerUp(PowerUp p) {
@@ -49,8 +49,6 @@ public final class Squid extends NaveEnemiga {
 	public void colision(PowerUp powerUp) {
 	}
 
-	@Override
-	public void colision(Disparo disparo) {
-	}
+
 
 }

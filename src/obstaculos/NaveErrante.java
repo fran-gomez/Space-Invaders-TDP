@@ -4,10 +4,11 @@ import java.awt.Rectangle;
 
 import javax.swing.ImageIcon;
 
-import disparos.Disparo;
-import juego.GameObject;
+import disparos.DisparoEnemigo;
+import disparos.DisparoPenetrante;
+import disparos.DisparoSimple;
+import disparos.DisparoTriple;
 import naves.NaveAliada;
-import naves.NaveEnemiga;
 import power_ups.PowerUp;
 import utilidades.Constantes;
 
@@ -46,6 +47,22 @@ public class NaveErrante extends Obstaculo {
 
 	@Override
 	public void colision(PowerUp powerUp) {
+	}
+
+	@Override
+	public void colision(DisparoPenetrante disparo) {
+	}
+
+	@Override
+	public void colision(DisparoEnemigo disparo) {
+	}
+
+	@Override
+	public void colision(DisparoSimple disparo) {
+	}
+
+	@Override
+	public void colision(DisparoTriple disparo) {
 	}
 
 }

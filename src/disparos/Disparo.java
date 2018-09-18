@@ -1,8 +1,7 @@
 package disparos;
 
-import java.awt.Rectangle;
-
 import juego.GameObject;
+import utilidades.Constantes;
 
 public abstract class Disparo extends GameObject {
 
@@ -15,14 +14,9 @@ public abstract class Disparo extends GameObject {
 	}
 	
 	public void mover() {
-		//Chequear que siga en el mapa
-		if(rec.y < 0) {
+		//Chequear que siga en el map
+		if(rec.y < 0 || rec.y > Constantes.MAP_HEIGHT) {
 			eliminar();
 		}
-	}
-
-	@Override
-	public void colision(GameObject obs) {
-		obs.colision(this);
 	}
 }

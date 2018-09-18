@@ -2,26 +2,17 @@ package juego;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
-import javax.swing.AbstractAction;
-import javax.swing.ActionMap;
-import javax.swing.ImageIcon;
-import javax.swing.InputMap;
-import javax.swing.JComponent;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.KeyStroke;
-
 import Inteligencias.InteligenciaAleatoria;
 import Inteligencias.InteligenciaDefecto;
 import Inteligencias.InteligenciaKamikaze;
+import disparos.FabricaEnemigo;
+import disparos.FabricaSimple;
 import naves.Crab;
 import naves.NaveAliada;
 import naves.NaveEnemiga;
@@ -39,7 +30,7 @@ public class Mapa extends JPanel {
 	private NaveAliada jugador;
 
 	protected int dificultad;
-	protected List<GameObject> objetos;
+	protected List<GameObject> objetos, toAdd;
 
 	protected Random rnd;
 
@@ -54,12 +45,13 @@ public class Mapa extends JPanel {
 		// utils
 		rnd = new Random();
 		objetos = new LinkedList<>();
+		toAdd = new LinkedList<>();
 
 		// Colocamos la nave del jugador
 		jugador = new NaveAliada(Constantes.MAP_WIDTH / 2,
 				Constantes.MAP_HEIGHT - (Constantes.NAVE_ALIADA_HEIGHT + GameObject.BARRA_VIDA_HEIGHT + 10) / 2,
 				Constantes.NAVE_ALIADA_VIDA, Constantes.NAVE_ALIADA_DURABILIDAD, Constantes.NAVE_ALIADA_ALCANCE,
-				Constantes.NAVE_ALIADA_DANIO, Constantes.NAVE_ALIADA_DURABILIDAD, this);
+				Constantes.NAVE_ALIADA_DANIO, Constantes.NAVE_ALIADA_DURABILIDAD, new FabricaSimple(this));
 		this.add(jugador);
 		objetos.add(jugador);
 
@@ -96,9 +88,6 @@ public class Mapa extends JPanel {
 	}
 
 	public void gameLoop() {
-
-		// Se cambio a iterator xq me tiraba ConcurrentModificationException al añadir
-		// disparos
 		// Movimiento de objetos
 		Iterator<GameObject> it = objetos.iterator();
 		while (it.hasNext()) {
@@ -120,19 +109,20 @@ public class Mapa extends JPanel {
 				}
 
 				if (!obj2.estaVivo()) {
-					System.out.println("deleted");
 					obj2.eliminar();
 					objetos.remove(obj2);
 				}
 
 			}
 			if (!obj1.estaVivo()) {
-				System.out.println("deleted");
 				obj1.eliminar();
 				objetos.remove(obj1);
-
 			}
 		}
+		
+		//Para evitar el concurrentModificationException
+		objetos.addAll(toAdd);
+		toAdd.clear();
 	}
 
 	public NaveAliada obtenerJugador() {
@@ -159,19 +149,19 @@ public class Mapa extends JPanel {
 		// TODO Corregir todos los parametros de creacion
 		switch (rand) {
 		case 0:
-			n = new Octopus(x, y, 100, rand, rand, 20, rand, InteligenciaDefecto.getInstance(), this);
+			n = new Octopus(x, y, 100, rand, rand, 20, rand, InteligenciaDefecto.getInstance(), new FabricaEnemigo(this));
 			break;
 		case 1:
-			n = new Squid(x, y, 100, rand, rand, 20, rand, InteligenciaKamikaze.getInstance(jugador), this);
+			n = new Squid(x, y, 100, rand, rand, 20, rand, InteligenciaKamikaze.getInstance(jugador), new FabricaEnemigo(this));
 			break;
 		case 2:
-			n = new ShapeShifter(x, y, 100, rand, rand, 20, rand, InteligenciaAleatoria.getInstance(), this);
+			n = new ShapeShifter(x, y, 100, rand, rand, 20, rand, InteligenciaAleatoria.getInstance(), new FabricaEnemigo(this));
 			break;
 		case 3:
-			n = new UFO(x, y, 100, rand, rand, 20, rand, InteligenciaDefecto.getInstance(), this);
+			n = new UFO(x, y, 100, rand, rand, 20, rand, InteligenciaDefecto.getInstance(), new FabricaEnemigo(this));
 			break;
 		default:
-			n = new Crab(x, y, 100, rand, rand, 20, rand, InteligenciaDefecto.getInstance(), this);
+			n = new Crab(x, y, 100, rand, rand, 20, rand, InteligenciaDefecto.getInstance(), new FabricaEnemigo(this));
 			break;
 		}
 
@@ -180,6 +170,6 @@ public class Mapa extends JPanel {
 
 	public void addToObjects(GameObject o) {
 		this.add(o);
-		objetos.add(o);
+		toAdd.add(o);
 	}
 }

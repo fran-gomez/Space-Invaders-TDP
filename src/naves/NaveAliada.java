@@ -5,7 +5,11 @@ import java.util.Timer;
 
 import javax.swing.ImageIcon;
 
-import disparos.Disparo;
+import disparos.DisparoEnemigo;
+import disparos.DisparoPenetrante;
+import disparos.DisparoSimple;
+import disparos.DisparoTriple;
+import disparos.FabricaDisparos;
 import juego.GameObject;
 import juego.Mapa;
 import juego.Nave;
@@ -15,22 +19,15 @@ import utilidades.Constantes;
 
 public final class NaveAliada extends Nave {
 
-	private Timer timer;
 	public static final int DERECHA = 1, IZQUIERDA = -1, STOPDER = 2, STOPIZQ = -2;
 
-	public NaveAliada(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad, Mapa m) {
-		super(x, y, vida, durabilidad, alcance, dmg, velocidad, m);
+	public NaveAliada(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad, FabricaDisparos fab) {
+		super(x, y, vida, durabilidad, alcance, dmg, velocidad, fab);
 	}
 
 	@Override
 	protected Rectangle createRectangle(int x, int y) {
 		return new Rectangle(x, y, Constantes.NAVE_ALIADA_WIDTH, Constantes.NAVE_ALIADA_HEIGHT);
-	}
-
-	@Override
-	public void disparar() {
-		arma.crearDisparo(this.rec.x + this.rec.width/2, this.rec.y - this.rec.height/2);
-		System.out.println("Disparo creado");
 	}
 
 	@Override
@@ -71,10 +68,6 @@ public final class NaveAliada extends Nave {
 	}
 
 	@Override
-	public void colision(Disparo disparo) {
-	}
-
-	@Override
 	public void colision(GameObject obs) {
 		obs.colision(this);
 	}
@@ -95,6 +88,23 @@ public final class NaveAliada extends Nave {
 		rec.setLocation(nuevoX, (int) rec.getY());
 		this.setLocation((int) rec.getX(), (int) rec.getY());
 		repaint();
+	}
+
+	@Override
+	public void colision(DisparoPenetrante disparo) {
+	}
+
+	@Override
+	public void colision(DisparoEnemigo disparo) {
+		disparo.eliminar();
+	}
+
+	@Override
+	public void colision(DisparoSimple disparo) {
+	}
+
+	@Override
+	public void colision(DisparoTriple disparo) {
 	}
 
 }

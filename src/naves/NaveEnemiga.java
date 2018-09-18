@@ -1,10 +1,16 @@
 package naves;
 
+import java.util.Random;
+
 import Inteligencias.Inteligencia;
+import disparos.DisparoEnemigo;
+import disparos.DisparoPenetrante;
+import disparos.DisparoSimple;
+import disparos.DisparoTriple;
+import disparos.FabricaDisparos;
 import juego.GameObject;
 import juego.Mapa;
 import juego.Nave;
-import juego.NaveState;
 import obstaculos.Obstaculo;
 
 public abstract class NaveEnemiga extends Nave {
@@ -12,14 +18,20 @@ public abstract class NaveEnemiga extends Nave {
 	protected Inteligencia inteligencia;
 
 	public NaveEnemiga(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad,
-			Inteligencia inteligencia, Mapa m) {
-		super(x, y, vida, durabilidad, alcance, dmg, velocidad, m);
+			Inteligencia inteligencia, FabricaDisparos fab) {
+		super(x, y, vida, durabilidad, alcance, dmg, velocidad, fab);
 		this.inteligencia = inteligencia;
 	}
 
 	@Override
 	public void mover() {
 		inteligencia.actualizarPosicion(this);
+
+		// DISPARO RANDOM
+		Random rnd = new Random();
+		if (rnd.nextInt(100) == 0) {
+			disparar();
+		}
 	}
 
 	@Override
@@ -34,7 +46,25 @@ public abstract class NaveEnemiga extends Nave {
 
 	@Override
 	public void colision(Obstaculo o) {
-		//this.recibirDano(o.getDmg());
-		//System.out.println("Colision de nave enemiga con obstaculo.");
+	}
+
+	@Override
+	public void colision(DisparoPenetrante disparo) {
+
+	}
+
+	@Override
+	public void colision(DisparoEnemigo disparo) {
+
+	}
+
+	@Override
+	public void colision(DisparoSimple disparo) {
+		disparo.eliminar();
+	}
+
+	@Override
+	public void colision(DisparoTriple disparo) {
+
 	}
 }

@@ -8,12 +8,16 @@ public abstract class Nave extends GameObject {
 	protected NaveState state;
 	protected FabricaDisparos arma;
 
-	public Nave(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad, Mapa m) {
+	public Nave(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad, FabricaDisparos fab) {
 		super(x, y, vida, durabilidad);
+		this.arma = fab;
 		this.state = new NaveState(vida, durabilidad, dmg, alcance, velocidad);
-		this.arma = new FabricaSimple(m);
 	}
 
+	public void disparar() {
+		arma.crearDisparo(this.rec.x + this.rec.width/2, this.rec.y - this.rec.height/2);
+	}
+	
 	@Override
 	public void eliminar() {
 		this.setVisible(false);
@@ -46,8 +50,6 @@ public abstract class Nave extends GameObject {
 	public void recibirDano(int d) {
 		this.setVida(this.state.vida -= d);
 	}
-
-	public abstract void disparar();
 
 	public abstract void aplicarPowerUp(PowerUp p);
 }

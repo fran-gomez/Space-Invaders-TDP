@@ -4,6 +4,7 @@ import java.awt.Rectangle;
 
 import javax.swing.ImageIcon;
 
+import juego.GameObject;
 import naves.NaveAliada;
 import naves.NaveEnemiga;
 import obstaculos.Obstaculo;
@@ -32,6 +33,10 @@ public final class DisparoPenetrante extends Disparo {
 	}
 
 	@Override
+	public void colision(GameObject obs) {
+		obs.colision(this);
+	}
+	@Override
 	public void colision(NaveEnemiga naveEnemiga) {
 	}
 
@@ -48,11 +53,23 @@ public final class DisparoPenetrante extends Disparo {
 	}
 
 	@Override
-	public void colision(Disparo disparo) {
+	protected Rectangle createRectangle(int x, int y) {
+		return new Rectangle(x, y, Constantes.DISPARO_PENETRANTE_WIDTH, Constantes.DISPARO_PENETRANTE_HEIGHT);
 	}
 
 	@Override
-	protected Rectangle createRectangle(int x, int y) {
-		return new Rectangle(x, y, Constantes.DISPARO_PENETRANTE_WIDTH, Constantes.DISPARO_PENETRANTE_HEIGHT);
+	public void colision(DisparoPenetrante disparo) {
+	}
+
+	@Override
+	public void colision(DisparoEnemigo disparo) {
+	}
+
+	@Override
+	public void colision(DisparoSimple disparo) {
+	}
+
+	@Override
+	public void colision(DisparoTriple disparo) {
 	}
 }
