@@ -65,6 +65,7 @@ public final class NaveAliada extends Nave {
 
 	@Override
 	public void colision(PowerUp powerUp) {
+		powerUp.efecto();
 	}
 
 	@Override

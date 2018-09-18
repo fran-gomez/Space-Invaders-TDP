@@ -19,4 +19,8 @@ public abstract class Disparo extends GameObject {
 			eliminar();
 		}
 	}
+	
+	public int getDmg() {
+		return dmg;
+	}
 }

@@ -66,4 +66,10 @@ public class LenteDeAmplificacion extends PowerUp {
 	public void colision(DisparoTriple disparo) {
 	}
 
+	@Override
+	public void efecto() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

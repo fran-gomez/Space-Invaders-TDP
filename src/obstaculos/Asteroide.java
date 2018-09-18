@@ -59,6 +59,7 @@ public class Asteroide extends Obstaculo {
 
 	@Override
 	public void colision(DisparoSimple disparo) {
+		this.setVida(this.getVida() - disparo.getDmg());
 	}
 
 	@Override

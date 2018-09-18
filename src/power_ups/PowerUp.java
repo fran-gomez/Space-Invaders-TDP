@@ -2,6 +2,7 @@ package power_ups;
 
 import juego.GameObject;
 import juego.ObjectState;
+import naves.NaveAliada;
 
 public abstract class PowerUp extends GameObject {
 
@@ -16,4 +17,9 @@ public abstract class PowerUp extends GameObject {
 		obs.colision(this);
 	}
 
+	public void colision(NaveAliada na) {
+		na.colision(this);
+	}
+	
+	public abstract void efecto();
 }
