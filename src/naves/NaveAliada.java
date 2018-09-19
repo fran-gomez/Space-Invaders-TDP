@@ -1,8 +1,6 @@
 package naves;
 
 import java.awt.Rectangle;
-import java.util.Timer;
-
 import javax.swing.ImageIcon;
 
 import disparos.DisparoEnemigo;
@@ -11,7 +9,6 @@ import disparos.DisparoSimple;
 import disparos.DisparoTriple;
 import disparos.FabricaDisparos;
 import juego.GameObject;
-import juego.Mapa;
 import juego.Nave;
 import obstaculos.Obstaculo;
 import power_ups.PowerUp;

@@ -9,7 +9,6 @@ import disparos.DisparoSimple;
 import disparos.DisparoTriple;
 import disparos.FabricaDisparos;
 import juego.GameObject;
-import juego.Mapa;
 import juego.Nave;
 import obstaculos.Obstaculo;
 

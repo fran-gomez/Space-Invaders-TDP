@@ -5,12 +5,7 @@ import java.awt.Rectangle;
 import javax.swing.ImageIcon;
 
 import Inteligencias.Inteligencia;
-import disparos.DisparoEnemigo;
-import disparos.DisparoPenetrante;
-import disparos.DisparoSimple;
-import disparos.DisparoTriple;
 import disparos.FabricaDisparos;
-import juego.Mapa;
 import power_ups.PowerUp;
 import utilidades.Constantes;
 

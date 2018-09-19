@@ -1,7 +1,6 @@
 package juego;
 
 import disparos.FabricaDisparos;
-import disparos.FabricaSimple;
 import power_ups.PowerUp;
 
 public abstract class Nave extends GameObject {

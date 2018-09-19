@@ -11,7 +11,7 @@ import obstaculos.Obstaculo;
 import power_ups.PowerUp;
 import utilidades.Constantes;
 
-public final class DisparoSimple extends Disparo {
+public final class DisparoSimple extends DisparoAliado {
 
 	public DisparoSimple(int x, int y, int vida, int durabilidad, int dmg) {
 		super(x, y, vida, durabilidad, dmg);
