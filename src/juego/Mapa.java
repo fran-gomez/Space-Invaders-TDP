@@ -138,7 +138,7 @@ public class Mapa extends JPanel {
 	}
 	
 	public boolean estaVacio() {
-		return objetos.isEmpty();
+		return objetos.size() == 1;
 	}
 
 	private boolean intersects(GameObject o1, GameObject o2) {
