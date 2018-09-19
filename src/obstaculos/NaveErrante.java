@@ -55,6 +55,7 @@ public class NaveErrante extends Obstaculo {
 
 	@Override
 	public void colision(DisparoEnemigo disparo) {
+		this.setVida(this.getVida() - disparo.getDmg());
 	}
 
 	@Override
