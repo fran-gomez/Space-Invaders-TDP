@@ -5,7 +5,9 @@ import java.awt.Rectangle;
 import javax.swing.ImageIcon;
 
 import Inteligencias.Inteligencia;
+import disparos.DisparoEnemigo;
 import disparos.FabricaDisparos;
+import obstaculos.Obstaculo;
 import power_ups.PowerUp;
 import utilidades.Constantes;
 
@@ -34,13 +36,4 @@ public final class Crab extends NaveEnemiga {
 	public ImageIcon getGrafico() {
 		return new ImageIcon("src/resources/Crab.png");
 	}
-
-	@Override
-	public void colision(NaveEnemiga naveEnemiga) {
-	}
-
-	@Override
-	public void colision(PowerUp powerUp) {
-	}
-
 }

@@ -13,17 +13,22 @@ import utilidades.Constantes;
 
 public final class DisparoTriple extends DisparoAliado {
 	
+	protected DisparoSimple proyectiles[];
+	
 	public DisparoTriple(int x, int y, int vida, int durabilidad, int dmg) {
 		super(x, y, vida, durabilidad, dmg);
-		// TODO Auto-generated constructor stub
+		
+		proyectiles = new DisparoSimple[3];
+		proyectiles[0] = new DisparoSimple(x + 10, y, vida, durabilidad, dmg);
+		proyectiles[1] = new DisparoSimple(x, y, vida, durabilidad, dmg);
+		proyectiles[2] = new DisparoSimple(x - 10, y, vida, durabilidad, dmg);
 	}
 
 
 	@Override
 	public void mover() {
-		rec.setLocation(rec.x, rec.y - Constantes.DISPARO_TRIPLE_VELOCIDAD);
-		setLocation((int) rec.getX(), (int) rec.getY());
-		super.mover();
+		for (int i = 0; i < 3; i++)
+			proyectiles[i].mover();
 	}
 
 	@Override
@@ -33,6 +38,7 @@ public final class DisparoTriple extends DisparoAliado {
 
 	@Override
 	public void colision(NaveEnemiga naveEnemiga) {
+		naveEnemiga.recibirDano(dmg);
 	}
 
 	@Override

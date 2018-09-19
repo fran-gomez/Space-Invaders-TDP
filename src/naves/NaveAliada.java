@@ -22,50 +22,34 @@ public final class NaveAliada extends Nave {
 		super(x, y, vida, durabilidad, alcance, dmg, velocidad, fab);
 	}
 
-	@Override
 	protected Rectangle createRectangle(int x, int y) {
 		return new Rectangle(x, y, Constantes.NAVE_ALIADA_WIDTH, Constantes.NAVE_ALIADA_HEIGHT);
 	}
 
-	@Override
 	public void aplicarPowerUp(PowerUp p) {
 
 	}
 
-	@Override
 	public String getName() {
 		return "Aliado";
 	}
 
-	@Override
 	public void mover() {
 	}
 
-	@Override
 	public ImageIcon getGrafico() {
 		return new ImageIcon("src/resources/NaveAliada.png");
 	}
 
-	@Override
 	public void colision(NaveEnemiga naveEnemiga) {
 		//System.out.println("Colision de nave aliada con naveEnemiga");
-		naveEnemiga.setVida(0);
+		naveEnemiga.recibirDano(this.getVida() / 10);;
 	}
 
-	@Override
-	public void colision(NaveAliada naveAliada) {
-	}
-
-	@Override
-	public void colision(Obstaculo obs) {
-	}
-
-	@Override
 	public void colision(PowerUp powerUp) {
 		powerUp.efecto();
 	}
 
-	@Override
 	public void colision(GameObject obs) {
 		obs.colision(this);
 	}
@@ -88,21 +72,32 @@ public final class NaveAliada extends Nave {
 		repaint();
 	}
 
-	@Override
-	public void colision(DisparoPenetrante disparo) {
-	}
-
-	@Override
 	public void colision(DisparoEnemigo disparo) {
 		disparo.eliminar();
 	}
 
 	@Override
+	public void colision(NaveAliada naveAliada) {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public void colision(Obstaculo obs) {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public void colision(DisparoPenetrante disparo) {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
 	public void colision(DisparoSimple disparo) {
+		// TODO Auto-generated method stub
 	}
 
 	@Override
 	public void colision(DisparoTriple disparo) {
+		// TODO Auto-generated method stub
 	}
-
 }

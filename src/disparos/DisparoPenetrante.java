@@ -38,6 +38,7 @@ public final class DisparoPenetrante extends DisparoAliado {
 	}
 	@Override
 	public void colision(NaveEnemiga naveEnemiga) {
+		naveEnemiga.recibirDano(dmg);
 	}
 
 	@Override
