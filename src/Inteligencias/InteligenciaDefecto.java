@@ -17,6 +17,7 @@ public class InteligenciaDefecto extends Inteligencia {
 	private static HashMap<NaveEnemiga, Boolean> mapMover;
 
 	private InteligenciaDefecto() {
+		super();
 		intelDefecto = null;
 		movDer = true;
 		rnd = new Random();

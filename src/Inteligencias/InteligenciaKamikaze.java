@@ -9,11 +9,14 @@ import utilidades.Constantes;
 public class InteligenciaKamikaze extends Inteligencia {
 
 	private static InteligenciaKamikaze intel;
+	private static Inteligencia intelAux;
 	private static NaveAliada jugador;
 	private static NaveEnemiga actualMoviendose;
 
 	private InteligenciaKamikaze() {
+		super();
 		intel = null;
+		intelAux = InteligenciaDefecto.getInstance();
 	}
 
 	@Override
@@ -31,15 +34,17 @@ public class InteligenciaKamikaze extends Inteligencia {
 
 			int newX = (int) rec.getX(), newY = (int) (rec.getY() + Constantes.NAVE_ALEATORIA_VELOCIDAD);
 
-			if (jugador.getRectangle().getX() - rec.getX() > 0) { // El jugador está a la derecha
+			if (jugador.getRectangle().getX() - rec.getX() > 0) {
+				// El jugador está a la derecha
 				newX += Constantes.NAVE_ALEATORIA_VELOCIDAD;
-			} else { // el jugador está a la izquierda
+			} else { 
+				// El jugador está a la izquierda
 				newX -= Constantes.NAVE_ALEATORIA_VELOCIDAD;
 			}
 
 			nave.cambiarUbicacion(newX, newY);
 		}else {
-			InteligenciaDefecto.getInstance().actualizarPosicion(nave);
+			intelAux.actualizarPosicion(nave);
 		}
 	}
 

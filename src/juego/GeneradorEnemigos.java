@@ -55,6 +55,9 @@ public abstract class GeneradorEnemigos {
 			for (int i = 0; i < e.getValue(); i++) {
 				listaEnemigos.add(e.getKey().clone());
 			}
+			if(listaEnemigos.size() > Constantes.CANT_FILAS_ENEMIGOS * Constantes.ENEMIGOS_X_FILA) {
+				break; //TODO cambiar esto!, pero es para evitar que agreguen mas enemigos que los soportados
+			}
 		}
 
 		// Generacion del resto, aleatoriedad
@@ -72,7 +75,6 @@ public abstract class GeneradorEnemigos {
 		NaveEnemiga n;
 		int rand = rnd.nextInt(7);
 
-		// TODO Corregir todos los parametros de creacion
 		switch (rand) {
 		case 0:
 			n = pocos.clone();

@@ -13,9 +13,9 @@ import naves.ShapeShifter;
 import naves.Squid;
 import naves.UFO;
 
-public class GeneradorEnemigosNivel1 extends GeneradorEnemigos {
+public class GeneradorEnemigosNivel2 extends GeneradorEnemigos {
 
-	public GeneradorEnemigosNivel1(Mapa map) {
+	public GeneradorEnemigosNivel2(Mapa map) {
 		super(map);
 
 		// x , y , vida, durabilidad, alcance , daño, velocidad, inteligencia , fabrica
@@ -37,11 +37,11 @@ public class GeneradorEnemigosNivel1 extends GeneradorEnemigos {
 		// pocos -> Octopus
 
 		mapeoCantMinima = new HashMap<NaveEnemiga, Integer>();
-		mapeoCantMinima.put(muchos, 1);
+		mapeoCantMinima.put(muchos, 0);
 		mapeoCantMinima.put(algunos1, 1);
 		mapeoCantMinima.put(algunos2, 1);
-		mapeoCantMinima.put(algunos3, 2);
-		mapeoCantMinima.put(pocos, 1);
+		mapeoCantMinima.put(algunos3, 5);
+		mapeoCantMinima.put(pocos, 2);
 	}
 
 }

@@ -13,7 +13,7 @@ import naves.NaveAliada;
 
 public class JugadorThread extends Thread {
 
-	private final float TIEMPO_ENTRE_DISPAROS = 250; //En Milésimas de segundo
+	private final float TIEMPO_ENTRE_DISPAROS = 400; //En Milésimas de segundo
 	
 	private int movement; // FLAG de movimiento
 	private int tiempoPausa;
@@ -70,7 +70,6 @@ public class JugadorThread extends Thread {
 				movement = d;
 			}
 		}
-
 	}
 
 	private class DisparoAction extends AbstractAction {

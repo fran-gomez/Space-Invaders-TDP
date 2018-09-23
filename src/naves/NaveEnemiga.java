@@ -34,7 +34,7 @@ public abstract class NaveEnemiga extends Nave {
 			disparar();
 		}
 	}
-
+	
 	@Override
 	public void colision(GameObject obs) {
 		obs.colision(this);
@@ -69,6 +69,8 @@ public abstract class NaveEnemiga extends Nave {
 
 	@Override
 	public void colision(Obstaculo obs) {
+		//se saltea el obstaculo
+		cambiarUbicacion(rec.x, (float) (rec.y + obs.getRectangle().getHeight()));
 	}
 
 	@Override
