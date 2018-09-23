@@ -3,9 +3,9 @@ package disparos;
 import juego.Mapa;
 import utilidades.Constantes;
 
-public class FabricaEnemigo extends FabricaDisparos {
+public class FabricaDisparoEnemigo extends FabricaDisparos {
 
-	public FabricaEnemigo(Mapa map) {
+	public FabricaDisparoEnemigo(Mapa map) {
 		super(map);
 	}
 

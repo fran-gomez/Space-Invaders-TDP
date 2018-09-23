@@ -49,5 +49,11 @@ public final class ShapeShifter extends NaveEnemiga {
 
 	}
 
+	@Override
+	public NaveEnemiga clone() {
+		return new ShapeShifter(rec.x, rec.y, state.getVida(), state.getDurabilidad(), state.getAlcance(), state.getDmg(),
+				state.getVelocidad(), this.inteligencia, this.arma);
+	}
+
 
 }

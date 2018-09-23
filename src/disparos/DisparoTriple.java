@@ -29,11 +29,12 @@ public final class DisparoTriple extends DisparoAliado {
 	public void mover() {
 		for (int i = 0; i < 3; i++)
 			proyectiles[i].mover();
+
 	}
 
 	@Override
 	public ImageIcon getGrafico() {
-		return null;
+		return new ImageIcon("src/resources/Disparo.png");
 	}
 
 	@Override

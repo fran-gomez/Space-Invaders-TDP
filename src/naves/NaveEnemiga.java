@@ -24,6 +24,7 @@ public abstract class NaveEnemiga extends Nave {
 		this.inteligencia = inteligencia;
 	}
 
+	@Override
 	public void mover() {
 		inteligencia.actualizarPosicion(this);
 
@@ -34,22 +35,27 @@ public abstract class NaveEnemiga extends Nave {
 		}
 	}
 
+	@Override
 	public void colision(GameObject obs) {
 		obs.colision(this);
 	}
 
+	@Override
 	public void colision(NaveAliada na) {
 		na.recibirDano(state.getDmg());
 	}
 
+	@Override
 	public void colision(DisparoSimple disparo) {
 		disparo.eliminar();
 	}
 
+	@Override
 	public void colision(DisparoTriple disparo) {
 		disparo.eliminar();
 	}
 	
+	@Override
 	public void colision(DisparoPenetrante disparo) {
 	}
 	
@@ -68,5 +74,8 @@ public abstract class NaveEnemiga extends Nave {
 	@Override
 	public void colision(DisparoEnemigo disparo) {
 	}
+	
+	@Override
+	public abstract NaveEnemiga clone();
 
 }

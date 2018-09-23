@@ -10,9 +10,16 @@ public class FabricaTriple extends FabricaDisparos {
 
 	@Override
 	public Disparo crearDisparo(int x, int y) {
-		Disparo disp = new DisparoTriple(x, y, 0, 0, 3);
-		map.addToObjects(disp);
-		return disp;
+		
+		Disparo disp1 = new DisparoSimple(x - 15, y, 10, 0, 30);
+		Disparo disp2 = new DisparoSimple(x, y - 5, 10, 0, 30);
+		Disparo disp3 = new DisparoSimple(x + 15, y, 10, 0, 30);
+
+		map.addToObjects(disp1);
+		map.addToObjects(disp2);
+		map.addToObjects(disp3);
+
+		return disp2;
 	}
 
 }

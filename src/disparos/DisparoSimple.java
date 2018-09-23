@@ -20,7 +20,7 @@ public final class DisparoSimple extends DisparoAliado {
 	@Override
 	public void mover() {
 		
-		rec.setLocation(rec.x, rec.y - Constantes.DISPARO_TRIPLE_VELOCIDAD);
+		rec.setLocation(rec.x, rec.y - Constantes.DISPARO_SIMPLE_VELOCIDAD);
 		setLocation((int) rec.getX(), (int) rec.getY());
 		
 		super.mover();
@@ -61,6 +61,7 @@ public final class DisparoSimple extends DisparoAliado {
 	}
 	@Override
 	public void colision(DisparoEnemigo disparo) {
+		disparo.eliminar();
 	}
 	@Override
 	public void colision(DisparoSimple disparo) {

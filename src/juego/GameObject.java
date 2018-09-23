@@ -110,8 +110,11 @@ public abstract class GameObject extends JPanel {
 	public abstract void colision(PowerUp powerUp);
 
 	public abstract void colision(DisparoPenetrante disparo);
+
 	public abstract void colision(DisparoEnemigo disparo);
+
 	public abstract void colision(DisparoSimple disparo);
+
 	public abstract void colision(DisparoTriple disparo);
 
 	public abstract void colision(GameObject obs);
@@ -156,6 +159,12 @@ public abstract class GameObject extends JPanel {
 
 	public boolean estaVivo() {
 		return !(this.state.vida <= 0);
+	}
+
+	
+	public void cambiarUbicacion(float x, float y) {
+		this.setLocation((int)x, (int)y);
+		rec.setLocation((int) x, (int) y);
 	}
 
 }
