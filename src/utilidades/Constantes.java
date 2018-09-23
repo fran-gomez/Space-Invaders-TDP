@@ -29,8 +29,8 @@ public final class Constantes {
 
 	public static final int ASTEROIDE_WIDTH = 40;
 	public static final int ASTEROIDE_HEIGHT = 40;
-	public static final int NAVEERRANTE_WIDTH = 40;
-	public static final int NAVEERRANTE_HEIGHT = 40;
+	public static final int NAVEERRANTE_WIDTH = 60;
+	public static final int NAVEERRANTE_HEIGHT = 30;
 
 	public static final int APARATOCATASTROFICO_HEIGHT = DEFAULT_SIZE;
 	public static final int APARATOCATASTROFICO_WIDTH = DEFAULT_SIZE;
@@ -47,11 +47,11 @@ public final class Constantes {
 	
 	public static final int DISPARO_SIMPLE_WIDTH = 5;
 	public static final int DISPARO_SIMPLE_HEIGHT = 10;
-	public static final int DISPARO_TRIPLE_WIDTH = 5;
+	public static final int DISPARO_TRIPLE_WIDTH = DISPARO_SIMPLE_WIDTH*3 + 10;
 	public static final int DISPARO_TRIPLE_HEIGHT = 10;
 	public static final int DISPARO_PENETRANTE_WIDTH = 5;
 	public static final int DISPARO_PENETRANTE_HEIGHT = 10;
-	public static final int DISPARO_ENEMIGO_WIDTH = 3;
+	public static final int DISPARO_ENEMIGO_WIDTH = 5;
 	public static final int DISPARO_ENEMIGO_HEIGHT = 5;
 
 	//VELOCIDADES

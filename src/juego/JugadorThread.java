@@ -70,7 +70,6 @@ public class JugadorThread extends Thread {
 				movement = d;
 			}
 		}
-
 	}
 
 	private class DisparoAction extends AbstractAction {

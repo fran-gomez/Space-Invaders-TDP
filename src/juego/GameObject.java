@@ -1,5 +1,6 @@
 package juego;
 
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Graphics2D;
@@ -19,6 +20,7 @@ import naves.NaveAliada;
 import naves.NaveEnemiga;
 import obstaculos.Obstaculo;
 import power_ups.PowerUp;
+import utilidades.FormateadorDeImagen;
 
 public abstract class GameObject extends JPanel {
 
@@ -27,7 +29,7 @@ public abstract class GameObject extends JPanel {
 	protected Rectangle rec;
 	protected ImageIcon visual;
 	protected BarraVida vidaLabel;
-	protected JLabel imagenLabel;
+	protected Component cuerpo;
 
 	public static final int BARRA_VIDA_HEIGHT = 3;
 
@@ -48,37 +50,26 @@ public abstract class GameObject extends JPanel {
 		setImage();
 	}
 
-	private void setImage() {
+	protected void setImage() {
 		this.setOpaque(false);
 
 		this.vidaLabel = new BarraVida(100); // TODO Cambiar a vida posta
-		this.imagenLabel = new JLabel();
+		this.cuerpo = new JLabel();
 
 		// Rectángulo de vida
 		vidaLabel.setSize((int) rec.getWidth(), BARRA_VIDA_HEIGHT + 5); // +5 para el padding
 		vidaLabel.setPreferredSize(new Dimension((int) rec.getWidth(), BARRA_VIDA_HEIGHT + 5));
 
 		// rectángulo de imagen
-		imagenLabel.setSize((int) rec.getWidth(), (int) rec.getHeight());
-		imagenLabel.setPreferredSize(new Dimension((int) rec.getWidth(), (int) rec.getHeight()));
+		cuerpo.setSize((int) rec.getWidth(), (int) rec.getHeight());
+		cuerpo.setPreferredSize(new Dimension((int) rec.getWidth(), (int) rec.getHeight()));
 
 		this.add(vidaLabel);
-		this.add(imagenLabel);
 
 		visual = getGrafico();
 		if (visual != null) {
-			Image img = visual.getImage();
-			BufferedImage bimage = new BufferedImage(img.getWidth(null), img.getHeight(null),
-					BufferedImage.TYPE_INT_ARGB);
-
-			// Draw the image on to the buffered image
-			Graphics2D bGr = bimage.createGraphics();
-			bGr.drawImage(img, 0, 0, null);
-			bGr.dispose();
-
-			Image dimg = bimage.getScaledInstance((int) rec.getWidth(), (int) rec.getHeight(), Image.SCALE_SMOOTH);
-			visual = new ImageIcon(dimg);
-			imagenLabel.setIcon(visual);
+			((JLabel) cuerpo).setIcon(FormateadorDeImagen.formatearImagen(visual, (int)rec.getWidth(), (int)rec.getHeight()));
+			this.add(cuerpo);
 		}
 	}
 
@@ -110,8 +101,11 @@ public abstract class GameObject extends JPanel {
 	public abstract void colision(PowerUp powerUp);
 
 	public abstract void colision(DisparoPenetrante disparo);
+
 	public abstract void colision(DisparoEnemigo disparo);
+
 	public abstract void colision(DisparoSimple disparo);
+
 	public abstract void colision(DisparoTriple disparo);
 
 	public abstract void colision(GameObject obs);
@@ -156,6 +150,12 @@ public abstract class GameObject extends JPanel {
 
 	public boolean estaVivo() {
 		return !(this.state.vida <= 0);
+	}
+
+	
+	public void cambiarUbicacion(float x, float y) {
+		this.setLocation((int)x, (int)y);
+		rec.setLocation((int) x, (int) y);
 	}
 
 }

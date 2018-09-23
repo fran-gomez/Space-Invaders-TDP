@@ -8,18 +8,8 @@ import java.util.List;
 import java.util.Random;
 
 import javax.swing.JPanel;
-import Inteligencias.InteligenciaAleatoria;
-import Inteligencias.InteligenciaDefecto;
-import Inteligencias.InteligenciaKamikaze;
-import disparos.FabricaEnemigo;
-import disparos.FabricaSimple;
-import naves.Crab;
+import disparos.FabricaTriple;
 import naves.NaveAliada;
-import naves.NaveEnemiga;
-import naves.Octopus;
-import naves.ShapeShifter;
-import naves.Squid;
-import naves.UFO;
 import obstaculos.Asteroide;
 import obstaculos.NaveErrante;
 import obstaculos.Obstaculo;
@@ -31,6 +21,7 @@ public class Mapa extends JPanel {
 
 	protected int dificultad;
 	protected List<GameObject> objetos, toAdd;
+	protected GeneradorEnemigos generadorEnemigos;
 
 	protected Random rnd;
 
@@ -47,35 +38,26 @@ public class Mapa extends JPanel {
 		objetos = new LinkedList<>();
 		toAdd = new LinkedList<>();
 
+		inicializarMapa();
+	}
+
+	protected void inicializarMapa() {
 		// Colocamos la nave del jugador
 		jugador = new NaveAliada(Constantes.MAP_WIDTH / 2,
 				Constantes.MAP_HEIGHT - (Constantes.NAVE_ALIADA_HEIGHT + GameObject.BARRA_VIDA_HEIGHT + 10) / 2,
 				Constantes.NAVE_ALIADA_VIDA, Constantes.NAVE_ALIADA_DURABILIDAD, Constantes.NAVE_ALIADA_ALCANCE,
-				Constantes.NAVE_ALIADA_DANIO, Constantes.NAVE_ALIADA_DURABILIDAD, new FabricaSimple(this));
+				Constantes.NAVE_ALIADA_DANIO, Constantes.NAVE_ALIADA_DURABILIDAD, new FabricaTriple(this));
 		this.add(jugador);
 		objetos.add(jugador);
 
 		// Creacion y adicion de los enemigos
-		NaveEnemiga enemigo = null;
-		int x, y;
-		int areaAliensH = Constantes.MAP_HEIGHT / 3;
-		int areaAliensW = Constantes.MAP_WIDTH;
-		int cuadradoAlienW = areaAliensW / Constantes.ENEMIGOS_X_FILA;
-		int cuadradoAlienH = areaAliensH / Constantes.CANT_FILAS_ENEMIGOS;
-
-		for (int f = 0; f < Constantes.CANT_FILAS_ENEMIGOS; f++) {
-			for (int c = 0; c < Constantes.ENEMIGOS_X_FILA; c++) {
-				x = c * cuadradoAlienW + cuadradoAlienW / 2;
-				y = f * cuadradoAlienH + cuadradoAlienH / 2;
-				enemigo = naveAleatoria(x, y);
-				this.add(enemigo);
-				objetos.add(enemigo);
-			}
-		}
+		// nivel 1
+		generadorEnemigos = new GeneradorEnemigosNivel1(this);
+		generadorEnemigos.generarNavesEnemigas();
 
 		// Colocamos dos obstaculos
-		Obstaculo obs1 = new NaveErrante(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 10, 0, 5);
-		Obstaculo obs2 = new Asteroide(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 10, 0, 5);
+		Obstaculo obs1 = new NaveErrante(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 100, 0, 20);
+		Obstaculo obs2 = new Asteroide(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 100, 0, 20);
 
 		while (intersects(obs1, obs2)) {
 			obs2 = new Asteroide(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 0, 0, 5);
@@ -119,8 +101,8 @@ public class Mapa extends JPanel {
 				objetos.remove(obj1);
 			}
 		}
-		
-		//Para evitar el concurrentModificationException
+
+		// Para evitar el concurrentModificationException
 		objetos.addAll(toAdd);
 		toAdd.clear();
 	}
@@ -134,42 +116,14 @@ public class Mapa extends JPanel {
 			go.eliminar();
 
 		this.setBackground(Color.red);
-
 	}
-	
+
 	public boolean estaVacio() {
 		return objetos.size() == 1;
 	}
 
 	private boolean intersects(GameObject o1, GameObject o2) {
 		return o1.getRectangle().intersects(o2.getRectangle());
-	}
-
-	private NaveEnemiga naveAleatoria(int x, int y) {
-
-		NaveEnemiga n;
-		int rand = rnd.nextInt(7);
-
-		// TODO Corregir todos los parametros de creacion
-		switch (rand) {
-		case 0:
-			n = new Octopus(x, y, 100, rand, rand, 20, rand, InteligenciaDefecto.getInstance(), new FabricaEnemigo(this));
-			break;
-		case 1:
-			n = new Squid(x, y, 100, rand, rand, 20, rand, InteligenciaKamikaze.getInstance(jugador), new FabricaEnemigo(this));
-			break;
-		case 2:
-			n = new ShapeShifter(x, y, 100, rand, rand, 20, rand, InteligenciaAleatoria.getInstance(), new FabricaEnemigo(this));
-			break;
-		case 3:
-			n = new UFO(x, y, 100, rand, rand, 20, rand, InteligenciaDefecto.getInstance(), new FabricaEnemigo(this));
-			break;
-		default:
-			n = new Crab(x, y, 100, rand, rand, 20, rand, InteligenciaDefecto.getInstance(), new FabricaEnemigo(this));
-			break;
-		}
-
-		return n;
 	}
 
 	public void addToObjects(GameObject o) {

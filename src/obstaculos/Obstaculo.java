@@ -26,6 +26,5 @@ public abstract class Obstaculo extends GameObject {
 	@Override
 	public void colision(NaveEnemiga ne) {
 		ne.recibirDano(dmg);
-		//System.out.println("Colision de obstaculo con nave enemiga.");
 	}
 }

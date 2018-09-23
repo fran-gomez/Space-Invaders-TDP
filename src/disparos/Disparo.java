@@ -13,6 +13,7 @@ public abstract class Disparo extends GameObject {
 		// TODO Auto-generated constructor stub
 	}
 	
+	@Override
 	public void mover() {
 		//Chequear que siga en el map
 		if(rec.y < 0 || rec.y > Constantes.MAP_HEIGHT) {

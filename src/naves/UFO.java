@@ -43,5 +43,11 @@ public final class UFO extends NaveEnemiga {
 	public void colision(PowerUp powerUp) {
 	}
 
+	@Override
+	public NaveEnemiga clone() {
+		return new UFO(rec.x, rec.y, state.getVida(), state.getDurabilidad(), state.getAlcance(), state.getDmg(),
+				state.getVelocidad(), this.inteligencia, this.arma);
+	}
+
 
 }

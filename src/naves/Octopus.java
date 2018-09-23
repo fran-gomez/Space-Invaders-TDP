@@ -43,4 +43,10 @@ public final class Octopus extends NaveEnemiga {
 	@Override
 	public void colision(PowerUp powerUp) {
 	}
+
+	@Override
+	public NaveEnemiga clone() {
+		return new Octopus(rec.x, rec.y, state.getVida(), state.getDurabilidad(), state.getAlcance(), state.getDmg(),
+				state.getVelocidad(), this.inteligencia, this.arma);
+	}
 }
