@@ -22,9 +22,4 @@ public abstract class Obstaculo extends GameObject {
 	public void colision(GameObject obs) {
 		obs.colision(this);
 	}
-
-	@Override
-	public void colision(NaveEnemiga ne) {
-		ne.recibirDano(dmg);
-	}
 }
