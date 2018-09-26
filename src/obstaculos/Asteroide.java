@@ -9,6 +9,7 @@ import disparos.DisparoPenetrante;
 import disparos.DisparoSimple;
 import disparos.DisparoTriple;
 import naves.NaveAliada;
+import naves.NaveEnemiga;
 import power_ups.PowerUp;
 import utilidades.Constantes;
 
@@ -55,6 +56,11 @@ public class Asteroide extends Obstaculo {
 
 	@Override
 	public void colision(DisparoEnemigo disparo) {
+	}
+	
+	@Override
+	public void colision(NaveEnemiga ne) {
+		ne.recibirDano(dmg);
 	}
 
 	@Override

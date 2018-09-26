@@ -41,7 +41,7 @@ public class InteligenciaDefecto extends Inteligencia {
 				movDer = false;
 			}
 			if (movAbajo) {
-				newY = rec.y + Constantes.NAVE_ALEATORIA_VELOCIDAD;
+				newY = rec.y + Constantes.NAVE_ALEATORIA_VELOCIDAD*3;
 				mapMover.put(nave, true);
 			}
 		} else {

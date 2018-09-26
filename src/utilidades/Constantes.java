@@ -29,8 +29,8 @@ public final class Constantes {
 
 	public static final int ASTEROIDE_WIDTH = 40;
 	public static final int ASTEROIDE_HEIGHT = 40;
-	public static final int NAVEERRANTE_WIDTH = 60;
-	public static final int NAVEERRANTE_HEIGHT = 30;
+	public static final int NAVEERRANTE_WIDTH = 40;
+	public static final int NAVEERRANTE_HEIGHT = 40;
 
 	public static final int APARATOCATASTROFICO_HEIGHT = DEFAULT_SIZE;
 	public static final int APARATOCATASTROFICO_WIDTH = DEFAULT_SIZE;

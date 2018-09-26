@@ -1,7 +1,6 @@
 package obstaculos;
 
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Rectangle;
@@ -17,14 +16,14 @@ import disparos.DisparoSimple;
 import disparos.DisparoTriple;
 import juego.BarraVida;
 import naves.NaveAliada;
+import naves.NaveEnemiga;
 import power_ups.PowerUp;
 import utilidades.Constantes;
-import utilidades.FormateadorDeImagen;
 
 public class NaveErrante extends Obstaculo {
 
 	private JLabel partesObstaculo[][];
-	private int alto, ancho;
+	private int ancho, alto;
 	private int count;
 
 	public NaveErrante(int x, int y, int vida, int durabilidad, int d) {
@@ -36,26 +35,25 @@ public class NaveErrante extends Obstaculo {
 		this.setOpaque(false);
 
 		// Cantidad de bloques
-		ancho = 5;
 		alto = 4;
+		ancho = 4;
 
 		JPanel cuerpoAux = new JPanel();
-		cuerpoAux.setLayout(new GridLayout(alto, ancho));
 
-		cuerpoAux = new JPanel();
+		// rows & columns
 		cuerpoAux.setLayout(new GridLayout(alto, ancho));
 		cuerpoAux.setOpaque(false);
 
-		partesObstaculo = new JLabel[alto][ancho];
-		count = alto * ancho;
+		partesObstaculo = new JLabel[ancho][alto];
+		count = ancho * alto;
 		JLabel parte;
 		for (int i = 0; i < alto; i++) {
 			for (int j = 0; j < ancho; j++) {
 				parte = new JLabel();
-				parte.setSize(Constantes.NAVEERRANTE_WIDTH / alto, Constantes.NAVEERRANTE_HEIGHT / ancho);
+				parte.setSize(Constantes.NAVEERRANTE_WIDTH / ancho, Constantes.NAVEERRANTE_HEIGHT / alto);
 				parte.setPreferredSize(
-						new Dimension(Constantes.NAVEERRANTE_WIDTH / alto, Constantes.NAVEERRANTE_HEIGHT / ancho));
-				partesObstaculo[i][j] = parte;
+						new Dimension(Constantes.NAVEERRANTE_WIDTH / ancho, Constantes.NAVEERRANTE_HEIGHT / alto));
+				partesObstaculo[j][i] = parte;
 				parte.setOpaque(true);
 				parte.setBackground(Color.YELLOW);
 				cuerpoAux.add(parte);
@@ -103,26 +101,41 @@ public class NaveErrante extends Obstaculo {
 
 	@Override
 	public void colision(DisparoEnemigo disparo) {
-		daniar(disparo);
+		if (daniar((int) disparo.getRectangle().getX())) {
+			disparo.eliminar();
+		}
 	}
 
-	private void daniar(Disparo disparo) {
-		int dist = (int) (disparo.getRectangle().getX() - rec.x);
-		int pos = (int) (dist / (rec.width / alto));
+	/**
+	 * Busca un cuadrado a eliminar con la colision
+	 * 
+	 * @param x posicion en x del colisionador
+	 * @return si encontro un cuadrado que corresponda al objetivo
+	 */
+	private boolean daniar(int x) {
+		int dist = (int) (x - rec.x);
+		int pos = (int) (dist / (rec.width / ancho));
+		boolean encontro = false;
 
 		while (pos >= ancho)
 			pos--;
+		while (pos < 0)
+			pos++;
 
-		boolean encontro = false;
-		for (int i = 0; i < ancho && !encontro; i++) {
-			if (partesObstaculo[i][pos].isVisible()) {
-				partesObstaculo[i][pos].setVisible(false);
+		for (int i = 0; i < alto && !encontro; i++) {
+			if (partesObstaculo[pos][i].isVisible()) {
+				partesObstaculo[pos][i].setVisible(false);
 				encontro = true;
 			}
 		}
-		if (encontro) {
-			disparo.eliminar();
-		}
+
+		return encontro;
+	}
+
+	@Override
+	public void colision(NaveEnemiga ne) {
+		if (daniar((int) ne.getRectangle().getX()))
+			ne.recibirDano(dmg);
 	}
 
 	@Override
