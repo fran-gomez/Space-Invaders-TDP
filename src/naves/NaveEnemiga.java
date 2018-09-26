@@ -17,7 +17,7 @@ public abstract class NaveEnemiga extends Nave {
 
 	protected Inteligencia inteligencia;
 	protected PowerUp powerUp;
-
+	
 	public NaveEnemiga(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad,
 			Inteligencia inteligencia, FabricaDisparos fab) {
 		super(x, y, vida, durabilidad, alcance, dmg, velocidad, fab);

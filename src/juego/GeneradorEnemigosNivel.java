@@ -13,22 +13,23 @@ import naves.ShapeShifter;
 import naves.Squid;
 import naves.UFO;
 
-public class GeneradorEnemigosNivel1 extends GeneradorEnemigos {
+public class GeneradorEnemigosNivel extends GeneradorEnemigos {
 
-	public GeneradorEnemigosNivel1(Mapa map) {
+	public GeneradorEnemigosNivel(Mapa map) {
 		super(map);
 
+		int lvl = map.dificultad;
 		// x , y , vida, durabilidad, alcance , daño, velocidad, inteligencia , fabrica
-		this.muchos = new Crab(0, 0, 100, 10, 10, 20, 10, InteligenciaDefecto.getInstance(), new FabricaDisparoEnemigo(map));
-		this.algunos1 = new UFO(0, 0, 100, 10, 10, 20, 10, InteligenciaDefecto.getInstance(), new FabricaDisparoEnemigo(map));
+		this.muchos = new Crab(0, 0, lvl, InteligenciaDefecto.getInstance(), new FabricaDisparoEnemigo(map));
+		this.algunos1 = new UFO(0, 0, lvl, InteligenciaDefecto.getInstance(), new FabricaDisparoEnemigo(map));
 
-		this.algunos2 = new ShapeShifter(0, 0, 100, 10, 10, 20, 10, InteligenciaAleatoria.getInstance(),
+		this.algunos2 = new ShapeShifter(0, 0, lvl, InteligenciaAleatoria.getInstance(),
 				new FabricaDisparoEnemigo(map));
 
-		this.algunos3 = new Squid(0, 0, 100, 10, 10, 20, 10, InteligenciaKamikaze.getInstance(map.obtenerJugador()),
+		this.algunos3 = new Squid(0, 0, lvl, InteligenciaKamikaze.getInstance(map.obtenerJugador()),
 				new FabricaDisparoEnemigo(map));
 
-		this.pocos = new Octopus(0, 0, 100, 10, 10, 20, 10, InteligenciaDefecto.getInstance(), new FabricaDisparoEnemigo(map));
+		this.pocos = new Octopus(0, 0, lvl, InteligenciaDefecto.getInstance(), new FabricaDisparoEnemigo(map));
 
 		// muchos -> Crab
 		// algunos1 -> UFO minimo1

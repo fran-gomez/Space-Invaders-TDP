@@ -51,4 +51,6 @@ public abstract class Nave extends GameObject {
 	}
 
 	public abstract void aplicarPowerUp(PowerUp p);
+	
+	protected abstract void setearEstadisticas(int lvl);
 }

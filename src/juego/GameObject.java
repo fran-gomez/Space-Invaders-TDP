@@ -32,7 +32,8 @@ public abstract class GameObject extends JPanel {
 	protected Component cuerpo;
 
 	public static final int BARRA_VIDA_HEIGHT = 3;
-
+	
+	
 	public GameObject(int x, int y, int vida, int durabilidad) {
 
 		this.rec = createRectangle(x, y);

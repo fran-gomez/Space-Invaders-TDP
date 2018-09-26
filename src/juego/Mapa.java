@@ -37,7 +37,8 @@ public class Mapa extends JPanel {
 		rnd = new Random();
 		objetos = new LinkedList<>();
 		toAdd = new LinkedList<>();
-
+		this.dificultad = dificultad;
+		
 		inicializarMapa();
 	}
 
@@ -51,8 +52,7 @@ public class Mapa extends JPanel {
 		objetos.add(jugador);
 
 		// Creacion y adicion de los enemigos
-		// nivel 1
-		generadorEnemigos = new GeneradorEnemigosNivel1(this);
+		generadorEnemigos = new GeneradorEnemigosNivel(this);
 		generadorEnemigos.generarNavesEnemigas();
 
 		// Colocamos dos obstaculos

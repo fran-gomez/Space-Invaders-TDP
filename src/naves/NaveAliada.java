@@ -10,6 +10,7 @@ import disparos.DisparoTriple;
 import disparos.FabricaDisparos;
 import juego.GameObject;
 import juego.Nave;
+import juego.NaveState;
 import obstaculos.Obstaculo;
 import power_ups.PowerUp;
 import utilidades.Constantes;
@@ -18,6 +19,11 @@ public final class NaveAliada extends Nave {
 
 	public static final int DERECHA = 1, IZQUIERDA = -1, STOPDER = 2, STOPIZQ = -2;
 
+	public NaveAliada(int x, int y, int lvl, FabricaDisparos fab) {
+		this(x, y, 0, 0, 0, 0, 0, fab);
+		setearEstadisticas(lvl);
+	}
+	
 	public NaveAliada(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad, FabricaDisparos fab) {
 		super(x, y, vida, durabilidad, alcance, dmg, velocidad, fab);
 	}
@@ -108,5 +114,15 @@ public final class NaveAliada extends Nave {
 	@Override
 	public void colision(DisparoTriple disparo) {
 		// TODO Auto-generated method stub
+	}
+
+	@Override
+	protected void setearEstadisticas(int lvl) {
+		int vida = Constantes.NAVE_ALIADA_VIDA + lvl;
+		int durabilidad = Constantes.NAVE_ALIADA_DURABILIDAD + lvl;
+		int alcance = Constantes.NAVE_ALIADA_ALCANCE + lvl;
+		int dmg = Constantes.NAVE_ALIADA_DANIO + lvl;
+		int velocidad = Constantes.NAVE_ALIADA_VELOCIDAD + (lvl/2);
+		this.state = new NaveState(vida, durabilidad, alcance, dmg, velocidad);
 	}
 }
