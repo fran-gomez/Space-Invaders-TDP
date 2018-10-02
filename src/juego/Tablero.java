@@ -9,6 +9,9 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import controlador.JugadorThread;
+import controlador.MainThread;
+
 public class Tablero extends JPanel {
 
 	protected Mapa g;

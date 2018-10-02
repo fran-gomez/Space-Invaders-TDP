@@ -10,7 +10,7 @@ public class Juego {
 	public static void main(String[] args) {
 
 		JFrame ventana = new JFrame();
-		Tablero t = new Tablero(218);
+		Tablero t = new Tablero(2);
 		ventana.setLayout(new FlowLayout());
 		ventana.add(t);
 

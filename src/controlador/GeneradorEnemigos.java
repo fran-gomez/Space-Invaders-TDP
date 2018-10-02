@@ -1,10 +1,13 @@
-package juego;
+package controlador;
 
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+
+import juego.Mapa;
+
 import java.util.Random;
 
 import naves.NaveEnemiga;

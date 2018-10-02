@@ -1,4 +1,6 @@
-package juego;
+package controlador;
+
+import juego.Mapa;
 
 public class MainThread extends Thread {
 

@@ -1,6 +1,8 @@
-package juego;
+package naves;
 
 import disparos.FabricaDisparos;
+import juego.GameObject;
+import juego.NaveState;
 import power_ups.PowerUp;
 
 public abstract class Nave extends GameObject {
@@ -31,23 +33,23 @@ public abstract class Nave extends GameObject {
 	}
 
 	public int getAlcance() {
-		return state.alcance;
+		return state.getAlcance();
 	}
 
 	public void setAlcance(int alcance) {
-		state.alcance = alcance;
+		state.setAlcance(alcance);
 	}
 
 	public int getVelocidad() {
-		return state.velocidad;
+		return state.getVelocidad();
 	}
 
 	public void setVelocidad(int velocidad) {
-		state.velocidad = velocidad;
+		state.setVelocidad(velocidad);
 	}
 
 	public void recibirDano(int d) {
-		this.setVida(this.state.vida -= d);
+		this.setVida(this.getVida() - d);
 	}
 
 	public abstract void aplicarPowerUp(PowerUp p);

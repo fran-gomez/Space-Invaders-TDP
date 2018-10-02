@@ -8,6 +8,9 @@ import java.util.List;
 import java.util.Random;
 
 import javax.swing.JPanel;
+
+import controlador.GeneradorEnemigos;
+import controlador.GeneradorEnemigosNivel;
 import disparos.FabricaTriple;
 import naves.NaveAliada;
 import obstaculos.Asteroide;
@@ -42,6 +45,9 @@ public class Mapa extends JPanel {
 		inicializarMapa();
 	}
 
+	public int dificultad() {
+		return dificultad;
+	}
 	protected void inicializarMapa() {
 		// Colocamos la nave del jugador
 		jugador = new NaveAliada(Constantes.MAP_WIDTH / 2,

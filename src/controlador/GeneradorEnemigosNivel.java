@@ -1,4 +1,4 @@
-package juego;
+package controlador;
 
 import java.util.HashMap;
 
@@ -6,6 +6,7 @@ import Inteligencias.InteligenciaAleatoria;
 import Inteligencias.InteligenciaDefecto;
 import Inteligencias.InteligenciaKamikaze;
 import disparos.FabricaDisparoEnemigo;
+import juego.Mapa;
 import naves.Crab;
 import naves.NaveEnemiga;
 import naves.Octopus;
@@ -18,7 +19,7 @@ public class GeneradorEnemigosNivel extends GeneradorEnemigos {
 	public GeneradorEnemigosNivel(Mapa map) {
 		super(map);
 
-		int lvl = map.dificultad;
+		int lvl = map.dificultad();
 		// x , y , vida, durabilidad, alcance , daño, velocidad, inteligencia , fabrica
 		this.muchos = new Crab(0, 0, lvl, InteligenciaDefecto.getInstance(), new FabricaDisparoEnemigo(map));
 		this.algunos1 = new UFO(0, 0, lvl, InteligenciaDefecto.getInstance(), new FabricaDisparoEnemigo(map));
