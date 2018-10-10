@@ -82,8 +82,8 @@ public class Mapa extends JPanel {
 			GameObject obj = it.next();
 			obj.mover();
 		}
-
-		// Deteccion de colisiones
+		
+		// Detecto las colisiones
 		GameObject obj1, obj2;
 		for (int i = 0; i < objetos.size(); i++) {
 			obj1 = objetos.get(i);
@@ -102,6 +102,7 @@ public class Mapa extends JPanel {
 				}
 
 			}
+			
 			if (!obj1.estaVivo()) {
 				obj1.eliminar();
 				objetos.remove(obj1);

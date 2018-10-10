@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import controlador.ColisionesThread;
 import controlador.JugadorThread;
 import controlador.MainThread;
 
@@ -20,12 +21,15 @@ public class Tablero extends JPanel {
 	protected long puntos;
 	protected MainThread mainThread;
 	protected JugadorThread jugadorThread;
+	protected ColisionesThread colisionesThread;
 
 	public Tablero(int dificultad) {
 		g = new Mapa(dificultad);
 
 		mainThread = new MainThread(g);
 		jugadorThread = new JugadorThread(g.obtenerJugador());
+		colisionesThread = new ColisionesThread(g.objetos);
+		
 		panelPuntos = nuevoPanelPuntos();
 
 		this.setLayout(new FlowLayout());
@@ -35,6 +39,7 @@ public class Tablero extends JPanel {
 		// Iniciar loop
 		mainThread.start();
 		jugadorThread.start();
+		colisionesThread.start();
 	}
 
 	private JPanel nuevoPanelPuntos() {
