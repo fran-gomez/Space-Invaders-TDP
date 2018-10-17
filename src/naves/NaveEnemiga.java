@@ -34,6 +34,14 @@ public abstract class NaveEnemiga extends Nave {
 		}
 	}
 	
+	public Inteligencia obtenerInteligencia() {
+		return inteligencia;
+	}
+	
+	public void inteligencia(Inteligencia i) {
+		this.inteligencia = i;
+	}
+	
 	@Override
 	public void colision(GameObject obs) {
 		obs.colision(this);

@@ -39,7 +39,7 @@ public final class Octopus extends NaveEnemiga {
 
 	@Override
 	public ImageIcon getGrafico() {
-		return new ImageIcon("src/resources/Octopus.png");
+		return new ImageIcon("src/resources/Enemigo12.png");
 	}
 
 	@Override

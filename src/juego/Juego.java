@@ -6,8 +6,10 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
@@ -22,6 +24,7 @@ public class Juego {
 
 		ventana = new JFrame();
 		
+		//ventana.add(new JLabel(new ImageIcon("src/resources/mapa_bg.jpg")));
 		ventana.setLayout(new FlowLayout());
 		ventana.add(armarPanelNiveles());
 
@@ -38,21 +41,22 @@ public class Juego {
 		JButton botonNivel;
 		
 		panel.setLayout(new GridLayout(10, 10));
-		panel.setPreferredSize(new Dimension(Constantes.MAP_WIDTH + 50, Constantes.MAP_HEIGHT));
+		panel.setPreferredSize(new Dimension(Constantes.MAP_WIDTH, Constantes.MAP_HEIGHT));
 		
 		for (int i = 1; i <= 10; i++)
 			for (int j = 1; j <= 10; j++) {
-				int lvl = i*j;
+				int lvl = i+j;
 				if (lvl != 100)
-					botonNivel = new JButton("LvL " + lvl);
+					botonNivel = new JButton("" + lvl);
 				else
 					botonNivel = new JButton("CHAOS");
 				
 				botonNivel.addActionListener(new ActionListener() {
 	                public void actionPerformed(ActionEvent e) {
-	                    t = new Tablero(lvl);
-	                    ventana.remove(panel);
+	                	ventana.remove(panel);
+	                	t = new Tablero(lvl);
 	                    ventana.add(t);
+	                    t.startThreads();
 	                }
 	            });
 				

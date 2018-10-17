@@ -2,7 +2,6 @@ package obstaculos;
 
 import juego.GameObject;
 import juego.ObjectState;
-import naves.NaveEnemiga;
 
 public abstract class Obstaculo extends GameObject {
 

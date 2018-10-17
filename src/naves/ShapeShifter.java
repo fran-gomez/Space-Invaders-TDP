@@ -1,6 +1,7 @@
 package naves;
 
 import java.awt.Rectangle;
+import java.util.Random;
 
 import javax.swing.ImageIcon;
 
@@ -40,7 +41,8 @@ public final class ShapeShifter extends NaveEnemiga {
 
 	@Override
 	public ImageIcon getGrafico() {
-		return new ImageIcon("src/resources/Shapeshifter.png");
+		int r = (new Random()).nextInt(14);
+		return new ImageIcon("src/resources/Enemigo" + (r+1) + ".png");
 	}
 
 	@Override

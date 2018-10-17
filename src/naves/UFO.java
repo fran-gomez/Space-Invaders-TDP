@@ -38,7 +38,7 @@ public final class UFO extends NaveEnemiga {
 
 	@Override
 	public ImageIcon getGrafico() {
-		return new ImageIcon("src/resources/UFO.png");
+		return new ImageIcon("src/resources/Enemigo9.png");
 	}
 
 	@Override

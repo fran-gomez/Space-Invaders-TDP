@@ -39,7 +39,7 @@ public final class Squid extends NaveEnemiga {
 
 	@Override
 	public ImageIcon getGrafico() {
-		return new ImageIcon("src/resources/Squid.png");
+		return new ImageIcon("src/resources/Enemigo13.png");
 	}
 
 	@Override

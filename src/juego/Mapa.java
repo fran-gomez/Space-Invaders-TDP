@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import controlador.GeneradorEnemigos;
@@ -27,6 +28,8 @@ public class Mapa extends JPanel {
 	protected GeneradorEnemigos generadorEnemigos;
 
 	protected Random rnd;
+	
+	protected Colisionador c;
 
 	public Mapa(int dificultad) {
 
@@ -34,14 +37,16 @@ public class Mapa extends JPanel {
 		this.setSize(Constantes.MAP_WIDTH, Constantes.MAP_HEIGHT);
 		this.setPreferredSize(new Dimension(Constantes.MAP_WIDTH, Constantes.MAP_HEIGHT));
 		this.setBackground(Color.BLACK);
-		// this.drawImage(new ImageIcon("src/resources/mapa_bg.jpg"),0 ,0 ,null);
-
+		//this.setOpaque(false);
+		//this.drawImage(new ImageIcon("src/resources/mapa_bg.jpg"),0 ,0 ,null);
 		// utils
 		rnd = new Random();
 		objetos = new LinkedList<>();
 		toAdd = new LinkedList<>();
 		this.dificultad = dificultad;
-		
+
+		c = new Colisionador(objetos, toAdd);
+				
 		inicializarMapa();
 	}
 
@@ -82,36 +87,7 @@ public class Mapa extends JPanel {
 			GameObject obj = it.next();
 			obj.mover();
 		}
-		
-		// Detecto las colisiones
-		GameObject obj1, obj2;
-		for (int i = 0; i < objetos.size(); i++) {
-			obj1 = objetos.get(i);
-
-			for (int j = i + 1; j < objetos.size(); j++) {
-				obj2 = objetos.get(j);
-
-				if (intersects(obj1, obj2)) {
-					obj1.colision(obj2);
-					obj2.colision(obj1);
-				}
-
-				if (!obj2.estaVivo()) {
-					obj2.eliminar();
-					objetos.remove(obj2);
-				}
-
-			}
-			
-			if (!obj1.estaVivo()) {
-				obj1.eliminar();
-				objetos.remove(obj1);
-			}
-		}
-
-		// Para evitar el concurrentModificationException
-		objetos.addAll(toAdd);
-		toAdd.clear();
+		c.colisionar();
 	}
 
 	public NaveAliada obtenerJugador() {

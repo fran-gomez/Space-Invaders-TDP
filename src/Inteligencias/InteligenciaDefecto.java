@@ -12,15 +12,13 @@ public class InteligenciaDefecto extends Inteligencia {
 	private static InteligenciaDefecto intelDefecto;
 
 	private static boolean movDer, movAbajo;
-	private static Random rnd;
-
 	private static HashMap<NaveEnemiga, Boolean> mapMover;
 
 	private InteligenciaDefecto() {
 		super();
 		intelDefecto = null;
 		movDer = true;
-		rnd = new Random();
+		new Random();
 		mapMover = new HashMap<NaveEnemiga, Boolean>();
 		movAbajo = false;
 	}

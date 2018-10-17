@@ -21,13 +21,20 @@ public abstract class GeneradorEnemigos {
 	protected List<NaveEnemiga> listaEnemigos;
 	protected Map<NaveEnemiga, Integer> mapeoCantMinima;
 
+	protected int CANT_FILAS_ENEMIGOS;
+	protected int ENEMIGOS_X_FILA;
+
 	public GeneradorEnemigos(Mapa map) {
 		this.map = map;
 		rnd = new Random();
+		
+		CANT_FILAS_ENEMIGOS = 4;
+		ENEMIGOS_X_FILA = 3 + (map.dificultad()/10);
 	}
 
 	public void generarNavesEnemigas() {
 		listaEnemigos = new LinkedList<NaveEnemiga>();
+		int lvl = map.dificultad();
 
 		poblarLista();
 
@@ -35,12 +42,12 @@ public abstract class GeneradorEnemigos {
 		int x, y;
 		int areaAliensH = Constantes.MAP_HEIGHT / 3;
 		int areaAliensW = Constantes.MAP_WIDTH;
-		int cuadradoAlienW = areaAliensW / Constantes.ENEMIGOS_X_FILA;
-		int cuadradoAlienH = areaAliensH / Constantes.CANT_FILAS_ENEMIGOS;
+		int cuadradoAlienW = areaAliensW / ENEMIGOS_X_FILA;
+		int cuadradoAlienH = areaAliensH / CANT_FILAS_ENEMIGOS;
 
 		int i = 0;
-		for (int f = 0; f < Constantes.CANT_FILAS_ENEMIGOS; f++) {
-			for (int c = 0; c < Constantes.ENEMIGOS_X_FILA; c++) {
+		for (int f = 0; f < CANT_FILAS_ENEMIGOS; f++) {
+			for (int c = 0; c < ENEMIGOS_X_FILA; c++) {
 				x = c * cuadradoAlienW + cuadradoAlienW / 2;
 				y = f * cuadradoAlienH + cuadradoAlienH / 2;
 				enemigo = listaEnemigos.get(i++); //TODO Hacer shuffle
@@ -58,13 +65,13 @@ public abstract class GeneradorEnemigos {
 			for (int i = 0; i < e.getValue(); i++) {
 				listaEnemigos.add(e.getKey().clone());
 			}
-			if(listaEnemigos.size() > Constantes.CANT_FILAS_ENEMIGOS * Constantes.ENEMIGOS_X_FILA) {
+			if(listaEnemigos.size() > CANT_FILAS_ENEMIGOS * ENEMIGOS_X_FILA) {
 				break; //TODO cambiar esto!, pero es para evitar que agreguen mas enemigos que los soportados
 			}
 		}
 
 		// Generacion del resto, aleatoriedad
-		int cantidadTotalEnemigos = Constantes.CANT_FILAS_ENEMIGOS * Constantes.ENEMIGOS_X_FILA;
+		int cantidadTotalEnemigos = CANT_FILAS_ENEMIGOS * ENEMIGOS_X_FILA;
 		for (int i = listaEnemigos.size(); i < cantidadTotalEnemigos; i++) {
 			enemigo = naveAleatoria();
 			listaEnemigos.add(enemigo);
