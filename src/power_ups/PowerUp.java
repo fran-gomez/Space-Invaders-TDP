@@ -7,7 +7,7 @@ import juego.ObjectState;
 
 public abstract class PowerUp extends GameObject {
 
-	private Inteligencia inteligencia;
+	private InteligenciaPowerUpDefecto inteligencia;
 	
 	public PowerUp(int x, int y, int vida, int durabilidad) {
 		super(x, y, vida, durabilidad);
@@ -15,6 +15,11 @@ public abstract class PowerUp extends GameObject {
 		inteligencia = new InteligenciaPowerUpDefecto();
 	}
 
+	
+	public void mover() {
+		inteligencia.actualizarPosicion(this);
+	}
+	
 	@Override
 	public void colision(GameObject obs) {
 		obs.colision(this);
