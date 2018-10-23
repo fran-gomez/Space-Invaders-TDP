@@ -1,7 +1,6 @@
 package power_ups;
 
 import java.awt.Rectangle;
-import java.util.Random;
 
 import javax.swing.ImageIcon;
 
@@ -14,24 +13,22 @@ import naves.NaveEnemiga;
 import obstaculos.Obstaculo;
 import utilidades.Constantes;
 
-public class BarreraDeDiamantium extends PowerUp {
+public class SantaClaus extends PowerUp {
 
-	private int valorEscudo;
-	
-	public BarreraDeDiamantium(int x, int y, int vida, int durabilidad) {
+	public SantaClaus(int x, int y, int vida, int durabilidad) {
 		super(x, y, vida, durabilidad);
-		valorEscudo = (new Random()).nextInt(20);
+
 	}
 
 	@Override
 	protected Rectangle createRectangle(int x, int y) {
-		return new Rectangle(x, y, Constantes.BARRERADEDIAMANTIUM_WIDTH, Constantes.APARATOCATASTROFICO_HEIGHT);
+		return new Rectangle(x, y, Constantes.LENTEDEAMPLIFICACION_WIDTH, Constantes.LENTEDEAMPLIFICACION_HEIGHT);
 	}
 
 	@Override
-	public void mover() {
+	public ImageIcon getGrafico() {
+		return new ImageIcon("src/resources/santaClaus.png");
 	}
-
 
 	@Override
 	public void colision(NaveEnemiga naveEnemiga) {
@@ -39,8 +36,7 @@ public class BarreraDeDiamantium extends PowerUp {
 
 	@Override
 	public void colision(NaveAliada naveEnemiga) {
-		naveEnemiga.setEscudo(valorEscudo);
-		System.out.println("(BDD) Colisione con nave aliada");
+		System.out.println("(LDA) Colisione con nave aliada");
 	}
 
 	@Override

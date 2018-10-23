@@ -39,8 +39,8 @@ public abstract class NaveEnemiga extends Nave {
 	@Override
 	public void eliminar() {
 		// TODO Auto-generated method stub
-		super.eliminar();
 		powerUp.crearPowerUp(rec.x, rec.y);
+		super.eliminar();
 	}
 	
 	public Inteligencia obtenerInteligencia() {
