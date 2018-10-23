@@ -26,10 +26,6 @@ public class Robot1X extends PowerUp {
 	}
 
 	@Override
-	public void mover() {
-	}
-
-	@Override
 	public ImageIcon getGrafico() {
 		return null;
 	}

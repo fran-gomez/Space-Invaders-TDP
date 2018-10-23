@@ -13,9 +13,9 @@ import naves.NaveEnemiga;
 import obstaculos.Obstaculo;
 import utilidades.Constantes;
 
-public class ParenElReloj extends PowerUp {
+public class Hipnosapo extends PowerUp {
 
-	public ParenElReloj(int x, int y, int vida, int durabilidad) {
+	public Hipnosapo(int x, int y, int vida, int durabilidad) {
 		super(x, y, vida, durabilidad);
 
 	}
@@ -23,10 +23,6 @@ public class ParenElReloj extends PowerUp {
 	@Override
 	protected Rectangle createRectangle(int x, int y) {
 		return new Rectangle(x, y, Constantes.PARENELRELOJ_WIDTH, Constantes.PARENELRELOJ_HEIGHT);
-	}
-
-	@Override
-	public void mover() {
 	}
 
 	@Override

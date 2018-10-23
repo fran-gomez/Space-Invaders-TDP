@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Random;
 
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import controlador.GeneradorEnemigos;
@@ -19,7 +20,7 @@ import obstaculos.NaveErrante;
 import obstaculos.Obstaculo;
 import utilidades.Constantes;
 
-public class Mapa extends JPanel {
+public class Mapa extends JPanel implements Agregable {
 
 	private NaveAliada jugador;
 
@@ -37,14 +38,12 @@ public class Mapa extends JPanel {
 		this.setSize(Constantes.MAP_WIDTH, Constantes.MAP_HEIGHT);
 		this.setPreferredSize(new Dimension(Constantes.MAP_WIDTH, Constantes.MAP_HEIGHT));
 		this.setBackground(Color.BLACK);
-		//this.setOpaque(false);
-		//this.drawImage(new ImageIcon("src/resources/mapa_bg.jpg"),0 ,0 ,null);
+		
 		// utils
 		rnd = new Random();
 		objetos = new LinkedList<>();
 		toAdd = new LinkedList<>();
 		this.dificultad = dificultad;
-
 		c = new Colisionador(objetos, toAdd);
 				
 		inicializarMapa();
@@ -98,7 +97,7 @@ public class Mapa extends JPanel {
 		for (GameObject go : objetos)
 			go.eliminar();
 
-		this.setBackground(Color.red);
+		this.add(new JLabel(new ImageIcon("src/resources/lose.gif")));
 	}
 
 	public boolean estaVacio() {

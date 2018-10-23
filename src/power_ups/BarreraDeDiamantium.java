@@ -1,6 +1,7 @@
 package power_ups;
 
 import java.awt.Rectangle;
+import java.util.Random;
 
 import javax.swing.ImageIcon;
 
@@ -15,9 +16,11 @@ import utilidades.Constantes;
 
 public class BarreraDeDiamantium extends PowerUp {
 
+	private int valorEscudo;
+	
 	public BarreraDeDiamantium(int x, int y, int vida, int durabilidad) {
 		super(x, y, vida, durabilidad);
-
+		valorEscudo = (new Random()).nextInt(20);
 	}
 
 	@Override
@@ -40,6 +43,7 @@ public class BarreraDeDiamantium extends PowerUp {
 
 	@Override
 	public void colision(NaveAliada naveEnemiga) {
+		naveEnemiga.setEscudo(valorEscudo);
 	}
 
 	@Override

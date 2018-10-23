@@ -1,7 +1,8 @@
 package power_ups;
 
-import Inteligencias.Inteligencia;
 import Inteligencias.InteligenciaPowerUpDefecto;
+import javax.swing.ImageIcon;
+
 import juego.GameObject;
 import juego.ObjectState;
 
@@ -15,7 +16,6 @@ public abstract class PowerUp extends GameObject {
 		inteligencia = new InteligenciaPowerUpDefecto();
 	}
 
-	
 	public void mover() {
 		inteligencia.actualizarPosicion(this);
 	}
@@ -23,6 +23,12 @@ public abstract class PowerUp extends GameObject {
 	@Override
 	public void colision(GameObject obs) {
 		obs.colision(this);
+	}
+	
+	@Override
+	public ImageIcon getGrafico() {
+		// TODO Auto-generated method stub
+		return new ImageIcon("src/resources/Crab.png");
 	}
 	
 	public abstract void efecto();

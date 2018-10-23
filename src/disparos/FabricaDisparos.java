@@ -1,12 +1,13 @@
 package disparos;
 
+import juego.Agregable;
 import juego.Mapa;
 
 public abstract class FabricaDisparos {
 
-	protected Mapa map;
+	protected Agregable map;
 	
-	public FabricaDisparos(Mapa map) {
+	public FabricaDisparos(Agregable map) {
 		this.map = map;
 	}
 	

@@ -17,10 +17,12 @@ import utilidades.Constantes;
 public final class NaveAliada extends Nave {
 
 	public static final int DERECHA = 1, IZQUIERDA = -1, STOPDER = 2, STOPIZQ = -2;
+	private int escudo;
 
 	public NaveAliada(int x, int y, int lvl, FabricaDisparos fab) {
 		this(x, y, 0, 0, 0, 0, 0, fab);
 		setearEstadisticas(lvl);
+		escudo = 0;
 	}
 	
 	public NaveAliada(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad, FabricaDisparos fab) {
@@ -34,7 +36,11 @@ public final class NaveAliada extends Nave {
 
 	@Override
 	public void aplicarPowerUp(PowerUp p) {
-
+		p.colision(this);
+	}
+	
+	public void setEscudo(int e) {
+		this.escudo = e; 
 	}
 
 	@Override

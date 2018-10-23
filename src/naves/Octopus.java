@@ -7,18 +7,19 @@ import javax.swing.ImageIcon;
 import Inteligencias.Inteligencia;
 import disparos.FabricaDisparos;
 import juego.NaveState;
+import power_ups.FabricaPowerUp;
 import power_ups.PowerUp;
 import utilidades.Constantes;
 
 public final class Octopus extends NaveEnemiga {
 
-	public Octopus(int x, int y, int lvl, Inteligencia intel, FabricaDisparos fab) {
-		this(x, y, 0, 0, 0, 0, 0, intel, fab);
+	public Octopus(int x, int y, int lvl, Inteligencia intel, FabricaDisparos fab, FabricaPowerUp pu) {
+		this(x, y, 0, 0, 0, 0, 0, intel, fab, pu);
 		setearEstadisticas(lvl);
 	}
 	
-	public Octopus(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad, Inteligencia intel, FabricaDisparos fab) {
-		super(x, y, vida, durabilidad, alcance, dmg, velocidad, intel, fab);
+	public Octopus(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad, Inteligencia intel, FabricaDisparos fab, FabricaPowerUp pu) {
+		super(x, y, vida, durabilidad, alcance, dmg, velocidad, intel, fab, pu);
 	}
 
 	@Override
@@ -53,7 +54,7 @@ public final class Octopus extends NaveEnemiga {
 	@Override
 	public NaveEnemiga clone() {
 		return new Octopus(rec.x, rec.y, state.getVida(), state.getDurabilidad(), state.getAlcance(), state.getDmg(),
-				state.getVelocidad(), this.inteligencia, this.arma);
+				state.getVelocidad(), this.inteligencia, this.arma, powerUp);
 	}
 
 	@Override

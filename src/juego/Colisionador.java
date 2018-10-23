@@ -30,7 +30,6 @@ public class Colisionador {
 					obj2.eliminar();
 					objetos.remove(obj2);
 				}
-
 			}
 			
 			if (!obj1.estaVivo()) {

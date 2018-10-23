@@ -26,10 +26,6 @@ public class LaserDeProtones extends PowerUp {
 	}
 
 	@Override
-	public void mover() {
-	}
-
-	@Override
 	public ImageIcon getGrafico() {
 		return null;
 	}

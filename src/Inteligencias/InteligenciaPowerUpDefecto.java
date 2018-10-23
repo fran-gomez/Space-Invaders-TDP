@@ -10,7 +10,7 @@ public class InteligenciaPowerUpDefecto extends Inteligencia{
 	private int contador;
 	
 	public InteligenciaPowerUpDefecto() {
-		contador = 200;
+		contador = 100;
 	}
 	
 	public void actualizarPosicion(PowerUp powerUp) {
@@ -26,7 +26,7 @@ public class InteligenciaPowerUpDefecto extends Inteligencia{
 			
 		}else {
 			
-			newY += 10;
+			newY += 5;
 			powerUp.cambiarUbicacion(rec.x, newY);
 		}
 	}

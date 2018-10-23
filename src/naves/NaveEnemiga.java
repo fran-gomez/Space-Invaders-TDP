@@ -10,18 +10,19 @@ import disparos.DisparoTriple;
 import disparos.FabricaDisparos;
 import juego.GameObject;
 import obstaculos.Obstaculo;
-import power_ups.AparatoCatastrofico;
+import power_ups.FabricaPowerUp;
 import power_ups.PowerUp;
 
 public abstract class NaveEnemiga extends Nave {
 
 	protected Inteligencia inteligencia;
-	protected PowerUp powerUp;
+	protected FabricaPowerUp powerUp;
 	
 	public NaveEnemiga(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad,
-			Inteligencia inteligencia, FabricaDisparos fab) {
+			Inteligencia inteligencia, FabricaDisparos fab, FabricaPowerUp pu) {
 		super(x, y, vida, durabilidad, alcance, dmg, velocidad, fab);
 		this.inteligencia = inteligencia;
+		powerUp = pu;
 	}
 
 	@Override
@@ -33,6 +34,13 @@ public abstract class NaveEnemiga extends Nave {
 		if (rnd.nextInt(100) == 0) {
 			disparar();
 		}
+	}
+	
+	@Override
+	public void eliminar() {
+		// TODO Auto-generated method stub
+		super.eliminar();
+		powerUp.crearPowerUp(rec.x, rec.y);
 	}
 	
 	public Inteligencia obtenerInteligencia() {
@@ -73,11 +81,6 @@ public abstract class NaveEnemiga extends Nave {
 
 	@Override
 	public void colision(PowerUp powerUp) {
-	}
-	
-	@Override
-	public void eliminar() {
-		super.eliminar();
 	}
 
 	@Override

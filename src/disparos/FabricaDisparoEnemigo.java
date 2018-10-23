@@ -1,11 +1,12 @@
 package disparos;
 
+import juego.Agregable;
 import juego.Mapa;
 import utilidades.Constantes;
 
 public class FabricaDisparoEnemigo extends FabricaDisparos {
 
-	public FabricaDisparoEnemigo(Mapa map) {
+	public FabricaDisparoEnemigo(Agregable map) {
 		super(map);
 	}
 

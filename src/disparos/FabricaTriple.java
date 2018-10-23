@@ -1,10 +1,11 @@
 package disparos;
 
+import juego.Agregable;
 import juego.Mapa;
 
 public class FabricaTriple extends FabricaDisparos {
 
-	public FabricaTriple(Mapa map) {
+	public FabricaTriple(Agregable map) {
 		super(map);
 	}
 

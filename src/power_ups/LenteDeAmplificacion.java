@@ -26,10 +26,6 @@ public class LenteDeAmplificacion extends PowerUp {
 	}
 
 	@Override
-	public void mover() {
-	}
-
-	@Override
 	public ImageIcon getGrafico() {
 		return null;
 	}

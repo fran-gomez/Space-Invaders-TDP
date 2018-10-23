@@ -25,14 +25,10 @@ public class AparatoCatastrofico extends PowerUp {
 		return new Rectangle(x, y, Constantes.APARATOCATASTROFICO_WIDTH, Constantes.APARATOCATASTROFICO_HEIGHT);
 	}
 
-	@Override
-	public void mover() {
-	}
-
-	@Override
+	/*@Override
 	public ImageIcon getGrafico() {
 		return new ImageIcon("src/resources/AparatoCatastrofico.png");
-	}
+	}*/
 
 	@Override
 	public void colision(NaveEnemiga naveEnemiga) {
