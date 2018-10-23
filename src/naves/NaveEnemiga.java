@@ -10,6 +10,7 @@ import disparos.DisparoTriple;
 import disparos.FabricaDisparos;
 import juego.GameObject;
 import obstaculos.Obstaculo;
+import power_ups.AparatoCatastrofico;
 import power_ups.PowerUp;
 
 public abstract class NaveEnemiga extends Nave {
@@ -72,6 +73,11 @@ public abstract class NaveEnemiga extends Nave {
 
 	@Override
 	public void colision(PowerUp powerUp) {
+	}
+	
+	@Override
+	public void eliminar() {
+		super.eliminar();
 	}
 
 	@Override

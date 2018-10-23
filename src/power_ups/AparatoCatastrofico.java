@@ -31,7 +31,7 @@ public class AparatoCatastrofico extends PowerUp {
 
 	@Override
 	public ImageIcon getGrafico() {
-		return null;
+		return new ImageIcon("src/resources/AparatoCatastrofico.png");
 	}
 
 	@Override

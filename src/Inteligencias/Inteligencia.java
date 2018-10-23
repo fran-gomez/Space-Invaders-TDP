@@ -3,6 +3,7 @@ package Inteligencias;
 import java.awt.Rectangle;
 import java.util.Random;
 
+import juego.GameObject;
 import naves.NaveEnemiga;
 import utilidades.Constantes;
 
@@ -14,8 +15,8 @@ public abstract class Inteligencia {
 		rnd = new Random();
 	}
 	
-	public void actualizarPosicion(NaveEnemiga nave) {
-		Rectangle rec = nave.getRectangle();
+	public void actualizarPosicion(NaveEnemiga g) {
+		Rectangle rec = g.getRectangle();
 		
 		if (rec.getY() > Constantes.MAP_HEIGHT) {
 			rec.setLocation(rnd.nextInt(Constantes.MAP_WIDTH), 0);

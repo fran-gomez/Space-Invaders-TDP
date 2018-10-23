@@ -43,9 +43,9 @@ public class Juego {
 		panel.setLayout(new GridLayout(10, 10));
 		panel.setPreferredSize(new Dimension(Constantes.MAP_WIDTH, Constantes.MAP_HEIGHT));
 		
-		for (int i = 1; i <= 10; i++)
-			for (int j = 1; j <= 10; j++) {
-				int lvl = i+j;
+		for (int i = 1; i <= 10; i++) {
+			for (int j = 0; j < 10; j++) {
+				int lvl = i*10 + j-9;
 				if (lvl != 100)
 					botonNivel = new JButton("" + lvl);
 				else
@@ -62,7 +62,7 @@ public class Juego {
 				
 				panel.add(botonNivel);
 			}
-		
+		}
 		
 		return panel;
 	}
