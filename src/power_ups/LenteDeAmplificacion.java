@@ -36,6 +36,7 @@ public class LenteDeAmplificacion extends PowerUp {
 
 	@Override
 	public void colision(NaveAliada naveEnemiga) {
+		System.out.println("(LDA) Colisione con nave aliada");
 	}
 
 	@Override

@@ -27,7 +27,7 @@ public class Robot1X extends PowerUp {
 
 	@Override
 	public ImageIcon getGrafico() {
-		return null;
+		return new ImageIcon("src/resources/Robot_1-X.png");
 	}
 
 	@Override
@@ -36,6 +36,7 @@ public class Robot1X extends PowerUp {
 
 	@Override
 	public void colision(NaveAliada naveEnemiga) {
+		System.out.println("(1X) Colision con nave aliada");
 	}
 
 	@Override

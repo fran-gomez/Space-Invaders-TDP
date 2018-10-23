@@ -32,10 +32,6 @@ public class BarreraDeDiamantium extends PowerUp {
 	public void mover() {
 	}
 
-	@Override
-	public ImageIcon getGrafico() {
-		return null;
-	}
 
 	@Override
 	public void colision(NaveEnemiga naveEnemiga) {
@@ -44,6 +40,7 @@ public class BarreraDeDiamantium extends PowerUp {
 	@Override
 	public void colision(NaveAliada naveEnemiga) {
 		naveEnemiga.setEscudo(valorEscudo);
+		System.out.println("(BDD) Colisione con nave aliada");
 	}
 
 	@Override

@@ -17,7 +17,6 @@ public class Hipnosapo extends PowerUp {
 
 	public Hipnosapo(int x, int y, int vida, int durabilidad) {
 		super(x, y, vida, durabilidad);
-
 	}
 
 	@Override
@@ -27,7 +26,7 @@ public class Hipnosapo extends PowerUp {
 
 	@Override
 	public ImageIcon getGrafico() {
-		return null;
+		return new ImageIcon("src/resources/hipnosapo.png");
 	}
 
 	@Override
@@ -36,6 +35,7 @@ public class Hipnosapo extends PowerUp {
 
 	@Override
 	public void colision(NaveAliada naveEnemiga) {
+		System.out.println("(HS) Colisione con nave aliada");
 	}
 
 	@Override
