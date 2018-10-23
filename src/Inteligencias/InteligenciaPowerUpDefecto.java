@@ -23,10 +23,17 @@ public class InteligenciaPowerUpDefecto extends Inteligencia {
 			if (contador == 0) {
 				powerUp.eliminar();
 			}
+<<<<<<< Updated upstream
 			
 		}else {
 			
 			newY += 5;
+=======
+
+		} else {
+
+			newY += 10;
+>>>>>>> Stashed changes
 			powerUp.cambiarUbicacion(rec.x, newY);
 		}
 	}
