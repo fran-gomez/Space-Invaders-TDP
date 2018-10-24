@@ -18,11 +18,7 @@ public abstract class Nave extends GameObject {
 	public void disparar() {
 		arma.crearDisparo(this.rec.x + this.rec.width/2, this.rec.y - this.rec.height/2);
 	}
-	
-	@Override
-	public void eliminar() {
-		this.setVisible(false);
-	}
+
 
 	public int getDmg() {
 		return state.getDmg();

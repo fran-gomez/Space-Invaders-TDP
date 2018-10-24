@@ -34,7 +34,8 @@ public class Hipnosapo extends PowerUp {
 	}
 
 	@Override
-	public void colision(NaveAliada naveEnemiga) {
+	public void colision(NaveAliada na) {
+		eliminar();
 		System.out.println("(HS) Colisione con nave aliada");
 	}
 

@@ -17,18 +17,23 @@ import utilidades.Constantes;
 public final class NaveAliada extends Nave {
 
 	public static final int DERECHA = 1, IZQUIERDA = -1, STOPDER = 2, STOPIZQ = -2;
-	private int escudo;
 	private String imagenRuta;
+	private RecibidorDano recibidorDano;
 
 	public NaveAliada(int x, int y, int lvl, FabricaDisparos fab) {
 		this(x, y, 0, 0, 0, 0, 0, fab);
 		setearEstadisticas(lvl);
-		escudo = 0;
 		imagenRuta = "src/resources/planetExpressRight.png";
 	}
-	
-	public NaveAliada(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad, FabricaDisparos fab) {
+
+	public NaveAliada(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad,
+			FabricaDisparos fab) {
 		super(x, y, vida, durabilidad, alcance, dmg, velocidad, fab);
+		recibidorDano = new RecibidorDanoEscudado(this);
+	}
+
+	public void setRecibidorDano(RecibidorDano recibidorDano) {
+		this.recibidorDano = recibidorDano;
 	}
 
 	@Override
@@ -36,8 +41,9 @@ public final class NaveAliada extends Nave {
 		return new Rectangle(x, y, Constantes.NAVE_ALIADA_WIDTH, Constantes.NAVE_ALIADA_HEIGHT);
 	}
 
-	public void setEscudo(int e) {
-		this.escudo = e; 
+	@Override
+	public void aplicarPowerUp(PowerUp p) {
+		p.colision(this);
 	}
 
 	@Override
@@ -56,8 +62,7 @@ public final class NaveAliada extends Nave {
 
 	@Override
 	public void colision(NaveEnemiga naveEnemiga) {
-		//System.out.println("Colision de nave aliada con naveEnemiga");
-		naveEnemiga.recibirDano(this.getVida() / 10);;
+		recibidorDano.recibirDano(naveEnemiga);
 	}
 
 	@Override
@@ -127,7 +132,7 @@ public final class NaveAliada extends Nave {
 		int durabilidad = Constantes.NAVE_ALIADA_DURABILIDAD + lvl;
 		int alcance = Constantes.NAVE_ALIADA_ALCANCE + lvl;
 		int dmg = Constantes.NAVE_ALIADA_DANIO + lvl;
-		int velocidad = Constantes.NAVE_ALIADA_VELOCIDAD + (lvl/2);
+		int velocidad = Constantes.NAVE_ALIADA_VELOCIDAD + (lvl / 2);
 		this.state = new NaveState(vida, durabilidad, alcance, dmg, velocidad);
 	}
 

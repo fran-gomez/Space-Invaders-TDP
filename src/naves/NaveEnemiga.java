@@ -17,7 +17,7 @@ public abstract class NaveEnemiga extends Nave {
 
 	protected Inteligencia inteligencia;
 	protected FabricaPowerUp powerUp;
-	
+
 	public NaveEnemiga(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad,
 			Inteligencia inteligencia, FabricaDisparos fab, FabricaPowerUp pu) {
 		super(x, y, vida, durabilidad, alcance, dmg, velocidad, fab);
@@ -35,22 +35,22 @@ public abstract class NaveEnemiga extends Nave {
 			disparar();
 		}
 	}
-	
+
 	@Override
 	public void eliminar() {
 		// TODO Auto-generated method stub
 		powerUp.crearPowerUp(rec.x, rec.y);
 		super.eliminar();
 	}
-	
+
 	public Inteligencia obtenerInteligencia() {
 		return inteligencia;
 	}
-	
+
 	public void inteligencia(Inteligencia i) {
 		this.inteligencia = i;
 	}
-	
+
 	@Override
 	public void colision(GameObject obs) {
 		obs.colision(this);
@@ -58,7 +58,7 @@ public abstract class NaveEnemiga extends Nave {
 
 	@Override
 	public void colision(NaveAliada na) {
-		na.recibirDano(state.getDmg());
+		recibirDano(this.getVida() / 10);
 	}
 
 	@Override
@@ -70,11 +70,11 @@ public abstract class NaveEnemiga extends Nave {
 	public void colision(DisparoTriple disparo) {
 		disparo.eliminar();
 	}
-	
+
 	@Override
 	public void colision(DisparoPenetrante disparo) {
 	}
-	
+
 	@Override
 	public void colision(NaveEnemiga naveEnemiga) {
 	}
@@ -85,14 +85,14 @@ public abstract class NaveEnemiga extends Nave {
 
 	@Override
 	public void colision(Obstaculo obs) {
-		//se saltea el obstaculo
+		// se saltea el obstaculo
 		cambiarUbicacion(rec.x, (float) (rec.y + obs.getRectangle().getHeight()));
 	}
 
 	@Override
 	public void colision(DisparoEnemigo disparo) {
 	}
-	
+
 	@Override
 	public abstract NaveEnemiga clone();
 

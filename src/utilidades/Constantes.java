@@ -65,8 +65,9 @@ public final class Constantes {
 	public static final int NAVE_ALIADA_ALCANCE = 10;
 	public static final int NAVE_ALIADA_DANIO = 20;
 	public static final int NAVE_ALIADA_VELOCIDAD = 5;
+	public static final int ESCUDO_ALIADO = 20;
 
 	// Nave Aleatoria
 	public static final int NAVE_ALEATORIA_VELOCIDAD = 3;
-
+	
 }

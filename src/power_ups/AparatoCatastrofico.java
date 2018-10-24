@@ -35,8 +35,8 @@ public class AparatoCatastrofico extends PowerUp {
 	}
 
 	@Override
-	public void colision(NaveAliada naveEnemiga) {
-		super.colision(naveEnemiga);
+	public void colision(NaveAliada na) {
+		eliminar();
 		System.out.println("(AC) Colisione con nave aliada");
 	}
 

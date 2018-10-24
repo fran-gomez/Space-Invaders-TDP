@@ -146,7 +146,7 @@ public abstract class GameObject extends JPanel {
 	}
 
 	public boolean estaVivo() {
-		return !(this.state.vida <= 0);
+		return this.state.vida > 0;
 	}
 
 	

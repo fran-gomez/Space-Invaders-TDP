@@ -11,6 +11,7 @@ import disparos.DisparoSimple;
 import disparos.DisparoTriple;
 import naves.NaveAliada;
 import naves.NaveEnemiga;
+import naves.RecibidorDanoEscudado;
 import obstaculos.Obstaculo;
 import utilidades.Constantes;
 
@@ -38,9 +39,9 @@ public class AuroraBoreal extends PowerUp {
 	}
 
 	@Override
-	public void colision(NaveAliada naveEnemiga) {
-		super.colision(naveEnemiga);
-		naveEnemiga.setEscudo(valorEscudo);
+	public void colision(NaveAliada na) {
+		eliminar();
+		na.setRecibidorDano(new RecibidorDanoEscudado(na));
 		System.out.println("(AB) Colisione con nave aliada");
 	}
 
