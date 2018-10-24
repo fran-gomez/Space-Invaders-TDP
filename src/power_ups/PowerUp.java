@@ -28,7 +28,8 @@ public abstract class PowerUp extends GameObject {
 	
 	@Override
 	public void colision(NaveAliada naveAliada) {
-		naveAliada.aplicarPowerUp(this);
+		//naveAliada.aplicarPowerUp(this);
+		eliminar();
 	}
 	
 	@Override

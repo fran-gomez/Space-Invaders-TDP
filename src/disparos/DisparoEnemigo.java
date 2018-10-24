@@ -69,7 +69,8 @@ public final class DisparoEnemigo extends Disparo {
 	public void colision(DisparoTriple disparo) {
 	}
 	
-	public void coliion(Nimbus n) {
+
+	public void colision(Nimbus n) {
 		n.colision(this);
 	}
 	

@@ -17,7 +17,6 @@ public class LaserDeProtones extends PowerUp {
 
 	public LaserDeProtones(int x, int y, int vida, int durabilidad) {
 		super(x, y, vida, durabilidad);
-
 	}
 
 	@Override

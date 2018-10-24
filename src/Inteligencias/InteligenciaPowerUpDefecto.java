@@ -17,8 +17,7 @@ public class InteligenciaPowerUpDefecto extends Inteligencia {
 		Rectangle rec = powerUp.getRectangle();
 
 		float newY = rec.y;
-
-		if (rec.y > Constantes.MAP_HEIGHT - rec.getHeight()) {
+		if (rec.y >= Constantes.MAP_HEIGHT - rec.getHeight()) {
 			contador--;
 			if (contador == 0) {
 				powerUp.eliminar();
@@ -29,4 +28,5 @@ public class InteligenciaPowerUpDefecto extends Inteligencia {
 			powerUp.cambiarUbicacion(rec.x, newY);
 		}
 	}
+
 }

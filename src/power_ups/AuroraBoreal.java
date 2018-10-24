@@ -39,6 +39,7 @@ public class AuroraBoreal extends PowerUp {
 
 	@Override
 	public void colision(NaveAliada naveEnemiga) {
+		super.colision(naveEnemiga);
 		naveEnemiga.setEscudo(valorEscudo);
 		System.out.println("(AB) Colisione con nave aliada");
 	}
