@@ -25,10 +25,10 @@ public class AparatoCatastrofico extends PowerUp {
 		return new Rectangle(x, y, Constantes.APARATOCATASTROFICO_WIDTH, Constantes.APARATOCATASTROFICO_HEIGHT);
 	}
 
-	/*@Override
+	@Override
 	public ImageIcon getGrafico() {
-		return new ImageIcon("src/resources/AparatoCatastrofico.png");
-	}*/
+		return new ImageIcon("src/resources/doomsdayDevice.png");
+	}
 
 	@Override
 	public void colision(NaveEnemiga naveEnemiga) {
@@ -36,6 +36,7 @@ public class AparatoCatastrofico extends PowerUp {
 
 	@Override
 	public void colision(NaveAliada naveEnemiga) {
+		System.out.println("(AC) Colisione con nave aliada");
 	}
 
 	@Override

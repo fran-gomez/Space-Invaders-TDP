@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 
 import controlador.GeneradorEnemigos;
 import controlador.GeneradorEnemigosNivel;
+import disparos.FabricaSimple;
 import disparos.FabricaTriple;
 import naves.NaveAliada;
 import obstaculos.Asteroide;
@@ -57,7 +58,7 @@ public class Mapa extends JPanel implements Agregable {
 		jugador = new NaveAliada(Constantes.MAP_WIDTH / 2,
 				Constantes.MAP_HEIGHT - (Constantes.NAVE_ALIADA_HEIGHT + GameObject.BARRA_VIDA_HEIGHT + 10) / 2,
 				Constantes.NAVE_ALIADA_VIDA, Constantes.NAVE_ALIADA_DURABILIDAD, Constantes.NAVE_ALIADA_ALCANCE,
-				Constantes.NAVE_ALIADA_DANIO, Constantes.NAVE_ALIADA_DURABILIDAD, new FabricaTriple(this));
+				Constantes.NAVE_ALIADA_DANIO, Constantes.NAVE_ALIADA_DURABILIDAD, new FabricaSimple(this));
 		this.add(jugador);
 		objetos.add(jugador);
 

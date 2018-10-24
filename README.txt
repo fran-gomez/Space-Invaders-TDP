@@ -19,6 +19,7 @@ antes de la llegada de los invasores, este se retiro debido a una mancha de most
 nuevo, dejando a sus tropas en el campo de batalla, vagando erraticamente.
 	1) Nave Errante: Obstaculo para los enemigos.
 	2) Asteroide: Obstaculo para ambos.
+	3) Nimbus: Raramente aparece, y no hace nada, solo molesta en plena batalla
 
 La defensa del planeta quedo en manos de una sola nave, la temeraria nave de planet expess, y su "reputada" 
 tripulacion, La piloto Turanga Leela, quien no percibe bien la profunididad, el oficial de abordo Philip J. Fry,
@@ -26,14 +27,10 @@ repartidor de pizzas del año 2000 y la unidad dobladora Bender B. Rodriguez, qui
 naves derribadas (Ya sean Terricolas u Omicronianas). Poniendote en el rol del capitan de la nave, deberas defender
 tu planeta de la peresoza invasion Omicroniana, utilizando todo tipo de artilugios creados por el profesor Hubbert
 Farnsworth (Y vendidos ilegalmente a los Omicronianos por Bender)
-	1) Laser de Protones: Disparas un potente laser de protones, que es capaz de atravesar las naves, e impactar a
-	   todas las que esten en su camino. 
+	1) Santa Claus: Santa Claus aborda la nave de planet Express, disparando como condenado a todo lo que produzca sombra, y se haya portado mal este año.
 	2) Lente de amplificacion: Disparas a las dos naves adyacentes al objetivo actual.
-	3) Paren el reloj, me quiero bajar!: Detiene el movimiento de las naves enemigas por un tiempo desconocido hasta
-	   para el profesor.
-	4) Barrera de diamantium: Un potente escudo de diamantium, capaz de destruir a la nave enemiga con solo tocarla
-	   (Advertencia... Puede destruir la realidad tal y como la conocemos... -Profesor Farnsworth-)
+	3) Hipnosapo: Un hipsnosapo salvaje aparece en el campo de batalla haciendo lo que mejor sabe hacer... hipnotisar
+	4) Aurora Boreal: Aparece una aurora boreal en esta parte de Springfield, en esta epoca del año, atenuando la intensidad de los lasers disparados por el enemigo
 	5) Robot 1-X: La unidad 1-X se encargara de reparar la nave con una eficiencia nunca antes vista (Buuuu... -Bender-)
-	6) Aparato catastrofico: Lanzas una bomba capaz de destruir la realidad misma. (Supongo que podre desprenderme de 
-	   alguno de estos y seguir siendo igual de temible -Profesor Farnsworth-)
+	6) Aparato catastrofico: Lanzas una bomba capaz de destruir la realidad misma. (Supongo que podre desprenderme de alguno de estos y seguir siendo igual de temible -Profesor Farnsworth-)
 	   

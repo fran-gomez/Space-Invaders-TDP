@@ -36,6 +36,7 @@ public class LaserDeProtones extends PowerUp {
 
 	@Override
 	public void colision(NaveAliada naveEnemiga) {
+		System.out.println("(LDP) Colisione con nave aliada");
 	}
 
 	@Override
