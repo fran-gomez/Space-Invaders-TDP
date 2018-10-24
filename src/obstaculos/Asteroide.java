@@ -8,6 +8,7 @@ import disparos.DisparoEnemigo;
 import disparos.DisparoPenetrante;
 import disparos.DisparoSimple;
 import disparos.DisparoTriple;
+import juego.Agregable;
 import naves.NaveAliada;
 import naves.NaveEnemiga;
 import power_ups.PowerUp;
@@ -15,8 +16,8 @@ import utilidades.Constantes;
 
 public class Asteroide extends Obstaculo {
 
-	public Asteroide(int x, int y, int vida, int durabilidad, int d) {
-		super(x, y, vida, durabilidad, d);
+	public Asteroide(int x, int y, int vida, int durabilidad, int d, Agregable mapa) {
+		super(x, y, vida, durabilidad, d, mapa);
 	}
 
 	@Override

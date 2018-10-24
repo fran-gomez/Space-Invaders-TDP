@@ -17,26 +17,26 @@ public class FabricaAleatoria extends FabricaPowerUp {
 	public void crearPowerUp(int x, int y) {
 
 		PowerUp creado;
-		int valor = rn.nextInt(30);
+		int valor = rn.nextInt(7);
 		
 		switch (valor) {
 		  case 1:
-			  creado = new Robot1X(x, y, 10, 12);
+			  creado = new Robot1X(x, y, 10, 12, mapa);
 			  break;
 		  case 2:
-			  creado = new AparatoCatastrofico(x, y, 10, 12);
+			  creado = new AparatoCatastrofico(x, y, 10, 12, mapa);
 			  break;
 		  case 3:
-			  creado = new LaserDeProtones(x, y, 10, 12);
+			  creado = new LaserDeProtones(x, y, 10, 12, mapa);
 			  break;
 		  case 4:
-			  creado = new SantaClaus(x, y, 10, 12);
+			  creado = new SantaClaus(x, y, 10, 12, mapa);
 			  break;
 		  case 5:
-			  creado = new Hipnosapo(x, y, 10, 12);
+			  creado = new Hipnosapo(x, y, 10, 12, mapa);
 			  break;
 		  case 6:
-			  creado = new AuroraBoreal(x, y, 10, 12);
+			  creado = new AuroraBoreal(x, y, 10, 12, mapa);
 			  break;
 		  default:
 			  creado = null;

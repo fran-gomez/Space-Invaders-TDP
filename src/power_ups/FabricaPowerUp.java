@@ -13,8 +13,6 @@ public abstract class FabricaPowerUp implements Agregable {
 	
 	@Override
 	public void addToObjects(GameObject o) {
-		// TODO Auto-generated method stub
-
 	}
 
 	public abstract void crearPowerUp(int x, int y);

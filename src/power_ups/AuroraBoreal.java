@@ -9,6 +9,7 @@ import disparos.DisparoEnemigo;
 import disparos.DisparoPenetrante;
 import disparos.DisparoSimple;
 import disparos.DisparoTriple;
+import juego.Agregable;
 import naves.NaveAliada;
 import naves.NaveEnemiga;
 import naves.RecibidorDanoEscudado;
@@ -19,8 +20,8 @@ public class AuroraBoreal extends PowerUp {
 
 	private int valorEscudo;
 	
-	public AuroraBoreal(int x, int y, int vida, int durabilidad) {
-		super(x, y, vida, durabilidad);
+	public AuroraBoreal(int x, int y, int vida, int durabilidad, Agregable mapa) {
+		super(x, y, vida, durabilidad, mapa);
 		valorEscudo = (new Random()).nextInt(20);
 	}
 

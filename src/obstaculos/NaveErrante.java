@@ -12,6 +12,7 @@ import disparos.DisparoEnemigo;
 import disparos.DisparoPenetrante;
 import disparos.DisparoSimple;
 import disparos.DisparoTriple;
+import juego.Agregable;
 import juego.BarraVida;
 import naves.NaveAliada;
 import naves.NaveEnemiga;
@@ -24,8 +25,8 @@ public class NaveErrante extends Obstaculo {
 	private int ancho, alto;
 	private int count;
 
-	public NaveErrante(int x, int y, int vida, int durabilidad, int d) {
-		super(x, y, vida, durabilidad, d);
+	public NaveErrante(int x, int y, int vida, int durabilidad, int d, Agregable mapa) {
+		super(x, y, vida, durabilidad, d, mapa);
 	}
 
 	@Override

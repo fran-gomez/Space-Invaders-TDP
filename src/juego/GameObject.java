@@ -26,11 +26,11 @@ public abstract class GameObject extends JPanel {
 	protected ImageIcon visual;
 	protected BarraVida vidaLabel;
 	protected Component cuerpo;
+	protected Agregable mapa;
 
 	public static final int BARRA_VIDA_HEIGHT = 3;
 	
-	
-	public GameObject(int x, int y, int vida, int durabilidad) {
+	public GameObject(int x, int y, int vida, int durabilidad, Agregable mapa) {
 
 		this.rec = createRectangle(x, y);
 		this.visual = null;

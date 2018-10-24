@@ -4,6 +4,7 @@ import java.awt.Rectangle;
 
 import javax.swing.ImageIcon;
 
+import juego.Agregable;
 import juego.GameObject;
 import naves.NaveAliada;
 import naves.NaveEnemiga;
@@ -13,8 +14,8 @@ import utilidades.Constantes;
 
 public final class DisparoSimple extends DisparoAliado {
 
-	public DisparoSimple(int x, int y, int vida, int durabilidad, int dmg) {
-		super(x, y, vida, durabilidad, dmg);
+	public DisparoSimple(int x, int y, int vida, int durabilidad,int dmg, Agregable mapa) {
+		super(x, y, vida, durabilidad, dmg, mapa);
 		// TODO Auto-generated constructor stub
 	}
 	@Override

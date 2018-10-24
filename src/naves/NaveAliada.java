@@ -8,6 +8,8 @@ import disparos.DisparoPenetrante;
 import disparos.DisparoSimple;
 import disparos.DisparoTriple;
 import disparos.FabricaDisparos;
+import disparos.FabricaSimple;
+import juego.Agregable;
 import juego.GameObject;
 import juego.NaveState;
 import obstaculos.Obstaculo;
@@ -20,16 +22,17 @@ public final class NaveAliada extends Nave {
 	private String imagenRuta;
 	private RecibidorDano recibidorDano;
 
-	public NaveAliada(int x, int y, int lvl, FabricaDisparos fab) {
-		this(x, y, 0, 0, 0, 0, 0, fab);
+	public NaveAliada(int x, int y, int lvl, Agregable mapa) {
+		this(x, y, 0, 0, 0, 0, 0, mapa);
 		setearEstadisticas(lvl);
 		imagenRuta = "src/resources/planetExpressRight.png";
 	}
 
 	public NaveAliada(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad,
-			FabricaDisparos fab) {
-		super(x, y, vida, durabilidad, alcance, dmg, velocidad, fab);
-		recibidorDano = new RecibidorDanoEscudado(this);
+			Agregable mapa) {
+		super(x, y, vida, durabilidad, alcance, dmg, velocidad, mapa);
+		recibidorDano = new RecibidorDanoNoEscudado(this);
+		arma = new FabricaSimple(mapa);
 	}
 
 	public void setRecibidorDano(RecibidorDano recibidorDano) {
@@ -75,6 +78,11 @@ public final class NaveAliada extends Nave {
 		obs.colision(this);
 	}
 
+	
+	public void setArma(FabricaDisparos d) {
+		this.arma = d;
+	}
+	
 	public void mover(int d) { // Ignoramos STOPIZQ Y STOPDER pues se dejan de mover
 		int nuevoX = (int) rec.getLocation().getX();
 		switch (d) {
@@ -136,9 +144,4 @@ public final class NaveAliada extends Nave {
 		this.state = new NaveState(vida, durabilidad, alcance, dmg, velocidad);
 	}
 
-	@Override
-	public void aplicarPowerUp(PowerUp p) {
-		// TODO Auto-generated method stub
-		
-	}
 }

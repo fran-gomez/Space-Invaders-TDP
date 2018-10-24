@@ -38,7 +38,6 @@ public class Colisionador {
 			}
 		}
 
-		// Para evitar el concurrentModificationException
 		objetos.addAll(toAdd);
 		toAdd.clear();
 	}

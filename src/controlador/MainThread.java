@@ -15,7 +15,7 @@ public class MainThread extends Thread {
 	@Override
 	public void run() {
 		long lastTime = System.nanoTime();
-		double fps = 30.0; ////////////////// FPS
+		double fps = 30.0; 
 		double ns = 1000000000 / fps;
 		double delta = 0;
 
@@ -39,7 +39,6 @@ public class MainThread extends Thread {
 				System.out.println("Perdiste capo."); // Termino el juego
 				mapa.terminarJuego();
 				ejecutar = false;
-				//this.interrupt();
 			}
 			
 			if (mapa.estaVacio()) {
@@ -47,7 +46,6 @@ public class MainThread extends Thread {
 				mapa.terminarJuego();
 				ejecutar = false;
 			}
-				
 		}
 	}
 

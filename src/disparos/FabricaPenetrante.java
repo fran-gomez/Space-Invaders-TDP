@@ -11,7 +11,7 @@ public class FabricaPenetrante extends FabricaDisparos {
 
 	@Override
 	public Disparo crearDisparo(int x, int y) {
-		Disparo disp = new DisparoPenetrante(x, y, 0, 0, 5);
+		Disparo disp = new DisparoPenetrante(x, y, 0, 0, 5, map);
 		map.addToObjects(disp);
 		return disp;
 	}

@@ -6,20 +6,22 @@ import javax.swing.ImageIcon;
 
 import Inteligencias.Inteligencia;
 import disparos.FabricaDisparos;
+import juego.Agregable;
 import juego.NaveState;
 import power_ups.FabricaPowerUp;
 import power_ups.PowerUp;
 import utilidades.Constantes;
 
 public final class UFO extends NaveEnemiga {
-	
-	public UFO(int x, int y, int lvl, Inteligencia intel, FabricaDisparos fab, FabricaPowerUp pu) {
-		this(x, y, 0, 0, 0, 0, 0, intel, fab, pu);
+
+	public UFO(int x, int y, int lvl, Inteligencia intel, Agregable mapa) {
+		this(x, y, 0, 0, 0, 0, 0, intel, mapa);
 		setearEstadisticas(lvl);
 	}
 
-	public UFO(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad, Inteligencia intel, FabricaDisparos fab, FabricaPowerUp pu) {
-		super(x, y, vida, durabilidad, alcance, dmg, velocidad, intel, fab, pu);
+	public UFO(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad, Inteligencia intel,
+			Agregable mapa) {
+		super(x, y, vida, durabilidad, alcance, dmg, velocidad, intel, mapa);
 	}
 
 	@Override
@@ -53,7 +55,7 @@ public final class UFO extends NaveEnemiga {
 	@Override
 	public NaveEnemiga clone() {
 		return new UFO(rec.x, rec.y, state.getVida(), state.getDurabilidad(), state.getAlcance(), state.getDmg(),
-				state.getVelocidad(), this.inteligencia, this.arma, powerUp);
+				state.getVelocidad(), this.inteligencia, mapa);
 	}
 
 	@Override
@@ -62,9 +64,8 @@ public final class UFO extends NaveEnemiga {
 		int durabilidad = 10 + lvl;
 		int alcance = 10 + lvl;
 		int dmg = 20 + lvl;
-		int velocidad = 10 + (lvl/2);
+		int velocidad = 10 + (lvl / 2);
 		this.state = new NaveState(vida, durabilidad, alcance, dmg, velocidad);
 	}
-
 
 }

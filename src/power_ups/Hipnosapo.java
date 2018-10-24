@@ -8,6 +8,7 @@ import disparos.DisparoEnemigo;
 import disparos.DisparoPenetrante;
 import disparos.DisparoSimple;
 import disparos.DisparoTriple;
+import juego.Agregable;
 import naves.NaveAliada;
 import naves.NaveEnemiga;
 import obstaculos.Obstaculo;
@@ -15,8 +16,8 @@ import utilidades.Constantes;
 
 public class Hipnosapo extends PowerUp {
 
-	public Hipnosapo(int x, int y, int vida, int durabilidad) {
-		super(x, y, vida, durabilidad);
+	public Hipnosapo(int x, int y, int vida, int durabilidad, Agregable mapa) {
+		super(x, y, vida, durabilidad, mapa);
 	}
 
 	@Override

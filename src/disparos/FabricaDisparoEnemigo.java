@@ -12,7 +12,7 @@ public class FabricaDisparoEnemigo extends FabricaDisparos {
 
 	@Override
 	public Disparo crearDisparo(int x, int y) {
-		Disparo disp = new DisparoEnemigo(x, y, 15, 100, Constantes.NAVE_ALIADA_DANIO); //TODO change damage
+		Disparo disp = new DisparoEnemigo(x, y, 15, 100, Constantes.NAVE_ALIADA_DANIO, map);
 		map.addToObjects(disp);
 		return disp;
 	}

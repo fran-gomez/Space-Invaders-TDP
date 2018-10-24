@@ -7,9 +7,12 @@ import disparos.DisparoEnemigo;
 import disparos.DisparoPenetrante;
 import disparos.DisparoSimple;
 import disparos.DisparoTriple;
+import disparos.FabricaDisparoEnemigo;
 import disparos.FabricaDisparos;
+import juego.Agregable;
 import juego.GameObject;
 import obstaculos.Obstaculo;
+import power_ups.FabricaAleatoria;
 import power_ups.FabricaPowerUp;
 import power_ups.PowerUp;
 
@@ -19,10 +22,11 @@ public abstract class NaveEnemiga extends Nave {
 	protected FabricaPowerUp powerUp;
 
 	public NaveEnemiga(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad,
-			Inteligencia inteligencia, FabricaDisparos fab, FabricaPowerUp pu) {
-		super(x, y, vida, durabilidad, alcance, dmg, velocidad, fab);
+			Inteligencia inteligencia, Agregable mapa) {
+		super(x, y, vida, durabilidad, alcance, dmg, velocidad, mapa);
 		this.inteligencia = inteligencia;
-		powerUp = pu;
+		powerUp = new FabricaAleatoria(mapa);
+		arma = new FabricaDisparoEnemigo(mapa);
 	}
 
 	@Override

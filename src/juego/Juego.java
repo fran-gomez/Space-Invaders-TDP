@@ -54,6 +54,7 @@ public class Juego {
 	                	ventana.remove(panel);
 	                	t = new Tablero(lvl);
 	                    ventana.add(t);
+	                    ventana.repaint();
 	                    t.startThreads();
 	                }
 	            });
@@ -64,4 +65,5 @@ public class Juego {
 		
 		return panel;
 	}
+
 }

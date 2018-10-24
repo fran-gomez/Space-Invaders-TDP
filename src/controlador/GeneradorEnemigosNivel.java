@@ -24,16 +24,16 @@ public class GeneradorEnemigosNivel extends GeneradorEnemigos {
 
 		int lvl = map.dificultad();
 		// x , y , vida, durabilidad, alcance , daño, velocidad, inteligencia , fabrica
-		this.muchos = new Crab(0, 0, lvl, InteligenciaDefecto.getInstance(), new FabricaDisparoEnemigo(map), new FabricaAleatoria(map));
-		this.algunos1 = new UFO(0, 0, lvl, InteligenciaDefecto.getInstance(), new FabricaDisparoEnemigo(map), new FabricaAleatoria(map));
+		this.muchos = new Crab(0, 0, lvl, InteligenciaDefecto.getInstance(),  map);
+		this.algunos1 = new UFO(0, 0, lvl, InteligenciaDefecto.getInstance(), map);
 
 		this.algunos2 = new ShapeShifter(0, 0, lvl, InteligenciaAleatoria.getInstance(),
-				new FabricaDisparoEnemigo(map), new FabricaAleatoria(map));
+				map);
 
 		this.algunos3 = new Squid(0, 0, lvl, InteligenciaKamikaze.getInstance(map.obtenerJugador()),
-				new FabricaDisparoEnemigo(map), new FabricaAleatoria(map));
+				map);
 
-		this.pocos = new Octopus(0, 0, lvl, InteligenciaDefecto.getInstance(), new FabricaDisparoEnemigo(map), new FabricaAleatoria(map));
+		this.pocos = new Octopus(0, 0, lvl, InteligenciaDefecto.getInstance(), map);
 
 		// muchos -> Crab
 		// algunos1 -> UFO minimo1

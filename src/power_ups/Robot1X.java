@@ -8,6 +8,7 @@ import disparos.DisparoEnemigo;
 import disparos.DisparoPenetrante;
 import disparos.DisparoSimple;
 import disparos.DisparoTriple;
+import juego.Agregable;
 import naves.NaveAliada;
 import naves.NaveEnemiga;
 import obstaculos.Obstaculo;
@@ -15,8 +16,8 @@ import utilidades.Constantes;
 
 public class Robot1X extends PowerUp {
 
-	public Robot1X(int x, int y, int vida, int durabilidad) {
-		super(x, y, vida, durabilidad);
+	public Robot1X(int x, int y, int vida, int durabilidad, Agregable mapa) {
+		super(x, y, vida, durabilidad, mapa);
 
 	}
 
@@ -36,6 +37,7 @@ public class Robot1X extends PowerUp {
 
 	@Override
 	public void colision(NaveAliada naveEnemiga) {
+		eliminar();
 		System.out.println("(1X) Colision con nave aliada");
 	}
 

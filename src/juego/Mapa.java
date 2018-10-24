@@ -30,37 +30,39 @@ public class Mapa extends JPanel implements Agregable {
 	protected int dificultad;
 	protected List<GameObject> objetos, toAdd;
 	protected GeneradorEnemigos generadorEnemigos;
-
+	protected boolean estaJugando;
 	protected Random rnd;
-	
+
 	protected Colisionador c;
 
 	public Mapa(int dificultad) {
-
 		this.setLayout(null);
 		this.setSize(Constantes.MAP_WIDTH, Constantes.MAP_HEIGHT);
 		this.setPreferredSize(new Dimension(Constantes.MAP_WIDTH, Constantes.MAP_HEIGHT));
 		this.setBackground(Color.BLACK);
-		
+
 		// utils
 		rnd = new Random();
 		objetos = new LinkedList<>();
 		toAdd = new LinkedList<>();
 		this.dificultad = dificultad;
 		c = new Colisionador(objetos, toAdd);
-				
+
 		inicializarMapa();
 	}
 
 	public int dificultad() {
 		return dificultad;
 	}
+
 	protected void inicializarMapa() {
+		estaJugando = true;
+
 		// Colocamos la nave del jugador
 		jugador = new NaveAliada(Constantes.MAP_WIDTH / 2,
 				Constantes.MAP_HEIGHT - (Constantes.NAVE_ALIADA_HEIGHT + GameObject.BARRA_VIDA_HEIGHT + 10) / 2,
 				Constantes.NAVE_ALIADA_VIDA, Constantes.NAVE_ALIADA_DURABILIDAD, Constantes.NAVE_ALIADA_ALCANCE,
-				Constantes.NAVE_ALIADA_DANIO, Constantes.NAVE_ALIADA_DURABILIDAD, new FabricaTriple(this));
+				Constantes.NAVE_ALIADA_DANIO, Constantes.NAVE_ALIADA_DURABILIDAD, this);
 		this.add(jugador);
 		objetos.add(jugador);
 
@@ -69,11 +71,11 @@ public class Mapa extends JPanel implements Agregable {
 		generadorEnemigos.generarNavesEnemigas();
 
 		// Colocamos dos obstaculos
-		Obstaculo obs1 = new Nimbus(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 100, 0, 20);
-		Obstaculo obs2 = new Asteroide(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 100, 0, 20);
+		Obstaculo obs1 = new Nimbus(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 100, 0, 20, this);
+		Obstaculo obs2 = new Asteroide(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 100, 0, 20, this);
 
 		while (intersects(obs1, obs2)) {
-			obs2 = new Asteroide(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 0, 0, 5);
+			obs2 = new Asteroide(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 0, 0, 5, this);
 		}
 
 		this.add(obs1);
@@ -97,13 +99,12 @@ public class Mapa extends JPanel implements Agregable {
 	}
 
 	public void terminarJuego() {
+		estaJugando = false;
+
 		for (GameObject go : objetos)
 			go.eliminar();
-		
-		// Cuando eliminamos nave enemigas, aparecen sus powerUp asociados
-		// por lo que tenemos que eliminarlos, aunque esta cosa no los elimine
-		for (GameObject pu: objetos)
-			pu.eliminar();
+
+		estaJugando = false;
 
 		this.add(new JLabel(new ImageIcon("src/resources/hipnosapo.png")));
 	}
@@ -117,7 +118,9 @@ public class Mapa extends JPanel implements Agregable {
 	}
 
 	public void addToObjects(GameObject o) {
-		this.add(o);
-		toAdd.add(o);
+		if (estaJugando) {
+			this.add(o);
+			toAdd.add(o);
+		}
 	}
 }

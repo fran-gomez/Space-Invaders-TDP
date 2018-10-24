@@ -3,6 +3,7 @@ package power_ups;
 import Inteligencias.InteligenciaPowerUpDefecto;
 import javax.swing.ImageIcon;
 
+import juego.Agregable;
 import juego.GameObject;
 import juego.ObjectState;
 import naves.NaveAliada;
@@ -11,8 +12,8 @@ public abstract class PowerUp extends GameObject {
 
 	private InteligenciaPowerUpDefecto inteligencia;
 	
-	public PowerUp(int x, int y, int vida, int durabilidad) {
-		super(x, y, vida, durabilidad);
+	public PowerUp(int x, int y, int vida, int durabilidad, Agregable mapa) {
+		super(x, y, vida, durabilidad, mapa);
 		state = new ObjectState(vida, durabilidad);
 		inteligencia = new InteligenciaPowerUpDefecto();
 	}

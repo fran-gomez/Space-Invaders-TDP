@@ -8,6 +8,7 @@ import disparos.DisparoEnemigo;
 import disparos.DisparoPenetrante;
 import disparos.DisparoSimple;
 import disparos.DisparoTriple;
+import juego.Agregable;
 import naves.NaveAliada;
 import naves.NaveEnemiga;
 import obstaculos.Obstaculo;
@@ -15,8 +16,8 @@ import utilidades.Constantes;
 
 public class AparatoCatastrofico extends PowerUp {
 
-	public AparatoCatastrofico(int x, int y, int vida, int durabilidad) {
-		super(x, y, vida, durabilidad);
+	public AparatoCatastrofico(int x, int y, int vida, int durabilidad, Agregable mapa) {
+		super(x, y, vida, durabilidad, mapa);
 
 	}
 

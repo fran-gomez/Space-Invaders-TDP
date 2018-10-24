@@ -1,5 +1,6 @@
 package disparos;
 
+import juego.Agregable;
 import juego.GameObject;
 import utilidades.Constantes;
 
@@ -7,8 +8,8 @@ public abstract class Disparo extends GameObject {
 
 	protected int dmg;
 	
-	public Disparo(int x, int y, int vida, int durabilidad, int dmg) {
-		super(x, y, vida, durabilidad);
+	public Disparo(int x, int y, int vida, int durabilidad, int dmg, Agregable mapa) {
+		super(x, y, vida, durabilidad, mapa);
 		this.dmg = dmg;
 	}
 	

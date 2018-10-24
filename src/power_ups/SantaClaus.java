@@ -9,6 +9,7 @@ import disparos.DisparoPenetrante;
 import disparos.DisparoSimple;
 import disparos.DisparoTriple;
 import disparos.FabricaTriple;
+import juego.Agregable;
 import naves.NaveAliada;
 import naves.NaveEnemiga;
 import obstaculos.Obstaculo;
@@ -16,9 +17,8 @@ import utilidades.Constantes;
 
 public class SantaClaus extends PowerUp {
 
-	public SantaClaus(int x, int y, int vida, int durabilidad) {
-		super(x, y, vida, durabilidad);
-
+	public SantaClaus(int x, int y, int vida, int durabilidad, Agregable mapa) {
+		super(x, y, vida, durabilidad, mapa);
 	}
 
 	@Override
@@ -36,7 +36,9 @@ public class SantaClaus extends PowerUp {
 	}
 
 	@Override
-	public void colision(NaveAliada naveEnemiga) {
+	public void colision(NaveAliada na) {
+		eliminar();
+		na.setArma(new FabricaTriple(mapa));
 		System.out.println("(SC) Colisione con nave aliada");
 	}
 
@@ -66,8 +68,6 @@ public class SantaClaus extends PowerUp {
 
 	@Override
 	public void efecto() {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

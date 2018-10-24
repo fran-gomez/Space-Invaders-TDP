@@ -4,6 +4,7 @@ import java.awt.Rectangle;
 
 import javax.swing.ImageIcon;
 
+import juego.Agregable;
 import juego.GameObject;
 import naves.NaveAliada;
 import naves.NaveEnemiga;
@@ -15,13 +16,13 @@ public final class DisparoTriple extends DisparoAliado {
 	
 	protected DisparoSimple proyectiles[];
 	
-	public DisparoTriple(int x, int y, int vida, int durabilidad, int dmg) {
-		super(x, y, vida, durabilidad, dmg);
+	public DisparoTriple(int x, int y, int vida, int durabilidad, int dmg, Agregable mapa) {
+		super(x, y, vida, durabilidad, dmg, mapa);
 		
 		proyectiles = new DisparoSimple[3];
-		proyectiles[0] = new DisparoSimple(x + 10, y, vida, durabilidad, dmg);
-		proyectiles[1] = new DisparoSimple(x, y, vida, durabilidad, dmg);
-		proyectiles[2] = new DisparoSimple(x - 10, y, vida, durabilidad, dmg);
+		proyectiles[0] = new DisparoSimple(x + 10, y, vida, durabilidad, dmg, mapa);
+		proyectiles[1] = new DisparoSimple(x, y, vida, durabilidad, dmg, mapa);
+		proyectiles[2] = new DisparoSimple(x - 10, y, vida, durabilidad, dmg, mapa);
 	}
 
 

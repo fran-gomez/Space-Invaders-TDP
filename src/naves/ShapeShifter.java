@@ -7,6 +7,7 @@ import javax.swing.ImageIcon;
 
 import Inteligencias.Inteligencia;
 import disparos.FabricaDisparos;
+import juego.Agregable;
 import juego.NaveState;
 import power_ups.FabricaPowerUp;
 import power_ups.PowerUp;
@@ -14,13 +15,13 @@ import utilidades.Constantes;
 
 public final class ShapeShifter extends NaveEnemiga {
 
-	public ShapeShifter(int x, int y, int lvl, Inteligencia intel, FabricaDisparos fab, FabricaPowerUp pu) {
-		this(x, y, 0, 0, 0, 0, 0, intel, fab, pu);
+	public ShapeShifter(int x, int y, int lvl, Inteligencia intel, Agregable mapa) {
+		this(x, y, 0, 0, 0, 0, 0, intel, mapa);
 		setearEstadisticas(lvl);
 	}
 	
-	public ShapeShifter(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad, Inteligencia intel, FabricaDisparos fab, FabricaPowerUp pu) {
-		super(x, y, vida, durabilidad, alcance, dmg, velocidad, intel, fab, pu);
+	public ShapeShifter(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad, Inteligencia intel, Agregable mapa) {
+		super(x, y, vida, durabilidad, alcance, dmg, velocidad, intel,mapa);
 
 	}
 
@@ -61,7 +62,7 @@ public final class ShapeShifter extends NaveEnemiga {
 	@Override
 	public NaveEnemiga clone() {
 		return new ShapeShifter(rec.x, rec.y, state.getVida(), state.getDurabilidad(), state.getAlcance(), state.getDmg(),
-				state.getVelocidad(), this.inteligencia, this.arma, powerUp);
+				state.getVelocidad(), this.inteligencia, mapa);
 	}
 
 	@Override

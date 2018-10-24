@@ -1,6 +1,7 @@
 package naves;
 
 import disparos.FabricaDisparos;
+import juego.Agregable;
 import juego.GameObject;
 import juego.NaveState;
 import power_ups.PowerUp;
@@ -9,9 +10,8 @@ public abstract class Nave extends GameObject {
 	protected NaveState state;
 	protected FabricaDisparos arma;
 
-	public Nave(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad, FabricaDisparos fab) {
-		super(x, y, vida, durabilidad);
-		this.arma = fab;
+	public Nave(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad, Agregable mapa) {
+		super(x, y, vida, durabilidad, mapa);
 		this.state = new NaveState(vida, durabilidad, dmg, alcance, velocidad);
 	}
 
