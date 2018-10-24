@@ -1,7 +1,6 @@
 package disparos;
 
 import juego.Agregable;
-import juego.Mapa;
 import utilidades.Constantes;
 
 public class FabricaDisparoEnemigo extends FabricaDisparos {

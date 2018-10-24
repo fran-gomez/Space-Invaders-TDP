@@ -18,12 +18,7 @@ public class Nimbus extends Obstaculo {
 
 	public Nimbus(int x, int y, int vida, int durabilidad, int d, Agregable mapa) {
 		super(x, y, vida, durabilidad, d, mapa);
-<<<<<<< Updated upstream
-=======
 		// TODO Auto-generated constructor stub
-		if (mapa == null)
-			System.err.println("Fuck it");
->>>>>>> Stashed changes
 	}
 
 	@Override
@@ -78,8 +73,8 @@ public class Nimbus extends Obstaculo {
 
 	@Override
 	public void colision(DisparoSimple disparo) {
-		// TODO Auto-generated method stub
-		
+		this.setVida(this.getVida() - disparo.getDmg());
+		disparo.eliminar();
 	}
 
 	@Override

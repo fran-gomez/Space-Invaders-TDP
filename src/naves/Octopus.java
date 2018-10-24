@@ -5,10 +5,8 @@ import java.awt.Rectangle;
 import javax.swing.ImageIcon;
 
 import Inteligencias.Inteligencia;
-import disparos.FabricaDisparos;
 import juego.Agregable;
 import juego.NaveState;
-import power_ups.FabricaPowerUp;
 import power_ups.PowerUp;
 import utilidades.Constantes;
 

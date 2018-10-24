@@ -5,8 +5,6 @@ import java.util.HashMap;
 import Inteligencias.InteligenciaAleatoria;
 import Inteligencias.InteligenciaDefecto;
 import Inteligencias.InteligenciaKamikaze;
-import disparos.FabricaDisparoEnemigo;
-import juego.Agregable;
 import juego.Mapa;
 import naves.Crab;
 import naves.NaveEnemiga;
@@ -14,8 +12,6 @@ import naves.Octopus;
 import naves.ShapeShifter;
 import naves.Squid;
 import naves.UFO;
-import power_ups.FabricaAleatoria;
-import power_ups.FabricaPowerUp;
 
 public class GeneradorEnemigosNivel extends GeneradorEnemigos {
 
