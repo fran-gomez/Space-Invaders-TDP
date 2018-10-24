@@ -33,4 +33,3 @@ Farnsworth (Y vendidos ilegalmente a los Omicronianos por Bender)
 	4) Aurora Boreal: Aparece una aurora boreal en esta parte de Springfield, en esta epoca del año, atenuando la intensidad de los lasers disparados por el enemigo
 	5) Robot 1-X: La unidad 1-X se encargara de reparar la nave con una eficiencia nunca antes vista (Buuuu... -Bender-)
 	6) Aparato catastrofico: Lanzas una bomba capaz de destruir la realidad misma. (Supongo que podre desprenderme de alguno de estos y seguir siendo igual de temible -Profesor Farnsworth-)
-	   

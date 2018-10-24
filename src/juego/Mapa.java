@@ -66,9 +66,28 @@ public class Mapa extends JPanel implements Agregable {
 		this.add(jugador);
 		objetos.add(jugador);
 
-		// Creacion y adicion de los enemigos
+		armarNivel();
+	}
+
+	public void gameLoop() {
+		// Movimiento de objetos
+		Iterator<GameObject> it = objetos.iterator();
+		while (it.hasNext()) {
+			GameObject obj = it.next();
+			obj.mover();
+		}
+		c.colisionar();
+		
+		if (this.estaVacio()) {
+			++dificultad;
+			armarNivel();
+		}
+	}
+
+	public void armarNivel() {
 		generadorEnemigos = new GeneradorEnemigosNivel(this);
 		generadorEnemigos.generarNavesEnemigas();
+		
 
 		// Colocamos dos obstaculos
 		Obstaculo obs1 = new Nimbus(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 100, 0, 20, this);
@@ -83,17 +102,7 @@ public class Mapa extends JPanel implements Agregable {
 		objetos.add(obs1);
 		objetos.add(obs2);
 	}
-
-	public void gameLoop() {
-		// Movimiento de objetos
-		Iterator<GameObject> it = objetos.iterator();
-		while (it.hasNext()) {
-			GameObject obj = it.next();
-			obj.mover();
-		}
-		c.colisionar();
-	}
-
+	
 	public NaveAliada obtenerJugador() {
 		return jugador;
 	}

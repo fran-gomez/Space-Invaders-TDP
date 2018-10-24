@@ -22,6 +22,9 @@ public class GeneradorEnemigosNivel extends GeneradorEnemigos {
 	public GeneradorEnemigosNivel(Mapa map) {
 		super(map);
 
+		if (map == null)
+			System.out.println("Fuck it");
+		
 		int lvl = map.dificultad();
 		// x , y , vida, durabilidad, alcance , daño, velocidad, inteligencia , fabrica
 		this.muchos = new Crab(0, 0, lvl, InteligenciaDefecto.getInstance(), map);
