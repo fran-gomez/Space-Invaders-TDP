@@ -50,7 +50,7 @@ public abstract class GameObject extends JPanel {
 	protected void setImage() {
 		this.setOpaque(false);
 
-		this.vidaLabel = new BarraVida(100); // TODO Cambiar a vida posta
+		this.vidaLabel = new BarraVida(state.getVida());
 		this.cuerpo = new JLabel();
 
 		// Rectángulo de vida

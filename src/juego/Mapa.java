@@ -18,7 +18,9 @@ import disparos.FabricaTriple;
 import naves.NaveAliada;
 import obstaculos.Asteroide;
 import obstaculos.NaveErrante;
+import obstaculos.Nimbus;
 import obstaculos.Obstaculo;
+import power_ups.PowerUp;
 import utilidades.Constantes;
 
 public class Mapa extends JPanel implements Agregable {
@@ -58,7 +60,7 @@ public class Mapa extends JPanel implements Agregable {
 		jugador = new NaveAliada(Constantes.MAP_WIDTH / 2,
 				Constantes.MAP_HEIGHT - (Constantes.NAVE_ALIADA_HEIGHT + GameObject.BARRA_VIDA_HEIGHT + 10) / 2,
 				Constantes.NAVE_ALIADA_VIDA, Constantes.NAVE_ALIADA_DURABILIDAD, Constantes.NAVE_ALIADA_ALCANCE,
-				Constantes.NAVE_ALIADA_DANIO, Constantes.NAVE_ALIADA_DURABILIDAD, new FabricaSimple(this));
+				Constantes.NAVE_ALIADA_DANIO, Constantes.NAVE_ALIADA_DURABILIDAD, new FabricaTriple(this));
 		this.add(jugador);
 		objetos.add(jugador);
 
@@ -67,7 +69,7 @@ public class Mapa extends JPanel implements Agregable {
 		generadorEnemigos.generarNavesEnemigas();
 
 		// Colocamos dos obstaculos
-		Obstaculo obs1 = new NaveErrante(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 100, 0, 20);
+		Obstaculo obs1 = new Nimbus(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 100, 0, 20);
 		Obstaculo obs2 = new Asteroide(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 100, 0, 20);
 
 		while (intersects(obs1, obs2)) {
@@ -97,8 +99,13 @@ public class Mapa extends JPanel implements Agregable {
 	public void terminarJuego() {
 		for (GameObject go : objetos)
 			go.eliminar();
+		
+		// Cuando eliminamos nave enemigas, aparecen sus powerUp asociados
+		// por lo que tenemos que eliminarlos, aunque esta cosa no los elimine
+		for (GameObject pu: objetos)
+			pu.eliminar();
 
-		this.add(new JLabel(new ImageIcon("src/resources/lose.gif")));
+		this.add(new JLabel(new ImageIcon("src/resources/hipnosapo.png")));
 	}
 
 	public boolean estaVacio() {

@@ -7,6 +7,7 @@ import javax.swing.ImageIcon;
 import juego.GameObject;
 import naves.NaveAliada;
 import naves.NaveEnemiga;
+import obstaculos.Nimbus;
 import obstaculos.Obstaculo;
 import power_ups.PowerUp;
 import utilidades.Constantes;
@@ -66,6 +67,10 @@ public final class DisparoEnemigo extends Disparo {
 
 	@Override
 	public void colision(DisparoTriple disparo) {
+	}
+	
+	public void coliion(Nimbus n) {
+		n.colision(this);
 	}
 	
 	@Override

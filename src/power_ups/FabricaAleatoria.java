@@ -17,7 +17,7 @@ public class FabricaAleatoria extends FabricaPowerUp {
 	public void crearPowerUp(int x, int y) {
 
 		PowerUp creado;
-		int valor = rn.nextInt(7);
+		int valor = rn.nextInt(30);
 		
 		switch (valor) {
 		  case 1:
@@ -44,7 +44,6 @@ public class FabricaAleatoria extends FabricaPowerUp {
 		
 		if(creado != null)
 			mapa.addToObjects(creado);
-		
 	}
 
 	
