@@ -18,7 +18,6 @@ public class InteligenciaDefecto extends Inteligencia {
 		super();
 		intelDefecto = null;
 		movDer = true;
-		new Random();
 		mapMover = new HashMap<NaveEnemiga, Boolean>();
 		movAbajo = false;
 	}

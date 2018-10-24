@@ -10,7 +10,6 @@ public abstract class Disparo extends GameObject {
 	public Disparo(int x, int y, int vida, int durabilidad, int dmg) {
 		super(x, y, vida, durabilidad);
 		this.dmg = dmg;
-		// TODO Auto-generated constructor stub
 	}
 	
 	@Override

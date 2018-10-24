@@ -5,6 +5,7 @@ import javax.swing.ImageIcon;
 
 import juego.GameObject;
 import juego.ObjectState;
+import naves.NaveAliada;
 
 public abstract class PowerUp extends GameObject {
 
@@ -23,6 +24,11 @@ public abstract class PowerUp extends GameObject {
 	@Override
 	public void colision(GameObject obs) {
 		obs.colision(this);
+	}
+	
+	@Override
+	public void colision(NaveAliada naveAliada) {
+		naveAliada.aplicarPowerUp(this);
 	}
 	
 	@Override

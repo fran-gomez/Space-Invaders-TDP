@@ -39,6 +39,7 @@ public class Robot1X extends PowerUp {
 		System.out.println("(1X) Colision con nave aliada");
 	}
 
+
 	@Override
 	public void colision(Obstaculo naveEnemiga) {
 	}
