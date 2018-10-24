@@ -32,10 +32,14 @@ public final class DisparoPenetrante extends DisparoAliado {
 		return null;
 	}
 
+	public void eliminar() {
+	}
+	
 	@Override
 	public void colision(GameObject obs) {
 		obs.colision(this);
 	}
+	
 	@Override
 	public void colision(NaveEnemiga naveEnemiga) {
 		naveEnemiga.recibirDano(dmg);

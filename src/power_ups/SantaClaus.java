@@ -8,6 +8,7 @@ import disparos.DisparoEnemigo;
 import disparos.DisparoPenetrante;
 import disparos.DisparoSimple;
 import disparos.DisparoTriple;
+import disparos.FabricaTriple;
 import naves.NaveAliada;
 import naves.NaveEnemiga;
 import obstaculos.Obstaculo;
@@ -36,7 +37,7 @@ public class SantaClaus extends PowerUp {
 
 	@Override
 	public void colision(NaveAliada naveEnemiga) {
-		System.out.println("(LDA) Colisione con nave aliada");
+		System.out.println("(SC) Colisione con nave aliada");
 	}
 
 	@Override

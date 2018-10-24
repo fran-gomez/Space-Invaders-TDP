@@ -18,7 +18,7 @@ public class InteligenciaPowerUpDefecto extends Inteligencia{
 		
 		float newY = rec.y;
 		
-		if(rec.y > Constantes.MAP_HEIGHT - rec.getHeight()) {
+		if(rec.y >= Constantes.MAP_HEIGHT - rec.getHeight()) {
 			contador--;
 			if(contador == 0) {
 				powerUp.eliminar();

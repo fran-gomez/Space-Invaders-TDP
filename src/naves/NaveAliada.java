@@ -18,11 +18,13 @@ public final class NaveAliada extends Nave {
 
 	public static final int DERECHA = 1, IZQUIERDA = -1, STOPDER = 2, STOPIZQ = -2;
 	private int escudo;
+	private String imagenRuta;
 
 	public NaveAliada(int x, int y, int lvl, FabricaDisparos fab) {
 		this(x, y, 0, 0, 0, 0, 0, fab);
 		setearEstadisticas(lvl);
 		escudo = 0;
+		imagenRuta = "src/resources/planetExpressRight.png";
 	}
 	
 	public NaveAliada(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad, FabricaDisparos fab) {
@@ -34,11 +36,6 @@ public final class NaveAliada extends Nave {
 		return new Rectangle(x, y, Constantes.NAVE_ALIADA_WIDTH, Constantes.NAVE_ALIADA_HEIGHT);
 	}
 
-	@Override
-	public void aplicarPowerUp(PowerUp p) {
-		p.colision(this);
-	}
-	
 	public void setEscudo(int e) {
 		this.escudo = e; 
 	}
@@ -65,7 +62,7 @@ public final class NaveAliada extends Nave {
 
 	@Override
 	public void colision(PowerUp powerUp) {
-		powerUp.efecto();
+		powerUp.colision(this);
 	}
 
 	@Override
@@ -79,13 +76,16 @@ public final class NaveAliada extends Nave {
 		case DERECHA:
 			if (rec.getLocation().getX() < Constantes.MAP_WIDTH - Constantes.NAVE_ALIADA_WIDTH)
 				nuevoX += Constantes.NAVE_ALIADA_VELOCIDAD;
+			//imagenRuta = "src/resources/planetExpressRight.png";
 			break;
 		case IZQUIERDA:
 			if (rec.getLocation().getX() > 0)
 				nuevoX -= Constantes.NAVE_ALIADA_VELOCIDAD;
+			//imagenRuta = "rc/resources/planetExpressLeft.png";
 			break;
 		}
 
+		//setImage();
 		rec.setLocation(nuevoX, (int) rec.getY());
 		this.setLocation((int) rec.getX(), (int) rec.getY());
 		repaint();
@@ -129,5 +129,11 @@ public final class NaveAliada extends Nave {
 		int dmg = Constantes.NAVE_ALIADA_DANIO + lvl;
 		int velocidad = Constantes.NAVE_ALIADA_VELOCIDAD + (lvl/2);
 		this.state = new NaveState(vida, durabilidad, alcance, dmg, velocidad);
+	}
+
+	@Override
+	public void aplicarPowerUp(PowerUp p) {
+		// TODO Auto-generated method stub
+		
 	}
 }
