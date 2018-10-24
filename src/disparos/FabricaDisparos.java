@@ -11,5 +11,5 @@ public abstract class FabricaDisparos {
 		this.map = map;
 	}
 	
-	public abstract Disparo crearDisparo(int x, int y);
+	public abstract void crearDisparo(int x, int y);
 }

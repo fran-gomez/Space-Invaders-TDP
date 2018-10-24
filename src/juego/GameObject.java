@@ -32,6 +32,7 @@ public abstract class GameObject extends JPanel {
 	
 	public GameObject(int x, int y, int vida, int durabilidad, Agregable mapa) {
 
+		this.mapa = mapa;
 		this.rec = createRectangle(x, y);
 		this.visual = null;
 		this.state = new ObjectState(vida, durabilidad);

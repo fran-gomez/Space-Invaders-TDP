@@ -11,10 +11,9 @@ public class FabricaSimple extends FabricaDisparos {
 	}
 
 	@Override
-	public Disparo crearDisparo(int x, int y) {
+	public void crearDisparo(int x, int y) {
 		Disparo disp = new DisparoSimple(x, y, 15, 100, Constantes.NAVE_ALIADA_DANIO, map);
 		map.addToObjects(disp);
-		return disp;
 	}
 
 }

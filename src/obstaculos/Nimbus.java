@@ -18,13 +18,10 @@ public class Nimbus extends Obstaculo {
 
 	public Nimbus(int x, int y, int vida, int durabilidad, int d, Agregable mapa) {
 		super(x, y, vida, durabilidad, d, mapa);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void mover() {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override

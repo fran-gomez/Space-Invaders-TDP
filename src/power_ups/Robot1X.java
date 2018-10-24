@@ -36,8 +36,9 @@ public class Robot1X extends PowerUp {
 	}
 
 	@Override
-	public void colision(NaveAliada naveEnemiga) {
+	public void colision(NaveAliada ne) {
 		eliminar();
+		ne.setVida((int) (ne.getVida()*1.15));
 		System.out.println("(1X) Colision con nave aliada");
 	}
 

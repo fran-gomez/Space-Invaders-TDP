@@ -78,7 +78,6 @@ public final class NaveAliada extends Nave {
 		obs.colision(this);
 	}
 
-	
 	public void setArma(FabricaDisparos d) {
 		this.arma = d;
 	}

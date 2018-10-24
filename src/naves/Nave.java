@@ -19,7 +19,6 @@ public abstract class Nave extends GameObject {
 		arma.crearDisparo(this.rec.x + this.rec.width/2, this.rec.y - this.rec.height/2);
 	}
 
-
 	public int getDmg() {
 		return state.getDmg();
 	}

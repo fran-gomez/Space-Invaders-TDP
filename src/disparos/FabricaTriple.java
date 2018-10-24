@@ -3,24 +3,26 @@ package disparos;
 import juego.Agregable;
 import juego.Mapa;
 
-public class FabricaTriple extends FabricaDisparos {
+public class FabricaTriple extends FabricaSimple {
+
+	private int contadorDisp;
 
 	public FabricaTriple(Agregable map) {
 		super(map);
+		contadorDisp = 10;
 	}
 
 	@Override
-	public Disparo crearDisparo(int x, int y) {
-		
-		Disparo disp1 = new DisparoSimple(x - 15, y, 10, 0, 30, map);
-		Disparo disp2 = new DisparoSimple(x, y - 5, 10, 0, 30, map);
-		Disparo disp3 = new DisparoSimple(x + 15, y, 10, 0, 30, map);
+	public void crearDisparo(int x, int y) {
 
-		map.addToObjects(disp1);
-		map.addToObjects(disp2);
-		map.addToObjects(disp3);
-
-		return disp2;
+		if (contadorDisp > 0) {
+			super.crearDisparo(x - 15, y);
+			super.crearDisparo(x, y - 5);
+			super.crearDisparo(x + 15, y);
+			contadorDisp--;
+		}else {
+			super.crearDisparo(x, y);
+		}
 	}
 
 }
