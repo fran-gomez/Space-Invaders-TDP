@@ -28,7 +28,7 @@ public final class DisparoPenetrante extends DisparoAliado {
 
 	@Override
 	public ImageIcon getGrafico() {
-		return new ImageIcon("src/resources/Disparo.png");
+		return new ImageIcon("src/resources/DisparoPenetrante.png");
 	}
 
 	@Override

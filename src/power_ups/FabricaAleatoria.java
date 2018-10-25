@@ -17,7 +17,7 @@ public class FabricaAleatoria extends FabricaPowerUp {
 	public void crearPowerUp(int x, int y) {
 
 		PowerUp creado;
-		int valor = rn.nextInt(5);
+		int valor = rn.nextInt(7);
 		
 		switch (valor) {
 		  case 1:

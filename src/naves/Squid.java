@@ -19,6 +19,7 @@ public final class Squid extends NaveEnemiga {
 	
 	public Squid(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad, Inteligencia intel, Agregable mapa) {
 		super(x, y, vida, durabilidad, alcance, dmg, velocidad, intel, mapa);
+		puntos = 20;
 	}
 
 	@Override

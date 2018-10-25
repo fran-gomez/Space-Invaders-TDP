@@ -36,7 +36,7 @@ public class MainThread extends Thread {
 			mapa.repaint();
 			
 			if (mapa.obtenerJugador().getVida() <= 0) {
-				System.out.println("Perdiste capo."); // Termino el juego
+				System.out.println("Perdiste capo.");
 				mapa.terminarJuego();
 				ejecutar = false;
 			}

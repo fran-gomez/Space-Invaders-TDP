@@ -27,6 +27,7 @@ public abstract class GameObject extends JPanel {
 	protected BarraVida vidaLabel;
 	protected Component cuerpo;
 	protected Agregable mapa;
+	protected int puntos;
 
 	public static final int BARRA_VIDA_HEIGHT = 3;
 	
@@ -46,6 +47,10 @@ public abstract class GameObject extends JPanel {
 		// Añadimos 5 para que quepa la barra de vida
 		state = new ObjectState(vida, durabilidad);
 		setImage();
+	}
+	
+	public int getPuntos() {
+		return puntos;
 	}
 
 	protected void setImage() {

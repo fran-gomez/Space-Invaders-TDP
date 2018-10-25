@@ -20,6 +20,7 @@ public final class Crab extends NaveEnemiga {
 	public Crab(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad, Inteligencia intel,
 			Agregable mapa) {
 		super(x, y, vida, durabilidad, alcance, dmg, velocidad, intel, mapa);
+		puntos = 10;
 	}
 
 	protected Rectangle createRectangle(int x, int y) {

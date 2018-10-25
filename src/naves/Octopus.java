@@ -19,6 +19,7 @@ public final class Octopus extends NaveEnemiga {
 	
 	public Octopus(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad, Inteligencia intel, Agregable mapa) {
 		super(x, y, vida, durabilidad, alcance, dmg, velocidad, intel, mapa);
+		puntos = 15;
 	}
 
 	@Override

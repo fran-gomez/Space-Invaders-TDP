@@ -24,10 +24,10 @@ public class Juego {
 
 	public Juego() {
 		ventana = new JFrame();
-		startGUI();
+		setGUI();
 	}
 
-	public void startGUI() {
+	public void setGUI() {
 		// ventana.add(new JLabel(new ImageIcon("src/resources/mapa_bg.jpg")));
 		armarPanelNiveles(getLastCompletedLevel());
 		ventana.setLayout(new FlowLayout());
@@ -38,7 +38,7 @@ public class Juego {
 		ventana.pack();
 		ventana.setVisible(true);
 	}
-	
+
 	private int getLastCompletedLevel() {
 		int lvl = 0;
 
@@ -61,11 +61,9 @@ public class Juego {
 
 		return lvl;
 	}
-	
-	
 
 	public void armarPanelNiveles(int lastCompletedLevel) {
-		if(t != null) {
+		if (t != null) {
 			ventana.remove(t);
 		}
 		JPanel panel = new JPanel();
@@ -82,7 +80,7 @@ public class Juego {
 				else
 					botonNivel = new JButton("CHAOS");
 
-				if (lvl <= lastCompletedLevel+1) {
+				if (lvl <= lastCompletedLevel + 1) {
 					botonNivel.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
 							ventana.remove(panel);
@@ -92,7 +90,7 @@ public class Juego {
 							t.startThreads();
 						}
 					});
-				}else {
+				} else {
 					botonNivel.setEnabled(false);
 				}
 

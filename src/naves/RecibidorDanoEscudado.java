@@ -10,6 +10,8 @@ public class RecibidorDanoEscudado extends RecibidorDano {
 	public void recibirDano(NaveEnemiga na) {
 		na.eliminar();
 		System.out.println("elimino");
+		jugador.setForeground(null);
+		jugador.setOpaque(false);
 		jugador.setRecibidorDano(new RecibidorDanoNoEscudado(jugador));
 	}
 }

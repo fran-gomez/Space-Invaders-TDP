@@ -9,10 +9,9 @@ import controlador.MainThread;
 public class Tablero extends JPanel {
 
 	protected Mapa g;
-	protected PanelPuntos panelPuntos;
 
 	protected Juego juego;
-	protected long puntos;
+	// protected long puntos;
 	protected MainThread mainThread;
 	protected JugadorThread jugadorThread;
 
@@ -22,11 +21,8 @@ public class Tablero extends JPanel {
 
 		mainThread = new MainThread(g);
 		jugadorThread = new JugadorThread(g.obtenerJugador());
-		
-		panelPuntos = new PanelPuntos();
-		
+
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-		this.add(panelPuntos);
 		this.add(g);
 	}
 

@@ -37,6 +37,8 @@ public class Mapa extends JPanel implements Agregable {
 	protected boolean estaJugando;
 	protected Random rnd;
 	protected Juego juego;
+	protected PanelPuntos panelPuntos;
+	protected int puntos;
 
 	protected Colisionador c;
 
@@ -48,11 +50,15 @@ public class Mapa extends JPanel implements Agregable {
 		this.setBackground(Color.BLACK);
 
 		// utils
+		puntos = 0;
 		rnd = new Random();
 		objetos = new LinkedList<>();
 		toAdd = new LinkedList<>();
 		this.dificultad = dificultad;
 		c = new Colisionador(objetos, toAdd);
+		
+		panelPuntos = new PanelPuntos();
+		this.add(panelPuntos);
 		inicializarMapa();
 	}
 
@@ -62,6 +68,8 @@ public class Mapa extends JPanel implements Agregable {
 
 	protected void inicializarMapa() {
 		estaJugando = true;
+		panelPuntos.setNivel(dificultad);
+		panelPuntos.setPuntos(0);
 
 		// Colocamos la nave del jugador
 		jugador = new NaveAliada(Constantes.MAP_WIDTH / 2,
@@ -81,7 +89,8 @@ public class Mapa extends JPanel implements Agregable {
 			GameObject obj = it.next();
 			obj.mover();
 		}
-		c.colisionar();
+		puntos += c.colisionar();
+		panelPuntos.setPuntos(puntos);
 
 		// Iniciar nuevo nivel una vez eliminados todos los enemigos
 		if (estaVacio()) {
@@ -92,12 +101,12 @@ public class Mapa extends JPanel implements Agregable {
 	}
 
 	private void actualizarNivelCompletado() {
+		panelPuntos.sumarNivel();
 		try {
 			File file = new File("nivelesCompletados");
 			int lastLevel = 0;
 			if (file.isFile()) {
 				BufferedReader reader = new BufferedReader(new FileReader(file));
-
 				String line = reader.readLine();
 
 				if (line != null && line.length() > 0) {
@@ -106,9 +115,11 @@ public class Mapa extends JPanel implements Agregable {
 				reader.close();
 			}
 
-			BufferedWriter writer = new BufferedWriter(new FileWriter(file, false));
-			writer.write("" + (lastLevel + 1));
-			writer.close();
+			if (dificultad == lastLevel) {
+				BufferedWriter writer = new BufferedWriter(new FileWriter(file, false));
+				writer.write("" + (lastLevel + 1));
+				writer.close();
+			}
 
 		} catch (IOException e) {
 
@@ -145,7 +156,7 @@ public class Mapa extends JPanel implements Agregable {
 			go.eliminar();
 
 		this.add(new JLabel(new ImageIcon("src/resources/hipnosapo.png")));
-		juego.startGUI();
+		juego.setGUI();
 		estaJugando = false;
 
 		JLabel imagenPerdiste = new JLabel();

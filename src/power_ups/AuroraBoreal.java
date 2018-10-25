@@ -1,5 +1,6 @@
 package power_ups;
 
+import java.awt.Color;
 import java.awt.Rectangle;
 import java.util.Random;
 
@@ -42,6 +43,8 @@ public class AuroraBoreal extends PowerUp {
 	@Override
 	public void colision(NaveAliada na) {
 		eliminar();
+		na.setBackground(Color.YELLOW);
+		na.setOpaque(true);
 		na.setRecibidorDano(new RecibidorDanoEscudado(na));
 		System.out.println("(AB) Colisione con nave aliada");
 	}
