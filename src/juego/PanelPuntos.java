@@ -49,6 +49,6 @@ public class PanelPuntos extends JPanel {
 	}
 	
 	private void actualizar() {
-		label.setText(String.format("Puntos: %d\t Nivel: %d", puntos, nivel));
+		label.setText(String.format("Puntos: %d\t Nivel: %d \t (P)ause, (R)esume, (E)xit", puntos, nivel));
 	}
 }
