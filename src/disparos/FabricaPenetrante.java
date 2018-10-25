@@ -3,16 +3,23 @@ package disparos;
 import juego.Agregable;
 import juego.Mapa;
 
-public class FabricaPenetrante extends FabricaDisparos {
+public class FabricaPenetrante extends FabricaSimple {
+
+	private int contador;
 
 	public FabricaPenetrante(Agregable map) {
 		super(map);
+		contador = 10;
 	}
 
 	@Override
 	public void crearDisparo(int x, int y) {
-		Disparo disp = new DisparoPenetrante(x, y, 0, 0, 5, map);
-		map.addToObjects(disp);
+		if (contador > 0) {
+			Disparo disp = new DisparoPenetrante(x, y, 10, 10, 5, map);
+			map.addToObjects(disp);
+		} else {
+			super.crearDisparo(x, y);
+		}
 	}
 
 }

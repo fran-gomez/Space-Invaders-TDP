@@ -8,6 +8,7 @@ import disparos.DisparoEnemigo;
 import disparos.DisparoPenetrante;
 import disparos.DisparoSimple;
 import disparos.DisparoTriple;
+import disparos.FabricaPenetrante;
 import juego.Agregable;
 import naves.NaveAliada;
 import naves.NaveEnemiga;
@@ -27,7 +28,7 @@ public class LaserDeProtones extends PowerUp {
 
 	@Override
 	public ImageIcon getGrafico() {
-		return null;
+		return new ImageIcon("src/resources/Aliado1.png");
 	}
 
 	@Override
@@ -37,6 +38,7 @@ public class LaserDeProtones extends PowerUp {
 	@Override
 	public void colision(NaveAliada na) {
 		eliminar();
+		na.setArma(new FabricaPenetrante(mapa));
 		System.out.println("(LDP) Colisione con nave aliada");
 	}
 
@@ -47,8 +49,6 @@ public class LaserDeProtones extends PowerUp {
 	@Override
 	public void colision(PowerUp powerUp) {
 	}
-
-
 
 	@Override
 	public void colision(DisparoPenetrante disparo) {
@@ -68,8 +68,6 @@ public class LaserDeProtones extends PowerUp {
 
 	@Override
 	public void efecto() {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

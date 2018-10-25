@@ -10,7 +10,6 @@ public class RecibidorDanoNoEscudado extends RecibidorDano{
 
 	@Override
 	public void recibirDano(NaveEnemiga na) {
-		System.out.println("recibio daño");
 		jugador.recibirDano(na.getDmg());
 	}
 

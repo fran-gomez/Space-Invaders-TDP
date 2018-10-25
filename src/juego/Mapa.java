@@ -2,6 +2,12 @@ package juego;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -32,10 +38,12 @@ public class Mapa extends JPanel implements Agregable {
 	protected GeneradorEnemigos generadorEnemigos;
 	protected boolean estaJugando;
 	protected Random rnd;
+	protected Juego juego;
 
 	protected Colisionador c;
 
-	public Mapa(int dificultad) {
+	public Mapa(int dificultad, Juego juego) {
+		this.juego = juego;
 		this.setLayout(null);
 		this.setSize(Constantes.MAP_WIDTH, Constantes.MAP_HEIGHT);
 		this.setPreferredSize(new Dimension(Constantes.MAP_WIDTH, Constantes.MAP_HEIGHT));
@@ -47,7 +55,6 @@ public class Mapa extends JPanel implements Agregable {
 		toAdd = new LinkedList<>();
 		this.dificultad = dificultad;
 		c = new Colisionador(objetos, toAdd);
-
 		inicializarMapa();
 	}
 
@@ -77,21 +84,47 @@ public class Mapa extends JPanel implements Agregable {
 			obj.mover();
 		}
 		c.colisionar();
-		
-		if (this.estaVacio()) {
+
+		// Iniciar nuevo nivel una vez eliminados todos los enemigos
+		if (estaVacio()) {
 			++dificultad;
+			actualizarNivelCompletado();
 			armarNivel();
+		}
+	}
+
+	private void actualizarNivelCompletado() {
+		try {
+			File file = new File("nivelesCompletados");
+			int lastLevel = 0;
+			if (file.isFile()) {
+				BufferedReader reader = new BufferedReader(new FileReader(file));
+
+				String line = reader.readLine();
+
+				if (line != null && line.length() > 0) {
+					lastLevel = Integer.parseInt(line);
+				}
+				reader.close();
+			}
+
+			BufferedWriter writer = new BufferedWriter(new FileWriter(file, false));
+			writer.write("" + (lastLevel + 1));
+			writer.close();
+
+		} catch (IOException e) {
+
 		}
 	}
 
 	public void armarNivel() {
 		generadorEnemigos = new GeneradorEnemigosNivel(this);
 		generadorEnemigos.generarNavesEnemigas();
-		
 
 		// Colocamos dos obstaculos
 		Obstaculo obs1 = new Nimbus(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 100, 0, 20, this);
-		Obstaculo obs2 = new Asteroide(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 100, 0, 20, this);
+		Obstaculo obs2 = new Asteroide(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 100, 0, 20,
+				this);
 
 		while (intersects(obs1, obs2)) {
 			obs2 = new Asteroide(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 0, 0, 5, this);
@@ -102,7 +135,7 @@ public class Mapa extends JPanel implements Agregable {
 		objetos.add(obs1);
 		objetos.add(obs2);
 	}
-	
+
 	public NaveAliada obtenerJugador() {
 		return jugador;
 	}
@@ -113,9 +146,8 @@ public class Mapa extends JPanel implements Agregable {
 		for (GameObject go : objetos)
 			go.eliminar();
 
-		estaJugando = false;
-
 		this.add(new JLabel(new ImageIcon("src/resources/hipnosapo.png")));
+		juego.startGUI();
 	}
 
 	public boolean estaVacio() {

@@ -58,12 +58,11 @@ public final class Constantes {
 	public static final int DISPARO_TRIPLE_VELOCIDAD = 10;
 	public static final int DISPARO_ENEMIGO_VELOCIDAD = 10;
 	
-	
 	// Nave aliada
-	public static final int NAVE_ALIADA_VIDA = 100;
+	public static final int NAVE_ALIADA_VIDA = 1000;
 	public static final int NAVE_ALIADA_DURABILIDAD = 100;
 	public static final int NAVE_ALIADA_ALCANCE = 10;
-	public static final int NAVE_ALIADA_DANIO = 20;
+	public static final int NAVE_ALIADA_DANIO = 80;
 	public static final int NAVE_ALIADA_VELOCIDAD = 5;
 	public static final int ESCUDO_ALIADO = 20;
 

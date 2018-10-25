@@ -11,12 +11,14 @@ public class Tablero extends JPanel {
 	protected Mapa g;
 	protected PanelPuntos panelPuntos;
 
+	protected Juego juego;
 	protected long puntos;
 	protected MainThread mainThread;
 	protected JugadorThread jugadorThread;
 
-	public Tablero(int dificultad) {
-		g = new Mapa(dificultad);
+	public Tablero(int dificultad, Juego juego) {
+		this.juego = juego;
+		g = new Mapa(dificultad, juego);
 
 		mainThread = new MainThread(g);
 		jugadorThread = new JugadorThread(g.obtenerJugador());

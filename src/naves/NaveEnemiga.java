@@ -62,7 +62,7 @@ public abstract class NaveEnemiga extends Nave {
 
 	@Override
 	public void colision(NaveAliada na) {
-		recibirDano(this.getVida() / 10);
+		recibirDano(this.getVida() / 20);
 	}
 
 	@Override

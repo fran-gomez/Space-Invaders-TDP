@@ -5,6 +5,10 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -17,14 +21,16 @@ public class Juego {
 
 	private static Tablero t;
 	private static JFrame ventana;
-	
-	public static void main(String[] args) {
 
+	public Juego() {
 		ventana = new JFrame();
-		
-		//ventana.add(new JLabel(new ImageIcon("src/resources/mapa_bg.jpg")));
+		startGUI();
+	}
+
+	public void startGUI() {
+		// ventana.add(new JLabel(new ImageIcon("src/resources/mapa_bg.jpg")));
+		armarPanelNiveles(getLastCompletedLevel());
 		ventana.setLayout(new FlowLayout());
-		ventana.add(armarPanelNiveles());
 
 		ventana.setTitle("Space Invaders");
 		ventana.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -33,37 +39,67 @@ public class Juego {
 		ventana.setVisible(true);
 	}
 	
+	private int getLastCompletedLevel() {
+		int lvl = 0;
+
+		try {
+			File file = new File("nivelesCompletados");
+
+			if (file.isFile() || file.createNewFile()) {
+				BufferedReader reader = new BufferedReader(new FileReader(file));
+
+				String line = reader.readLine();
+				if (line != null && line.length() > 0) {
+					lvl = Integer.parseInt(line);
+				}
+
+				reader.close();
+			}
+		} catch (IOException e) {
+
+		}
+
+		return lvl;
+	}
 	
-	private static JPanel armarPanelNiveles() {
+	
+
+	public void armarPanelNiveles(int lastCompletedLevel) {
+		if(t != null) {
+			ventana.remove(t);
+		}
 		JPanel panel = new JPanel();
 		JButton botonNivel;
-		
+
 		panel.setLayout(new GridLayout(10, 10));
 		panel.setPreferredSize(new Dimension(Constantes.MAP_WIDTH, Constantes.MAP_HEIGHT));
-		
+
 		for (int i = 1; i <= 10; i++) {
 			for (int j = 0; j < 10; j++) {
-				int lvl = i*10 + j-9;
+				int lvl = i * 10 + j - 9;
 				if (lvl != 100)
 					botonNivel = new JButton("" + lvl);
 				else
 					botonNivel = new JButton("CHAOS");
-				
-				botonNivel.addActionListener(new ActionListener() {
-	                public void actionPerformed(ActionEvent e) {
-	                	ventana.remove(panel);
-	                	t = new Tablero(lvl);
-	                    ventana.add(t);
-	                    ventana.repaint();
-	                    t.startThreads();
-	                }
-	            });
-				
+
+				if (lvl <= lastCompletedLevel+1) {
+					botonNivel.addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent e) {
+							ventana.remove(panel);
+							t = new Tablero(lvl, Juego.this);
+							ventana.add(t);
+							ventana.repaint();
+							t.startThreads();
+						}
+					});
+				}else {
+					botonNivel.setEnabled(false);
+				}
+
 				panel.add(botonNivel);
 			}
 		}
-		
-		return panel;
+		ventana.add(panel);
 	}
 
 }
