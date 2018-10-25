@@ -8,7 +8,7 @@ import disparos.DisparoPenetrante;
 import disparos.DisparoSimple;
 import disparos.DisparoTriple;
 import disparos.FabricaDisparos;
-import disparos.FabricaTriple;
+import disparos.FabricaSimple;
 import juego.Agregable;
 import juego.GameObject;
 import juego.NaveState;
@@ -30,7 +30,7 @@ public final class NaveAliada extends Nave {
 			Agregable mapa) {
 		super(x, y, vida, durabilidad, alcance, dmg, velocidad, mapa);
 		recibidorDano = new RecibidorDanoNoEscudado(this);
-		arma = new FabricaTriple(mapa);
+		arma = new FabricaSimple(mapa);
 	}
 
 	public void setRecibidorDano(RecibidorDano recibidorDano) {

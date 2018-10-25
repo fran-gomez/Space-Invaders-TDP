@@ -155,8 +155,8 @@ public class Mapa extends JPanel implements Agregable {
 		for (GameObject go : objetos)
 			go.eliminar();
 
-		this.add(new JLabel(new ImageIcon("src/resources/hipnosapo.png")));
-		juego.setGUI();
+		//this.add(new JLabel(new ImageIcon("src/resources/hipnosapo.png")));
+		juego.lose();
 		estaJugando = false;
 
 		JLabel imagenPerdiste = new JLabel();
@@ -174,6 +174,7 @@ public class Mapa extends JPanel implements Agregable {
 		return o1.getRectangle().intersects(o2.getRectangle());
 	}
 
+	@Override
 	public void addToObjects(GameObject o) {
 		if (estaJugando) {
 			this.add(o);

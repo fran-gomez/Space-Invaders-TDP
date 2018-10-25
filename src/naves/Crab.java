@@ -23,6 +23,7 @@ public final class Crab extends NaveEnemiga {
 		puntos = 10;
 	}
 
+	@Override
 	protected Rectangle createRectangle(int x, int y) {
 		return new Rectangle(x, y, Constantes.CRAB_WIDTH, Constantes.CRAB_HEIGHT);
 	}
@@ -48,6 +49,7 @@ public final class Crab extends NaveEnemiga {
 				state.getVelocidad(), this.inteligencia, mapa);
 	}
 
+	@Override
 	protected void setearEstadisticas(int lvl) {
 		int vida = 100 + lvl;
 		int durabilidad = 10 + lvl;

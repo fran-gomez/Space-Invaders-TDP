@@ -18,6 +18,7 @@ public abstract class PowerUp extends GameObject {
 		inteligencia = new InteligenciaPowerUpDefecto();
 	}
 
+	@Override
 	public void mover() {
 		inteligencia.actualizarPosicion(this);
 	}

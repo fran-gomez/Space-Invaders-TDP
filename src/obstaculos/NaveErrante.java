@@ -112,8 +112,8 @@ public class NaveErrante extends Obstaculo {
 	 * @return si encontro un cuadrado que corresponda al objetivo
 	 */
 	private boolean daniar(int x) {
-		int dist = (int) (x - rec.x);
-		int pos = (int) (dist / (rec.width / ancho));
+		int dist = x - rec.x;
+		int pos = dist / (rec.width / ancho);
 		boolean encontro = false;
 
 		while (pos >= ancho)

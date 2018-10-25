@@ -38,12 +38,13 @@ public abstract class GameObject extends JPanel {
 		this.visual = null;
 		this.state = new ObjectState(vida, durabilidad);
 
-		this.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0)); // sacamos el padding
+		this.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0)); 
 
 		rec.setLocation((int) (rec.getX() - rec.getWidth() / 2), (int) (rec.getY() - rec.getHeight() / 2));
 
 		this.setBounds((int) rec.getX(), (int) rec.getY(), (int) rec.getWidth(),
 				(int) rec.getHeight() + BARRA_VIDA_HEIGHT + 5);
+		
 		// Añadimos 5 para que quepa la barra de vida
 		state = new ObjectState(vida, durabilidad);
 		setImage();
@@ -68,7 +69,6 @@ public abstract class GameObject extends JPanel {
 		cuerpo.setPreferredSize(new Dimension((int) rec.getWidth(), (int) rec.getHeight()));
 
 		this.add(vidaLabel);
-
 		visual = getGrafico();
 		if (visual != null) {
 			((JLabel) cuerpo).setIcon(FormateadorDeImagen.formatearImagen(visual, (int)rec.getWidth(), (int)rec.getHeight()));

@@ -27,7 +27,6 @@ public class FormateadorDeImagen {
 		bGr.dispose();
 
 		Image dimg = bimage.getScaledInstance(w, h, Image.SCALE_SMOOTH);
-		return new ImageIcon(dimg);
-		
+		return new ImageIcon(dimg);	
 	}
 }

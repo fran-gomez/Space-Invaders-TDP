@@ -13,6 +13,7 @@ public class InteligenciaStop extends Inteligencia {
 		this.previa = ne.obtenerInteligencia();
 	}
 	
+	@Override
 	public void actualizarPosicion(NaveEnemiga ne) {
 		contador--;
 		

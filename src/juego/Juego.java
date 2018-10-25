@@ -1,5 +1,6 @@
 package juego;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
@@ -10,9 +11,12 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 
 import utilidades.Constantes;
@@ -28,10 +32,7 @@ public class Juego {
 	}
 
 	public void setGUI() {
-		// ventana.add(new JLabel(new ImageIcon("src/resources/mapa_bg.jpg")));
 		armarPanelNiveles(getLastCompletedLevel());
-		ventana.setLayout(new FlowLayout());
-
 		ventana.setTitle("Space Invaders");
 		ventana.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,9 +64,6 @@ public class Juego {
 	}
 
 	public void armarPanelNiveles(int lastCompletedLevel) {
-		if (t != null) {
-			ventana.remove(t);
-		}
 		JPanel panel = new JPanel();
 		JButton botonNivel;
 
@@ -82,6 +80,7 @@ public class Juego {
 
 				if (lvl <= lastCompletedLevel + 1) {
 					botonNivel.addActionListener(new ActionListener() {
+						@Override
 						public void actionPerformed(ActionEvent e) {
 							ventana.remove(panel);
 							t = new Tablero(lvl, Juego.this);
@@ -98,6 +97,41 @@ public class Juego {
 			}
 		}
 		ventana.add(panel);
+	}
+
+	public void lose() {
+		ventana.remove(t);
+
+		JLabel label = new JLabel();
+		JLabel perdisteLabel = new JLabel("GAME OVER");
+		label.setIcon(new ImageIcon(this.getClass().getResource("/resources/lose.gif")));
+		JPanel panel = new JPanel();
+		label.setHorizontalAlignment(SwingConstants.CENTER);
+		perdisteLabel.setPreferredSize(new Dimension(Constantes.MAP_WIDTH, 100));
+		perdisteLabel.setForeground(Color.WHITE);
+		perdisteLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		label.setPreferredSize(new Dimension(Constantes.MAP_WIDTH, 200));
+		JButton button = new JButton("Restart");
+		button.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				ventana.remove(panel);
+				setGUI();
+			}
+
+		});
+		panel.setLayout(new FlowLayout());
+		label.setVerticalAlignment(FlowLayout.CENTER);
+		panel.add(label);
+		panel.add(perdisteLabel);
+		panel.add(button);
+		panel.setPreferredSize(new Dimension(Constantes.MAP_WIDTH, Constantes.MAP_HEIGHT));
+		panel.setBackground(Color.BLACK);
+
+		ventana.add(panel);
+		ventana.pack();
+		ventana.repaint();
 	}
 
 }
