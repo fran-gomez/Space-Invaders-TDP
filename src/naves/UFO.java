@@ -5,6 +5,7 @@ import java.awt.Rectangle;
 import javax.swing.ImageIcon;
 
 import Inteligencias.Inteligencia;
+import Inteligencias.InteligenciaAleatoria;
 import juego.Agregable;
 import juego.NaveState;
 import power_ups.PowerUp;
@@ -43,6 +44,7 @@ public final class UFO extends NaveEnemiga {
 		return new ImageIcon("src/resources/Enemigo9.png");
 	}
 
+
 	@Override
 	public void colision(NaveEnemiga naveEnemiga) {
 	}
@@ -59,7 +61,7 @@ public final class UFO extends NaveEnemiga {
 
 	@Override
 	protected void setearEstadisticas(int lvl) {
-		int vida = 100 + lvl;
+		int vida = Constantes.UFO_VIDA + lvl;
 		int durabilidad = 10 + lvl;
 		int alcance = 10 + lvl;
 		int dmg = 20 + lvl;

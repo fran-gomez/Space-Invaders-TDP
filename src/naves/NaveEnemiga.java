@@ -50,7 +50,7 @@ public abstract class NaveEnemiga extends Nave {
 		return inteligencia;
 	}
 
-	public void inteligencia(Inteligencia i) {
+	public void setInteligencia(Inteligencia i) {
 		this.inteligencia = i;
 	}
 

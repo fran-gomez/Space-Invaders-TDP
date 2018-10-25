@@ -22,7 +22,7 @@ public final class Crab extends NaveEnemiga {
 		super(x, y, vida, durabilidad, alcance, dmg, velocidad, intel, mapa);
 		puntos = 10;
 	}
-
+	
 	@Override
 	protected Rectangle createRectangle(int x, int y) {
 		return new Rectangle(x, y, Constantes.CRAB_WIDTH, Constantes.CRAB_HEIGHT);
@@ -51,7 +51,7 @@ public final class Crab extends NaveEnemiga {
 
 	@Override
 	protected void setearEstadisticas(int lvl) {
-		int vida = 100 + lvl;
+		int vida = Constantes.CRAB_VIDA + lvl;
 		int durabilidad = 10 + lvl;
 		int alcance = 10 + lvl;
 		int dmg = 20 + lvl;

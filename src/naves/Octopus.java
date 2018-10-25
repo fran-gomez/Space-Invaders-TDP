@@ -16,8 +16,9 @@ public final class Octopus extends NaveEnemiga {
 		this(x, y, 0, 0, 0, 0, 0, intel, mapa);
 		setearEstadisticas(lvl);
 	}
-	
-	public Octopus(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad, Inteligencia intel, Agregable mapa) {
+
+	public Octopus(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad, Inteligencia intel,
+			Agregable mapa) {
 		super(x, y, vida, durabilidad, alcance, dmg, velocidad, intel, mapa);
 		puntos = 15;
 	}
@@ -27,10 +28,17 @@ public final class Octopus extends NaveEnemiga {
 		return new Rectangle(x, y, Constantes.OCTOPUS_WIDTH, Constantes.OCTOPUS_HEIGHT);
 	}
 
-
 	@Override
 	public void aplicarPowerUp(PowerUp p) {
 
+	}
+
+	@Override
+	public void mover() {
+		super.mover();
+		if (getVida() < getVidaTotal()*0.8) {
+			this.arma = null;
+		}
 	}
 
 	@Override
@@ -59,11 +67,11 @@ public final class Octopus extends NaveEnemiga {
 
 	@Override
 	protected void setearEstadisticas(int lvl) {
-		int vida = 100 + lvl;
+		int vida = Constantes.OCTOPUS_VIDA + lvl;
 		int durabilidad = 10 + lvl;
 		int alcance = 10 + lvl;
 		int dmg = 20 + lvl;
-		int velocidad = 10 + (lvl/2);
+		int velocidad = 10 + (lvl / 2);
 		this.state = new NaveState(vida, durabilidad, alcance, dmg, velocidad);
 	}
 }

@@ -7,6 +7,12 @@ public final class Constantes {
 	public static final int MAP_WIDTH = 700;
 
 	// Enemigos
+	public static final int OCTOPUS_VIDA = 100;
+	public static final int CRAB_VIDA = 100;
+	public static final int SQUID_VIDA = 100;
+	public static final int SHAPESHIFTER_VIDA = 100;
+	public static final int UFO_VIDA = 100;
+	
 	
 	// Dimensiones
 	public static final int DEFAULT_SIZE = 40;

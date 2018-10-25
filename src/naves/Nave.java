@@ -16,7 +16,9 @@ public abstract class Nave extends GameObject {
 	}
 
 	public void disparar() {
-		arma.crearDisparo(this.rec.x + this.rec.width/2, this.rec.y - this.rec.height/2);
+		if (arma != null) {
+			arma.crearDisparo(this.rec.x + this.rec.width / 2, this.rec.y - this.rec.height / 2);
+		}
 	}
 
 	public int getDmg() {
@@ -48,6 +50,6 @@ public abstract class Nave extends GameObject {
 	}
 
 	public abstract void aplicarPowerUp(PowerUp p);
-	
+
 	protected abstract void setearEstadisticas(int lvl);
 }

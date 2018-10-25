@@ -59,7 +59,7 @@ public final class Squid extends NaveEnemiga {
 
 	@Override
 	protected void setearEstadisticas(int lvl) {
-		int vida = 100 + lvl;
+		int vida = Constantes.SQUID_VIDA + lvl;
 		int durabilidad = 10 + lvl;
 		int alcance = 10 + lvl;
 		int dmg = 20 + lvl;

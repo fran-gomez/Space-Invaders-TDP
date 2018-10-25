@@ -75,6 +75,10 @@ public abstract class GameObject extends JPanel {
 			this.add(cuerpo);
 		}
 	}
+	
+	public int getVidaTotal() {
+		return vidaLabel.getVidaTotal();
+	}
 
 	public void eliminar() {
 		this.setVida(0);

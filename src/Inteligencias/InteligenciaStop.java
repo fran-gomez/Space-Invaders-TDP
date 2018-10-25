@@ -18,6 +18,6 @@ public class InteligenciaStop extends Inteligencia {
 		contador--;
 		
 		if (contador == 0)
-			ne.inteligencia(previa);
+			ne.setInteligencia(previa);
 	}
 }

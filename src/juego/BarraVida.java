@@ -28,6 +28,10 @@ public class BarraVida extends JLabel {
 		this.vida = v;
 		repaint();
 	}
+	
+	public int getVidaTotal() {
+		return vidaTotal;
+	}
 
 	@Override
 	public void paint(Graphics g) {
