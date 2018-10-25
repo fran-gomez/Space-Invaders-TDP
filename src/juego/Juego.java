@@ -34,6 +34,7 @@ public class Juego {
 	public void setGUI() {
 		armarPanelNiveles(getLastCompletedLevel());
 
+		ventana.setLocation(200,200);
 		ventana.setTitle("Space Invaders");
 		ventana.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 

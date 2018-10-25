@@ -9,6 +9,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.awt.FlowLayout;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -16,6 +18,7 @@ import java.util.Random;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -47,8 +50,8 @@ public class Mapa extends JPanel implements Agregable {
 		this.setLayout(null);
 		this.setSize(Constantes.MAP_WIDTH, Constantes.MAP_HEIGHT);
 		this.setPreferredSize(new Dimension(Constantes.MAP_WIDTH, Constantes.MAP_HEIGHT));
-		this.setBackground(Color.BLACK);
-
+		this.setOpaque(false);
+		
 		// utils
 		puntos = 0;
 		rnd = new Random();
@@ -180,5 +183,14 @@ public class Mapa extends JPanel implements Agregable {
 			this.add(o);
 			toAdd.add(o);
 		}
+	}
+	
+	@Override
+	public void paint(Graphics g) {
+		Image image = new ImageIcon(getClass().getResource("/resources/fondo.jpg")).getImage();
+		
+		g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
+        //((JComponent) g).setOpaque(false);
+        super.paint(g);
 	}
 }

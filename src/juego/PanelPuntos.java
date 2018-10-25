@@ -18,7 +18,7 @@ public class PanelPuntos extends JPanel {
 
 		setOpaque(false);
 		setLayout(new FlowLayout());
-		setBounds(0, 0, 200, 20);
+		setBounds(0, 0, 400, 20);
 
 		label = new JLabel();
 		label.setForeground(Color.white);

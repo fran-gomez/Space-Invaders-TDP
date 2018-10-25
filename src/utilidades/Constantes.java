@@ -3,8 +3,8 @@ package utilidades;
 public final class Constantes {
 
 	// Juego
-	public static final int MAP_HEIGHT = 500;
-	public static final int MAP_WIDTH = 700;
+	public static final int MAP_HEIGHT = 600;
+	public static final int MAP_WIDTH = 800;
 
 	// Enemigos
 	public static final int OCTOPUS_VIDA = 100;
@@ -15,7 +15,7 @@ public final class Constantes {
 	
 	
 	// Dimensiones
-	public static final int DEFAULT_SIZE = 40;
+	public static final int DEFAULT_SIZE = 45;
 
 	public static final int NAVE_ALIADA_WIDTH = 30;
 	public static final int NAVE_ALIADA_HEIGHT = 40;
