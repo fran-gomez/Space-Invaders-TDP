@@ -40,6 +40,7 @@ public class Robot1X extends PowerUp {
 		eliminar();
 		int vidaActual = ne.getVida(); 
 		ne.setVida(vidaActual + (vidaActual * 20 / 100));
+		ne.actualizarBarraVida();
 		System.out.println("Cure a la nave aliada de" + vidaActual + " a " + ne.getVida());
 	}
 

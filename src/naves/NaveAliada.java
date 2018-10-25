@@ -19,13 +19,11 @@ import utilidades.Constantes;
 public final class NaveAliada extends Nave {
 
 	public static final int DERECHA = 1, IZQUIERDA = -1, STOPDER = 2, STOPIZQ = -2;
-	private String imagenRuta;
 	private RecibidorDano recibidorDano;
 
 	public NaveAliada(int x, int y, int lvl, Agregable mapa) {
 		this(x, y, 0, 0, 0, 0, 0, mapa);
 		setearEstadisticas(lvl);
-		imagenRuta = "src/resources/planetExpressRight.png";
 	}
 
 	public NaveAliada(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad,
@@ -37,6 +35,10 @@ public final class NaveAliada extends Nave {
 
 	public void setRecibidorDano(RecibidorDano recibidorDano) {
 		this.recibidorDano = recibidorDano;
+	}
+	
+	public void actualizarBarraVida() {
+		this.vidaLabel.setVida(this.state.getVida());
 	}
 
 	@Override
