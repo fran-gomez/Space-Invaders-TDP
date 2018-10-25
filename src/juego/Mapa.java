@@ -8,25 +8,23 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.awt.FlowLayout;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import controlador.GeneradorEnemigos;
 import controlador.GeneradorEnemigosNivel;
-import disparos.FabricaSimple;
-import disparos.FabricaTriple;
 import naves.NaveAliada;
 import obstaculos.Asteroide;
-import obstaculos.NaveErrante;
 import obstaculos.Nimbus;
 import obstaculos.Obstaculo;
-import power_ups.PowerUp;
 import utilidades.Constantes;
 
 public class Mapa extends JPanel implements Agregable {
@@ -148,6 +146,13 @@ public class Mapa extends JPanel implements Agregable {
 
 		this.add(new JLabel(new ImageIcon("src/resources/hipnosapo.png")));
 		juego.startGUI();
+		estaJugando = false;
+
+		JLabel imagenPerdiste = new JLabel();
+		Icon fondo = new ImageIcon("src/resources/lose.gif");
+		imagenPerdiste.setIcon(fondo);
+		imagenPerdiste.setLayout(new FlowLayout());
+		this.add(imagenPerdiste);
 	}
 
 	public boolean estaVacio() {

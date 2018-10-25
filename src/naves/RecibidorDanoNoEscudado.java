@@ -1,7 +1,5 @@
 package naves;
 
-import juego.GameObject;
-
 public class RecibidorDanoNoEscudado extends RecibidorDano{
 
 	public RecibidorDanoNoEscudado(NaveAliada na) {

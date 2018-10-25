@@ -2,8 +2,6 @@ package Inteligencias;
 
 import java.awt.Rectangle;
 import java.util.HashMap;
-import java.util.Random;
-
 import naves.NaveEnemiga;
 import utilidades.Constantes;
 

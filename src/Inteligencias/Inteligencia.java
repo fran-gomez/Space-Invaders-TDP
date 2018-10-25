@@ -3,7 +3,6 @@ package Inteligencias;
 import java.awt.Rectangle;
 import java.util.Random;
 
-import juego.GameObject;
 import naves.NaveEnemiga;
 import utilidades.Constantes;
 

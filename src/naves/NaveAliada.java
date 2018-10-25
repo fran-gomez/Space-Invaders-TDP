@@ -8,7 +8,6 @@ import disparos.DisparoPenetrante;
 import disparos.DisparoSimple;
 import disparos.DisparoTriple;
 import disparos.FabricaDisparos;
-import disparos.FabricaSimple;
 import disparos.FabricaTriple;
 import juego.Agregable;
 import juego.GameObject;

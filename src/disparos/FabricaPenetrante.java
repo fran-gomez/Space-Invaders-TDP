@@ -1,7 +1,6 @@
 package disparos;
 
 import juego.Agregable;
-import juego.Mapa;
 
 public class FabricaPenetrante extends FabricaSimple {
 
