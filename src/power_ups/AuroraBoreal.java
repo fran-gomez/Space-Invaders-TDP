@@ -20,7 +20,7 @@ import utilidades.Constantes;
 public class AuroraBoreal extends PowerUp {
 
 	private int valorEscudo;
-	
+
 	public AuroraBoreal(int x, int y, int vida, int durabilidad, Agregable mapa) {
 		super(x, y, vida, durabilidad, mapa);
 		valorEscudo = (new Random()).nextInt(20);
@@ -46,7 +46,6 @@ public class AuroraBoreal extends PowerUp {
 		na.setBackground(Color.YELLOW);
 		na.setOpaque(true);
 		na.setRecibidorDano(new RecibidorDanoEscudado(na));
-		System.out.println("(AB) Colisione con nave aliada");
 	}
 
 	@Override
@@ -71,12 +70,6 @@ public class AuroraBoreal extends PowerUp {
 
 	@Override
 	public void colision(DisparoTriple disparo) {
-	}
-
-	@Override
-	public void efecto() {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

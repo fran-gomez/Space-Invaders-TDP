@@ -4,17 +4,21 @@ import java.awt.Rectangle;
 
 import javax.swing.ImageIcon;
 
+import Inteligencias.InteligenciaStop;
+import disparos.Disparo;
 import disparos.DisparoEnemigo;
 import disparos.DisparoPenetrante;
 import disparos.DisparoSimple;
 import disparos.DisparoTriple;
 import juego.Agregable;
+import juego.GameObject;
+import juego.Visitor;
 import naves.NaveAliada;
 import naves.NaveEnemiga;
 import obstaculos.Obstaculo;
 import utilidades.Constantes;
 
-public class Hipnosapo extends PowerUp {
+public class Hipnosapo extends PowerUp implements Visitor {
 
 	public Hipnosapo(int x, int y, int vida, int durabilidad, Agregable mapa) {
 		super(x, y, vida, durabilidad, mapa);
@@ -37,11 +41,13 @@ public class Hipnosapo extends PowerUp {
 	@Override
 	public void colision(NaveAliada na) {
 		eliminar();
-		System.out.println("(HS) Colisione con nave aliada");
+		for (GameObject o : mapa.getGameObjects()) {
+			o.aceptar(this);
+		}
 	}
 
 	@Override
-	public void colision(Obstaculo naveEnemiga) {
+	public void colision(Obstaculo o) {
 	}
 
 	@Override
@@ -65,9 +71,24 @@ public class Hipnosapo extends PowerUp {
 	}
 
 	@Override
-	public void efecto() {
-		// TODO Auto-generated method stub
-		
+	public void visitar(NaveEnemiga n) {
+		n.setInteligencia(new InteligenciaStop(60, n));
+	}
+
+	@Override
+	public void visitar(NaveAliada n) {
+	}
+
+	@Override
+	public void visitar(Obstaculo o) {
+	}
+
+	@Override
+	public void visitar(PowerUp p) {
+	}
+
+	@Override
+	public void visitar(Disparo d) {
 	}
 
 }

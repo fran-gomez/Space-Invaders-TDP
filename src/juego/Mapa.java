@@ -1,6 +1,5 @@
 package juego;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -18,7 +17,6 @@ import java.util.Random;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -42,6 +40,7 @@ public class Mapa extends JPanel implements Agregable {
 	protected Juego juego;
 	protected PanelPuntos panelPuntos;
 	protected int puntos;
+	private VisitorGanar visitorGanar;
 
 	protected Colisionador c;
 
@@ -51,7 +50,7 @@ public class Mapa extends JPanel implements Agregable {
 		this.setSize(Constantes.MAP_WIDTH, Constantes.MAP_HEIGHT);
 		this.setPreferredSize(new Dimension(Constantes.MAP_WIDTH, Constantes.MAP_HEIGHT));
 		this.setOpaque(false);
-		
+
 		// utils
 		puntos = 0;
 		rnd = new Random();
@@ -59,7 +58,7 @@ public class Mapa extends JPanel implements Agregable {
 		toAdd = new LinkedList<>();
 		this.dificultad = dificultad;
 		c = new Colisionador(objetos, toAdd);
-		
+
 		panelPuntos = new PanelPuntos();
 		this.add(panelPuntos);
 		inicializarMapa();
@@ -88,18 +87,27 @@ public class Mapa extends JPanel implements Agregable {
 	public void gameLoop() {
 		// Movimiento de objetos
 		Iterator<GameObject> it = objetos.iterator();
+
 		while (it.hasNext()) {
 			GameObject obj = it.next();
+			if (visitorGanar != null) {
+				obj.aceptar(visitorGanar);
+			}
 			obj.mover();
 		}
 		puntos += c.colisionar();
 		panelPuntos.setPuntos(puntos);
 
-		// Iniciar nuevo nivel una vez eliminados todos los enemigos
-		if (estaVacio()) {
-			++dificultad;
+		//TODA esta chanchada xq la primera vez entra
+		if (visitorGanar != null && visitorGanar.gano()) {
 			actualizarNivelCompletado();
+			++dificultad;
 			armarNivel();
+			visitorGanar = null;
+		} else if (visitorGanar == null) {
+			visitorGanar = new VisitorGanar();
+		} else {
+			visitorGanar.reset();
 		}
 	}
 
@@ -111,16 +119,16 @@ public class Mapa extends JPanel implements Agregable {
 			if (file.isFile()) {
 				BufferedReader reader = new BufferedReader(new FileReader(file));
 				String line = reader.readLine();
-
 				if (line != null && line.length() > 0) {
 					lastLevel = Integer.parseInt(line);
 				}
 				reader.close();
 			}
 
-			if (dificultad == lastLevel) {
+			if (dificultad == lastLevel + 1) {
+
 				BufferedWriter writer = new BufferedWriter(new FileWriter(file, false));
-				writer.write("" + (lastLevel + 1));
+				writer.write("" + (lastLevel+1));
 				writer.close();
 			}
 
@@ -146,6 +154,7 @@ public class Mapa extends JPanel implements Agregable {
 		this.add(obs2);
 		objetos.add(obs1);
 		objetos.add(obs2);
+
 	}
 
 	public NaveAliada obtenerJugador() {
@@ -158,7 +167,6 @@ public class Mapa extends JPanel implements Agregable {
 		for (GameObject go : objetos)
 			go.eliminar();
 
-		//this.add(new JLabel(new ImageIcon("src/resources/hipnosapo.png")));
 		juego.lose();
 		estaJugando = false;
 
@@ -170,7 +178,7 @@ public class Mapa extends JPanel implements Agregable {
 	}
 
 	public boolean estaVacio() {
-		return objetos.size() == 1;
+		return objetos.size() == 0;
 	}
 
 	private boolean intersects(GameObject o1, GameObject o2) {
@@ -184,13 +192,18 @@ public class Mapa extends JPanel implements Agregable {
 			toAdd.add(o);
 		}
 	}
-	
+
 	@Override
 	public void paint(Graphics g) {
 		Image image = new ImageIcon(getClass().getResource("/resources/fondo.jpg")).getImage();
-		
+
 		g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
-        //((JComponent) g).setOpaque(false);
-        super.paint(g);
+		// ((JComponent) g).setOpaque(false);
+		super.paint(g);
+	}
+
+	@Override
+	public List<GameObject> getGameObjects() {
+		return objetos;
 	}
 }

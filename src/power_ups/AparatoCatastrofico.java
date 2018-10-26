@@ -38,7 +38,6 @@ public class AparatoCatastrofico extends PowerUp {
 	@Override
 	public void colision(NaveAliada na) {
 		eliminar();
-		System.out.println("(AC) Colisione con nave aliada");
 	}
 
 	@Override
@@ -63,12 +62,6 @@ public class AparatoCatastrofico extends PowerUp {
 
 	@Override
 	public void colision(DisparoTriple disparo) {
-	}
-
-	@Override
-	public void efecto() {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

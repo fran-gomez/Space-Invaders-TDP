@@ -7,5 +7,5 @@ class GeneradorEnemigosNivelChaos extends GeneradorEnemigos {
 	public GeneradorEnemigosNivelChaos(Mapa map) {
 		super(map);
 	}
-	
+
 }

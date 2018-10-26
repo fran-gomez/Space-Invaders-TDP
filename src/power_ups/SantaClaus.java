@@ -39,7 +39,7 @@ public class SantaClaus extends PowerUp {
 	public void colision(NaveAliada na) {
 		eliminar();
 		na.setArma(new FabricaTriple(mapa));
-		System.out.println("(SC) Colisione con nave aliada");
+
 	}
 
 	@Override
@@ -64,10 +64,6 @@ public class SantaClaus extends PowerUp {
 
 	@Override
 	public void colision(DisparoTriple disparo) {
-	}
-
-	@Override
-	public void efecto() {
 	}
 
 }

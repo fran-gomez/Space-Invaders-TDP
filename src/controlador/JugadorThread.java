@@ -13,8 +13,8 @@ import naves.NaveAliada;
 
 public class JugadorThread extends Thread {
 
-	private final float TIEMPO_ENTRE_DISPAROS = 400; //En Milésimas de segundo
-	
+	private final float TIEMPO_ENTRE_DISPAROS = 400; // En Milésimas de segundo
+
 	private int movement; // FLAG de movimiento
 	private int tiempoPausa;
 	private boolean ejecutar;
@@ -42,7 +42,7 @@ public class JugadorThread extends Thread {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			
+
 			if (jugador.getVida() <= 0)
 				ejecutar = false;
 		}
@@ -75,7 +75,7 @@ public class JugadorThread extends Thread {
 	private class DisparoAction extends AbstractAction {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			if(System.currentTimeMillis() - ultTiempoDisparo >= TIEMPO_ENTRE_DISPAROS) {
+			if (System.currentTimeMillis() - ultTiempoDisparo >= TIEMPO_ENTRE_DISPAROS) {
 				jugador.disparar();
 				ultTiempoDisparo = System.currentTimeMillis();
 			}

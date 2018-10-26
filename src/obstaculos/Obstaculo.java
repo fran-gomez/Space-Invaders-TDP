@@ -3,6 +3,7 @@ package obstaculos;
 import juego.Agregable;
 import juego.GameObject;
 import juego.ObjectState;
+import juego.Visitor;
 
 public abstract class Obstaculo extends GameObject {
 
@@ -16,6 +17,11 @@ public abstract class Obstaculo extends GameObject {
 
 	public int getDmg() {
 		return dmg;
+	}
+
+	@Override
+	public void aceptar(Visitor v) {
+		v.visitar(this);
 	}
 
 	@Override

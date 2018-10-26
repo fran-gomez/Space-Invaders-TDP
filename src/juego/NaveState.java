@@ -3,6 +3,7 @@ package juego;
 public class NaveState extends ObjectState {
 
 	private int dmg;
+
 	public int getAlcance() {
 		return alcance;
 	}

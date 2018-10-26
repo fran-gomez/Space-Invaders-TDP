@@ -39,7 +39,7 @@ public class LaserDeProtones extends PowerUp {
 	public void colision(NaveAliada na) {
 		eliminar();
 		na.setArma(new FabricaPenetrante(mapa));
-		System.out.println("(LDP) Colisione con nave aliada");
+
 	}
 
 	@Override
@@ -64,10 +64,6 @@ public class LaserDeProtones extends PowerUp {
 
 	@Override
 	public void colision(DisparoTriple disparo) {
-	}
-
-	@Override
-	public void efecto() {
 	}
 
 }

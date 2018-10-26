@@ -26,16 +26,19 @@ public class InteligenciaPowerUpDefecto extends Inteligencia {
 			}
 
 		} else {
-		    // Controlo que el powerup este entre la altura del mapa - la altura del powerup - la velocidad - la barra de vida
-            // y la altura del mapa - la altura del powerup - barra de vida
-		    if (rec.y > Constantes.MAP_HEIGHT - rec.getHeight() - 13 && rec.y <= Constantes.MAP_HEIGHT - rec.getHeight() - 8) {
-		        // Le sumo lo que falta para que llegue a la altura del mapa - la altura del powerup - la barra de vida
-                newY += Constantes.MAP_HEIGHT - rec.getHeight() - rec.y - 8;
-            } else {
-                newY += 5;
-            }
+			// Controlo que el powerup este entre la altura del mapa - la altura del powerup
+			// - la velocidad - la barra de vida
+			// y la altura del mapa - la altura del powerup - barra de vida
+			if (rec.y > Constantes.MAP_HEIGHT - rec.getHeight() - 13
+					&& rec.y <= Constantes.MAP_HEIGHT - rec.getHeight() - 8) {
+				// Le sumo lo que falta para que llegue a la altura del mapa - la altura del
+				// powerup - la barra de vida
+				newY += Constantes.MAP_HEIGHT - rec.getHeight() - rec.y - 8;
+			} else {
+				newY += 5;
+			}
 
-            powerUp.cambiarUbicacion(rec.x, newY);
+			powerUp.cambiarUbicacion(rec.x, newY);
 		}
 	}
 

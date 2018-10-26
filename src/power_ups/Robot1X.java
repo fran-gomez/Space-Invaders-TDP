@@ -38,10 +38,10 @@ public class Robot1X extends PowerUp {
 	@Override
 	public void colision(NaveAliada ne) {
 		eliminar();
-		int vidaActual = ne.getVida(); 
+		int vidaActual = ne.getVida();
 		ne.setVida(vidaActual + (vidaActual * 20 / 100));
 		ne.actualizarBarraVida();
-		System.out.println("Cure a la nave aliada de" + vidaActual + " a " + ne.getVida());
+
 	}
 
 	@Override
@@ -66,12 +66,6 @@ public class Robot1X extends PowerUp {
 
 	@Override
 	public void colision(DisparoTriple disparo) {
-	}
-
-	@Override
-	public void efecto() {
-		// TODO Auto-generated method stub
-
 	}
 
 }

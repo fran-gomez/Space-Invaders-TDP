@@ -18,7 +18,7 @@ import obstaculos.Obstaculo;
 import power_ups.PowerUp;
 import utilidades.FormateadorDeImagen;
 
-public abstract class GameObject extends JPanel {
+public abstract class GameObject extends JPanel implements Visitable {
 
 	protected ObjectState state;
 
@@ -30,7 +30,7 @@ public abstract class GameObject extends JPanel {
 	protected int puntos;
 
 	public static final int BARRA_VIDA_HEIGHT = 3;
-	
+
 	public GameObject(int x, int y, int vida, int durabilidad, Agregable mapa) {
 
 		this.mapa = mapa;
@@ -38,18 +38,18 @@ public abstract class GameObject extends JPanel {
 		this.visual = null;
 		this.state = new ObjectState(vida, durabilidad);
 
-		this.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0)); 
+		this.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
 
 		rec.setLocation((int) (rec.getX() - rec.getWidth() / 2), (int) (rec.getY() - rec.getHeight() / 2));
 
 		this.setBounds((int) rec.getX(), (int) rec.getY(), (int) rec.getWidth(),
 				(int) rec.getHeight() + BARRA_VIDA_HEIGHT + 5);
-		
+
 		// Añadimos 5 para que quepa la barra de vida
 		state = new ObjectState(vida, durabilidad);
 		setImage();
 	}
-	
+
 	public int getPuntos() {
 		return puntos;
 	}
@@ -71,11 +71,12 @@ public abstract class GameObject extends JPanel {
 		this.add(vidaLabel);
 		visual = getGrafico();
 		if (visual != null) {
-			((JLabel) cuerpo).setIcon(FormateadorDeImagen.formatearImagen(visual, (int)rec.getWidth(), (int)rec.getHeight()));
+			((JLabel) cuerpo)
+					.setIcon(FormateadorDeImagen.formatearImagen(visual, (int) rec.getWidth(), (int) rec.getHeight()));
 			this.add(cuerpo);
 		}
 	}
-	
+
 	public int getVidaTotal() {
 		return vidaLabel.getVidaTotal();
 	}
@@ -159,9 +160,8 @@ public abstract class GameObject extends JPanel {
 		return this.state.vida > 0;
 	}
 
-	
 	public void cambiarUbicacion(float x, float y) {
-		this.setLocation((int)x, (int)y);
+		this.setLocation((int) x, (int) y);
 		rec.setLocation((int) x, (int) y);
 	}
 

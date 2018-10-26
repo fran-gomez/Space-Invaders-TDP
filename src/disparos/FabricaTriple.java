@@ -19,7 +19,7 @@ public class FabricaTriple extends FabricaSimple {
 			super.crearDisparo(x, y - 5);
 			super.crearDisparo(x + 15, y);
 			contadorDisp--;
-		}else {
+		} else {
 			super.crearDisparo(x, y);
 		}
 	}

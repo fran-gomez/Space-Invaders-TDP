@@ -1,6 +1,6 @@
 package naves;
 
-public class RecibidorDanoNoEscudado extends RecibidorDano{
+public class RecibidorDanoNoEscudado extends RecibidorDano {
 
 	public RecibidorDanoNoEscudado(NaveAliada na) {
 		super(na);

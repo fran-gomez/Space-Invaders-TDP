@@ -28,7 +28,7 @@ public class BarraVida extends JLabel {
 		this.vida = v;
 		repaint();
 	}
-	
+
 	public int getVidaTotal() {
 		return vidaTotal;
 	}
@@ -39,8 +39,6 @@ public class BarraVida extends JLabel {
 
 		g.setColor(Color.green);
 		g.fillRect(0, 0, porcentaje * this.getWidth() / 100, GameObject.BARRA_VIDA_HEIGHT);
-		// dibujamos la vida en funcion del porcentaje de la vida actual con respecto al
-		// total
 	}
 
 }

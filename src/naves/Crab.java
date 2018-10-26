@@ -22,7 +22,7 @@ public final class Crab extends NaveEnemiga {
 		super(x, y, vida, durabilidad, alcance, dmg, velocidad, intel, mapa);
 		puntos = 10;
 	}
-	
+
 	@Override
 	protected Rectangle createRectangle(int x, int y) {
 		return new Rectangle(x, y, Constantes.CRAB_WIDTH, Constantes.CRAB_HEIGHT);

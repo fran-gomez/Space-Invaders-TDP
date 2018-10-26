@@ -12,6 +12,7 @@ import disparos.FabricaSimple;
 import juego.Agregable;
 import juego.GameObject;
 import juego.NaveState;
+import juego.Visitor;
 import obstaculos.Obstaculo;
 import power_ups.PowerUp;
 import utilidades.Constantes;
@@ -26,8 +27,7 @@ public final class NaveAliada extends Nave {
 		setearEstadisticas(lvl);
 	}
 
-	public NaveAliada(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad,
-			Agregable mapa) {
+	public NaveAliada(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad, Agregable mapa) {
 		super(x, y, vida, durabilidad, alcance, dmg, velocidad, mapa);
 		recibidorDano = new RecibidorDanoNoEscudado(this);
 		arma = new FabricaSimple(mapa);
@@ -36,7 +36,12 @@ public final class NaveAliada extends Nave {
 	public void setRecibidorDano(RecibidorDano recibidorDano) {
 		this.recibidorDano = recibidorDano;
 	}
-	
+
+	@Override
+	public void aceptar(Visitor v) {
+		v.visitar(this);
+	}
+
 	public void actualizarBarraVida() {
 		this.vidaLabel.setVida(this.state.getVida());
 	}
@@ -83,23 +88,23 @@ public final class NaveAliada extends Nave {
 	public void setArma(FabricaDisparos d) {
 		this.arma = d;
 	}
-	
+
 	public void mover(int d) { // Ignoramos STOPIZQ Y STOPDER pues se dejan de mover
 		int nuevoX = (int) rec.getLocation().getX();
 		switch (d) {
 		case DERECHA:
 			if (rec.getLocation().getX() < Constantes.MAP_WIDTH - Constantes.NAVE_ALIADA_WIDTH)
 				nuevoX += Constantes.NAVE_ALIADA_VELOCIDAD;
-			//imagenRuta = "src/resources/planetExpressRight.png";
+			// imagenRuta = "src/resources/planetExpressRight.png";
 			break;
 		case IZQUIERDA:
 			if (rec.getLocation().getX() > 0)
 				nuevoX -= Constantes.NAVE_ALIADA_VELOCIDAD;
-			//imagenRuta = "rc/resources/planetExpressLeft.png";
+			// imagenRuta = "rc/resources/planetExpressLeft.png";
 			break;
 		}
 
-		//setImage();
+		// setImage();
 		rec.setLocation(nuevoX, (int) rec.getY());
 		this.setLocation((int) rec.getX(), (int) rec.getY());
 		repaint();

@@ -58,7 +58,7 @@ public class Asteroide extends Obstaculo {
 	@Override
 	public void colision(DisparoEnemigo disparo) {
 	}
-	
+
 	@Override
 	public void colision(NaveEnemiga ne) {
 		ne.recibirDano(dmg);

@@ -34,7 +34,7 @@ public class Juego {
 	public void setGUI() {
 		armarPanelNiveles(getLastCompletedLevel());
 
-		ventana.setLocation(200,200);
+		ventana.setLocation(200, 200);
 		ventana.setTitle("Space Invaders");
 		ventana.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,7 +59,7 @@ public class Juego {
 				reader.close();
 			}
 		} catch (IOException e) {
-
+			e.printStackTrace();
 		}
 
 		return lvl;
@@ -103,16 +103,22 @@ public class Juego {
 
 	public void lose() {
 		ventana.remove(t);
-
-		JLabel label = new JLabel();
-		JLabel perdisteLabel = new JLabel("GAME OVER");
-		label.setIcon(new ImageIcon(this.getClass().getResource("/resources/lose.gif")));
+		t.killThreads();
+		
 		JPanel panel = new JPanel();
-		label.setHorizontalAlignment(SwingConstants.CENTER);
+		JLabel labelImagenPerdiste = new JLabel();
+		JLabel perdisteLabel = new JLabel("GAME OVER");
+		
+		labelImagenPerdiste.setIcon(new ImageIcon(getClass().getResource("/resources/lose.gif")));
+		labelImagenPerdiste.setHorizontalAlignment(SwingConstants.CENTER);
+		labelImagenPerdiste.setVerticalAlignment(FlowLayout.CENTER);
+		labelImagenPerdiste.setPreferredSize(new Dimension(Constantes.MAP_WIDTH, 200));
+		panel.setPreferredSize(new Dimension(Constantes.MAP_WIDTH, Constantes.MAP_HEIGHT));
+		
 		perdisteLabel.setPreferredSize(new Dimension(Constantes.MAP_WIDTH, 100));
 		perdisteLabel.setForeground(Color.WHITE);
 		perdisteLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		label.setPreferredSize(new Dimension(Constantes.MAP_WIDTH, 200));
+		
 		JButton button = new JButton("Restart");
 		button.addActionListener(new ActionListener() {
 
@@ -123,12 +129,11 @@ public class Juego {
 			}
 
 		});
+		
 		panel.setLayout(new FlowLayout());
-		label.setVerticalAlignment(FlowLayout.CENTER);
-		panel.add(label);
+		panel.add(labelImagenPerdiste);
 		panel.add(perdisteLabel);
 		panel.add(button);
-		panel.setPreferredSize(new Dimension(Constantes.MAP_WIDTH, Constantes.MAP_HEIGHT));
 		panel.setBackground(Color.BLACK);
 
 		ventana.add(panel);

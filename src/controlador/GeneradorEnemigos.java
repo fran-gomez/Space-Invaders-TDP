@@ -27,9 +27,9 @@ public abstract class GeneradorEnemigos {
 	public GeneradorEnemigos(Mapa map) {
 		this.map = map;
 		rnd = new Random();
-		
+
 		CANT_FILAS_ENEMIGOS = 4;
-		ENEMIGOS_X_FILA = 3 + (map.dificultad()/10);
+		ENEMIGOS_X_FILA = 3 + (map.dificultad() / 10);
 	}
 
 	public void generarNavesEnemigas() {
@@ -50,7 +50,7 @@ public abstract class GeneradorEnemigos {
 			for (int c = 0; c < ENEMIGOS_X_FILA; c++) {
 				x = c * cuadradoAlienW + cuadradoAlienW / 2;
 				y = f * cuadradoAlienH + cuadradoAlienH / 2;
-				enemigo = listaEnemigos.get(i++); //TODO Hacer shuffle
+				enemigo = listaEnemigos.get(i++); // TODO Hacer shuffle
 				enemigo.cambiarUbicacion(x, y);
 				map.addToObjects(enemigo);
 			}
@@ -65,8 +65,9 @@ public abstract class GeneradorEnemigos {
 			for (int i = 0; i < e.getValue(); i++) {
 				listaEnemigos.add(e.getKey().clone());
 			}
-			if(listaEnemigos.size() > CANT_FILAS_ENEMIGOS * ENEMIGOS_X_FILA) {
-				break; //TODO cambiar esto!, pero es para evitar que agreguen mas enemigos que los soportados
+			if (listaEnemigos.size() > CANT_FILAS_ENEMIGOS * ENEMIGOS_X_FILA) {
+				break; // TODO cambiar esto!, pero es para evitar que agreguen mas enemigos que los
+						// soportados
 			}
 		}
 

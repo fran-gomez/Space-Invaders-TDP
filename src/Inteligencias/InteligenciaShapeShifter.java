@@ -36,7 +36,7 @@ public class InteligenciaShapeShifter extends Inteligencia {
 				movDer = false;
 			}
 			if (movAbajo) {
-				newY = rec.y + Constantes.NAVE_ALEATORIA_VELOCIDAD*3;
+				newY = rec.y + Constantes.NAVE_ALEATORIA_VELOCIDAD * 3;
 				mapMover.put(nave, true);
 			}
 		} else {
@@ -49,8 +49,8 @@ public class InteligenciaShapeShifter extends Inteligencia {
 		}
 
 		nave.cambiarUbicacion(newX, newY);
-		
-		if(nave.getVida() < nave.getVidaTotal() * 0.5) {
+
+		if (nave.getVida() < nave.getVidaTotal() * 0.5) {
 			nave.setInteligencia(InteligenciaAleatoria.getInstance());
 		}
 	}

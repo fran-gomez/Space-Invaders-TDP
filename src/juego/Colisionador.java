@@ -13,7 +13,7 @@ public class Colisionador {
 
 	public int colisionar() {
 		int puntaje = 0;
-		
+
 		GameObject obj1, obj2;
 		for (int i = 0; i < objetos.size(); i++) {
 			obj1 = objetos.get(i);
@@ -31,15 +31,16 @@ public class Colisionador {
 					objetos.remove(obj2);
 					puntaje += obj2.getPuntos();
 				}
-				
-				if (!obj1.estaVivo()) {
-					obj1.eliminar();
-					objetos.remove(obj1);
-					puntaje += obj1.getPuntos();
-					break; // TODO EXTREMA CHANCHADA CAMBIAR ESTO
-				}
+
+			}
+
+			if (!obj1.estaVivo()) {
+				obj1.eliminar();
+				objetos.remove(obj1);
+				puntaje += obj1.getPuntos();
 			}
 		}
+		
 		objetos.addAll(toAdd);
 		toAdd.clear();
 		return puntaje;

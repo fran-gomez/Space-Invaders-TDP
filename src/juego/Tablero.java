@@ -27,8 +27,12 @@ public class Tablero extends JPanel {
 	}
 
 	public void startThreads() {
-		// Iniciar loop
 		mainThread.start();
 		jugadorThread.start();
+	}
+
+	public void killThreads() {
+		jugadorThread.interrupt();
+		mainThread.interrupt();
 	}
 }

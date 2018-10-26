@@ -36,7 +36,7 @@ public final class Octopus extends NaveEnemiga {
 	@Override
 	public void mover() {
 		super.mover();
-		if (getVida() < getVidaTotal()*0.8) {
+		if (getVida() < getVidaTotal() * 0.8) {
 			this.arma = null;
 		}
 	}

@@ -10,6 +10,7 @@ import disparos.DisparoTriple;
 import disparos.FabricaDisparoEnemigo;
 import juego.Agregable;
 import juego.GameObject;
+import juego.Visitor;
 import obstaculos.Obstaculo;
 import power_ups.FabricaAleatoria;
 import power_ups.FabricaPowerUp;
@@ -37,6 +38,11 @@ public abstract class NaveEnemiga extends Nave {
 		if (rnd.nextInt(100) == 0) {
 			disparar();
 		}
+	}
+
+	@Override
+	public void aceptar(Visitor v) {
+		v.visitar(this);
 	}
 
 	@Override

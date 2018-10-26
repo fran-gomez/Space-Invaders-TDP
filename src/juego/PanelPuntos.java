@@ -25,10 +25,10 @@ public class PanelPuntos extends JPanel {
 
 		this.setLayout(new FlowLayout());
 		this.add(label);
-		
+
 		actualizar();
 	}
-	
+
 	public void setPuntos(int p) {
 		this.puntos = p;
 		actualizar();
@@ -47,7 +47,7 @@ public class PanelPuntos extends JPanel {
 		nivel++;
 		actualizar();
 	}
-	
+
 	private void actualizar() {
 		label.setText(String.format("Puntos: %d\t Nivel: %d \t (P)ause, (R)esume, (E)xit", puntos, nivel));
 	}

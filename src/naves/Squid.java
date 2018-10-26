@@ -13,11 +13,12 @@ import utilidades.Constantes;
 public final class Squid extends NaveEnemiga {
 
 	public Squid(int x, int y, int lvl, Inteligencia intel, Agregable mapa) {
-		this(x, y, 0, 0, 0, 0, 0, intel,mapa);
+		this(x, y, 0, 0, 0, 0, 0, intel, mapa);
 		setearEstadisticas(lvl);
 	}
-	
-	public Squid(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad, Inteligencia intel, Agregable mapa) {
+
+	public Squid(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad, Inteligencia intel,
+			Agregable mapa) {
 		super(x, y, vida, durabilidad, alcance, dmg, velocidad, intel, mapa);
 		puntos = 20;
 	}
@@ -26,7 +27,6 @@ public final class Squid extends NaveEnemiga {
 	protected Rectangle createRectangle(int x, int y) {
 		return new Rectangle(x, y, Constantes.SQUID_WIDTH, Constantes.SQUID_HEIGHT);
 	}
-
 
 	@Override
 	public void aplicarPowerUp(PowerUp p) {
@@ -54,7 +54,7 @@ public final class Squid extends NaveEnemiga {
 	@Override
 	public NaveEnemiga clone() {
 		return new Squid(rec.x, rec.y, state.getVida(), state.getDurabilidad(), state.getAlcance(), state.getDmg(),
-				state.getVelocidad(), this.inteligencia,mapa);
+				state.getVelocidad(), this.inteligencia, mapa);
 	}
 
 	@Override
@@ -63,10 +63,8 @@ public final class Squid extends NaveEnemiga {
 		int durabilidad = 10 + lvl;
 		int alcance = 10 + lvl;
 		int dmg = 20 + lvl;
-		int velocidad = 10 + (lvl/2);
+		int velocidad = 10 + (lvl / 2);
 		this.state = new NaveState(vida, durabilidad, alcance, dmg, velocidad);
 	}
-
-
 
 }

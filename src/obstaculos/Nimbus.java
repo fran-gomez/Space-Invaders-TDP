@@ -32,31 +32,31 @@ public class Nimbus extends Obstaculo {
 
 	@Override
 	protected Rectangle createRectangle(int x, int y) {
-		return new Rectangle(x, y, Constantes.ASTEROIDE_WIDTH*2, Constantes.ASTEROIDE_HEIGHT*2);
+		return new Rectangle(x, y, Constantes.ASTEROIDE_WIDTH * 2, Constantes.ASTEROIDE_HEIGHT * 2);
 	}
 
 	@Override
 	public void colision(NaveEnemiga naveEnemiga) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void colision(NaveAliada naveAliada) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void colision(Obstaculo obs) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void colision(PowerUp powerUp) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -79,6 +79,6 @@ public class Nimbus extends Obstaculo {
 	@Override
 	public void colision(DisparoTriple disparo) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

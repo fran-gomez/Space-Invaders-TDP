@@ -14,7 +14,7 @@ import power_ups.PowerUp;
 import utilidades.Constantes;
 
 public final class DisparoEnemigo extends Disparo {
-	
+
 	public DisparoEnemigo(int x, int y, int vida, int durabilidad, int dmg, Agregable mapa) {
 		super(x, y, vida, durabilidad, dmg, mapa);
 	}
@@ -69,14 +69,13 @@ public final class DisparoEnemigo extends Disparo {
 	@Override
 	public void colision(DisparoTriple disparo) {
 	}
-	
 
 	public void colision(Nimbus n) {
 		n.colision(this);
 	}
-	
+
 	@Override
 	protected Rectangle createRectangle(int x, int y) {
-		return new Rectangle(x,y, Constantes.DISPARO_ENEMIGO_WIDTH, Constantes.DISPARO_ENEMIGO_HEIGHT);
+		return new Rectangle(x, y, Constantes.DISPARO_ENEMIGO_WIDTH, Constantes.DISPARO_ENEMIGO_HEIGHT);
 	}
 }

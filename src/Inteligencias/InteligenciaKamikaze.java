@@ -23,13 +23,13 @@ public class InteligenciaKamikaze extends Inteligencia {
 	public void actualizarPosicion(NaveEnemiga nave) {
 		super.actualizarPosicion(nave);
 		Rectangle rec = nave.getRectangle();
-		
+
 		// Si no hay ninguna moviendose, empezar a mover esta, si no hacer el movimiento
 		// defecto
 		if (actualMoviendose == null || !actualMoviendose.estaVivo()) {
 			actualMoviendose = nave;
 		}
-		
+
 		if (actualMoviendose == nave) {
 
 			int newX = (int) rec.getX(), newY = (int) (rec.getY() + Constantes.NAVE_ALEATORIA_VELOCIDAD);
@@ -37,13 +37,13 @@ public class InteligenciaKamikaze extends Inteligencia {
 			if (jugador.getRectangle().getX() - rec.getX() > 0) {
 				// El jugador está a la derecha
 				newX += Constantes.NAVE_ALEATORIA_VELOCIDAD;
-			} else { 
+			} else {
 				// El jugador está a la izquierda
 				newX -= Constantes.NAVE_ALEATORIA_VELOCIDAD;
 			}
 
 			nave.cambiarUbicacion(newX, newY);
-		}else {
+		} else {
 			intelAux.actualizarPosicion(nave);
 		}
 	}

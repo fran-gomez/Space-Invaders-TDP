@@ -6,7 +6,6 @@ import java.util.Random;
 import javax.swing.ImageIcon;
 
 import Inteligencias.Inteligencia;
-import Inteligencias.InteligenciaAleatoria;
 import juego.Agregable;
 import juego.NaveState;
 import power_ups.PowerUp;

@@ -5,7 +5,6 @@ import java.awt.Rectangle;
 import javax.swing.ImageIcon;
 
 import Inteligencias.Inteligencia;
-import Inteligencias.InteligenciaAleatoria;
 import juego.Agregable;
 import juego.NaveState;
 import power_ups.PowerUp;
@@ -43,7 +42,6 @@ public final class UFO extends NaveEnemiga {
 	public ImageIcon getGrafico() {
 		return new ImageIcon("src/resources/Enemigo9.png");
 	}
-
 
 	@Override
 	public void colision(NaveEnemiga naveEnemiga) {
