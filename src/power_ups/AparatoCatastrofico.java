@@ -1,24 +1,29 @@
 package power_ups;
 
 import java.awt.Rectangle;
+import java.util.Random;
 
 import javax.swing.ImageIcon;
 
+import disparos.Disparo;
 import disparos.DisparoEnemigo;
 import disparos.DisparoPenetrante;
 import disparos.DisparoSimple;
 import disparos.DisparoTriple;
 import juego.Agregable;
+import juego.GameObject;
+import juego.Visitor;
 import naves.NaveAliada;
 import naves.NaveEnemiga;
 import obstaculos.Obstaculo;
 import utilidades.Constantes;
 
-public class AparatoCatastrofico extends PowerUp {
+public class AparatoCatastrofico extends PowerUp implements Visitor{
 
+	private int counter;
+	
 	public AparatoCatastrofico(int x, int y, int vida, int durabilidad, Agregable mapa) {
 		super(x, y, vida, durabilidad, mapa);
-
 	}
 
 	@Override
@@ -38,6 +43,10 @@ public class AparatoCatastrofico extends PowerUp {
 	@Override
 	public void colision(NaveAliada na) {
 		eliminar();
+		counter = 3;
+		for(GameObject o: mapa.getGameObjects()) {
+			o.aceptar(this);
+		}
 	}
 
 	@Override
@@ -62,6 +71,30 @@ public class AparatoCatastrofico extends PowerUp {
 
 	@Override
 	public void colision(DisparoTriple disparo) {
+	}
+
+	@Override
+	public void visitar(NaveEnemiga n) {
+		if(counter > 0) {
+			counter--;
+			n.eliminar();
+		}
+	}
+
+	@Override
+	public void visitar(NaveAliada n) {
+	}
+
+	@Override
+	public void visitar(Obstaculo o) {
+	}
+
+	@Override
+	public void visitar(PowerUp p) {
+	}
+
+	@Override
+	public void visitar(Disparo d) {
 	}
 
 }
