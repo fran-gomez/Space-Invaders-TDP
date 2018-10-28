@@ -110,14 +110,14 @@ public class Juego {
 		JLabel perdisteLabel = new JLabel("GAME OVER");
 		
 		labelImagenPerdiste.setIcon(new ImageIcon(getClass().getResource("/resources/lose.gif")));
-		labelImagenPerdiste.setHorizontalAlignment(SwingConstants.CENTER);
+		labelImagenPerdiste.setHorizontalAlignment(JLabel.CENTER);
 		labelImagenPerdiste.setVerticalAlignment(FlowLayout.CENTER);
 		labelImagenPerdiste.setPreferredSize(new Dimension(Constantes.MAP_WIDTH, 200));
 		panel.setPreferredSize(new Dimension(Constantes.MAP_WIDTH, Constantes.MAP_HEIGHT));
 		
 		perdisteLabel.setPreferredSize(new Dimension(Constantes.MAP_WIDTH, 100));
 		perdisteLabel.setForeground(Color.WHITE);
-		perdisteLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		perdisteLabel.setHorizontalAlignment(JLabel.CENTER);
 		
 		JButton button = new JButton("Restart");
 		button.addActionListener(new ActionListener() {
