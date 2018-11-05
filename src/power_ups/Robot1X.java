@@ -16,8 +16,8 @@ import utilidades.Constantes;
 
 public class Robot1X extends PowerUp {
 
-	public Robot1X(int x, int y, int vida, int durabilidad, Agregable mapa) {
-		super(x, y, vida, durabilidad, mapa);
+	public Robot1X(int x, int y, int vida, Agregable mapa) {
+		super(x, y, vida, mapa);
 
 	}
 

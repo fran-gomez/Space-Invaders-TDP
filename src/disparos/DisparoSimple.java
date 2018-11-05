@@ -14,8 +14,8 @@ import utilidades.Constantes;
 
 public final class DisparoSimple extends DisparoAliado {
 
-	public DisparoSimple(int x, int y, int vida, int durabilidad, int dmg, Agregable mapa) {
-		super(x, y, vida, durabilidad, dmg, mapa);
+	public DisparoSimple(int x, int y, int vida, int dmg, Agregable mapa) {
+		super(x, y, vida, dmg, mapa);
 		// TODO Auto-generated constructor stub
 	}
 

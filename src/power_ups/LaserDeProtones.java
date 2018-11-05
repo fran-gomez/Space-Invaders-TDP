@@ -17,8 +17,8 @@ import utilidades.Constantes;
 
 public class LaserDeProtones extends PowerUp {
 
-	public LaserDeProtones(int x, int y, int vida, int durabilidad, Agregable mapa) {
-		super(x, y, vida, durabilidad, mapa);
+	public LaserDeProtones(int x, int y, int vida, Agregable mapa) {
+		super(x, y, vida, mapa);
 	}
 
 	@Override

@@ -8,8 +8,8 @@ public abstract class Obstaculo extends GameObject {
 
 	protected int dmg;
 
-	public Obstaculo(int x, int y, int vida, int durabilidad, int d, Agregable mapa) {
-		super(x, y, vida, durabilidad, mapa);
+	public Obstaculo(int x, int y, int vida, int d, Agregable mapa) {
+		super(x, y, vida, mapa);
 		this.dmg = d;
 	}
 

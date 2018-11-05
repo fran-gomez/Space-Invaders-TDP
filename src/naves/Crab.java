@@ -12,13 +12,13 @@ import utilidades.Constantes;
 public final class Crab extends NaveEnemiga {
 
 	public Crab(int x, int y, int lvl, Inteligencia intel, Agregable mapa) {
-		this(x, y, 0, 0, 0, 0, 0, intel, mapa);
+		this(x, y, 0, 0, 0, intel, mapa);
 		setearEstadisticas(lvl);
 	}
 
-	public Crab(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad, Inteligencia intel,
+	public Crab(int x, int y, int vida, int dmg, int velocidad, Inteligencia intel,
 			Agregable mapa) {
-		super(x, y, vida, durabilidad, alcance, dmg, velocidad, intel, mapa);
+		super(x, y, vida, dmg, velocidad, intel, mapa);
 		puntos = 10;
 	}
 
@@ -44,15 +44,13 @@ public final class Crab extends NaveEnemiga {
 
 	@Override
 	public NaveEnemiga clone() {
-		return new Crab(rec.x, rec.y, getVida(), getDurabilidad(), getAlcance(), getDmg(),
+		return new Crab(rec.x, rec.y, getVida(), getDmg(),
 				getVelocidad(), this.inteligencia, mapa);
 	}
 
 	@Override
 	protected void setearEstadisticas(int lvl) {
 		this.vida = Constantes.CRAB_VIDA + lvl;
-		this.durabilidad = 10 + lvl;
-		this.alcance = 10 + lvl;
 		this.dmg = 20 + lvl;
 		this.velocidad = 10 + (lvl / 2);
 	}

@@ -21,9 +21,9 @@ public abstract class NaveEnemiga extends Nave {
 	protected Inteligencia inteligencia;
 	protected FabricaPowerUp powerUp;
 
-	public NaveEnemiga(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad,
+	public NaveEnemiga(int x, int y, int vida, int dmg, int velocidad,
 			Inteligencia inteligencia, Agregable mapa) {
-		super(x, y, vida, durabilidad, alcance, dmg, velocidad, mapa);
+		super(x, y, vida, dmg, velocidad, mapa);
 		this.inteligencia = inteligencia;
 		powerUp = new FabricaAleatoria(mapa);
 		arma = new FabricaDisparoEnemigo(mapa);

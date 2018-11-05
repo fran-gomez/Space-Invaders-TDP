@@ -76,8 +76,7 @@ public class Mapa extends JPanel implements Agregable {
 		// Colocamos la nave del jugador
 		jugador = new NaveAliada(Constantes.MAP_WIDTH / 2,
 				Constantes.MAP_HEIGHT - (Constantes.NAVE_ALIADA_HEIGHT + GameObject.BARRA_VIDA_HEIGHT + 10) / 2,
-				Constantes.NAVE_ALIADA_VIDA, Constantes.NAVE_ALIADA_DURABILIDAD, Constantes.NAVE_ALIADA_ALCANCE,
-				Constantes.NAVE_ALIADA_DANIO, Constantes.NAVE_ALIADA_DURABILIDAD, this);
+				Constantes.NAVE_ALIADA_VIDA, Constantes.NAVE_ALIADA_DANIO, Constantes.NAVE_ALIADA_DURABILIDAD, this);
 		this.add(jugador);
 		objetos.add(jugador);
 
@@ -142,12 +141,12 @@ public class Mapa extends JPanel implements Agregable {
 		generadorEnemigos.generarNavesEnemigas();
 
 		// Colocamos dos obstaculos
-		Obstaculo obs1 = new Nimbus(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 100, 0, 20, this);
-		Obstaculo obs2 = new Asteroide(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 100, 0, 20,
+		Obstaculo obs1 = new Nimbus(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 0, 20, this);
+		Obstaculo obs2 = new Asteroide(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 0, 20,
 				this);
 
 		while (intersects(obs1, obs2)) {
-			obs2 = new Asteroide(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 0, 0, 5, this);
+			obs2 = new Asteroide(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 0, 5, this);
 		}
 
 		this.add(obs1);

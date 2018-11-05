@@ -22,12 +22,12 @@ public final class NaveAliada extends Nave {
 	private RecibidorDano recibidorDano;
 
 	public NaveAliada(int x, int y, int lvl, Agregable mapa) {
-		this(x, y, 0, 0, 0, 0, 0, mapa);
+		this(x, y, 0, 0, 0, mapa);
 		setearEstadisticas(lvl);
 	}
 
-	public NaveAliada(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad, Agregable mapa) {
-		super(x, y, vida, durabilidad, alcance, dmg, velocidad, mapa);
+	public NaveAliada(int x, int y, int vida, int dmg, int velocidad, Agregable mapa) {
+		super(x, y, vida, dmg, velocidad, mapa);
 		recibidorDano = new RecibidorDanoNoEscudado(this);
 		arma = new FabricaSimple(mapa);
 	}
@@ -142,8 +142,6 @@ public final class NaveAliada extends Nave {
 	@Override
 	protected void setearEstadisticas(int lvl) {
 		this.vida = Constantes.NAVE_ALIADA_VIDA + lvl;
-		this.durabilidad = Constantes.NAVE_ALIADA_DURABILIDAD + lvl;
-		this.alcance = Constantes.NAVE_ALIADA_ALCANCE + lvl;
 		this.dmg = Constantes.NAVE_ALIADA_DANIO + lvl;
 		this.velocidad = Constantes.NAVE_ALIADA_VELOCIDAD + (lvl / 2);
 	}

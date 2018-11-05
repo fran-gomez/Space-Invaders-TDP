@@ -6,13 +6,12 @@ import juego.GameObject;
 import power_ups.PowerUp;
 
 public abstract class Nave extends GameObject {
-	protected int dmg, alcance, velocidad;
+	protected int dmg, velocidad;
 	protected FabricaDisparos arma;
 
-	public Nave(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad, Agregable mapa) {
-		super(x, y, vida, durabilidad, mapa);
+	public Nave(int x, int y, int vida, int dmg, int velocidad, Agregable mapa) {
+		super(x, y, vida, mapa);
 		this.dmg = dmg;
-		this.alcance = alcance;
 		this.velocidad = velocidad;
 	}
 
@@ -28,14 +27,6 @@ public abstract class Nave extends GameObject {
 
 	public void setDmg(int dmg) {
 		this.dmg = dmg;
-	}
-
-	public int getAlcance() {
-		return alcance;
-	}
-
-	public void setAlcance(int alcance) {
-		this.alcance = alcance;
 	}
 
 	public int getVelocidad() {

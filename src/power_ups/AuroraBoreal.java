@@ -21,8 +21,8 @@ public class AuroraBoreal extends PowerUp {
 
 	private int valorEscudo;
 
-	public AuroraBoreal(int x, int y, int vida, int durabilidad, Agregable mapa) {
-		super(x, y, vida, durabilidad, mapa);
+	public AuroraBoreal(int x, int y, int vida, Agregable mapa) {
+		super(x, y, vida, mapa);
 		valorEscudo = (new Random()).nextInt(20);
 	}
 

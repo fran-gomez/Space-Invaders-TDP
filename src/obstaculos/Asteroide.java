@@ -16,8 +16,8 @@ import utilidades.Constantes;
 
 public class Asteroide extends Obstaculo {
 
-	public Asteroide(int x, int y, int vida, int durabilidad, int d, Agregable mapa) {
-		super(x, y, vida, durabilidad, d, mapa);
+	public Asteroide(int x, int y, int vida, int d, Agregable mapa) {
+		super(x, y, vida, d, mapa);
 	}
 
 	@Override

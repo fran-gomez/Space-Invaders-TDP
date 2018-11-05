@@ -15,8 +15,8 @@ import utilidades.Constantes;
 
 public final class DisparoEnemigo extends Disparo {
 
-	public DisparoEnemigo(int x, int y, int vida, int durabilidad, int dmg, Agregable mapa) {
-		super(x, y, vida, durabilidad, dmg, mapa);
+	public DisparoEnemigo(int x, int y, int vida, int dmg, Agregable mapa) {
+		super(x, y, vida, dmg, mapa);
 	}
 
 	@Override

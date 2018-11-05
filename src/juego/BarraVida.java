@@ -35,8 +35,13 @@ public class BarraVida extends JLabel {
 
 	@Override
 	public void paint(Graphics g) {
-		int porcentaje = vida * 100 / vidaTotal;
+		int porcentaje;
 
+		if (vidaTotal != 0)
+			porcentaje = vida * 100 / vidaTotal;
+		else
+			porcentaje = 0;
+		
 		g.setColor(Color.green);
 		g.fillRect(0, 0, porcentaje * this.getWidth() / 100, GameObject.BARRA_VIDA_HEIGHT);
 	}

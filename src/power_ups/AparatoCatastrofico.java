@@ -20,8 +20,8 @@ public class AparatoCatastrofico extends PowerUp implements Visitor{
 
 	private int counter;
 	
-	public AparatoCatastrofico(int x, int y, int vida, int durabilidad, Agregable mapa) {
-		super(x, y, vida, durabilidad, mapa);
+	public AparatoCatastrofico(int x, int y, int vida, Agregable mapa) {
+		super(x, y, vida, mapa);
 	}
 
 	@Override

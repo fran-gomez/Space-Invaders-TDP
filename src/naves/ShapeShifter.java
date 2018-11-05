@@ -13,13 +13,13 @@ import utilidades.Constantes;
 public final class ShapeShifter extends NaveEnemiga {
 
 	public ShapeShifter(int x, int y, int lvl, Inteligencia intel, Agregable mapa) {
-		this(x, y, 0, 0, 0, 0, 0, intel, mapa);
+		this(x, y, 0, 0, 0, intel, mapa);
 		setearEstadisticas(lvl);
 	}
 
-	public ShapeShifter(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad,
+	public ShapeShifter(int x, int y, int vida, int dmg, int velocidad,
 			Inteligencia intel, Agregable mapa) {
-		super(x, y, vida, durabilidad, alcance, dmg, velocidad, intel, mapa);
+		super(x, y, vida, dmg, velocidad, intel, mapa);
 		puntos = 20;
 	}
 
@@ -53,15 +53,12 @@ public final class ShapeShifter extends NaveEnemiga {
 
 	@Override
 	public NaveEnemiga clone() {
-		return new ShapeShifter(rec.x, rec.y, getVida(), getDurabilidad(), getAlcance(),
-				getDmg(), getVelocidad(), this.inteligencia, mapa);
+		return new ShapeShifter(rec.x, rec.y, getVida(), getDmg(), getVelocidad(), this.inteligencia, mapa);
 	}
 
 	@Override
 	protected void setearEstadisticas(int lvl) {
 		this.vida = Constantes.SHAPESHIFTER_VIDA + lvl;
-		this.durabilidad = 10 + lvl;
-		this.alcance = 10 + lvl;
 		this.dmg = 20 + lvl;
 		this.velocidad = 10 + (lvl / 2);
 	}

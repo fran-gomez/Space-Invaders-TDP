@@ -11,8 +11,8 @@ public abstract class PowerUp extends GameObject {
 
 	private InteligenciaPowerUpDefecto inteligencia;
 
-	public PowerUp(int x, int y, int vida, int durabilidad, Agregable mapa) {
-		super(x, y, vida, durabilidad, mapa);
+	public PowerUp(int x, int y, int vida, Agregable mapa) {
+		super(x, y, vida, mapa);
 		inteligencia = new InteligenciaPowerUpDefecto();
 	}
 

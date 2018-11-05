@@ -20,7 +20,7 @@ import utilidades.FormateadorDeImagen;
 
 public abstract class GameObject extends JPanel implements Visitable {
 
-	protected int vida, durabilidad;
+	protected int vida;
 
 	protected Rectangle rec;
 	protected ImageIcon visual;
@@ -31,13 +31,12 @@ public abstract class GameObject extends JPanel implements Visitable {
 
 	public static final int BARRA_VIDA_HEIGHT = 3;
 
-	public GameObject(int x, int y, int vida, int durabilidad, Agregable mapa) {
+	public GameObject(int x, int y, int vida, Agregable mapa) {
 
 		this.mapa = mapa;
 		this.rec = createRectangle(x, y);
 		this.visual = null;
 		this.vida = vida;
-		this.durabilidad = durabilidad;
 
 		this.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
 
@@ -126,15 +125,6 @@ public abstract class GameObject extends JPanel implements Visitable {
 		this.vida = vida;
 		vidaLabel.setVida(vida);
 	}
-
-	public int getDurabilidad() {
-		return durabilidad;
-	}
-
-	public void setDurabilidad(int durabilidad) {
-		this.durabilidad = durabilidad;
-	}
-
 	public Rectangle getRectangle() {
 		return rec;
 	}

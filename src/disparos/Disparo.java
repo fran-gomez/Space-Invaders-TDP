@@ -9,8 +9,8 @@ public abstract class Disparo extends GameObject {
 
 	protected int dmg;
 
-	public Disparo(int x, int y, int vida, int durabilidad, int dmg, Agregable mapa) {
-		super(x, y, vida, durabilidad, mapa);
+	public Disparo(int x, int y, int vida, int dmg, Agregable mapa) {
+		super(x, y, vida, mapa);
 		this.dmg = dmg;
 	}
 

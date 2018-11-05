@@ -16,13 +16,13 @@ public final class DisparoTriple extends DisparoAliado {
 
 	protected DisparoSimple proyectiles[];
 
-	public DisparoTriple(int x, int y, int vida, int durabilidad, int dmg, Agregable mapa) {
-		super(x, y, vida, durabilidad, dmg, mapa);
+	public DisparoTriple(int x, int y, int vida, int dmg, Agregable mapa) {
+		super(x, y, vida, dmg, mapa);
 
 		proyectiles = new DisparoSimple[3];
-		proyectiles[0] = new DisparoSimple(x + 10, y, vida, durabilidad, dmg, mapa);
-		proyectiles[1] = new DisparoSimple(x, y, vida, durabilidad, dmg, mapa);
-		proyectiles[2] = new DisparoSimple(x - 10, y, vida, durabilidad, dmg, mapa);
+		proyectiles[0] = new DisparoSimple(x + 10, y, vida, dmg, mapa);
+		proyectiles[1] = new DisparoSimple(x, y, vida, dmg, mapa);
+		proyectiles[2] = new DisparoSimple(x - 10, y, vida, dmg, mapa);
 	}
 
 	@Override

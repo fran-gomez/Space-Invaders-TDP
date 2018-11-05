@@ -21,22 +21,22 @@ public class FabricaAleatoria extends FabricaPowerUp {
 
 		switch (valor) {
 		case 1:
-			creado = new Robot1X(x, y, 10, 12, mapa);
+			creado = new Robot1X(x, y, 10, mapa);
 			break;
 		case 2:
-			creado = new AparatoCatastrofico(x, y, 10, 12, mapa);
+			creado = new AparatoCatastrofico(x, y, 10, mapa);
 			break;
 		case 3:
-			creado = new LaserDeProtones(x, y, 10, 12, mapa);
+			creado = new LaserDeProtones(x, y, 10, mapa);
 			break;
 		case 4:
-			creado = new SantaClaus(x, y, 10, 12, mapa);
+			creado = new SantaClaus(x, y, 10, mapa);
 			break;
 		case 5:
-			creado = new Hipnosapo(x, y, 10, 12, mapa);
+			creado = new Hipnosapo(x, y, 10, mapa);
 			break;
 		case 6:
-			creado = new AuroraBoreal(x, y, 10, 12, mapa);
+			creado = new AuroraBoreal(x, y, 10, mapa);
 			break;
 		default:
 			creado = null;

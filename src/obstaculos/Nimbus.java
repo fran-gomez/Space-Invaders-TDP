@@ -16,8 +16,8 @@ import utilidades.Constantes;
 
 public class Nimbus extends Obstaculo {
 
-	public Nimbus(int x, int y, int vida, int durabilidad, int d, Agregable mapa) {
-		super(x, y, vida, durabilidad, d, mapa);
+	public Nimbus(int x, int y, int vida, int d, Agregable mapa) {
+		super(x, y, vida, d, mapa);
 		// TODO Auto-generated constructor stub
 	}
 

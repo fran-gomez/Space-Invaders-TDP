@@ -14,7 +14,7 @@ public class FabricaPenetrante extends FabricaSimple {
 	@Override
 	public void crearDisparo(int x, int y) {
 		if (contador > 0) {
-			Disparo disp = new DisparoPenetrante(x, y, 10, 10, 5, map);
+			Disparo disp = new DisparoPenetrante(x, y, 10, 5, map);
 			map.addToObjects(disp);
 			contador--;
 		} else {

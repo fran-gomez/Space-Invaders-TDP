@@ -20,8 +20,8 @@ import utilidades.Constantes;
 
 public class Hipnosapo extends PowerUp implements Visitor {
 
-	public Hipnosapo(int x, int y, int vida, int durabilidad, Agregable mapa) {
-		super(x, y, vida, durabilidad, mapa);
+	public Hipnosapo(int x, int y, int vida, Agregable mapa) {
+		super(x, y, vida, mapa);
 	}
 
 	@Override
