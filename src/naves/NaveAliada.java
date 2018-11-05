@@ -11,7 +11,6 @@ import disparos.FabricaDisparos;
 import disparos.FabricaSimple;
 import juego.Agregable;
 import juego.GameObject;
-import juego.NaveState;
 import juego.Visitor;
 import obstaculos.Obstaculo;
 import power_ups.PowerUp;
@@ -43,7 +42,7 @@ public final class NaveAliada extends Nave {
 	}
 
 	public void actualizarBarraVida() {
-		this.vidaLabel.setVida(this.state.getVida());
+		this.vidaLabel.setVida(this.getVida());
 	}
 
 	@Override
@@ -142,12 +141,11 @@ public final class NaveAliada extends Nave {
 
 	@Override
 	protected void setearEstadisticas(int lvl) {
-		int vida = Constantes.NAVE_ALIADA_VIDA + lvl;
-		int durabilidad = Constantes.NAVE_ALIADA_DURABILIDAD + lvl;
-		int alcance = Constantes.NAVE_ALIADA_ALCANCE + lvl;
-		int dmg = Constantes.NAVE_ALIADA_DANIO + lvl;
-		int velocidad = Constantes.NAVE_ALIADA_VELOCIDAD + (lvl / 2);
-		this.state = new NaveState(vida, durabilidad, alcance, dmg, velocidad);
+		this.vida = Constantes.NAVE_ALIADA_VIDA + lvl;
+		this.durabilidad = Constantes.NAVE_ALIADA_DURABILIDAD + lvl;
+		this.alcance = Constantes.NAVE_ALIADA_ALCANCE + lvl;
+		this.dmg = Constantes.NAVE_ALIADA_DANIO + lvl;
+		this.velocidad = Constantes.NAVE_ALIADA_VELOCIDAD + (lvl / 2);
 	}
 
 }

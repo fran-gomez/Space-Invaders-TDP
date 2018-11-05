@@ -20,7 +20,7 @@ import utilidades.FormateadorDeImagen;
 
 public abstract class GameObject extends JPanel implements Visitable {
 
-	protected ObjectState state;
+	protected int vida, durabilidad;
 
 	protected Rectangle rec;
 	protected ImageIcon visual;
@@ -36,7 +36,8 @@ public abstract class GameObject extends JPanel implements Visitable {
 		this.mapa = mapa;
 		this.rec = createRectangle(x, y);
 		this.visual = null;
-		this.state = new ObjectState(vida, durabilidad);
+		this.vida = vida;
+		this.durabilidad = durabilidad;
 
 		this.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
 
@@ -46,7 +47,6 @@ public abstract class GameObject extends JPanel implements Visitable {
 				(int) rec.getHeight() + BARRA_VIDA_HEIGHT + 5);
 
 		// Añadimos 5 para que quepa la barra de vida
-		state = new ObjectState(vida, durabilidad);
 		setImage();
 	}
 
@@ -57,7 +57,7 @@ public abstract class GameObject extends JPanel implements Visitable {
 	protected void setImage() {
 		this.setOpaque(false);
 
-		this.vidaLabel = new BarraVida(state.getVida());
+		this.vidaLabel = new BarraVida(vida);
 		this.cuerpo = new JLabel();
 
 		// Rectángulo de vida
@@ -119,20 +119,20 @@ public abstract class GameObject extends JPanel implements Visitable {
 	public abstract void colision(GameObject obs);
 
 	public int getVida() {
-		return state.vida;
+		return vida;
 	}
 
 	public void setVida(int vida) {
-		this.state.vida = vida;
+		this.vida = vida;
 		vidaLabel.setVida(vida);
 	}
 
 	public int getDurabilidad() {
-		return state.durabilidad;
+		return durabilidad;
 	}
 
 	public void setDurabilidad(int durabilidad) {
-		this.state.durabilidad = durabilidad;
+		this.durabilidad = durabilidad;
 	}
 
 	public Rectangle getRectangle() {
@@ -153,11 +153,11 @@ public abstract class GameObject extends JPanel implements Visitable {
 
 	@Override
 	public String toString() {
-		return "" + this.state.vida;
+		return "" + this.vida;
 	}
 
 	public boolean estaVivo() {
-		return this.state.vida > 0;
+		return this.vida > 0;
 	}
 
 	public void cambiarUbicacion(float x, float y) {

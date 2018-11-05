@@ -1,8 +1,6 @@
 package power_ups;
 
 import java.awt.Rectangle;
-import java.util.Random;
-
 import javax.swing.ImageIcon;
 
 import disparos.Disparo;

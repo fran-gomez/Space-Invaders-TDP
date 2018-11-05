@@ -2,7 +2,6 @@ package obstaculos;
 
 import juego.Agregable;
 import juego.GameObject;
-import juego.ObjectState;
 import juego.Visitor;
 
 public abstract class Obstaculo extends GameObject {
@@ -12,7 +11,6 @@ public abstract class Obstaculo extends GameObject {
 	public Obstaculo(int x, int y, int vida, int durabilidad, int d, Agregable mapa) {
 		super(x, y, vida, durabilidad, mapa);
 		this.dmg = d;
-		state = new ObjectState(vida, durabilidad);
 	}
 
 	public int getDmg() {

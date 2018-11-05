@@ -5,7 +5,6 @@ import javax.swing.ImageIcon;
 
 import juego.Agregable;
 import juego.GameObject;
-import juego.ObjectState;
 import juego.Visitor;
 
 public abstract class PowerUp extends GameObject {
@@ -14,7 +13,6 @@ public abstract class PowerUp extends GameObject {
 
 	public PowerUp(int x, int y, int vida, int durabilidad, Agregable mapa) {
 		super(x, y, vida, durabilidad, mapa);
-		state = new ObjectState(vida, durabilidad);
 		inteligencia = new InteligenciaPowerUpDefecto();
 	}
 
@@ -34,7 +32,5 @@ public abstract class PowerUp extends GameObject {
 	}
 
 	@Override
-	public ImageIcon getGrafico() {
-		return new ImageIcon("src/resources/Crab.png");
-	}
+	public abstract ImageIcon getGrafico();
 }

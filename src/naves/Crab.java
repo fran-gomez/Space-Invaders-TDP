@@ -6,7 +6,6 @@ import javax.swing.ImageIcon;
 
 import Inteligencias.Inteligencia;
 import juego.Agregable;
-import juego.NaveState;
 import power_ups.PowerUp;
 import utilidades.Constantes;
 
@@ -45,17 +44,16 @@ public final class Crab extends NaveEnemiga {
 
 	@Override
 	public NaveEnemiga clone() {
-		return new Crab(rec.x, rec.y, state.getVida(), state.getDurabilidad(), state.getAlcance(), state.getDmg(),
-				state.getVelocidad(), this.inteligencia, mapa);
+		return new Crab(rec.x, rec.y, getVida(), getDurabilidad(), getAlcance(), getDmg(),
+				getVelocidad(), this.inteligencia, mapa);
 	}
 
 	@Override
 	protected void setearEstadisticas(int lvl) {
-		int vida = Constantes.CRAB_VIDA + lvl;
-		int durabilidad = 10 + lvl;
-		int alcance = 10 + lvl;
-		int dmg = 20 + lvl;
-		int velocidad = 10 + (lvl / 2);
-		this.state = new NaveState(vida, durabilidad, alcance, dmg, velocidad);
+		this.vida = Constantes.CRAB_VIDA + lvl;
+		this.durabilidad = 10 + lvl;
+		this.alcance = 10 + lvl;
+		this.dmg = 20 + lvl;
+		this.velocidad = 10 + (lvl / 2);
 	}
 }

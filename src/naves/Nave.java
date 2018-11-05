@@ -3,16 +3,17 @@ package naves;
 import disparos.FabricaDisparos;
 import juego.Agregable;
 import juego.GameObject;
-import juego.NaveState;
 import power_ups.PowerUp;
 
 public abstract class Nave extends GameObject {
-	protected NaveState state;
+	protected int dmg, alcance, velocidad;
 	protected FabricaDisparos arma;
 
 	public Nave(int x, int y, int vida, int durabilidad, int alcance, int dmg, int velocidad, Agregable mapa) {
 		super(x, y, vida, durabilidad, mapa);
-		this.state = new NaveState(vida, durabilidad, dmg, alcance, velocidad);
+		this.dmg = dmg;
+		this.alcance = alcance;
+		this.velocidad = velocidad;
 	}
 
 	public void disparar() {
@@ -22,27 +23,27 @@ public abstract class Nave extends GameObject {
 	}
 
 	public int getDmg() {
-		return state.getDmg();
+		return dmg;
 	}
 
 	public void setDmg(int dmg) {
-		state.setDmg(dmg);
+		this.dmg = dmg;
 	}
 
 	public int getAlcance() {
-		return state.getAlcance();
+		return alcance;
 	}
 
 	public void setAlcance(int alcance) {
-		state.setAlcance(alcance);
+		this.alcance = alcance;
 	}
 
 	public int getVelocidad() {
-		return state.getVelocidad();
+		return velocidad;
 	}
 
 	public void setVelocidad(int velocidad) {
-		state.setVelocidad(velocidad);
+		this.velocidad = velocidad;
 	}
 
 	public void recibirDano(int d) {
