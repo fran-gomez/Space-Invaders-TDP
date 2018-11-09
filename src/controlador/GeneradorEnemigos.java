@@ -34,7 +34,6 @@ public abstract class GeneradorEnemigos {
 
 	public void generarNavesEnemigas() {
 		listaEnemigos = new LinkedList<NaveEnemiga>();
-		int lvl = map.dificultad();
 
 		poblarLista();
 

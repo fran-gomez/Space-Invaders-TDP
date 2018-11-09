@@ -11,7 +11,7 @@ import javax.swing.KeyStroke;
 
 import naves.NaveAliada;
 
-public class JugadorThread extends Thread {
+public class PlayerThread extends Thread {
 
 	private final float TIEMPO_ENTRE_DISPAROS = 400; // En Milésimas de segundo
 
@@ -21,7 +21,7 @@ public class JugadorThread extends Thread {
 	private NaveAliada jugador;
 	private long ultTiempoDisparo;
 
-	public JugadorThread(NaveAliada j) {
+	public PlayerThread(NaveAliada j) {
 		this.tiempoPausa = 20;
 		this.jugador = j;
 		ejecutar = true;

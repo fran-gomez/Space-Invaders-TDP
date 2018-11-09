@@ -2,7 +2,6 @@ package power_ups;
 
 import java.awt.Color;
 import java.awt.Rectangle;
-import java.util.Random;
 
 import javax.swing.ImageIcon;
 
@@ -13,17 +12,16 @@ import disparos.DisparoTriple;
 import juego.Agregable;
 import naves.NaveAliada;
 import naves.NaveEnemiga;
-import naves.RecibidorDanoEscudado;
+import naves.Escudado;
 import obstaculos.Obstaculo;
 import utilidades.Constantes;
 
 public class AuroraBoreal extends PowerUp {
 
-	private int valorEscudo;
 
 	public AuroraBoreal(int x, int y, int vida, Agregable mapa) {
 		super(x, y, vida, mapa);
-		valorEscudo = (new Random()).nextInt(20);
+
 	}
 
 	@Override
@@ -45,7 +43,7 @@ public class AuroraBoreal extends PowerUp {
 		eliminar();
 		na.setBackground(Color.YELLOW);
 		na.setOpaque(true);
-		na.setRecibidorDano(new RecibidorDanoEscudado(na));
+		na.setRecibidorDano(new Escudado(na));
 	}
 
 	@Override

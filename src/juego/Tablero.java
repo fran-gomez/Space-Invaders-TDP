@@ -3,27 +3,27 @@ package juego;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
-import controlador.JugadorThread;
+import controlador.PlayerThread;
 import controlador.MainThread;
 
 public class Tablero extends JPanel {
 
-	protected Mapa g;
+	protected Mapa mapa;
 
 	protected Juego juego;
 	// protected long puntos;
 	protected MainThread mainThread;
-	protected JugadorThread jugadorThread;
+	protected PlayerThread jugadorThread;
 
 	public Tablero(int dificultad, Juego juego) {
 		this.juego = juego;
-		g = new Mapa(dificultad, juego);
+		mapa = new Mapa(dificultad, juego);
 
-		mainThread = new MainThread(g);
-		jugadorThread = new JugadorThread(g.obtenerJugador());
+		mainThread = new MainThread(mapa);
+		jugadorThread = new PlayerThread(mapa.obtenerJugador());
 
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-		this.add(g);
+		this.add(mapa);
 	}
 
 	public void startThreads() {

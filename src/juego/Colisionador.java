@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Colisionador {
 
-	protected List<GameObject> objetos, toAdd;
+	private List<GameObject> objetos, toAdd;
 
 	public Colisionador(List<GameObject> objetos, List<GameObject> toAdd) {
 		this.objetos = objetos;

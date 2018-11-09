@@ -22,7 +22,7 @@ import utilidades.Constantes;
 
 public class Juego {
 
-	private static Tablero t;
+	private static Tablero tablero;
 	private static JFrame ventana;
 
 	public Juego() {
@@ -84,10 +84,10 @@ public class Juego {
 						@Override
 						public void actionPerformed(ActionEvent e) {
 							ventana.remove(panel);
-							t = new Tablero(lvl, Juego.this);
-							ventana.add(t);
+							tablero = new Tablero(lvl, Juego.this);
+							ventana.add(tablero);
 							ventana.repaint();
-							t.startThreads();
+							tablero.startThreads();
 						}
 					});
 				} else {
@@ -101,8 +101,8 @@ public class Juego {
 	}
 
 	public void lose() {
-		ventana.remove(t);
-		t.killThreads();
+		ventana.remove(tablero);
+		tablero.killThreads();
 		
 		JPanel panel = new JPanel();
 		JLabel labelImagenPerdiste = new JLabel();

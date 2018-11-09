@@ -28,7 +28,7 @@ public final class NaveAliada extends Nave {
 
 	public NaveAliada(int x, int y, int vida, int dmg, int velocidad, Agregable mapa) {
 		super(x, y, vida, dmg, velocidad, mapa);
-		recibidorDano = new RecibidorDanoNoEscudado(this);
+		recibidorDano = new NoEscudado(this);
 		arma = new FabricaSimple(mapa);
 	}
 
