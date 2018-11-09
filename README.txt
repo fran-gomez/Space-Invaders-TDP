@@ -33,3 +33,15 @@ Farnsworth (Y vendidos ilegalmente a los Omicronianos por Bender)
 	4) Aurora Boreal: Aparece una aurora boreal en esta parte de Springfield, en esta epoca del a�o, eliminando al próximo enemigo que toque a la nave
 	5) Robot 1-X: La unidad 1-X se encargara de reparar la nave con una eficiencia nunca antes vista (Buuuu... -Bender-)
 	6) Aparato catastrofico: Lanzas una bomba capaz de destruir la realidad misma. (Supongo que podre desprenderme de alguno de estos y seguir siendo igual de temible -Profesor Farnsworth-)
+
+
+Consideracines generales:
+	1) El diagrama UML esta dividido en 4 modelos. Main que contiene el diagrama principal, 
+FabricaDisparos que contiene la generacion de disparos (Y su relacion con los elementos de Main), 
+FabricaPowerUp que contiene la creacion de PowerUps y su relacion con los elementos de Main, y por ultimo, 
+Threads, que contiene la informacion referente a los threads que controlan el juego.
+
+	2) Los obstaculos se conservan a medida que se pasa de nivel. Referente a ellos, el daño no esta 
+bien balanceado... damn maths.
+
+	3) Pausa y reinicio no implementados.
