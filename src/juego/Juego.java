@@ -40,7 +40,7 @@ public class Juego {
 		ventana.pack();
 		ventana.setVisible(true);
 	}
-
+	
 	private int getLastCompletedLevel() {
 		int lvl = 0;
 

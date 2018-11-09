@@ -141,19 +141,18 @@ public class Mapa extends JPanel implements Agregable {
 		generadorEnemigos.generarNavesEnemigas();
 
 		// Colocamos dos obstaculos
-		Obstaculo obs1 = new Nimbus(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 0, 20, this);
-		Obstaculo obs2 = new Asteroide(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 0, 20,
+		Obstaculo obs1 = new Nimbus(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 1000, 20, this);
+		Obstaculo obs2 = new Asteroide(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 1000, 20,
 				this);
 
 		while (intersects(obs1, obs2)) {
-			obs2 = new Asteroide(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 0, 5, this);
+			obs2 = new Asteroide(rnd.nextInt(Constantes.MAP_WIDTH), Constantes.MAP_HEIGHT * 2 / 3, 1000, 5, this);
 		}
 
 		this.add(obs1);
 		this.add(obs2);
 		objetos.add(obs1);
 		objetos.add(obs2);
-
 	}
 
 	public NaveAliada obtenerJugador() {
